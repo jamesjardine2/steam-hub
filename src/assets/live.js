@@ -1,21 +1,36 @@
-// Live artefacts: hide the top and bottom bars while presenting (VTLM 2.0,
-// Attention and Focus), so students see only the slide. Moving the mouse
-// or touching the screen brings the bars back; they fade again after a few
-// quiet seconds. Arrow keys still change slides without showing them.
+// Live artefacts: the top and bottom bars stay hidden while presenting
+// (VTLM 2.0, Attention and Focus), so students see only the slide.
+// - Mouse: a bar shows while the pointer is over its strip (CSS :hover).
+// - Touch: the first tap on a hidden bar only shows it, so nothing is
+//   pressed by accident; it hides again a few seconds later.
+// - The mouse pointer hides when it has not moved for a few seconds.
+// Arrow keys change slides without showing anything.
 (() => {
   const root = document.documentElement;
-  let timer = 0;
-  const wake = () => {
-    root.classList.remove("quiet");
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      // Stay visible while the pointer rests on a bar.
-      if (!document.querySelector("header:hover, footer:hover")) root.classList.add("quiet");
-      else wake();
-    }, 3000);
+
+  let idle = 0;
+  const moved = () => {
+    root.classList.remove("idle");
+    clearTimeout(idle);
+    idle = setTimeout(() => root.classList.add("idle"), 2500);
   };
-  addEventListener("pointermove", wake, { passive: true });
-  addEventListener("pointerdown", wake, { passive: true });
-  addEventListener("focusin", (e) => { if (e.target.closest("header, footer")) wake(); });
-  wake();
+  addEventListener("pointermove", moved, { passive: true });
+  moved();
+
+  // Not every browser says on a click what pressed it, so note it here.
+  let pressedWith = "mouse";
+  addEventListener("pointerdown", (e) => { pressedWith = e.pointerType; }, true);
+
+  let shown = 0;
+  addEventListener("click", (e) => {
+    const bar = e.target.closest("header, footer");
+    if (!bar || pressedWith === "mouse") return;
+    if (!root.classList.contains("bars")) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    root.classList.add("bars");
+    clearTimeout(shown);
+    shown = setTimeout(() => root.classList.remove("bars"), 5000);
+  }, true);
 })();

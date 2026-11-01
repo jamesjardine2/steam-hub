@@ -22,13 +22,13 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; }
 
 /* Designed at 1280x720 and scaled to fit the screen or projector. */
 .stage { position: absolute; left: 50%; top: 50%; width: 1280px; height: 720px; transform: translate(-50%, -50%); background: var(--bg); color: var(--text); display: flex; flex-direction: column; }
-header { height: 64px; flex: 0 0 auto; background: var(--card); border-bottom: 1px solid var(--border); color: var(--text); display: flex; align-items: center; gap: 20px; padding: 0 28px; }
+header { position: absolute; z-index: 5; top: 0; left: 0; right: 0; height: 64px; background: var(--card); border-bottom: 1px solid var(--border); color: var(--text); display: flex; align-items: center; gap: 20px; padding: 0 28px; }
 header .t { font-weight: 800; letter-spacing: -0.02em; font-size: 20px; }
 header .u { margin-left: auto; font-size: 15px; color: var(--text-muted); }
 header .theme { margin-left: auto; font-size: 15px; padding: 10px 18px; min-height: 0; background: transparent; }
 header a { color: var(--text); background: var(--hover); text-decoration: none; font-weight: 500; font-size: 15px; padding: 10px 18px; border-radius: var(--radius-pill); }
 
-footer { height: 80px; flex: 0 0 auto; background: var(--card); border-top: 1px solid var(--border); display: flex; align-items: center; gap: 12px; padding: 0 28px; }
+footer { position: absolute; z-index: 5; bottom: 0; left: 0; right: 0; height: 80px; background: var(--card); border-top: 1px solid var(--border); display: flex; align-items: center; gap: 12px; padding: 0 28px; }
 button { font-family: inherit; font-size: 17px; font-weight: 500; padding: 12px 22px; border-radius: var(--radius-pill); cursor: pointer; min-height: 48px; background: var(--hover); color: var(--text); border: 1px solid var(--border); }
 button.primary, .dot[aria-current="step"], button.btn[aria-pressed="true"] { background: var(--violet); color: var(--white); border-color: var(--violet); }
 button:disabled { opacity: 0.4; cursor: default; }
@@ -36,15 +36,20 @@ button:disabled { opacity: 0.4; cursor: default; }
 .dot { width: 48px; padding: 0; }
 .spacer { margin-left: auto; }
 
-/* While presenting, the bars fade out (live.js) so only the content shows. */
-header, footer { transition: opacity 0.4s; }
-.quiet header, .quiet footer { opacity: 0; }
-.quiet, .quiet * { cursor: none; }
+/* Bars float over the content and stay hidden while presenting; a bar
+   shows while the mouse is over its strip, or after a tap (live.js). */
+header, footer { opacity: 0; transition: opacity 0.25s; }
+header:hover, footer:hover, header:focus-within, footer:focus-within, .bars header, .bars footer { opacity: 1; }
+.idle, .idle * { cursor: none; }
 header .u { display: none; }
 
-/* Inside the lesson slides (?embed): no top bar. */
+/* Inside the lesson slides (?embed): no top bar, and the page's own
+   controls (word buttons, Back and Next) move to the top edge, because
+   the deck's controls use the bottom edge. */
 .embed header { display: none; }
-.embed .stage { height: 656px; }
+.embed footer { top: 0; bottom: auto; border-top: 0; border-bottom: 1px solid var(--border); }
+/* While an embedded page is showing, the deck leaves the top edge to it. */
+.deck:has(.slide.frame:not([hidden])) > header { display: none; }
 
 /* ---------- Lesson slides (NN-slides.html), stage class "deck" ---------- */
 .deck footer { height: 72px; }
