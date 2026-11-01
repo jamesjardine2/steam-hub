@@ -63,6 +63,10 @@ footer .hint { font-size: 15px; color: #555555; margin-right: 6px; }
 button.btn { font-family: inherit; font-size: 18px; font-weight: 700; padding: 12px 22px; border-radius: 8px; cursor: pointer; min-height: 48px; background: #FFFFFF; color: var(--indigo); border: 1px solid var(--line); }
 button.btn[aria-pressed="true"] { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
 .spacer { margin-left: auto; }
+/* Inside the lesson slides (?embed): no top bar, white surround. */
+.embed body { background: #FFFFFF; }
+.embed header { display: none; }
+.embed .stage { height: 656px; }
 </style>
 </head>
 <body>
@@ -87,6 +91,7 @@ button.btn[aria-pressed="true"] { background: var(--indigo); color: #FFFFFF; bor
 </div>
 
 <script>
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
 // Small pictures, drawn in a 64x64 box.
 const P = {
   mat: () => { let s = ""; for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) s += `<rect x="${8 + c * 12}" y="${8 + r * 12}" width="12" height="12" fill="${(r + c) % 2 ? "#FFFFFF" : (r % 2 ? "#3F51B5" : "#F9A825")}" stroke="#9FA8DA"/>`; return s; },
@@ -190,7 +195,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 function fit() {
-  const scale = Math.min(innerWidth / 1280, innerHeight / 720);
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
   $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
 }
 addEventListener("resize", fit);

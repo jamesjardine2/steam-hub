@@ -48,6 +48,10 @@ button:disabled { opacity: 0.4; cursor: default; }
 .dots { display: flex; gap: 8px; margin: 0 auto; }
 .dot { width: 48px; padding: 0; }
 .dot[aria-current="step"] { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
+/* Inside the lesson slides (?embed): no top bar, white surround. */
+.embed body { background: #FFFFFF; }
+.embed header { display: none; }
+.embed .stage { height: 656px; }
 </style>
 </head>
 <body>
@@ -112,6 +116,7 @@ button:disabled { opacity: 0.4; cursor: default; }
 </div>
 
 <script>
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
 // Loom geometry (SVG units). The sheet is folded short edge to short edge
 // at y = 292, so slits are cut from the fold and stop a finger-width
 // (24 units) short of the open edge.
@@ -272,7 +277,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 function fit() {
-  const scale = Math.min(innerWidth / 1280, innerHeight / 720);
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
   $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
 }
 addEventListener("resize", fit);

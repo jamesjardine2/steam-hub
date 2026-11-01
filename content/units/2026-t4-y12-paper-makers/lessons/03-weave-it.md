@@ -42,6 +42,10 @@ resources:
   - Glue sticks (1 per pair)
   - STEAM journals (shelves by the door)
 live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: Hook, binak, LISC, words and weaving steps
+    file: slides.html
   - kind: HTML
     title: How to make a loom and weave
     note: Animated steps for the projector
