@@ -13,6 +13,12 @@ eleventyComputed:
 {% set unit = lesson.unit %}
 <p class="crumbs"><a href="/">Overview</a> / <a href="{{ unit.url }}">{{ unit.cohortLabel }}: {{ unit.title }}</a> / Lesson {{ lesson.number }}</p>
 
+<nav class="lesson-nav" aria-label="Previous and next lesson">
+  {% if lesson.prev %}<a class="btn btn-outline" href="{{ lesson.prev.url }}">&larr; Lesson {{ lesson.prev.number }}: {{ lesson.prev.title }}</a>{% else %}<span></span>{% endif %}
+  {% if lesson.next %}<a class="btn btn-outline" href="{{ lesson.next.url }}">Lesson {{ lesson.next.number }}: {{ lesson.next.title }} &rarr;</a>
+  {% elif lesson.number < unit.lessonCount %}<a class="btn btn-outline muted-btn" href="{{ unit.url }}">Lesson {{ lesson.number + 1 }} not planned yet</a>{% endif %}
+</nav>
+
 <section class="page-head">
   <div>
     <p class="kicker">Lesson {{ lesson.number }} of {{ unit.lessonCount }} · {{ lesson.duration }} minutes{% if lesson.status == "draft" %} · Draft{% endif %}</p>
@@ -149,7 +155,7 @@ eleventyComputed:
       {% if lesson.crtNotes %}<p class="small">{{ lesson.crtNotes }}</p>{% endif %}
       {% if lesson.crtPdf %}
         <a class="btn btn-amber" href="{{ lesson.crtPdf }}" download="Lesson {{ lesson.number }} {{ lesson.title }} CRT plan.pdf">Download the CRT plan (PDF)</a>
-        <p class="small">Need it changed? Say what is different and Claude will make a new one.</p>
+        <p class="small">Need it changed? Write what is different in the box below, then press Make a new CRT plan.</p>
       {% else %}
         <p class="small">Claude writes a printable CRT plan with the same Learning Intention: no screens, everyday resources and every step explained. It takes about 5 to 10 minutes and you can leave the page.</p>
       {% endif %}

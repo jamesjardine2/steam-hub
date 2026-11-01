@@ -167,6 +167,9 @@ a.artefact:hover { border-color: var(--indigo-line); color: var(--text); }
 .artefact-missing { border-style: dashed; }
 .pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 15px; font-weight: 700; }
 .pager a { padding: 10px 0; }
+.lesson-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin: 10px 0 4px; }
+.lesson-nav .btn { padding: 9px 14px; font-size: 14px; }
+.lesson-nav .muted-btn { color: var(--muted); border-color: #E0E0E0; }
 
 /* Markdown content */
 .prose { font-size: 15px; line-height: 1.6; }
