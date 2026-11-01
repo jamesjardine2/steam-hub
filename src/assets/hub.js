@@ -24,7 +24,8 @@
       ...options,
       headers: {
         Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${getToken()}`,
+        // Without a key, public reads (like checking a planning run) still work.
+        ...(getToken() ? { Authorization: `Bearer ${getToken()}` } : {}),
         "X-GitHub-Api-Version": "2022-11-28",
         ...(options.body ? { "Content-Type": "application/json" } : {}),
       },
@@ -203,13 +204,14 @@
   }
 
   // ---- Planning with Claude (unit page) and reviewing a draft (lesson page)
-  function watchRun(status, doneText) {
-    const started = Date.now();
+  // Follows the latest planning run. "since" skips runs from before this
+  // page started one; 0 means follow whatever run is going now.
+  function watchRun(status, doneText, since = Date.now()) {
     const check = async () => {
       try {
         const res = await gh(`/repos/${REPO}/actions/workflows/${WORKFLOW}/runs?per_page=1&event=workflow_dispatch`);
         const run = res.ok ? (await res.json()).workflow_runs[0] : null;
-        if (run && Date.parse(run.created_at) > started - 120000) {
+        if (run && Date.parse(run.created_at) > since - 120000) {
           const link = `<a href="${run.html_url}" target="_blank" rel="noopener">watch on GitHub</a>`;
           if (run.status !== "completed") {
             const mins = Math.max(1, Math.round((Date.now() - Date.parse(run.created_at)) / 60000));
@@ -237,20 +239,37 @@
     status.textContent = "Starting...";
     try {
       await startWorkflow({ unit: card.dataset.unit, lesson: String(card.dataset.lesson), notes });
-      card.querySelectorAll("button").forEach((b) => { b.disabled = true; });
+      lock(card);
       watchRun(status, doneText);
     } catch (err) {
       status.textContent = err.message;
     }
   }
 
+  const lock = (card) => card.querySelectorAll("button, textarea").forEach((el) => { el.disabled = true; });
+
+  // If a plan is already running (started earlier or on another device),
+  // show its progress instead of offering to start another.
+  async function showRunning(card, doneText) {
+    try {
+      const res = await gh(`/repos/${REPO}/actions/workflows/${WORKFLOW}/runs?per_page=1&event=workflow_dispatch`);
+      const run = res.ok ? (await res.json()).workflow_runs[0] : null;
+      if (run && run.status !== "completed") {
+        lock(card);
+        watchRun(card.querySelector("[data-status]"), doneText, 0);
+      }
+    } catch { /* leave the buttons as they are */ }
+  }
+
   const planCard = document.querySelector("[data-plan]");
+  if (planCard) showRunning(planCard, "The new lesson is ready as a draft.");
   planCard?.querySelector("[data-start-plan]")?.addEventListener("click", () => {
     plan(planCard, planCard.querySelector("[data-notes]").value.trim(), `Lesson ${planCard.dataset.lesson} is ready as a draft.`);
   });
 
   const review = document.querySelector("[data-review]");
   if (review) {
+    showRunning(review, "Claude has updated the draft.");
     const status = review.querySelector("[data-status]");
     review.querySelector("[data-revise]").addEventListener("click", () => {
       const notes = review.querySelector("[data-notes]").value.trim();
