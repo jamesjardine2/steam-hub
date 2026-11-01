@@ -32,11 +32,13 @@ Make three projector pages in `content/units/<unit>/live/`, each copied from the
 
 Styling is shared: every page loads `../../../assets/theme.js` (with `data-area="live"`) in the head, links the font, `../../../assets/tokens.css` and `../../../assets/live.css`, keeps the "Light mode" switch button in its top bar, and has no `<style>` block of its own and no colour codes. The stage div has a family class (`stage deck`, `stage frayer` or `stage howto`). Pages must work in light and dark mode, so drawings use the theme roles for neutrals: `--paper` (paper, flour), `--ink` (labels), `--panel` and `--panel-2` (backgrounds), `--border`, `--text-violet` (outlines); accents (`--violet`, `--solar-orange`, `--ion-cyan`, `--plasma-pink`, `--volt-blue`) are used as fills. For example `fill="var(--paper)" stroke="var(--text-violet)"`. In scripts, `T("paper")` gives a token's hex value. Colour carries meaning, the same in every lesson: give each slide its role class, `hook` (orange, think about it), `safety` (pink), `recall` (blue, last lesson), `record` (cyan) or none (violet, for the title, Learning Intention and anything else). Keep student text in `--glow`.
 
-- `NN-slides.html`: title, a recall of last lesson, the CIC hook (two or three slides), any safety slide needed, the LISC, the word wall and the how-to embedded with `?embed`, and a "Record it" slide when there is something to record.
+- `NN-slides.html`: title (just "Lesson N" and the lesson name), a recall question about last lesson, the CIC hook (two or three slides), any safety slide needed, the Learning Intention and the Success Criteria (two slides), the word wall and the how-to embedded with `?embed`, and a "Record it" slide when there is something to record.
 - `NN-frayer.html`: Frayer models for three key words from the lesson, each with simple drawn SVG pictures for the examples and non-examples.
 - `NN-<activity>.html`: an animated how-to with four to six steps that shows students exactly what to do, drawn in SVG.
 
 ## Rules
+
+- **VTLM 2.0 first, especially Attention and Focus.** Strip everything that is not the core focus. Slides: one idea per slide, a short question or statement (aim for 10 words or fewer in the big line, one short supporting line at most), no answer under a question, no decoration. The Learning Intention and the Success Criteria go on two separate slides, worded exactly as in the lesson file. Word wall covers show only the box name.
 
 - Never use em dashes, en dashes or a spaced hyphen as punctuation. Use "to" for ranges. Scan everything you wrote with `grep -rnP '[\x{2013}\x{2014}]' content/` before you finish.
 - Never include student names or anything that identifies a student.

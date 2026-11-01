@@ -46,6 +46,8 @@ Keep the same Learning Intention and Success Criteria. Change how the lesson run
 
 ## Rules
 
+- VTLM 2.0 first: keep the plan focused on what the CRT needs to run the lesson. Short steps, no padding.
+
 - Never use em dashes, en dashes or a spaced hyphen as punctuation. Use "to" for ranges. Scan what you wrote with `grep -nP '[\x{2013}\x{2014}]' <file>` before you finish.
 - Never include student names or anything that identifies a student.
 - Australian spelling.

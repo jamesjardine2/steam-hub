@@ -13,6 +13,7 @@ The original brief and the five design mockups are in `steam-hub-handover/`. The
 
 ## Hard rules
 
+- **VTLM 2.0 first.** Every new or edited item (slides, artefacts, lesson and CRT plans, pages) follows the Victorian Teaching and Learning Model 2.0, above all the Element of Learning "Attention and Focus": minimise distractions and remove anything on the page that is not the core focus. On student-facing pages: one idea per slide, the fewest words that do the job, no decoration, no answers shown under the question, and controls hidden while presenting. James asked for this in November 2026.
 - **Privacy.** The site is public. Never include student names, student work with names on it, assessment data or anything that identifies a student. Reflections are about classes and lessons. Naming a class (for example "1/2A") is fine; naming a student is not. Every page carries `noindex` and there is a `robots.txt`, but treat everything as public anyway.
 - **No em dashes** anywhere: copy, content, code comments, commit messages. No en dashes as punctuation and no spaced hyphen used as a dash. Ranges use "to" ("Lessons 1 to 4", "Foundation to Year 6").
 - **Do not invent lesson content.** When something is unknown, leave a clearly marked placeholder in square brackets, for example `[Full plan to add from the Lesson 2 PDF]`. Text that starts with `[` is styled as a placeholder on the site.
