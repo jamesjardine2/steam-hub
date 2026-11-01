@@ -18,6 +18,9 @@
   // ---- GitHub API
   async function gh(path, options = {}) {
     const res = await fetch(API + path, {
+      // GitHub lets browsers reuse a read for 60 seconds, which would hand
+      // back an out of date copy (and an old sha) after a save.
+      cache: "no-store",
       ...options,
       headers: {
         Accept: "application/vnd.github+json",
@@ -90,7 +93,12 @@
   const syncLines = [...document.querySelectorAll("[data-sync-status]")];
   const say = (html) => syncLines.forEach((el) => { el.innerHTML = html; });
   let progress = {};
-  let queue = Promise.resolve();
+  // Taps are collected and saved together shortly after the last one,
+  // as one commit, so ticking a whole row is quick and does not clash.
+  const pending = new Map();
+  let flushTimer = 0;
+  let saving = Promise.resolve();
+  let inFlight = 0;
 
   function renderTick(btn) {
     const date = btn.dataset.date;
@@ -145,22 +153,48 @@
     ticks.filter((b) => b.dataset.unit === unit && b.dataset.lesson === lesson && b.dataset.class === cls)
       .forEach((b) => { b.dataset.date = date; renderTick(b); });
     renderRows();
+    pending.set(`${unit}|${lesson}|${cls}`, { unit, lesson, cls, date, unitTitle, lessonTitle });
     say("Saving...");
-    const message = date ? `${cls} finished ${unitTitle} Lesson ${lesson}: ${lessonTitle}` : `${cls} not finished ${unitTitle} Lesson ${lesson} (untick)`;
-    queue = queue.then(() => updateFile(PROGRESS_PATH, (text) => {
-      const data = text ? JSON.parse(text) : {};
-      data[unit] = data[unit] || {};
-      data[unit][lesson] = data[unit][lesson] || {};
-      if (date) data[unit][lesson][cls] = date;
-      else delete data[unit][lesson][cls];
-      if (!Object.keys(data[unit][lesson]).length) delete data[unit][lesson];
-      if (!Object.keys(data[unit]).length) delete data[unit];
-      return JSON.stringify(data, null, 2) + "\n";
-    }, message)).then(
-      () => say("Saved."),
-      (err) => { say(`Not saved. ${err.message}`); loadProgress(); }
-    );
+    clearTimeout(flushTimer);
+    flushTimer = setTimeout(flush, 1200);
   }
+
+  function commitMessage(changes) {
+    if (changes.length === 1) {
+      const c = changes[0];
+      return c.date ? `${c.cls} finished ${c.unitTitle} Lesson ${c.lesson}: ${c.lessonTitle}` : `${c.cls} not finished ${c.unitTitle} Lesson ${c.lesson} (untick)`;
+    }
+    const list = (items) => items.map((c) => `${c.cls} L${c.lesson}`).join(", ");
+    const done = changes.filter((c) => c.date), undone = changes.filter((c) => !c.date);
+    return [`Class ticks for ${changes[0].unitTitle}:`, done.length ? `finished ${list(done)}` : "", undone.length ? `unticked ${list(undone)}` : ""].filter(Boolean).join(" ");
+  }
+
+  function flush() {
+    const changes = [...pending.values()];
+    pending.clear();
+    if (!changes.length) return;
+    inFlight++;
+    saving = saving.then(() => updateFile(PROGRESS_PATH, (text) => {
+      const data = text ? JSON.parse(text) : {};
+      for (const { unit, lesson, cls, date } of changes) {
+        data[unit] = data[unit] || {};
+        data[unit][lesson] = data[unit][lesson] || {};
+        if (date) data[unit][lesson][cls] = date;
+        else delete data[unit][lesson][cls];
+        if (!Object.keys(data[unit][lesson]).length) delete data[unit][lesson];
+        if (!Object.keys(data[unit]).length) delete data[unit];
+      }
+      return JSON.stringify(data, null, 2) + "\n";
+    }, commitMessage(changes))).then(
+      () => { if (!pending.size && inFlight === 1) say("Saved."); },
+      (err) => { say(`Not saved. ${err.message}`); loadProgress(); }
+    ).finally(() => { inFlight--; });
+  }
+
+  // Save straight away if the page is being hidden, and warn before
+  // leaving while a save is still going.
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") { clearTimeout(flushTimer); flush(); } });
+  addEventListener("beforeunload", (e) => { if (pending.size || inFlight) e.preventDefault(); });
 
   if (ticks.length) {
     ticks.forEach((btn) => btn.addEventListener("click", () => toggle(btn)));
