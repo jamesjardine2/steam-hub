@@ -24,9 +24,6 @@ curriculum:
 claude_chat: https://claude.ai/chat/e92bfab5-9d93-41b5-a0b2-e6da13f40dc7
 links: []
 outline:
-  - number: 5
-    title: Design a Carrier
-    summary: Test last week's dried layered strips, then pairs draw and label a carrier for their toy using at least two techniques.
   - number: 6
     title: Make It
     summary: Pairs build their carrier from their plan with a step card (base, sides, handle) and shared jobs.

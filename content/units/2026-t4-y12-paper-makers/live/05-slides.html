@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Lesson slides · Year 1/2 Design a Carrier</title>
+<style>
+:root {
+  --indigo: #3F51B5;
+  --deep: #1A237E;
+  --chip: #283593;
+  --pale: #E8EAF6;
+  --soft: #C5CAE9;
+  --line: #9FA8DA;
+  --amber: #F9A825;
+  --amber-bg: #FFF8E1;
+  --amber-text: #6D4C00;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #1A1A1A; font-family: Helvetica, Arial, sans-serif; overflow: hidden; }
+
+/* Designed at 1280x720 and scaled to fit the screen or projector. */
+.stage { position: absolute; left: 50%; top: 50%; width: 1280px; height: 720px; transform: translate(-50%, -50%); background: #FFFFFF; color: #222222; display: flex; flex-direction: column; }
+header { height: 64px; flex: 0 0 auto; background: var(--indigo); color: #FFFFFF; display: flex; align-items: center; gap: 20px; padding: 0 28px; }
+header .t { font-weight: 700; font-size: 18px; }
+header .u { margin-left: auto; font-size: 15px; color: var(--pale); }
+header a { color: #FFFFFF; font-weight: 700; font-size: 15px; padding: 12px 8px; }
+
+.slides { flex: 1 1 auto; min-height: 0; position: relative; }
+.slide { position: absolute; inset: 0; padding: 40px 72px; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+.slide[hidden] { display: none; }
+.slide.frame { padding: 0; }
+.slide.frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+.kicker { margin: 0; font-size: 22px; font-weight: 700; color: var(--indigo); text-transform: uppercase; letter-spacing: 0.06em; }
+.big { margin: 0; font-size: 52px; line-height: 1.2; font-weight: 700; color: var(--deep); }
+.mid { margin: 0; font-size: 34px; line-height: 1.35; color: #333333; }
+.row { display: flex; gap: 56px; align-items: center; }
+.row > .copy { flex: 1 1 auto; display: flex; flex-direction: column; gap: 22px; }
+.art { flex: 0 0 440px; height: 380px; border-radius: 20px; background: var(--pale); display: flex; align-items: center; justify-content: center; }
+.art svg { width: 360px; height: 300px; }
+.thumbs { display: flex; gap: 18px; font-size: 30px; font-weight: 700; }
+.thumbs span { background: var(--amber-bg); color: var(--amber-text); border-radius: 12px; padding: 12px 20px; }
+
+/* Title slide */
+.title-slide { background: var(--indigo); color: #FFFFFF; }
+.title-slide .kicker { color: var(--soft); }
+.title-slide h1 { margin: 0; font-size: 96px; line-height: 1.05; }
+.title-slide .mid { color: var(--pale); }
+
+/* Board table for the record slide */
+.board { border-collapse: collapse; font-size: 32px; }
+.board th, .board td { border: 2px solid var(--line); padding: 16px 28px; text-align: center; }
+.board th { color: var(--deep); background: var(--pale); }
+
+/* LISC slide (as in the Live mockup) */
+.sc { display: flex; flex-direction: column; gap: 10px; font-size: 32px; line-height: 1.3; }
+
+footer { height: 72px; flex: 0 0 auto; border-top: 1px solid #E0E0E0; display: flex; align-items: center; gap: 12px; padding: 0 28px; background: #FFFFFF; }
+button { font-family: inherit; font-size: 16px; font-weight: 700; padding: 12px 20px; border-radius: 8px; cursor: pointer; min-height: 48px; background: #FFFFFF; color: var(--indigo); border: 1px solid var(--line); }
+button.primary { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
+button:disabled { opacity: 0.4; cursor: default; }
+.dots { display: flex; gap: 8px; margin: 0 auto; }
+.dot { width: 48px; padding: 0; }
+.dot[aria-current="step"] { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
+.name { font-size: 15px; color: #555555; min-width: 200px; text-align: right; }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <header>
+    <span class="t">Year 1/2 · Design a Carrier</span>
+    <span class="u">Stronger Together: Paper Makers · Lesson 5</span>
+    <a href="../lessons/05-design-a-carrier/">Exit</a>
+  </header>
+
+  <div class="slides" id="slides">
+    <section class="slide title-slide" data-name="Design a Carrier">
+      <p class="kicker">Year 1/2 STEAM · Lesson 5</p>
+      <h1>Design a Carrier</h1>
+      <p class="mid">Stronger Together: Paper Makers</p>
+    </section>
+
+    <section class="slide" data-name="Last week">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Remember</p>
+          <p class="big">Last week we mixed flour and water. What did we make?</p>
+          <p class="mid">We made paste, then stuck three paper strips into layers.</p>
+        </div>
+        <div class="art">
+          <svg viewBox="0 0 360 300" aria-label="Three layered paper strips">
+            <rect x="40" y="170" width="280" height="30" fill="#F9A825"/>
+            <rect x="40" y="160" width="280" height="10" fill="#F1E2B8"/>
+            <rect x="40" y="130" width="280" height="30" fill="#3F51B5"/>
+            <rect x="40" y="120" width="280" height="10" fill="#F1E2B8"/>
+            <rect x="40" y="90" width="280" height="30" fill="#F9A825"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-name="Hook: which holds more?">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Think about it</p>
+          <p class="big">Which strip will hold more blocks?</p>
+          <div class="thumbs"><span>Thumbs up: single</span><span>Thumbs down: layered</span></div>
+        </div>
+        <div class="art">
+          <svg viewBox="0 0 360 300" aria-label="A single strip and a layered strip">
+            <text x="180" y="60" text-anchor="middle" font-size="26" font-weight="700" fill="#283593">single</text>
+            <rect x="30" y="100" width="300" height="8" fill="#FFFFFF" stroke="#9FA8DA" stroke-width="2"/>
+            <text x="180" y="170" text-anchor="middle" font-size="26" font-weight="700" fill="#283593">layered</text>
+            <rect x="30" y="200" width="300" height="12" fill="#F9A825"/>
+            <rect x="30" y="212" width="300" height="5" fill="#F1E2B8"/>
+            <rect x="30" y="217" width="300" height="12" fill="#3F51B5"/>
+            <rect x="30" y="229" width="300" height="5" fill="#F1E2B8"/>
+            <rect x="30" y="234" width="300" height="12" fill="#F9A825"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-name="Hook: test it">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Watch</p>
+          <p class="big">Add blocks one at a time. Count with me!</p>
+          <p class="mid">Stop when the strip sags and touches the table.</p>
+        </div>
+        <div class="art">
+          <svg viewBox="0 0 360 300" aria-label="Blocks on a strip across two books">
+            <rect x="20" y="170" width="90" height="100" fill="#C5CAE9" stroke="#3F51B5" stroke-width="4"/>
+            <rect x="250" y="170" width="90" height="100" fill="#C5CAE9" stroke="#3F51B5" stroke-width="4"/>
+            <path d="M60 165 Q180 215 300 165" fill="none" stroke="#F9A825" stroke-width="10"/>
+            <rect x="152" y="150" width="26" height="26" fill="#3F51B5"/>
+            <rect x="182" y="152" width="26" height="26" fill="#F9A825"/>
+            <rect x="167" y="124" width="26" height="26" fill="#F9A825"/>
+            <text x="180" y="70" text-anchor="middle" font-size="60" font-weight="700" fill="#F9A825">?</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-name="Stay safe">
+      <p class="kicker">Before we start</p>
+      <p class="big">Test over the table and keep the blocks safe.</p>
+      <div class="sc">
+        <span>Keep the cup of blocks away from the edge.</span>
+        <span>Add blocks gently, one at a time.</span>
+        <span>If blocks fall, pick them up straight away.</span>
+      </div>
+    </section>
+
+    <section class="slide" data-name="Learning Intention">
+      <p class="kicker">Learning Intention</p>
+      <p class="big">To design a paper carrier for a toy by choosing techniques that make paper stronger.</p>
+      <p class="kicker" style="margin-top: 8px">Success Criteria: I can</p>
+      <div class="sc">
+        <span>test a layered strip and a single strip to see which holds more.</span>
+        <span>draw a carrier for my toy with a base, sides and a handle.</span>
+        <span>label the techniques I will use.</span>
+      </div>
+    </section>
+
+    <section class="slide frame" data-name="Word wall" data-src="05-frayer.html?embed"></section>
+
+    <section class="slide frame" data-name="How to test and design" data-src="05-designing.html?embed"></section>
+
+    <section class="slide" data-name="Record it">
+      <p class="kicker">Record it in your STEAM journal</p>
+      <table class="board">
+        <tr><th></th><th>Single strip</th><th>Layered strip</th></tr>
+        <tr><th>Blocks it held</th><td>______</td><td>______</td></tr>
+        <tr><th>Which was stronger?</th><td colspan="2">______</td></tr>
+      </table>
+      <p class="mid">Our carrier will be strong because we used ______ for the ______.</p>
+    </section>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <span class="name" id="name"></span>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const slides = [...document.querySelectorAll(".slide")];
+let current = 0;
+
+function go(i) {
+  current = Math.max(0, Math.min(slides.length - 1, i));
+  slides.forEach((s, j) => { s.hidden = j !== current; });
+  const slide = slides[current];
+  // Embedded pages load the first time their slide is shown.
+  if (slide.dataset.src && !slide.querySelector("iframe")) {
+    const f = document.createElement("iframe");
+    f.src = slide.dataset.src;
+    f.title = slide.dataset.name;
+    slide.appendChild(f);
+  }
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("name").textContent = slide.dataset.name;
+  $("back").disabled = current === 0;
+  $("next").disabled = current === slides.length - 1;
+  history.replaceState(null, "", `#${current + 1}`);
+}
+
+slides.forEach((s, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Slide ${j + 1}: ${s.dataset.name}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+document.addEventListener("keydown", (e) => {
+  if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); go(current + 1); }
+  if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); go(current - 1); }
+});
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / 720);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
+</body>
+</html>
