@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Word wall · Year 1/2 Mix It</title>
+<style>
+:root {
+  --indigo: #3F51B5;
+  --deep: #1A237E;
+  --chip: #283593;
+  --pale: #E8EAF6;
+  --line: #9FA8DA;
+  --amber: #F9A825;
+  --amber-bg: #FFF8E1;
+  --amber-text: #6D4C00;
+  --red: #C62828;
+  --red-bg: #FDECEA;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #1A1A1A; font-family: Helvetica, Arial, sans-serif; overflow: hidden; }
+
+/* Designed at 1280x720 and scaled to fit the screen or projector. */
+.stage { position: absolute; left: 50%; top: 50%; width: 1280px; height: 720px; transform: translate(-50%, -50%); background: #F6F7FB; color: #222222; display: flex; flex-direction: column; }
+header { height: 64px; flex: 0 0 auto; background: var(--indigo); color: #FFFFFF; display: flex; align-items: center; gap: 20px; padding: 0 28px; }
+header .t { font-weight: 700; font-size: 18px; }
+header .u { margin-left: auto; font-size: 15px; color: var(--pale); }
+header a { color: #FFFFFF; font-weight: 700; font-size: 15px; padding: 12px 8px; }
+
+.body { flex: 1 1 auto; min-height: 0; position: relative; padding: 18px 28px; }
+.grid { height: 100%; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 18px; }
+.box { position: relative; background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 16px; padding: 18px 24px; overflow: hidden; display: flex; flex-direction: column; gap: 12px; }
+.box.top { padding-bottom: 58px; }
+.box.left { padding-right: 40px; }
+.box.right { padding-left: 40px; }
+.label { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--indigo); }
+.box.no .label { color: var(--red); }
+.box.right .label { text-align: right; }
+.box.left:not(.top) .items, .box.right:not(.top) .items { margin-top: 10px; }
+.def { margin: 0; font-size: 34px; line-height: 1.3; font-weight: 700; color: var(--deep); }
+.traits { margin: 0; padding-left: 30px; font-size: 28px; line-height: 1.4; }
+.items { display: flex; gap: 14px; }
+.item { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; font-size: 21px; line-height: 1.25; }
+.pic { position: relative; width: 84px; height: 84px; border-radius: 14px; background: var(--pale); display: flex; align-items: center; justify-content: center; }
+.box.no .pic { background: var(--red-bg); }
+.pic svg { width: 64px; height: 64px; }
+.mark { position: absolute; right: -8px; top: -8px; width: 30px; height: 30px; border-radius: 50%; color: #FFFFFF; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; background: var(--indigo); }
+.box.no .mark { background: var(--red); }
+
+/* Cover hides each box until it is tapped, so the class can predict first. */
+.cover { position: absolute; inset: 0; border: 0; border-radius: 16px; background: var(--pale); color: var(--chip); font-family: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.cover strong { font-size: 30px; }
+.cover span { font-size: 20px; color: var(--indigo); }
+.box.no .cover { background: var(--red-bg); color: var(--red); }
+.box.no .cover span { color: var(--red); }
+.cover[hidden] { display: none; }
+
+.word { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); min-width: 240px; padding: 14px 38px; border-radius: 999px; background: var(--indigo); color: #FFFFFF; text-align: center; font-size: 48px; font-weight: 700; border: 6px solid #FFFFFF; box-shadow: 0 4px 16px rgba(26, 35, 126, 0.25); pointer-events: none; }
+
+footer { height: 80px; flex: 0 0 auto; background: #FFFFFF; border-top: 1px solid #E0E0E0; display: flex; align-items: center; gap: 12px; padding: 0 28px; }
+footer .hint { font-size: 15px; color: #555555; margin-right: 6px; }
+button.btn { font-family: inherit; font-size: 18px; font-weight: 700; padding: 12px 22px; border-radius: 8px; cursor: pointer; min-height: 48px; background: #FFFFFF; color: var(--indigo); border: 1px solid var(--line); }
+button.btn[aria-pressed="true"] { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
+.spacer { margin-left: auto; }
+/* Inside the lesson slides (?embed): no top bar, white surround. */
+.embed body { background: #FFFFFF; }
+.embed header { display: none; }
+.embed .stage { height: 656px; }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <header>
+    <span class="t">Year 1/2 · Mix It</span>
+    <span class="u">Word wall: Frayer model</span>
+    <a href="../lessons/04-mix-it/">Exit</a>
+  </header>
+
+  <div class="body">
+    <div class="grid" id="grid"></div>
+    <div class="word" id="word" aria-live="polite"></div>
+  </div>
+
+  <footer>
+    <span class="hint">Word:</span>
+    <div id="words" style="display: flex; gap: 10px"></div>
+    <button type="button" class="btn spacer" id="showAll">Show all</button>
+    <button type="button" class="btn" id="hideAll">Hide all</button>
+  </footer>
+</div>
+
+<script>
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+// Small pictures, drawn in a 64x64 box.
+const cup = (inner) => `${inner}<path d="M12 14 H52 L48 56 H16 Z" fill="none" stroke="#3F51B5" stroke-width="3" stroke-linejoin="round"/>`;
+const P = {
+  flour: () => cup(`<path d="M14 30 H50 L48 56 H16 Z" fill="#FFFFFF"/><circle cx="24" cy="40" r="1.6" fill="#BDBDBD"/><circle cx="34" cy="46" r="1.6" fill="#BDBDBD"/><circle cx="42" cy="38" r="1.6" fill="#BDBDBD"/><circle cx="28" cy="51" r="1.6" fill="#BDBDBD"/>`),
+  water: () => cup(`<path d="M14 30 H50 L48 56 H16 Z" fill="#90CAF9"/>`),
+  paste: () => `<path d="M6 30 H58 C58 50 46 58 32 58 C18 58 6 50 6 30 Z" fill="#F1E2B8" stroke="#3F51B5" stroke-width="3"/><path d="M14 30 C20 24 28 34 34 28 C40 22 46 32 50 30" fill="none" stroke="#D7C48F" stroke-width="3"/><line x1="40" y1="34" x2="56" y2="4" stroke="#9E9E9E" stroke-width="5" stroke-linecap="round"/>`,
+  paints: () => `<circle cx="22" cy="28" r="15" fill="#3F51B5"/><circle cx="42" cy="28" r="15" fill="#F9A825"/><path d="M32 17 A15 15 0 0 1 32 39 A15 15 0 0 1 32 17 Z" fill="#5C8A3A"/><text x="32" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#283593">mix</text>`,
+  batter: () => `<path d="M6 30 H58 C58 50 46 58 32 58 C18 58 6 50 6 30 Z" fill="#E0B97A" stroke="#3F51B5" stroke-width="3"/><path d="M30 34 L44 6 M36 34 L46 8" stroke="#9E9E9E" stroke-width="3" stroke-linecap="round"/><ellipse cx="34" cy="30" rx="8" ry="5" fill="none" stroke="#9E9E9E" stroke-width="3"/>`,
+  twoCups: () => `<path d="M4 22 H28 L26 56 H6 Z" fill="#FFFFFF" stroke="#3F51B5" stroke-width="3"/><path d="M36 22 H60 L58 56 H38 Z" fill="#90CAF9" stroke="#3F51B5" stroke-width="3"/>`,
+  blocks: () => `<rect x="20" y="40" width="24" height="16" fill="#F9A825"/><rect x="20" y="24" width="24" height="16" fill="#3F51B5"/><rect x="20" y="8" width="24" height="16" fill="#F9A825"/>`,
+  mat: () => { let s = ""; for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) s += `<rect x="${8 + c * 12}" y="${8 + r * 12}" width="12" height="12" fill="${(r + c) % 2 ? "#FFFFFF" : (r % 2 ? "#3F51B5" : "#F9A825")}" stroke="#9FA8DA"/>`; return s; },
+  stuck: () => `<rect x="4" y="12" width="56" height="12" fill="#FFFFFF" stroke="#9FA8DA" stroke-width="2"/><rect x="20" y="24" width="24" height="3" fill="#F1E2B8"/><rect x="20" y="27" width="24" height="24" fill="#FFFFFF" stroke="#3F51B5" stroke-width="2"/>`,
+  tape: () => `<circle cx="32" cy="32" r="22" fill="#FFF8E1" stroke="#C79100" stroke-width="3"/><circle cx="32" cy="32" r="10" fill="#FFFFFF" stroke="#C79100" stroke-width="3"/><path d="M50 44 L62 52 L58 58 L46 50 Z" fill="#FFF8E1" stroke="#C79100" stroke-width="2"/>`,
+  honey: () => `<rect x="16" y="20" width="32" height="36" rx="6" fill="#F9A825" stroke="#C79100" stroke-width="3"/><rect x="14" y="12" width="36" height="9" rx="3" fill="#3F51B5"/><path d="M26 56 C26 62 30 62 30 56" fill="#F9A825"/>`,
+  strip: () => `<rect x="24" y="6" width="16" height="52" fill="#FFFFFF" stroke="#3F51B5" stroke-width="2"/>`,
+};
+
+// Frayer models for the lesson's key words.
+const WORDS = [
+  {
+    word: "mix",
+    def: "To stir things together so they join up.",
+    traits: ["you stir or shake it", "the things join together", "it can make something new"],
+    yes: [["paste", "flour and water stirred into paste"], ["paints", "mixing two paint colours"], ["batter", "cake mix in a bowl"]],
+    no: [["twoCups", "flour and water in two cups"], ["blocks", "blocks in a tower"], ["mat", "weaving strips"]],
+  },
+  {
+    word: "paste",
+    def: "Flour and water mixed together. It is thick and sticky.",
+    traits: ["thick and gooey", "sticky when it is wet", "hard when it is dry", "a new material!"],
+    yes: [["paste", "our flour paste"], ["stuck", "paste holding paper"]],
+    no: [["flour", "dry flour"], ["water", "water"], ["tape", "sticky tape"]],
+  },
+  {
+    word: "sticky",
+    def: "Sticky things hold on to what they touch.",
+    traits: ["it holds things together", "it feels tacky on your fingers", "it is hard to pull apart"],
+    yes: [["paste", "paste"], ["tape", "sticky tape"], ["honey", "honey"]],
+    no: [["flour", "dry flour"], ["water", "water"], ["strip", "a dry paper strip"]],
+  },
+];
+
+const BOXES = [
+  { key: "def", label: "What does it mean?", cls: "top left" },
+  { key: "traits", label: "What is it like?", cls: "top right" },
+  { key: "yes", label: "Examples", cls: "left" },
+  { key: "no", label: "Non-examples", cls: "right no" },
+];
+
+const $ = (id) => document.getElementById(id);
+const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pic = (name, mark) => `<span class="pic"><svg viewBox="0 0 64 64" aria-hidden="true">${P[name]()}</svg><span class="mark">${mark}</span></span>`;
+
+function content(w, key) {
+  if (key === "def") return `<p class="def">${esc(w.def)}</p>`;
+  if (key === "traits") return `<ul class="traits">${w.traits.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+  const mark = key === "yes" ? "✓" : "✗";
+  return `<div class="items">${w[key].map(([p, t]) => `<div class="item">${pic(p, mark)}<span>${esc(t)}</span></div>`).join("")}</div>`;
+}
+
+let current = 0;
+
+function show(i) {
+  current = i;
+  const w = WORDS[i];
+  $("word").textContent = w.word;
+  $("grid").innerHTML = BOXES.map((b, n) => `
+    <section class="box ${b.cls}" aria-label="${b.label}">
+      <p class="label">${b.label}</p>
+      ${content(w, b.key)}
+      <button type="button" class="cover" data-box="${n}"><strong>${b.label}</strong><span>Think first, then tap to show</span></button>
+    </section>`).join("");
+  [...$("words").children].forEach((btn, j) => btn.setAttribute("aria-pressed", String(j === i)));
+}
+
+function reveal(n) {
+  const cover = document.querySelector(`.cover[data-box="${n}"]`);
+  if (cover) cover.hidden = true;
+}
+
+WORDS.forEach((w, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "btn";
+  b.textContent = w.word;
+  b.addEventListener("click", () => show(j));
+  $("words").appendChild(b);
+});
+$("grid").addEventListener("click", (e) => {
+  const cover = e.target.closest(".cover");
+  if (cover) cover.hidden = true;
+});
+$("showAll").addEventListener("click", () => BOXES.forEach((_, n) => reveal(n)));
+$("hideAll").addEventListener("click", () => show(current));
+document.addEventListener("keydown", (e) => {
+  if (["1", "2", "3", "4"].includes(e.key)) reveal(Number(e.key) - 1);
+  if (e.key === "ArrowRight") show((current + 1) % WORDS.length);
+  if (e.key === "ArrowLeft") show((current + WORDS.length - 1) % WORDS.length);
+});
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+show(0);
+</script>
+</body>
+</html>

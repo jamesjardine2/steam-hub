@@ -48,10 +48,12 @@ content/
       lessons/
         01-paper-power.md         # {two-digit number}-{short-name}.md
         01-paper-power.pdf        # optional plan PDF, same base name
-      live/                       # artefacts used in lessons (HTML, images, slides)
+      live/                       # artefacts used in lessons, prefixed with the lesson number (04-slides.html)
 ```
 
 Cohort ids: `f` (Foundation), `y12` (Year 1/2), `y34` (Year 3/4), `y56` (Year 5/6).
+
+Live artefacts are standalone 1280×720 projector pages in the house style: `NN-slides.html` (the lesson deck), `NN-frayer.html` (Frayer word wall) and an animated how-to (for example `03-weaving.html`). Each page supports `?embed`, which hides its top bar so the deck can show it in a slide. When adding a lesson, copy the previous lesson's pages and change the content.
 
 Every non-Markdown file under `content/units/` is copied to the site at the same path under `/units/`, so `content/units/<slug>/live/steps.html` is served at `/units/<slug>/live/steps.html`.
 

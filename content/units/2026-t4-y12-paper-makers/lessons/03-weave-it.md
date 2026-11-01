@@ -45,15 +45,15 @@ live:
   - kind: SLIDE
     title: Lesson slides
     note: Hook, binak, LISC, words and weaving steps
-    file: slides.html
+    file: 03-slides.html
   - kind: HTML
     title: How to make a loom and weave
     note: Animated steps for the projector
-    file: weaving.html
+    file: 03-weaving.html
   - kind: HTML
     title: "Word wall: Frayer model"
     note: weave, loom and strong
-    file: frayer.html
+    file: 03-frayer.html
 crt_notes: This plan is written for a CRT. No preparation and no screens, so the hook uses sleeve threads instead of basket images. Scissors are new this week; watch for slits cut right to the edge.
 ---
 No preparation needed. Everything is collected with student helpers during the lesson. No screens are used. This week each student's woven mat is glued straight into their STEAM journal. Journals are on the shelves as you walk in the door.
