@@ -1,0 +1,50 @@
+---
+layout: base.njk
+title: Settings
+nav: settings
+permalink: /settings/
+---
+<section class="page-head">
+  <div>
+    <h1>Settings</h1>
+    <p class="muted">Connect this device so class ticks and lesson planning can save to GitHub</p>
+  </div>
+</section>
+
+<div class="columns">
+  <section class="main-col stack">
+    <div class="card stack-tight" data-settings>
+      <h2 class="card-title">GitHub key for this device</h2>
+      <p class="small" data-key-state></p>
+      <label class="small strong" for="token">Paste your key</label>
+      <input id="token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_..." data-token-input>
+      <div class="actions">
+        <button type="button" class="btn" data-token-save>Save and test</button>
+        <button type="button" class="btn btn-outline" data-token-remove>Remove from this device</button>
+      </div>
+      <p class="small" data-status role="status"></p>
+      <p class="small muted">The key stays in this browser only. It is never added to the site or the repo. Only save it on your own devices, and remove it from shared computers when you finish.</p>
+    </div>
+
+    <div class="card stack-tight">
+      <h2 class="card-title">How to make a key (once a year)</h2>
+      <ol class="list">
+        <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub: new fine-grained token</a> (sign in as jamesjardine2).</li>
+        <li>Name it "STEAM Hub" and choose an expiry (one year is fine).</li>
+        <li>Under <strong>Repository access</strong>, choose <strong>Only select repositories</strong> and pick <strong>steam-hub</strong>.</li>
+        <li>Under <strong>Permissions</strong>, set <strong>Contents</strong> to <strong>Read and write</strong> and <strong>Actions</strong> to <strong>Read and write</strong>.</li>
+        <li>Generate the token, copy it, and paste it above on each device you use.</li>
+      </ol>
+    </div>
+  </section>
+
+  <aside class="side-col stack">
+    <div class="card amber stack-tight">
+      <h2 class="card-title">Lesson planning (one-off setup)</h2>
+      <p class="small">"Plan with Claude" runs Claude Code on GitHub using your Claude subscription. It needs a Claude token saved in the repo as a secret. In Terminal on your Mac, run these two commands and follow the prompts:</p>
+      <pre class="code">claude setup-token</pre>
+      <pre class="code">gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo jamesjardine2/steam-hub</pre>
+      <p class="small">Paste the token from the first command when the second one asks for it.</p>
+    </div>
+  </aside>
+</div>

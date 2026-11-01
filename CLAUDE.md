@@ -16,8 +16,8 @@ The original brief and the five design mockups are in `steam-hub-handover/`. The
 - **Privacy.** The site is public. Never include student names, student work with names on it, assessment data or anything that identifies a student. Reflections are about classes and lessons. Naming a class (for example "1/2A") is fine; naming a student is not. Every page carries `noindex` and there is a `robots.txt`, but treat everything as public anyway.
 - **No em dashes** anywhere: copy, content, code comments, commit messages. No en dashes as punctuation and no spaced hyphen used as a dash. Ranges use "to" ("Lessons 1 to 4", "Foundation to Year 6").
 - **Do not invent lesson content.** When something is unknown, leave a clearly marked placeholder in square brackets, for example `[Full plan to add from the Lesson 2 PDF]`. Text that starts with `[` is styled as a placeholder on the site.
-- **No class progress tracker** and nothing that needs routine manual data entry. Status is worked out from the files.
-- **No logins, databases, servers.** Content lives as files in the repo.
+- **Class ticks are the only manual entry.** James asked (November 2026) to tick which class has finished each lesson. Keep it to that: one tap per class per lesson. Lesson status is still worked out from the files.
+- **No logins, databases, servers.** Content lives as files in the repo. Saving from the site goes through the GitHub API with a key James keeps in each browser (never in the repo).
 - Ask James before big structural decisions.
 
 ## Decisions (agreed November 2026)
@@ -34,6 +34,18 @@ The original brief and the five design mockups are in `steam-hub-handover/`. The
 - **"Make a CRT version"** copies a short CRT request for that lesson to the clipboard and opens the unit's pinned chat. Full CRT versions are generated on request, never stored for every lesson.
 - **Current term** is the newest file in `content/terms/`.
 - **Go live and Archive** are hidden from the navigation until Phases 3 and 2.
+
+## Saving from the site (added November 2026)
+
+`src/assets/hub.js` talks to the GitHub API using a fine-grained token stored in the browser's localStorage (key `steamhub.githubToken`), set on `/settings/`. The token needs Contents and Actions read and write on steam-hub only. Never ask for, store or handle the token yourself.
+
+- **Class ticks.** `content/classes.json` lists classes by year and cohort (2026 Year 1/2: 1A, 1B, 1C, 2A, 2B, 2C; 2027 will have four Year 1 classes). Ticks are saved to `content/progress.json` as `{ unit slug: { lesson number: { class: "YYYY-MM-DD" } } }`, one commit per tick. They appear on each lesson page ("Classes finished"), on the unit page and on the home page ("Where each class is up to"). The "Up to" column is the first lesson a class has not finished. The file is also published at `/progress.json` so the site can show fresh ticks without a key.
+- **Plan with Claude.** The unit page's "Plan Lesson N with Claude" button (and "Send to Claude" on a draft) starts `.github/workflows/plan-lesson.yml`. It runs Claude Code headless with the `CLAUDE_CODE_OAUTH_TOKEN` repo secret (James's Claude subscription, made with `claude setup-token`), following `.github/plan-lesson.md`. Claude writes the lesson as `status: draft` plus its three artefacts, the workflow checks the build and dashes, commits, and starts the deploy. Keep `.github/plan-lesson.md` in step with this file.
+- **Approve.** A draft lesson page shows "Approve this lesson", which changes `status: draft` to `status: planned` in the lesson file.
+
+## Lesson pages
+
+The lesson body is split on `## ` headings into accordion sections ("Lesson overview"), after LISC and "Lesson at a glance". Text before the first heading shows as a note above the accordions. Keep lesson bodies in `## ` sections so this works.
 
 ## Content model
 
@@ -183,6 +195,10 @@ src/index.njk             # Overview
 src/units.njk             # all units
 src/unit.njk              # one page per unit
 src/lesson.njk            # one page per lesson
+src/settings.njk          # connect a device (GitHub key) and Claude setup steps
+src/assets/hub.js         # ticks, approve and plan buttons (GitHub API)
+.github/workflows/plan-lesson.yml  # Claude Code plans a lesson as a draft
+.github/plan-lesson.md    # the instructions Claude follows in that workflow
 src/assets/               # site.css, site.js
 content/                  # all teaching content
 templates/                # lesson and unit templates, spec for Claude chats

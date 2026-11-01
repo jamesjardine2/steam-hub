@@ -47,6 +47,16 @@ nav: overview
 {% endfor %}
 </section>
 
+{% for u in site.dashboards %}
+<section class="card stack">
+  <div class="row-between">
+    <h2 class="card-title">Where each class is up to: {{ u.cohortLabel }}</h2>
+    <a class="small" href="{{ u.url }}">{{ u.title }}</a>
+  </div>
+  {{ m.progressTable(u) }}
+</section>
+{% endfor %}
+
 <section class="split">
   <div class="card stack wide">
     <h2 class="card-title">Latest reflections</h2>

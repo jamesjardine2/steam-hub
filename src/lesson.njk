@@ -17,54 +17,94 @@ eleventyComputed:
   <div>
     <p class="kicker">Lesson {{ lesson.number }} of {{ unit.lessonCount }} · {{ lesson.duration }} minutes{% if lesson.status == "draft" %} · Draft{% endif %}</p>
     <h1>{{ m.text(lesson.title) }}</h1>
+    {% if lesson.summary %}<p class="lede">{{ lesson.summary }}</p>{% endif %}
   </div>
   <div class="actions">
     {% if lesson.pdf %}<a class="btn btn-outline" href="{{ lesson.pdf }}">Plan PDF</a>{% endif %}
   </div>
 </section>
 
+{% if lesson.status == "draft" %}
+<section class="card amber stack-tight" data-review data-path="{{ lesson.sourcePath }}" data-unit="{{ unit.slug }}" data-lesson="{{ lesson.number }}" data-lesson-title="{{ lesson.title }}">
+  <h2 class="card-title">This lesson is a draft</h2>
+  <p class="small">Read through it, then approve it, or tell Claude what to change.</p>
+  <div class="actions">
+    <button type="button" class="btn" data-approve>Approve this lesson</button>
+  </div>
+  <label class="small strong" for="changes">Ask for changes</label>
+  <textarea id="changes" rows="3" data-notes placeholder="e.g. Make the hook shorter and use books instead of pebbles"></textarea>
+  <div class="actions"><button type="button" class="btn btn-amber" data-revise>Send to Claude</button></div>
+  <p class="small" data-status role="status"></p>
+</section>
+{% endif %}
+
 <div class="columns">
-  <section class="main-col stack-lg">
-    <div class="card">
-      <h2 class="card-title">LISC</h2>
-      {{ m.lisc(lesson.lisc) }}
+  <section class="main-col stack">
+    <div class="row-between">
+      <h2 class="section-title">Lesson overview</h2>
+      <button type="button" class="btn-text" data-expand-all>Expand all</button>
     </div>
+    {% if lesson.introHtml %}<div class="prose note">{{ lesson.introHtml | safe }}</div>{% endif %}
 
-    <div class="card">
-      <h2 class="card-title">Lesson at a glance</h2>
-      {% if lesson.sequence.length %}
-      <div class="glance">
-        {% for s in lesson.sequence %}
-        <div class="glance-row">
-          <span class="glance-phase">{{ s.phase }}</span>
-          <span class="glance-time">{{ s.time }}</span>
-          <span class="glance-what">{{ m.text(s.what) }}</span>
+    <div class="accs">
+      {% call m.accordion("LISC", "Learning Intention and Success Criteria") %}
+        {{ m.lisc(lesson.lisc) }}
+      {% endcall %}
+
+      {% call m.accordion("Lesson at a glance", (lesson.sequence | length) + " steps" if lesson.sequence.length else "") %}
+        {% if lesson.sequence.length %}
+        <div class="glance">
+          {% for s in lesson.sequence %}
+          <div class="glance-row">
+            <span class="glance-phase">{{ s.phase }}</span>
+            <span class="glance-time">{{ s.time }}</span>
+            <span class="glance-what">{{ m.text(s.what) }}</span>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
-      </div>
-      {% else %}
-      <p class="ph">[Sequence to add from the plan]</p>
-      {% endif %}
-    </div>
+        {% else %}
+        <p class="ph">[Sequence to add from the plan]</p>
+        {% endif %}
+      {% endcall %}
 
-    <div class="card">
-      <h2 class="card-title">Full plan</h2>
-      <div class="prose">
-        {% if lesson.bodyHtml %}{{ lesson.bodyHtml | safe }}{% else %}<p class="ph">[Full plan to add]</p>{% endif %}
-      </div>
-    </div>
-
-    <div class="card stack">
-      <h2 class="card-title">Reflections</h2>
-      {% for r in lesson.reflections %}
-        {{ m.reflection(r) }}
+      {% for section in lesson.sections %}
+        {% call m.accordion(section.title) %}
+          <div class="prose">{{ section.html | safe }}</div>
+        {% endcall %}
       {% else %}
-        <p class="muted">No reflections for this lesson yet.</p>
+        {% call m.accordion("Full plan") %}<p class="ph">[Full plan to add]</p>{% endcall %}
       {% endfor %}
-      <div>
-        <a class="btn btn-outline" href="{{ unit.reflectionsEditUrl }}" target="_blank" rel="noopener">Add a reflection</a>
-        <p class="small muted hint">Opens the unit's reflections file on GitHub. Start a new entry with: ## YYYY-MM-DD · Lesson {{ lesson.number }} · class</p>
-      </div>
+
+      {% call m.accordion("Resources", (lesson.resources | length) + " items" if lesson.resources.length else "") %}
+        {% if lesson.resources.length %}
+        <ul class="list">{% for r in lesson.resources %}<li>{{ r }}</li>{% endfor %}</ul>
+        {% else %}
+        <p class="ph">[Resources to add]</p>
+        {% endif %}
+      {% endcall %}
+
+      {% call m.accordion("Curriculum and approach") %}
+        <div class="stack-tight">
+          {% if lesson.curriculum.length %}{{ m.chips(lesson.curriculum) }}{% else %}<p class="small muted">Unit codes: {{ unit.curriculum | join(", ") }}</p>{% endif %}
+          {% if lesson.vtlm.length %}<p class="small strong">VTLM 2.0</p>{{ m.chips(lesson.vtlm) }}{% endif %}
+          {% if lesson.citw.length %}<p class="small strong">CITW</p>{{ m.chips(lesson.citw) }}{% endif %}
+          {% if not lesson.vtlm.length and not lesson.citw.length %}<p class="ph small">[VTLM and CITW elements to add]</p>{% endif %}
+        </div>
+      {% endcall %}
+
+      {% call m.accordion("Reflections", (lesson.reflections | length) + " notes" if lesson.reflections.length else "") %}
+        <div class="stack">
+          {% for r in lesson.reflections %}
+            {{ m.reflection(r) }}
+          {% else %}
+            <p class="muted">No reflections for this lesson yet.</p>
+          {% endfor %}
+          <div>
+            <a class="btn btn-outline" href="{{ unit.reflectionsEditUrl }}" target="_blank" rel="noopener">Add a reflection</a>
+            <p class="small muted hint">Opens the unit's reflections file on GitHub. Start a new entry with: ## YYYY-MM-DD · Lesson {{ lesson.number }} · class</p>
+          </div>
+        </div>
+      {% endcall %}
     </div>
 
     <nav class="pager" aria-label="Lessons in this unit">
@@ -74,6 +114,17 @@ eleventyComputed:
   </section>
 
   <aside class="side-col stack">
+    {% if lesson.classes.length %}
+    <div class="card stack-tight">
+      <h2 class="card-title">Classes finished</h2>
+      <p class="small muted">Tap a class when it has done this lesson.</p>
+      <div class="ticks">
+        {% for c in lesson.classes %}{{ m.tick(unit, lesson.number, lesson.title, c.name, c.date, c.dateLabel, true, "chip") }}{% endfor %}
+      </div>
+      <p class="small muted sync" data-sync-status></p>
+    </div>
+    {% endif %}
+
     <div class="card stack-tight">
       <h2 class="card-title">Bring up live</h2>
       {% for a in lesson.live %}
@@ -91,23 +142,6 @@ eleventyComputed:
       {% else %}
         <p class="muted small">No live artefacts for this lesson.</p>
       {% endfor %}
-    </div>
-
-    <div class="card">
-      <h2 class="card-title">Resources</h2>
-      {% if lesson.resources.length %}
-      <ul class="list">{% for r in lesson.resources %}<li>{{ r }}</li>{% endfor %}</ul>
-      {% else %}
-      <p class="ph">[Resources to add]</p>
-      {% endif %}
-    </div>
-
-    <div class="card stack-tight">
-      <h2 class="card-title">Curriculum and approach</h2>
-      {% if lesson.curriculum.length %}{{ m.chips(lesson.curriculum) }}{% else %}<p class="small muted">Unit codes: {{ unit.curriculum | join(", ") }}</p>{% endif %}
-      {% if lesson.vtlm.length %}<p class="small strong">VTLM 2.0</p>{{ m.chips(lesson.vtlm) }}{% endif %}
-      {% if lesson.citw.length %}<p class="small strong">CITW</p>{{ m.chips(lesson.citw) }}{% endif %}
-      {% if not lesson.vtlm.length and not lesson.citw.length %}<p class="ph small">[VTLM and CITW elements to add]</p>{% endif %}
     </div>
 
     <div class="card amber stack-tight">

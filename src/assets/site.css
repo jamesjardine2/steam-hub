@@ -176,3 +176,44 @@ a.artefact:hover { border-color: var(--indigo-line); color: var(--text); }
 .prose ul, .prose ol { padding-left: 22px; margin-bottom: 0; }
 .prose table { border-collapse: collapse; width: 100%; }
 .prose th, .prose td { border-top: 1px solid var(--line-soft); padding: 8px; text-align: left; vertical-align: top; }
+
+/* Lesson overview accordions */
+.lede { margin-top: 10px; font-size: 16px; color: var(--muted); max-width: 640px; }
+.note { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; }
+.accs { display: flex; flex-direction: column; gap: 10px; }
+.acc { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+.acc > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 14px 18px; min-height: 52px; }
+.acc > summary::-webkit-details-marker { display: none; }
+.acc > summary::before { content: ""; width: 10px; height: 10px; flex: 0 0 auto; border-right: 3px solid var(--indigo); border-bottom: 3px solid var(--indigo); transform: rotate(-45deg); transition: transform 0.15s; }
+.acc[open] > summary::before { transform: rotate(45deg); }
+.acc > summary:hover { background: #FAFAFD; border-radius: var(--radius); }
+.acc-title { font-weight: 700; font-size: 17px; color: var(--indigo-deep); }
+.acc-hint { margin-left: auto; font-size: 13px; color: var(--muted); text-align: right; }
+.acc-body { padding: 4px 22px 20px 44px; }
+@media (max-width: 600px) { .acc-body { padding-left: 18px; } }
+
+/* Class ticks */
+.ticks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.tick { font-family: inherit; cursor: pointer; border: 1px solid var(--indigo-line); background: #FFFFFF; color: var(--indigo-chip); border-radius: 10px; }
+.tick:disabled { cursor: default; border-style: dashed; color: #9E9E9E; background: #FAFAFA; }
+.tick[aria-pressed="true"] { background: var(--indigo); border-color: var(--indigo); color: #FFFFFF; }
+.tick-chip { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 6px; min-height: 56px; }
+.tick-name { font-weight: 700; font-size: 17px; }
+.tick-date { font-size: 12px; }
+.tick-cell { width: 44px; height: 44px; font-size: 20px; font-weight: 700; }
+.sync:empty { display: none; }
+
+/* Where each class is up to */
+.table-scroll { overflow-x: auto; }
+.progress { border-collapse: separate; border-spacing: 4px; font-size: 14px; }
+.progress th { font-weight: 700; color: var(--indigo-deep); text-align: center; padding: 4px; }
+.progress th a { text-decoration: none; }
+.progress tbody th { text-align: left; padding-right: 10px; font-size: 16px; }
+.progress td { text-align: center; padding: 0; }
+.progress .next-col { text-align: left; padding-left: 12px; min-width: 200px; color: var(--muted); }
+
+/* Forms and code */
+textarea, input[type="password"] { font-family: inherit; font-size: 15px; padding: 12px; border: 1px solid #BDBDBD; border-radius: 8px; width: 100%; }
+.code { margin: 0; background: #F1F1F1; border-radius: 8px; padding: 10px 12px; font-size: 13px; white-space: pre-wrap; word-break: break-all; }
+button.btn { font-family: inherit; cursor: pointer; }
+button.btn:disabled { opacity: 0.5; cursor: default; }

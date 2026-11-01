@@ -7,17 +7,20 @@
 <title>{{ title }} · FCPS STEAM</title>
 <link rel="stylesheet" href="/assets/site.css">
 </head>
-<body>
+<body data-repo="{{ site.repo }}" data-branch="{{ site.branch }}">
 <header class="topbar">
   <nav class="wrap nav" aria-label="Main">
     <a class="brand" href="/">FCPS STEAM</a>
     <a href="/"{% if nav == "overview" %} aria-current="page"{% endif %}>Overview</a>
     <a href="/units/"{% if nav == "units" %} aria-current="page"{% endif %}>Units</a>
+    <a href="/settings/"{% if nav == "settings" %} aria-current="page"{% endif %}>Settings</a>
   </nav>
 </header>
 <main class="wrap page">
 {{ content | safe }}
 </main>
+<a hidden id="progress-url" href="/progress.json"></a>
 <script src="/assets/site.js"></script>
+<script src="/assets/hub.js"></script>
 </body>
 </html>

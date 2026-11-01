@@ -25,6 +25,10 @@ eleventyComputed:
 
 <div class="columns">
   <section class="main-col stack">
+    {% if unit.classRows.length %}
+    <h2 class="section-title">Where each class is up to</h2>
+    {{ m.progressTable(unit) }}
+    {% endif %}
     <h2 class="section-title">Lessons</h2>
     {% for s in unit.slots %}
     <article class="card lesson-row">
@@ -41,6 +45,23 @@ eleventyComputed:
   </section>
 
   <aside class="side-col stack">
+    {% if unit.nextToPlan %}
+    {% set nextSlot = unit.slots[unit.nextToPlan.number - 1] %}
+    <div class="card stack-tight" data-plan data-unit="{{ unit.slug }}" data-lesson="{{ unit.nextToPlan.number }}">
+      <h2 class="card-title">Plan the next lesson</h2>
+      {% if nextSlot.lesson %}
+      <p class="small">Lesson {{ nextSlot.number }}: {{ nextSlot.title }} is a draft waiting for you.</p>
+      <a class="btn" href="{{ nextSlot.lesson.url }}">Review the draft</a>
+      {% else %}
+      <p class="small"><strong>Lesson {{ unit.nextToPlan.number }}: {{ m.text(unit.nextToPlan.title) }}</strong>{% if nextSlot.summary %}. {{ nextSlot.summary }}{% endif %}</p>
+      <label class="small strong" for="plan-notes">Anything Claude should know? (optional)</label>
+      <textarea id="plan-notes" rows="3" data-notes placeholder="e.g. 2B will have a CRT, keep it screen-free"></textarea>
+      <button type="button" class="btn" data-start-plan>Plan Lesson {{ unit.nextToPlan.number }} with Claude</button>
+      <p class="small muted">Claude writes the lesson, slides, word wall and animation. It takes about 5 to 10 minutes, then appears here as a draft for you to review.</p>
+      {% endif %}
+      <p class="small" data-status role="status"></p>
+    </div>
+    {% endif %}
     <div class="card">
       <h2 class="card-title">Unit LISC</h2>
       {{ m.lisc(unit.lisc, "[Unit LISC to add in unit.md]") }}

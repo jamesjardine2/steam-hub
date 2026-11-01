@@ -1,5 +1,6 @@
 // Loads everything in content/ and works out the derived values
-// (planned counts, next to plan, next taught, latest reflections).
+// (planned counts, next to plan, next taught, latest reflections,
+// where each class is up to).
 // Templates only render what this file returns.
 
 import fs from "node:fs";
@@ -65,6 +66,37 @@ function formatDate(iso) {
     year: "numeric",
     timeZone: "UTC",
   });
+}
+
+function formatShortDate(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-AU", { day: "numeric", month: "short", timeZone: "UTC" });
+}
+
+function readJson(file, fallback) {
+  if (!fs.existsSync(file)) return fallback;
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8"));
+  } catch (e) {
+    warn(file, `could not be read: ${e.message}`);
+    return fallback;
+  }
+}
+
+// A lesson body becomes an intro plus one accordion section per "## " heading.
+function splitSections(text) {
+  const parts = text.split(/^## +/m);
+  const intro = parts.shift();
+  return {
+    introHtml: renderMd(intro),
+    sections: parts.map((part) => {
+      const newline = part.indexOf("\n");
+      return {
+        title: (newline === -1 ? part : part.slice(0, newline)).trim(),
+        html: renderMd(newline === -1 ? "" : part.slice(newline + 1)),
+      };
+    }),
+  };
 }
 
 function asList(value) {
@@ -167,12 +199,12 @@ function loadLesson(file, unit) {
     live,
     crtNotes: data.crt_notes || "",
     pdf: fs.existsSync(pdfFile) ? `${unit.url}lessons/${base}.pdf` : null,
-    bodyHtml: renderMd(content),
-    editUrl: `https://github.com/${REPO}/edit/${BRANCH}/content/units/${unit.slug}/lessons/${base}.md`,
+    ...splitSections(content),
+    sourcePath: `content/units/${unit.slug}/lessons/${base}.md`,
   };
 }
 
-function loadUnit(slug) {
+function loadUnit(slug, classes, progress) {
   const dir = path.join(CONTENT, "units", slug);
   const file = path.join(dir, "unit.md");
   if (!fs.existsSync(file)) {
@@ -205,7 +237,10 @@ function loadUnit(slug) {
     links: asList(data.links),
     nextTaught: data.next_taught || termLabel(year + 2, term),
     reflectionsEditUrl: `https://github.com/${REPO}/edit/${BRANCH}/content/units/${slug}/reflections.md`,
+    classes: (classes[String(year)] || {})[data.cohort] || [],
   };
+  // progress.json: { unit slug: { lesson number: { class: "YYYY-MM-DD" } } }
+  const done = (n, c) => ((progress[slug] || {})[n] || {})[c] || "";
 
   const lessonDir = path.join(dir, "lessons");
   const lessons = listDir(lessonDir)
@@ -246,6 +281,10 @@ function loadUnit(slug) {
   }
 
   for (const lesson of lessons) {
+    lesson.classes = unit.classes.map((c) => {
+      const date = done(lesson.number, c);
+      return { name: c, date, dateLabel: date ? formatShortDate(date) : "" };
+    });
     lesson.reflections = reflections.filter((r) => r.lesson === lesson.number);
     lesson.crtPrompt =
       `Make a CRT version of Lesson ${lesson.number}: ${lesson.title} ` +
@@ -256,8 +295,19 @@ function loadUnit(slug) {
     l.next = lessons[i + 1] ? { url: lessons[i + 1].url, number: lessons[i + 1].number, title: lessons[i + 1].title } : null;
   });
 
+  // Where each class is up to: the first lesson it has not finished.
+  const classRows = unit.classes.map((c) => {
+    const cells = slots.map((s) => {
+      const date = done(s.number, c);
+      return { number: s.number, title: s.title, enabled: Boolean(s.lesson), date, dateLabel: date ? formatShortDate(date) : "" };
+    });
+    const nextCell = cells.find((cell) => !cell.date);
+    return { name: c, cells, next: nextCell ? `Lesson ${nextCell.number}: ${nextCell.title}` : "All done" };
+  });
+
   return Object.assign(unit, {
     lessons,
+    classRows,
     slots,
     plannedCount: slots.filter((s) => s.planned).length,
     nextToPlan: next ? { number: next.number, title: next.title } : null,
@@ -269,9 +319,11 @@ function loadUnit(slug) {
 
 export default function () {
   const terms = loadTerms();
+  const classes = readJson(path.join(CONTENT, "classes.json"), {});
+  const progress = readJson(path.join(CONTENT, "progress.json"), {});
   const units = listDir(path.join(CONTENT, "units"))
     .filter((f) => fs.statSync(path.join(CONTENT, "units", f)).isDirectory())
-    .map(loadUnit)
+    .map((slug) => loadUnit(slug, classes, progress))
     .filter(Boolean)
     .sort((a, b) => b.termKey - a.termKey || COHORTS.findIndex((c) => c.id === a.cohort) - COHORTS.findIndex((c) => c.id === b.cohort));
 
@@ -313,7 +365,9 @@ export default function () {
 
   return {
     repo: REPO,
+    branch: BRANCH,
     currentTerm,
+    dashboards: currentUnits.filter((u) => u.classes.length),
     overview,
     latestReflections,
     units,

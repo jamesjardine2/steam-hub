@@ -1,0 +1,285 @@
+// Saving from the site. A static site cannot save by itself, so this talks
+// to the GitHub API with a key kept in this browser (see /settings/):
+// class ticks go into content/progress.json, "Approve" edits a lesson file,
+// and "Plan with Claude" starts the plan-lesson workflow.
+
+(() => {
+  const REPO = document.body.dataset.repo;
+  const BRANCH = document.body.dataset.branch || "main";
+  const PROGRESS_PATH = "content/progress.json";
+  const WORKFLOW = "plan-lesson.yml";
+  const KEY = "steamhub.githubToken";
+  const API = "https://api.github.com";
+
+  // ---- Key storage (browser storage can be unavailable, e.g. private mode)
+  const getToken = () => { try { return localStorage.getItem(KEY) || ""; } catch { return ""; } };
+  const setToken = (t) => { try { t ? localStorage.setItem(KEY, t) : localStorage.removeItem(KEY); return true; } catch { return false; } };
+
+  // ---- GitHub API
+  async function gh(path, options = {}) {
+    const res = await fetch(API + path, {
+      ...options,
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${getToken()}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+        ...(options.body ? { "Content-Type": "application/json" } : {}),
+      },
+    });
+    return res;
+  }
+  const toBase64 = (text) => {
+    const bytes = new TextEncoder().encode(text);
+    let bin = "";
+    bytes.forEach((b) => { bin += String.fromCharCode(b); });
+    return btoa(bin);
+  };
+  const fromBase64 = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0)));
+
+  async function readFile(path) {
+    const res = await gh(`/repos/${REPO}/contents/${path}?ref=${BRANCH}`);
+    if (res.status === 404) return { text: null, sha: undefined };
+    if (!res.ok) throw new Error(await problem(res));
+    const json = await res.json();
+    return { text: fromBase64(json.content), sha: json.sha };
+  }
+
+  // Read, change and write a file, retrying if something else saved first.
+  async function updateFile(path, change, message) {
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const { text, sha } = await readFile(path);
+      const next = change(text);
+      const res = await gh(`/repos/${REPO}/contents/${path}`, {
+        method: "PUT",
+        body: JSON.stringify({ message, content: toBase64(next), sha, branch: BRANCH }),
+      });
+      if (res.ok) return;
+      if (res.status !== 409 && res.status !== 422) throw new Error(await problem(res));
+    }
+    throw new Error("Someone else saved at the same moment. Please try again.");
+  }
+
+  async function startWorkflow(inputs) {
+    const res = await gh(`/repos/${REPO}/actions/workflows/${WORKFLOW}/dispatches`, {
+      method: "POST",
+      body: JSON.stringify({ ref: BRANCH, inputs }),
+    });
+    if (!res.ok) throw new Error(await problem(res));
+  }
+
+  async function problem(res) {
+    if (res.status === 401) return "GitHub did not accept the key. Check it on the Settings page.";
+    if (res.status === 403) return "The key is missing a permission. Check it on the Settings page.";
+    let detail = "";
+    try { detail = (await res.json()).message || ""; } catch { /* no body */ }
+    return `GitHub said ${res.status}${detail ? `: ${detail}` : ""}.`;
+  }
+
+  const today = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  };
+  const shortDate = (iso) => {
+    const [y, m, d] = iso.split("-").map(Number);
+    return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-AU", { day: "numeric", month: "short", timeZone: "UTC" });
+  };
+  const settingsLink = () => document.querySelector('.nav a[href$="/settings/"]')?.href || "/settings/";
+
+  // ---- Class ticks
+  const ticks = [...document.querySelectorAll("[data-tick]")];
+  const syncLines = [...document.querySelectorAll("[data-sync-status]")];
+  const say = (html) => syncLines.forEach((el) => { el.innerHTML = html; });
+  let progress = {};
+  let queue = Promise.resolve();
+
+  function renderTick(btn) {
+    const date = btn.dataset.date;
+    btn.setAttribute("aria-pressed", date ? "true" : "false");
+    if (btn.classList.contains("tick-cell")) {
+      btn.innerHTML = `<span class="tick-mark" aria-hidden="true">${date ? "✓" : ""}</span>`;
+      btn.title = date ? `${btn.dataset.class} finished Lesson ${btn.dataset.lesson} on ${shortDate(date)}` : (btn.disabled ? btn.title : "");
+    } else {
+      btn.innerHTML = `<span class="tick-name">${btn.dataset.class}</span><span class="tick-date">${date ? shortDate(date) : "Not yet"}</span>`;
+    }
+  }
+
+  // "Up to" column: the first lesson the class has not finished.
+  function renderRows() {
+    document.querySelectorAll("[data-class-row]").forEach((row) => {
+      const open = [...row.querySelectorAll("[data-tick]")].find((b) => !b.dataset.date);
+      row.querySelector("[data-next]").textContent = open ? `Lesson ${open.dataset.lesson}: ${open.dataset.lessonTitle}` : "All done";
+    });
+  }
+
+  function applyProgress(data) {
+    progress = data || {};
+    ticks.forEach((btn) => {
+      btn.dataset.date = ((progress[btn.dataset.unit] || {})[btn.dataset.lesson] || {})[btn.dataset.class] || "";
+      renderTick(btn);
+    });
+    renderRows();
+  }
+
+  async function loadProgress() {
+    try {
+      if (getToken()) {
+        const { text } = await readFile(PROGRESS_PATH);
+        applyProgress(text ? JSON.parse(text) : {});
+      } else {
+        // Without a key, read the copy published with the site.
+        const url = document.getElementById("progress-url").href;
+        const res = await fetch(`${url}?t=${Date.now()}`, { cache: "no-store" });
+        if (res.ok) applyProgress(await res.json());
+      }
+    } catch { /* keep what the page was built with */ }
+  }
+
+  function toggle(btn) {
+    if (!getToken()) {
+      say(`To tick classes on this device, add your GitHub key on <a href="${settingsLink()}">Settings</a>.`);
+      return;
+    }
+    const { unit, lesson, class: cls, unitTitle, lessonTitle } = btn.dataset;
+    const date = btn.dataset.date ? "" : today();
+    // Update every matching button straight away, then save in order.
+    ticks.filter((b) => b.dataset.unit === unit && b.dataset.lesson === lesson && b.dataset.class === cls)
+      .forEach((b) => { b.dataset.date = date; renderTick(b); });
+    renderRows();
+    say("Saving...");
+    const message = date ? `${cls} finished ${unitTitle} Lesson ${lesson}: ${lessonTitle}` : `${cls} not finished ${unitTitle} Lesson ${lesson} (untick)`;
+    queue = queue.then(() => updateFile(PROGRESS_PATH, (text) => {
+      const data = text ? JSON.parse(text) : {};
+      data[unit] = data[unit] || {};
+      data[unit][lesson] = data[unit][lesson] || {};
+      if (date) data[unit][lesson][cls] = date;
+      else delete data[unit][lesson][cls];
+      if (!Object.keys(data[unit][lesson]).length) delete data[unit][lesson];
+      if (!Object.keys(data[unit]).length) delete data[unit];
+      return JSON.stringify(data, null, 2) + "\n";
+    }, message)).then(
+      () => say("Saved."),
+      (err) => { say(`Not saved. ${err.message}`); loadProgress(); }
+    );
+  }
+
+  if (ticks.length) {
+    ticks.forEach((btn) => btn.addEventListener("click", () => toggle(btn)));
+    if (!getToken()) say(`Showing saved ticks. To tick on this device, add your GitHub key on <a href="${settingsLink()}">Settings</a>.`);
+    loadProgress();
+  }
+
+  // ---- Planning with Claude (unit page) and reviewing a draft (lesson page)
+  function watchRun(status, doneText) {
+    const started = Date.now();
+    const check = async () => {
+      try {
+        const res = await gh(`/repos/${REPO}/actions/workflows/${WORKFLOW}/runs?per_page=1&event=workflow_dispatch`);
+        const run = res.ok ? (await res.json()).workflow_runs[0] : null;
+        if (run && Date.parse(run.created_at) > started - 120000) {
+          const link = `<a href="${run.html_url}" target="_blank" rel="noopener">watch on GitHub</a>`;
+          if (run.status !== "completed") {
+            const mins = Math.max(1, Math.round((Date.now() - Date.parse(run.created_at)) / 60000));
+            status.innerHTML = `Claude is working on it (${mins} min so far, ${link}). You can leave this page.`;
+          } else if (run.conclusion === "success") {
+            status.innerHTML = `${doneText} The site takes a couple of minutes to update, then reload this page.`;
+            return;
+          } else {
+            status.innerHTML = `That did not finish (${run.conclusion}). See what happened: ${link}.`;
+            return;
+          }
+        }
+      } catch { /* try again shortly */ }
+      setTimeout(check, 15000);
+    };
+    check();
+  }
+
+  async function plan(card, notes, doneText) {
+    const status = card.querySelector("[data-status]");
+    if (!getToken()) {
+      status.innerHTML = `Add your GitHub key on <a href="${settingsLink()}">Settings</a> first.`;
+      return;
+    }
+    status.textContent = "Starting...";
+    try {
+      await startWorkflow({ unit: card.dataset.unit, lesson: String(card.dataset.lesson), notes });
+      card.querySelectorAll("button").forEach((b) => { b.disabled = true; });
+      watchRun(status, doneText);
+    } catch (err) {
+      status.textContent = err.message;
+    }
+  }
+
+  const planCard = document.querySelector("[data-plan]");
+  planCard?.querySelector("[data-start-plan]")?.addEventListener("click", () => {
+    plan(planCard, planCard.querySelector("[data-notes]").value.trim(), `Lesson ${planCard.dataset.lesson} is ready as a draft.`);
+  });
+
+  const review = document.querySelector("[data-review]");
+  if (review) {
+    const status = review.querySelector("[data-status]");
+    review.querySelector("[data-revise]").addEventListener("click", () => {
+      const notes = review.querySelector("[data-notes]").value.trim();
+      if (!notes) { status.textContent = "Write what you would like changed first."; return; }
+      plan(review, notes, "Claude has updated the draft.");
+    });
+    review.querySelector("[data-approve]").addEventListener("click", async () => {
+      if (!getToken()) { status.innerHTML = `Add your GitHub key on <a href="${settingsLink()}">Settings</a> first.`; return; }
+      status.textContent = "Approving...";
+      try {
+        await updateFile(review.dataset.path, (text) => {
+          if (!/^status:\s*draft\s*$/m.test(text || "")) throw new Error("This lesson is no longer a draft.");
+          return text.replace(/^status:\s*draft\s*$/m, "status: planned");
+        }, `Approve Lesson ${review.dataset.lesson}: ${review.dataset.lessonTitle}`);
+        review.querySelectorAll("button").forEach((b) => { b.disabled = true; });
+        status.textContent = "Approved. The site updates in a minute or two.";
+      } catch (err) {
+        status.textContent = err.message;
+      }
+    });
+  }
+
+  // ---- Accordions: expand or collapse all
+  document.querySelector("[data-expand-all]")?.addEventListener("click", (e) => {
+    const all = [...document.querySelectorAll("details.acc")];
+    const open = all.some((d) => !d.open);
+    all.forEach((d) => { d.open = open; });
+    e.currentTarget.textContent = open ? "Collapse all" : "Expand all";
+  });
+
+  // ---- Settings page
+  const settings = document.querySelector("[data-settings]");
+  if (settings) {
+    const status = settings.querySelector("[data-status]");
+    const state = settings.querySelector("[data-key-state]");
+    const input = settings.querySelector("[data-token-input]");
+    const showState = () => {
+      state.textContent = getToken() ? "This device is connected to GitHub." : "This device is not connected yet.";
+    };
+    showState();
+    settings.querySelector("[data-token-save]").addEventListener("click", async () => {
+      const value = input.value.trim();
+      if (!value) { status.textContent = "Paste a key first."; return; }
+      if (!setToken(value)) { status.textContent = "This browser will not store the key (private browsing?)."; return; }
+      input.value = "";
+      status.textContent = "Testing...";
+      try {
+        const repo = await gh(`/repos/${REPO}`);
+        if (!repo.ok) throw new Error(await problem(repo));
+        const canWrite = (await repo.json()).permissions?.push;
+        const actions = await gh(`/repos/${REPO}/actions/workflows`);
+        const parts = [canWrite ? "Ticks: ready." : "Ticks: the key needs Contents set to Read and write."];
+        parts.push(actions.ok ? "Planning: ready (once the Claude token is set up)." : "Planning: the key needs Actions set to Read and write.");
+        status.textContent = parts.join(" ");
+      } catch (err) {
+        status.textContent = err.message;
+      }
+      showState();
+    });
+    settings.querySelector("[data-token-remove]").addEventListener("click", () => {
+      setToken("");
+      status.textContent = "Removed from this device.";
+      showState();
+    });
+  }
+})();

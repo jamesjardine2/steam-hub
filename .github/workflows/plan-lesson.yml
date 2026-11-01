@@ -1,0 +1,83 @@
+name: Plan a lesson with Claude
+
+# Started from the site ("Plan Lesson N with Claude" or "Send to Claude").
+# Claude Code writes or revises the lesson as a draft, plus its artefacts,
+# then the site is rebuilt.
+
+on:
+  workflow_dispatch:
+    inputs:
+      unit:
+        description: "Unit folder, e.g. 2026-t4-y12-paper-makers"
+        required: true
+        type: string
+      lesson:
+        description: "Lesson number"
+        required: true
+        type: string
+      notes:
+        description: "Notes from James"
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: plan-lesson
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm install -g @anthropic-ai/claude-code
+
+      - name: Check the inputs
+        env:
+          UNIT: ${{ inputs.unit }}
+          LESSON: ${{ inputs.lesson }}
+        run: |
+          [[ "$UNIT" =~ ^[a-z0-9-]+$ && -d "content/units/$UNIT" ]] || { echo "Unknown unit: $UNIT"; exit 1; }
+          [[ "$LESSON" =~ ^[0-9]{1,2}$ ]] || { echo "Lesson must be a number"; exit 1; }
+
+      - name: Claude plans the lesson
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          UNIT: ${{ inputs.unit }}
+          LESSON: ${{ inputs.lesson }}
+          NOTES: ${{ inputs.notes }}
+        run: |
+          claude -p "Read .github/plan-lesson.md and follow it exactly. Unit folder: $UNIT. Lesson number: $LESSON. Notes from James: ${NOTES:-none}" \
+            --permission-mode acceptEdits \
+            --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "Bash(npx @11ty/eleventy *)" "Bash(grep *)"
+
+      - name: Check the site builds and has no dashes
+        run: |
+          npm run build
+          if grep -rnP '[\x{2013}\x{2014}]' content/; then echo "Found an en or em dash, not publishing."; exit 1; fi
+
+      - name: Commit and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UNIT: ${{ inputs.unit }}
+          LESSON: ${{ inputs.lesson }}
+        run: |
+          git config user.name "Claude (lesson planner)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/units
+          if git diff --cached --quiet; then echo "Claude made no changes."; exit 1; fi
+          git commit -m "Draft Lesson $LESSON for $UNIT" -m "Written by Claude from the hub's Plan button."
+          git push
+          # Pushes made with the workflow's own token do not start other
+          # workflows, so start the deploy directly.
+          gh workflow run deploy.yml --ref main

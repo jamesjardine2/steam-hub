@@ -28,3 +28,45 @@
   <div class="prose">{{ r.html | safe }}</div>
 </div>
 {% endmacro %}
+
+{# One class's tick for one lesson. hub.js keeps these in step with GitHub. #}
+{% macro tick(u, number, title, cls, date, dateLabel, enabled, style) %}
+<button type="button" class="tick tick-{{ style }}" data-tick data-unit="{{ u.slug }}" data-unit-title="{{ u.title }}" data-lesson="{{ number }}" data-lesson-title="{{ title }}" data-class="{{ cls }}" data-date="{{ date }}" aria-pressed="{{ 'true' if date else 'false' }}" aria-label="{{ cls }} finished Lesson {{ number }}"{% if not enabled %} disabled title="Lesson {{ number }} is not planned yet"{% endif %}>
+  {%- if style == "cell" -%}
+  <span class="tick-mark" aria-hidden="true">{{ "✓" if date }}</span>
+  {%- else -%}
+  <span class="tick-name">{{ cls }}</span><span class="tick-date">{{ dateLabel or "Not yet" }}</span>
+  {%- endif -%}
+</button>
+{% endmacro %}
+
+{% macro progressTable(u) %}
+<div class="table-scroll">
+  <table class="progress">
+    <thead>
+      <tr>
+        <th scope="col">Class</th>
+        {% for s in u.slots %}<th scope="col" title="Lesson {{ s.number }}: {{ s.title }}">{% if s.lesson %}<a href="{{ s.lesson.url }}">L{{ s.number }}</a>{% else %}L{{ s.number }}{% endif %}</th>{% endfor %}
+        <th scope="col" class="next-col">Up to</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in u.classRows %}
+      <tr data-class-row>
+        <th scope="row">{{ row.name }}</th>
+        {% for c in row.cells %}<td>{{ tick(u, c.number, c.title, row.name, c.date, c.dateLabel, c.enabled, "cell") }}</td>{% endfor %}
+        <td class="next-col" data-next>{{ row.next }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p class="small muted sync" data-sync-status></p>
+{% endmacro %}
+
+{% macro accordion(title, hint="", open=false) %}
+<details class="acc"{% if open %} open{% endif %}>
+  <summary><span class="acc-title">{{ title }}</span>{% if hint %}<span class="acc-hint">{{ hint }}</span>{% endif %}</summary>
+  <div class="acc-body">{{ caller() }}</div>
+</details>
+{% endmacro %}

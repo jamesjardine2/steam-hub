@@ -8,6 +8,8 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
+  // Published so the site can show the latest ticks without a GitHub key.
+  eleventyConfig.addPassthroughCopy({ "content/progress.json": "progress.json" });
   eleventyConfig.addWatchTarget("content/");
 
   // Text in square brackets is a placeholder for content still to come.
