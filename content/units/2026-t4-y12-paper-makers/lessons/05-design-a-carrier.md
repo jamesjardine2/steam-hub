@@ -1,7 +1,7 @@
 ---
 number: 5
 title: Design a Carrier
-status: draft
+status: planned
 summary: Test last week's dried layered strips against a single strip, then pairs draw and label a carrier for their toy using at least two techniques.
 lisc:
   intention: To design a paper carrier for a toy by choosing techniques that make paper stronger.
