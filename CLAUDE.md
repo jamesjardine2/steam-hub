@@ -177,13 +177,13 @@ Heading parts, separated by `·`: ISO date, then `Lesson N` or `Unit`, then an o
 
 ## Visual style
 
-Tokens are CSS custom properties at the top of `src/assets/site.css`:
+The "Electric" design system in `DESIGN.md` (November 2026): dark theme on `--void` #0C0C0F, electric violet `--violet` #5329E7 as the primary, Plus Jakarta Sans for everything.
 
-- Indigo `#3F51B5` (primary), deep indigo `#1A237E` (headings), `#283593` (chip text), pale indigo `#E8EAF6`
-- Amber highlight `#FFF8E1` with text `#6D4C00`; accent `#F9A825`
-- Page background `#F6F7FB`; cards white, `1px solid #E0E0E0`, radius 12px
-- Body text `#333333`, Helvetica/Arial
-- Must work on a phone and on a classroom projector. Touch targets at least 44px.
+- All colour, font and radius tokens live in one shared stylesheet, `src/assets/tokens.css`, loaded before `src/assets/site.css`. Never hard-code a colour or font anywhere else, and don't add colours that are not in `DESIGN.md`.
+- `--violet` is a fill only, always with white text. Violet text on dark uses `--ultraviolet`. Dark text goes on `--solar-orange`, `--plasma-pink` and `--ion-cyan`.
+- One partner accent per view. The hub uses `--solar-orange` for "next to plan", drafts, CRT and notes.
+- Flat: no gradients, glows or shadows. Cards radius 16px, buttons and pills fully rounded, inputs 10px.
+- Must work on a phone and on a classroom projector. Anything students read stays in `--glow`, not `--mist`. Touch targets at least 44px.
 
 ## Layout of the repo
 
@@ -200,7 +200,7 @@ src/settings.njk          # connect a device (GitHub key) and Claude setup steps
 src/assets/hub.js         # ticks, approve and plan buttons (GitHub API)
 .github/workflows/plan-lesson.yml  # Claude Code plans a lesson as a draft
 .github/plan-lesson.md    # the instructions Claude follows in that workflow
-src/assets/               # site.css, site.js
+src/assets/               # tokens.css (design tokens), site.css, site.js
 content/                  # all teaching content
 templates/                # lesson and unit templates, spec for Claude chats
 steam-hub-handover/       # original brief and mockups (not built)

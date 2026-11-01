@@ -1,0 +1,28 @@
+/* "Electric" design tokens (see DESIGN.md). The only place colours, fonts
+   and radii are defined: every other stylesheet uses these variables.
+   Contrast rules: --violet is a fill only, with white text on it; violet
+   text on dark uses --ultraviolet. Dark (--void) text goes on
+   --plasma-pink, --solar-orange and --ion-cyan. */
+:root {
+  /* Base neutrals, stacked for depth: void page, surface cards, raised hover */
+  --void: #0C0C0F;
+  --surface: #16161D;
+  --raised: #22222C;
+  --line: #34344A;
+  --mist: #A6A6B8;
+  --glow: #F4F4F8;
+  --white: #FFFFFF;
+
+  /* Electric accents: violet plus one partner per view */
+  --violet: #5329E7;
+  --ultraviolet: #8B6BFF;
+  --volt-blue: #2F6BFF;
+  --ion-cyan: #00D4FF;
+  --plasma-pink: #FF2E88;
+  --solar-orange: #FF7A1A;
+
+  --font: "Plus Jakarta Sans", system-ui, sans-serif;
+  --radius-card: 16px;
+  --radius-input: 10px;
+  --radius-pill: 999px;
+}
