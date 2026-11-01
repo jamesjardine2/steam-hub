@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>STEAM Hub overview</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#3F51B5}a:hover{color:#283593}
+</style>
+</helmet>
+<div style="min-height: 100%; background: #F6F7FB; font-family: Helvetica, Arial, sans-serif; color: #333333">
+  <header style="background: #3F51B5; color: #FFFFFF">
+    <nav style="max-width: 1200px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+      <a href="Main.dc.html" style="color: #FFFFFF; font-weight: 700; font-size: 20px; text-decoration: none; margin-right: auto">FCPS STEAM</a>
+      <a href="Main.dc.html" style="color: #FFFFFF; font-weight: 700; text-decoration: none; padding: 10px 4px; border-bottom: 3px solid #FFFFFF">Overview</a>
+      <a href="Unit.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Units</a>
+      <a href="Live.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Live</a>
+      <a href="Archive.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Archive</a>
+    </nav>
+  </header>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 36px 32px 56px; display: flex; flex-direction: column; gap: 32px">
+    <section style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+      <div>
+        <p style="margin: 0 0 6px; font-size: 14px; font-weight: 700; color: #3F51B5; letter-spacing: 0.06em; text-transform: uppercase">Term 4, 2026</p>
+        <h1 style="margin: 0; font-size: 36px; line-height: 1.15; color: #1A237E">STEAM this term</h1>
+      </div>
+      <p style="margin: 0; font-size: 15px; color: #555555; max-width: 380px">Foundation to Year 6 at a glance</p>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+      <sc-for list="{{ units }}" as="u" hint-placeholder-count="4">
+        <article style="background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+            <span style="background: #E8EAF6; color: #283593; font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px">{{ u.level }}</span>
+            <span style="font-size: 13px; color: #555555">{{ u.focus }}</span>
+          </div>
+          <h2 style="margin: 0; font-size: 21px; line-height: 1.25; color: #1A237E">{{ u.title }}</h2>
+          <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #444444">{{ u.blurb }}</p>
+          <div>
+            <p style="margin: 0 0 8px; font-size: 13px; color: #555555">Lessons planned: {{ u.planned }} of 7</p>
+            <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px">
+              <sc-for list="{{ u.dots }}" as="d" hint-placeholder-count="7">
+                <span style="{{ d.style }}" title="{{ d.label }}"></span>
+              </sc-for>
+            </div>
+          </div>
+          <div style="background: #FFF8E1; border-radius: 8px; padding: 12px 14px">
+            <p style="margin: 0; font-size: 12px; font-weight: 700; color: #6D4C00; text-transform: uppercase; letter-spacing: 0.05em">Up next</p>
+            <p style="margin: 4px 0 0; font-size: 15px; font-weight: 700; color: #333333">{{ u.next }}</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto">
+            <a href="Unit.dc.html" style="flex: 1 1 120px; text-align: center; background: #3F51B5; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 14px; padding: 13px 14px; border-radius: 8px">Open unit</a>
+            <a href="Live.dc.html" style="flex: 1 1 100px; text-align: center; background: #FFFFFF; color: #3F51B5; border: 1px solid #3F51B5; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 14px; border-radius: 8px">Go live</a>
+          </div>
+        </article>
+      </sc-for>
+    </section>
+
+    <section style="display: flex; flex-wrap: wrap; gap: 20px">
+      <div style="flex: 2 1 480px; background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+        <h2 style="margin: 0; font-size: 18px; color: #1A237E">Latest reflections</h2>
+        <div style="border-top: 1px solid #EEEEEE; padding-top: 14px; display: flex; flex-direction: column; gap: 4px">
+          <p style="margin: 0; font-size: 13px; color: #555555">Year 1/2 · Lesson 3 Weave It</p>
+          <p style="margin: 0; font-size: 15px; color: #333333">[Your two-line note after the lesson, filed from the pinned chat]</p>
+        </div>
+        <div style="border-top: 1px solid #EEEEEE; padding-top: 14px; display: flex; flex-direction: column; gap: 4px">
+          <p style="margin: 0; font-size: 13px; color: #555555">Year 5/6 · Lesson 2 Button Smash</p>
+          <p style="margin: 0; font-size: 15px; color: #333333">[What worked, what to change next time]</p>
+        </div>
+      </div>
+      <div style="flex: 1 1 300px; background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-size: 18px; color: #1A237E">Also this term</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55">Year 5 science visits at Footscray High: matter, reversible and irreversible change.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55">[Whole-school events, STEAM Club, competitions]</p>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1040}}'>
+class Component extends DCLogic {
+  dots(planned, next) {
+    var out = [];
+    for (var i = 1; i <= 7; i++) {
+      var base = 'display:block;height:10px;border-radius:5px;';
+      var style = i <= planned ? base + 'background:#3F51B5;' : (i === next ? base + 'background:#F9A825;' : base + 'background:#E0E0E0;');
+      var label = i <= planned ? 'Lesson ' + i + ': planned' : (i === next ? 'Lesson ' + i + ': next to plan' : 'Lesson ' + i + ': not planned yet');
+      out.push({ style: style, label: label });
+    }
+    return out;
+  }
+  renderVals() {
+    return {
+      units: [
+        { level: 'Foundation', focus: 'D&T + Science', title: "Teddy's New House", blurb: 'Designing a house for Teddy: homes, rooms, strong LEGO walls and a roof that keeps the rain out.', planned: 3, next: 'Lesson 4: Roof water test', dots: this.dots(3, 4) },
+        { level: 'Year 1/2', focus: 'D&T + Chemical Science', title: 'Stronger Together: Paper Makers', blurb: 'Folding, twisting and weaving paper to combine materials, leading to a woven paper carrier.', planned: 3, next: 'Lesson 4: [title]', dots: this.dots(3, 4) },
+        { level: 'Year 3/4', focus: 'D&T + Physical Science', title: 'LEGO Science and Paper Bridges', blurb: 'LEGO Education Science challenges, then designing and testing a paper bridge.', planned: 0, next: 'Lesson 1: [title]', dots: this.dots(0, 1) },
+        { level: 'Year 5/6', focus: 'Digital Tech + D&T', title: 'micro:bit Game Design with Jacdac', blurb: 'Buttons and LED rings become physical game controllers: Button Smash, reaction timers and Simon Says.', planned: 2, next: 'Lesson 3: Reaction timer', dots: this.dots(2, 3) }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

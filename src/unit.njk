@@ -1,0 +1,77 @@
+---
+layout: base.njk
+nav: units
+pagination:
+  data: site.units
+  size: 1
+  alias: unit
+permalink: "{{ unit.url }}"
+eleventyComputed:
+  title: "{{ unit.title }}"
+---
+{% import "macros.njk" as m %}
+<p class="crumbs"><a href="/">Overview</a> / {{ unit.cohortLabel }} / {{ unit.termLabel }}</p>
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-kicker">{{ unit.cohortLabel }} · {{ unit.lessonCount }} lessons{% if unit.focus %} · {{ unit.focus }}{% endif %}</p>
+    <h1>{{ unit.title }}</h1>
+    {% if unit.descriptionHtml %}<div class="hero-desc">{{ unit.descriptionHtml | safe }}</div>{% endif %}
+  </div>
+  <div class="actions">
+    <a class="btn btn-white" href="{{ unit.claudeChat or 'https://claude.ai' }}" target="_blank" rel="noopener">Next lesson in Claude</a>
+  </div>
+</section>
+
+<div class="columns">
+  <section class="main-col stack">
+    <h2 class="section-title">Lessons</h2>
+    {% for s in unit.slots %}
+    <article class="card lesson-row">
+      <span class="num">{{ s.number }}</span>
+      <div class="lesson-row-text">
+        <h3>{{ m.text(s.title) }}</h3>
+        {% if s.summary %}<p>{{ m.text(s.summary) }}</p>{% endif %}
+      </div>
+      <span class="status status-{{ s.state }}">{{ s.stateLabel }}</span>
+      <span class="small muted extras">{{ s.extras }}</span>
+      {% if s.lesson %}<a class="row-link" href="{{ s.lesson.url }}">Open<span class="visually-hidden"> Lesson {{ s.number }}</span></a>{% else %}<span class="row-link"></span>{% endif %}
+    </article>
+    {% endfor %}
+  </section>
+
+  <aside class="side-col stack">
+    <div class="card">
+      <h2 class="card-title">Unit LISC</h2>
+      {{ m.lisc(unit.lisc, "[Unit LISC to add in unit.md]") }}
+    </div>
+    <div class="card">
+      <h2 class="card-title">Curriculum</h2>
+      {% if unit.curriculum.length %}{{ m.chips(unit.curriculum) }}{% else %}<p class="ph">[Curriculum codes to add]</p>{% endif %}
+    </div>
+    <div class="card stack-tight">
+      <h2 class="card-title">Files and links</h2>
+      {% if unit.claudeChat %}
+        <a class="link-row" href="{{ unit.claudeChat }}" target="_blank" rel="noopener">Pinned chat: {{ unit.cohortLabel }} Term {{ unit.term }}</a>
+      {% else %}
+        <p class="ph small">[Add the pinned chat link as claude_chat in unit.md]</p>
+      {% endif %}
+      {% for p in unit.pdfs %}
+        <a class="link-row" href="{{ p.url }}">Lesson {{ p.number }} plan (PDF)</a>
+      {% endfor %}
+      {% for l in unit.links %}
+        <a class="link-row" href="{{ l.url }}">{{ l.label }}</a>
+      {% endfor %}
+    </div>
+    <div class="card amber stack-tight">
+      <h2 class="card-title">Unit reflection</h2>
+      {% for r in unit.unitReflections %}
+        {{ m.reflection(r) }}
+      {% else %}
+        <p class="ph small">[End-of-unit note: what to keep, cut and change when this comes round again]</p>
+      {% endfor %}
+      <a class="btn btn-amber" href="{{ unit.reflectionsEditUrl }}" target="_blank" rel="noopener">Add a reflection</a>
+      <p class="next-taught-line">Next taught: {{ unit.nextTaught }}</p>
+    </div>
+  </aside>
+</div>

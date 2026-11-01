@@ -1,0 +1,70 @@
+---
+layout: base.njk
+title: Overview
+nav: overview
+---
+{% import "macros.njk" as m %}
+<section class="page-head">
+  <div>
+    <p class="kicker">{{ site.currentTerm.label }}</p>
+    <h1>STEAM this term</h1>
+  </div>
+  <p class="muted">Foundation to Year 6 at a glance</p>
+</section>
+
+<section class="card-grid">
+{% for slot in site.overview %}
+  {% set u = slot.unit %}
+  <article class="card unit-card">
+    <div class="row-between">
+      <span class="pill">{{ slot.label }}</span>
+      {% if u %}<span class="small muted">{{ u.focus }}</span>{% endif %}
+    </div>
+    {% if u %}
+    <h2>{{ m.text(u.title) }}</h2>
+    <p class="blurb">{{ u.blurb }}</p>
+    <div>
+      <p class="small muted dots-label">Lessons planned: {{ u.plannedCount }} of {{ u.lessonCount }}</p>
+      <div class="dots" style="grid-template-columns: repeat({{ u.slots | length }}, minmax(0, 1fr))">
+        {% for s in u.slots %}<span class="dot dot-{{ 'planned' if s.planned else ('next' if s.isNext else 'later') }}" title="Lesson {{ s.number }}: {{ s.stateLabel | lower }}"></span>{% endfor %}
+      </div>
+    </div>
+    <div class="up-next">
+      <p class="up-next-label">Up next</p>
+      {% if u.nextToPlan %}
+      <p class="up-next-title">Lesson {{ u.nextToPlan.number }}: {{ m.text(u.nextToPlan.title) }}</p>
+      {% else %}
+      <p class="up-next-title">All lessons planned</p>
+      {% endif %}
+    </div>
+    <div class="actions">
+      <a class="btn" href="{{ u.url }}">Open unit</a>
+    </div>
+    {% else %}
+    <p class="ph">[No {{ site.currentTerm.label }} unit added yet]</p>
+    {% endif %}
+  </article>
+{% endfor %}
+</section>
+
+<section class="split">
+  <div class="card stack wide">
+    <h2 class="card-title">Latest reflections</h2>
+    {% for r in site.latestReflections %}
+      <div class="reflection">
+        <p class="meta"><a href="{{ r.url }}">{{ r.where }}</a> · {{ r.dateLabel }}{% if r.className %} · {{ r.className }}{% endif %}</p>
+        <div class="prose">{{ r.html | safe }}</div>
+      </div>
+    {% else %}
+      <p class="muted">No reflections yet this term. Add them from a unit or lesson page.</p>
+    {% endfor %}
+  </div>
+  <div class="card stack">
+    <h2 class="card-title">Also this term</h2>
+    {% if site.currentTerm.notesHtml %}
+      <div class="prose">{{ site.currentTerm.notesHtml | safe }}</div>
+    {% else %}
+      <p class="ph">[Add notes in content/terms/{{ site.currentTerm.year }}-t{{ site.currentTerm.term }}.md]</p>
+    {% endif %}
+  </div>
+</section>

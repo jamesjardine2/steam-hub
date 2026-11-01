@@ -1,0 +1,121 @@
+---
+layout: base.njk
+nav: units
+pagination:
+  data: site.lessons
+  size: 1
+  alias: lesson
+permalink: "{{ lesson.url }}"
+eleventyComputed:
+  title: "Lesson {{ lesson.number }}: {{ lesson.title }}"
+---
+{% import "macros.njk" as m %}
+{% set unit = lesson.unit %}
+<p class="crumbs"><a href="/">Overview</a> / <a href="{{ unit.url }}">{{ unit.cohortLabel }}: {{ unit.title }}</a> / Lesson {{ lesson.number }}</p>
+
+<section class="page-head">
+  <div>
+    <p class="kicker">Lesson {{ lesson.number }} of {{ unit.lessonCount }} · {{ lesson.duration }} minutes{% if lesson.status == "draft" %} · Draft{% endif %}</p>
+    <h1>{{ m.text(lesson.title) }}</h1>
+  </div>
+  <div class="actions">
+    {% if lesson.pdf %}<a class="btn btn-outline" href="{{ lesson.pdf }}">Plan PDF</a>{% endif %}
+  </div>
+</section>
+
+<div class="columns">
+  <section class="main-col stack-lg">
+    <div class="card">
+      <h2 class="card-title">LISC</h2>
+      {{ m.lisc(lesson.lisc) }}
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">Lesson at a glance</h2>
+      {% if lesson.sequence.length %}
+      <div class="glance">
+        {% for s in lesson.sequence %}
+        <div class="glance-row">
+          <span class="glance-phase">{{ s.phase }}</span>
+          <span class="glance-time">{{ s.time }}</span>
+          <span class="glance-what">{{ m.text(s.what) }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p class="ph">[Sequence to add from the plan]</p>
+      {% endif %}
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">Full plan</h2>
+      <div class="prose">
+        {% if lesson.bodyHtml %}{{ lesson.bodyHtml | safe }}{% else %}<p class="ph">[Full plan to add]</p>{% endif %}
+      </div>
+    </div>
+
+    <div class="card stack">
+      <h2 class="card-title">Reflections</h2>
+      {% for r in lesson.reflections %}
+        {{ m.reflection(r) }}
+      {% else %}
+        <p class="muted">No reflections for this lesson yet.</p>
+      {% endfor %}
+      <div>
+        <a class="btn btn-outline" href="{{ unit.reflectionsEditUrl }}" target="_blank" rel="noopener">Add a reflection</a>
+        <p class="small muted hint">Opens the unit's reflections file on GitHub. Start a new entry with: ## YYYY-MM-DD · Lesson {{ lesson.number }} · class</p>
+      </div>
+    </div>
+
+    <nav class="pager" aria-label="Lessons in this unit">
+      {% if lesson.prev %}<a href="{{ lesson.prev.url }}">Previous: Lesson {{ lesson.prev.number }} {{ lesson.prev.title }}</a>{% else %}<span></span>{% endif %}
+      {% if lesson.next %}<a href="{{ lesson.next.url }}">Next: Lesson {{ lesson.next.number }} {{ lesson.next.title }}</a>{% endif %}
+    </nav>
+  </section>
+
+  <aside class="side-col stack">
+    <div class="card stack-tight">
+      <h2 class="card-title">Bring up live</h2>
+      {% for a in lesson.live %}
+        {% if a.href %}
+        <a class="artefact" href="{{ a.href }}" target="_blank" rel="noopener">
+        {% else %}
+        <div class="artefact artefact-missing">
+        {% endif %}
+          <span class="artefact-kind">{{ a.kind }}</span>
+          <span class="artefact-text">
+            <span class="artefact-title">{{ a.title }}</span>
+            <span class="small muted">{% if a.href %}{{ a.note }}{% else %}{{ a.note }}{% if a.note %} · {% endif %}<span class="ph">[file to add]</span>{% endif %}</span>
+          </span>
+        {% if a.href %}</a>{% else %}</div>{% endif %}
+      {% else %}
+        <p class="muted small">No live artefacts for this lesson.</p>
+      {% endfor %}
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">Resources</h2>
+      {% if lesson.resources.length %}
+      <ul class="list">{% for r in lesson.resources %}<li>{{ r }}</li>{% endfor %}</ul>
+      {% else %}
+      <p class="ph">[Resources to add]</p>
+      {% endif %}
+    </div>
+
+    <div class="card stack-tight">
+      <h2 class="card-title">Curriculum and approach</h2>
+      {% if lesson.curriculum.length %}{{ m.chips(lesson.curriculum) }}{% else %}<p class="small muted">Unit codes: {{ unit.curriculum | join(", ") }}</p>{% endif %}
+      {% if lesson.vtlm.length %}<p class="small strong">VTLM 2.0</p>{{ m.chips(lesson.vtlm) }}{% endif %}
+      {% if lesson.citw.length %}<p class="small strong">CITW</p>{{ m.chips(lesson.citw) }}{% endif %}
+      {% if not lesson.vtlm.length and not lesson.citw.length %}<p class="ph small">[VTLM and CITW elements to add]</p>{% endif %}
+    </div>
+
+    <div class="card amber stack-tight">
+      <h2 class="card-title">Away for this one?</h2>
+      {% if lesson.crtNotes %}<p class="small">{{ lesson.crtNotes }}</p>{% endif %}
+      <p class="small">Copies a CRT request for this lesson and opens the pinned chat, ready to write a CRT version with the same Learning Intention.</p>
+      <a class="btn btn-amber" href="{{ unit.claudeChat or 'https://claude.ai' }}" target="_blank" rel="noopener" data-copy="{{ lesson.crtPrompt }}">Make a CRT version</a>
+      <span class="copy-status" role="status"></span>
+    </div>
+  </aside>
+</div>

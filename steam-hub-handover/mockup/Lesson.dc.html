@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lesson 3: Weave It</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#3F51B5}a:hover{color:#283593}
+</style>
+</helmet>
+<div style="min-height: 100%; background: #F6F7FB; font-family: Helvetica, Arial, sans-serif; color: #333333">
+  <header style="background: #3F51B5; color: #FFFFFF">
+    <nav style="max-width: 1200px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+      <a href="Main.dc.html" style="color: #FFFFFF; font-weight: 700; font-size: 20px; text-decoration: none; margin-right: auto">FCPS STEAM</a>
+      <a href="Main.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Overview</a>
+      <a href="Unit.dc.html" style="color: #FFFFFF; font-weight: 700; text-decoration: none; padding: 10px 4px; border-bottom: 3px solid #FFFFFF">Units</a>
+      <a href="Live.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Live</a>
+      <a href="Archive.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Archive</a>
+    </nav>
+  </header>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 32px 32px 56px; display: flex; flex-direction: column; gap: 26px">
+    <p style="margin: 0; font-size: 14px; color: #555555"><a href="Main.dc.html">Overview</a> / <a href="Unit.dc.html">Year 1/2: Paper Makers</a> / Lesson 3</p>
+
+    <section style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between">
+      <div style="flex: 1 1 520px">
+        <p style="margin: 0 0 6px; font-size: 14px; font-weight: 700; color: #3F51B5; letter-spacing: 0.06em; text-transform: uppercase">Lesson 3 of 7 · 45 minutes</p>
+        <h1 style="margin: 0; font-size: 38px; line-height: 1.15; color: #1A237E">Weave It</h1>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px">
+        <a href="Live.dc.html" style="background: #3F51B5; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 15px; padding: 14px 20px; border-radius: 8px">Go live</a>
+        <a href="https://claude.ai" style="background: #FFFFFF; color: #3F51B5; border: 1px solid #3F51B5; text-decoration: none; font-weight: 700; font-size: 15px; padding: 13px 18px; border-radius: 8px">Plan PDF</a>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+      <section style="flex: 999 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <div style="background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 24px">
+          <h2 style="margin: 0 0 14px; font-size: 18px; color: #1A237E">LISC</h2>
+          <p style="margin: 0; font-size: 15px; font-weight: 700">Learning Intention:</p>
+          <p style="margin: 2px 0 12px; font-size: 15px; line-height: 1.6">To weave paper strips together and test whether weaving makes paper stronger.</p>
+          <p style="margin: 0; font-size: 15px; font-weight: 700">Success Criteria:</p>
+          <p style="margin: 2px 0 4px; font-size: 15px">I can:</p>
+          <ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.7">
+            <li>weave strips over and under on a paper loom</li>
+            <li>test a woven mat against loose strips</li>
+            <li>explain why the woven mat is stronger</li>
+          </ul>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 24px">
+          <h2 style="margin: 0 0 14px; font-size: 18px; color: #1A237E">Lesson at a glance</h2>
+          <div style="display: flex; flex-direction: column">
+            <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+              <div style="display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 12px 0; border-top: 1px solid #EEEEEE">
+                <span style="flex: 0 0 90px; font-weight: 700; color: #283593">{{ s.phase }}</span>
+                <span style="flex: 0 0 60px; color: #555555">{{ s.time }}</span>
+                <span style="flex: 1 1 320px; line-height: 1.55">{{ s.what }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+          <h2 style="margin: 0; font-size: 18px; color: #1A237E">Reflections</h2>
+          <div style="border-top: 1px solid #EEEEEE; padding-top: 12px">
+            <p style="margin: 0; font-size: 13px; color: #555555">[Date] · [Class]</p>
+            <p style="margin: 4px 0 0; font-size: 15px">[What happened, what to change]</p>
+          </div>
+          <label for="note" style="font-size: 14px; font-weight: 700; margin-top: 4px">Add a note</label>
+          <textarea id="note" rows="3" placeholder="e.g. Slits were too close together for 1/2A, cut them wider next time" style="font-family: inherit; font-size: 15px; padding: 12px; border: 1px solid #BDBDBD; border-radius: 8px; resize: vertical"></textarea>
+        </div>
+      </section>
+
+      <aside style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 18px">
+        <div style="background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+          <h2 style="margin: 0; font-size: 17px; color: #1A237E">Bring up live</h2>
+          <sc-for list="{{ live }}" as="a" hint-placeholder-count="3">
+            <a href="Live.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #333333; border: 1px solid #E0E0E0; border-radius: 10px; padding: 12px 14px; min-height: 44px">
+              <span style="width: 40px; height: 40px; border-radius: 8px; background: #E8EAF6; color: #283593; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto">{{ a.kind }}</span>
+              <span style="display: flex; flex-direction: column">
+                <span style="font-weight: 700; font-size: 15px">{{ a.title }}</span>
+                <span style="font-size: 13px; color: #555555">{{ a.note }}</span>
+              </span>
+            </a>
+          </sc-for>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 22px">
+          <h2 style="margin: 0 0 10px; font-size: 17px; color: #1A237E">Resources</h2>
+          <ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.7">
+            <li>Paper looms and strips</li>
+            <li>Scissors</li>
+            <li>Black pebbles for testing</li>
+            <li>STEAM journals and glue</li>
+          </ul>
+        </div>
+        <div style="background: #FFF8E1; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+          <h2 style="margin: 0; font-size: 17px; color: #6D4C00">Away for this one?</h2>
+          <p style="margin: 0; font-size: 14px; line-height: 1.55">Opens Claude with this lesson loaded, ready to write a CRT version with the same Learning Intention.</p>
+          <a href="https://claude.ai" style="background: #FFFFFF; color: #6D4C00; border: 1px solid #C79100; text-align: center; text-decoration: none; font-weight: 700; font-size: 15px; padding: 12px 14px; border-radius: 8px">Make a CRT version</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      steps: [
+        { phase: 'Hook', time: '5 min', what: 'Show a woven basket: how can thin strips hold something heavy?' },
+        { phase: 'I do', time: '10 min', what: 'Model over-under weaving on a loom with a think aloud and a self-check.' },
+        { phase: 'We do', time: '7 min', what: 'First two strips together, calling the pattern aloud.' },
+        { phase: 'You do', time: '16 min', what: 'Finish the mat, then test it against loose strips with pebbles.' },
+        { phase: 'Review', time: '7 min', what: 'Glue the mat into the journal; back to the success criteria.' }
+      ],
+      live: [
+        { kind: 'SLIDE', title: 'Weaving steps', note: 'Over, under, check' },
+        { kind: 'HTML', title: 'Strength test recorder', note: 'Class tally on the board' },
+        { kind: 'IMG', title: 'Wurundjeri woven basket', note: 'Cultural connection' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

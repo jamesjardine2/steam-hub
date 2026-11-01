@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: Units
+nav: units
+permalink: /units/
+---
+<section class="page-head">
+  <div>
+    <h1>Units</h1>
+    <p class="muted">Every unit in the hub, newest term first</p>
+  </div>
+</section>
+{% for group in site.unitsByTerm %}
+<section class="stack">
+  <h2 class="section-title">{{ group.label }}</h2>
+  <div class="card-grid fill">
+    {% for u in group.units %}
+    <a class="card unit-link" href="{{ u.url }}">
+      <span class="row-between"><span class="pill">{{ u.cohortLabel }}</span><span class="small muted">{{ u.plannedCount }} of {{ u.lessonCount }} planned</span></span>
+      <span class="unit-link-title">{{ u.title }}</span>
+      <span class="blurb">{{ u.blurb }}</span>
+      <span class="next-taught">Next taught: {{ u.nextTaught }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}

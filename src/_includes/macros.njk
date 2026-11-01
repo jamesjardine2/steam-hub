@@ -1,0 +1,30 @@
+{% macro text(value, tag="span", cls="") -%}
+<{{ tag }}{% if cls or (value | isPlaceholder) %} class="{{ cls }}{% if value | isPlaceholder %} ph{% endif %}"{% endif %}>{{ value }}</{{ tag }}>
+{%- endmacro %}
+
+{% macro lisc(lisc, missing="[LISC to add from the plan]") %}
+{% if lisc %}
+<p class="lisc-label">Learning Intention:</p>
+<p class="lisc-li">{{ lisc.intention }}</p>
+<p class="lisc-label">Success Criteria:</p>
+<p class="lisc-ican">I can:</p>
+<ul class="lisc-sc">
+  {% for c in lisc.criteria %}<li>{{ c }}</li>{% endfor %}
+</ul>
+<button type="button" class="btn-text" data-copy="{{ lisc.text }}">Copy LISC</button>
+<span class="copy-status" role="status"></span>
+{% else %}
+<p class="ph">{{ missing }}</p>
+{% endif %}
+{% endmacro %}
+
+{% macro chips(list) %}
+<div class="chips">{% for c in list %}<span class="chip">{{ c }}</span>{% endfor %}</div>
+{% endmacro %}
+
+{% macro reflection(r, where="") %}
+<div class="reflection">
+  <p class="meta">{{ r.dateLabel }}{% if where %} · {{ where }}{% endif %}{% if r.className %} · {{ r.className }}{% endif %}</p>
+  <div class="prose">{{ r.html | safe }}</div>
+</div>
+{% endmacro %}

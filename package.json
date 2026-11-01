@@ -1,0 +1,14 @@
+{
+  "name": "steam-hub",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "gray-matter": "4.0.3",
+    "markdown-it": "15.0.3"
+  }
+}

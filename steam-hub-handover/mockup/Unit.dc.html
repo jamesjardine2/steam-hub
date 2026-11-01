@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Unit: Stronger Together: Paper Makers</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#3F51B5}a:hover{color:#283593}
+</style>
+</helmet>
+<div style="min-height: 100%; background: #F6F7FB; font-family: Helvetica, Arial, sans-serif; color: #333333">
+  <header style="background: #3F51B5; color: #FFFFFF">
+    <nav style="max-width: 1200px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+      <a href="Main.dc.html" style="color: #FFFFFF; font-weight: 700; font-size: 20px; text-decoration: none; margin-right: auto">FCPS STEAM</a>
+      <a href="Main.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Overview</a>
+      <a href="Unit.dc.html" style="color: #FFFFFF; font-weight: 700; text-decoration: none; padding: 10px 4px; border-bottom: 3px solid #FFFFFF">Units</a>
+      <a href="Live.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Live</a>
+      <a href="Archive.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Archive</a>
+    </nav>
+  </header>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 32px 32px 56px; display: flex; flex-direction: column; gap: 28px">
+    <p style="margin: 0; font-size: 14px; color: #555555"><a href="Main.dc.html">Overview</a> / Year 1/2 / Term 4, 2026</p>
+
+    <section style="background: #3F51B5; color: #FFFFFF; border-radius: 14px; padding: 30px 32px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between">
+      <div style="flex: 1 1 520px">
+        <p style="margin: 0 0 8px; font-size: 14px; font-weight: 700; color: #C5CAE9; letter-spacing: 0.06em; text-transform: uppercase">Year 1/2 · 7 lessons · D&amp;T + Chemical Science</p>
+        <h1 style="margin: 0; font-size: 38px; line-height: 1.15">Stronger Together: Paper Makers</h1>
+        <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #E8EAF6">Standalone paper challenges in Lessons 1 to 4, then three lessons building towards a woven paper carrier.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px">
+        <a href="https://claude.ai" style="background: #FFFFFF; color: #283593; text-decoration: none; font-weight: 700; font-size: 15px; padding: 14px 18px; border-radius: 8px">Next lesson in Claude</a>
+        <a href="Live.dc.html" style="background: #F9A825; color: #1A1A1A; text-decoration: none; font-weight: 700; font-size: 15px; padding: 14px 18px; border-radius: 8px">Go live</a>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+      <section style="flex: 999 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0 0 4px; font-size: 20px; color: #1A237E">Lessons</h2>
+        <sc-for list="{{ lessons }}" as="l" hint-placeholder-count="7">
+          <article style="background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 18px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px">
+            <span style="width: 44px; height: 44px; border-radius: 50%; background: #E8EAF6; color: #283593; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto">{{ l.n }}</span>
+            <div style="flex: 1 1 300px; min-width: 0">
+              <h3 style="margin: 0; font-size: 17px; color: #1A237E">{{ l.title }}</h3>
+              <p style="margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: #555555">{{ l.summary }}</p>
+            </div>
+            <span style="{{ l.chipStyle }}">{{ l.status }}</span>
+            <span style="font-size: 13px; color: #555555; min-width: 110px">{{ l.extras }}</span>
+            <a href="Lesson.dc.html" style="color: #3F51B5; font-weight: 700; font-size: 14px; text-decoration: none; padding: 12px 6px">Open</a>
+          </article>
+        </sc-for>
+      </section>
+
+      <aside style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 18px">
+        <div style="background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 22px">
+          <h2 style="margin: 0 0 12px; font-size: 17px; color: #1A237E">Unit LISC</h2>
+          <p style="margin: 0; font-size: 14px; font-weight: 700">Learning Intention:</p>
+          <p style="margin: 2px 0 10px; font-size: 14px; line-height: 1.55">To combine paper in different ways to make it stronger and more useful.</p>
+          <p style="margin: 0; font-size: 14px; font-weight: 700">Success Criteria:</p>
+          <p style="margin: 2px 0 4px; font-size: 14px">I can:</p>
+          <ul style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.6">
+            <li>test how folding, twisting and weaving change paper</li>
+            <li>explain why combined paper is stronger</li>
+            <li>design and make a woven paper carrier</li>
+          </ul>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 22px">
+          <h2 style="margin: 0 0 12px; font-size: 17px; color: #1A237E">Curriculum</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span style="background: #E8EAF6; color: #283593; font-size: 13px; font-weight: 700; padding: 6px 10px; border-radius: 6px">VC2S2U05</span>
+            <span style="background: #E8EAF6; color: #283593; font-size: 13px; font-weight: 700; padding: 6px 10px; border-radius: 6px">VC2TDE2S01</span>
+            <span style="background: #E8EAF6; color: #283593; font-size: 13px; font-weight: 700; padding: 6px 10px; border-radius: 6px">VC2TDE2C04</span>
+            <span style="background: #E8EAF6; color: #283593; font-size: 13px; font-weight: 700; padding: 6px 10px; border-radius: 6px">VC2TDE2D03</span>
+          </div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+          <h2 style="margin: 0; font-size: 17px; color: #1A237E">Files and links</h2>
+          <a href="https://claude.ai" style="font-size: 15px; padding: 6px 0">Pinned chat: 1/2 Term 4</a>
+          <a href="Lesson.dc.html" style="font-size: 15px; padding: 6px 0">Lesson plan PDFs (3)</a>
+          <a href="Live.dc.html" style="font-size: 15px; padding: 6px 0">Student-facing pages</a>
+        </div>
+        <div style="background: #FFF8E1; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
+          <h2 style="margin: 0; font-size: 17px; color: #6D4C00">Unit reflection</h2>
+          <p style="margin: 0; font-size: 14px; line-height: 1.55">[End-of-unit note: what to keep, cut and change when this comes round again]</p>
+          <p style="margin: 6px 0 0; font-size: 13px; font-weight: 700; color: #6D4C00">Next taught: Term 4, 2028</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1240}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var chip = 'font-size:13px;font-weight:700;padding:7px 12px;border-radius:999px;';
+    var planned = chip + 'background:#E8EAF6;color:#283593;';
+    var next = chip + 'background:#FFF8E1;color:#6D4C00;';
+    var later = chip + 'background:#F1F1F1;color:#555555;';
+    return {
+      lessons: [
+        { n: 1, title: 'Paper Power', summary: 'Folding and rolling paper to test which shape holds the most pebbles.', status: 'Planned', chipStyle: planned, extras: 'Plan PDF · 1 note' },
+        { n: 2, title: 'Twist It', summary: 'Twisted paper rope against a flat strip, with small books as weights.', status: 'Planned', chipStyle: planned, extras: 'Plan PDF' },
+        { n: 3, title: 'Weave It', summary: 'Paper looms: a woven mat against loose strips, plus the Wurundjeri basket link.', status: 'Planned', chipStyle: planned, extras: 'Plan PDF · 2 live' },
+        { n: 4, title: '[Lesson 4]', summary: 'Last standalone challenge.', status: 'Next to plan', chipStyle: next, extras: '' },
+        { n: 5, title: '[Lesson 5]', summary: 'Designing the woven paper carrier.', status: 'Not planned', chipStyle: later, extras: '' },
+        { n: 6, title: '[Lesson 6]', summary: 'Making the carrier.', status: 'Not planned', chipStyle: later, extras: '' },
+        { n: 7, title: '[Lesson 7]', summary: 'Testing and reflecting in Book Creator or Chatterpix Kids.', status: 'Not planned', chipStyle: later, extras: '' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

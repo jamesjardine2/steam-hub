@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>STEAM archive</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#3F51B5}a:hover{color:#283593}
+</style>
+</helmet>
+<div style="min-height: 100%; background: #F6F7FB; font-family: Helvetica, Arial, sans-serif; color: #333333">
+  <header style="background: #3F51B5; color: #FFFFFF">
+    <nav style="max-width: 1200px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+      <a href="Main.dc.html" style="color: #FFFFFF; font-weight: 700; font-size: 20px; text-decoration: none; margin-right: auto">FCPS STEAM</a>
+      <a href="Main.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Overview</a>
+      <a href="Unit.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Units</a>
+      <a href="Live.dc.html" style="color: #E8EAF6; text-decoration: none; padding: 10px 4px">Live</a>
+      <a href="Archive.dc.html" style="color: #FFFFFF; font-weight: 700; text-decoration: none; padding: 10px 4px; border-bottom: 3px solid #FFFFFF">Archive</a>
+    </nav>
+  </header>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 36px 32px 56px; display: flex; flex-direction: column; gap: 24px">
+    <section style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+      <div>
+        <h1 style="margin: 0; font-size: 36px; color: #1A237E">Archive</h1>
+        <p style="margin: 8px 0 0; font-size: 16px; color: #555555">Past units, lessons and notes</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; flex: 0 1 340px">
+        <label for="q" style="font-size: 14px; font-weight: 700">Search units, lessons and notes</label>
+        <input id="q" type="search" placeholder="e.g. magnets, Scratch, weaving" style="font-family: inherit; font-size: 15px; padding: 12px 14px; border: 1px solid #BDBDBD; border-radius: 8px">
+      </div>
+    </section>
+
+    <section style="display: flex; flex-wrap: wrap; gap: 10px" aria-label="Filter by year level">
+      <sc-for list="{{ pills }}" as="p" hint-placeholder-count="5">
+        <button type="button" onClick="{{ p.pick }}" style="{{ p.style }}">{{ p.label }}</button>
+      </sc-for>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px">
+      <sc-for list="{{ shown }}" as="u" hint-placeholder-count="8">
+        <a href="Unit.dc.html" style="background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 12px; padding: 20px; text-decoration: none; color: #333333; display: flex; flex-direction: column; gap: 10px">
+          <span style="display: flex; justify-content: space-between; gap: 8px; font-size: 13px">
+            <span style="background: #E8EAF6; color: #283593; font-weight: 700; padding: 5px 10px; border-radius: 999px">{{ u.level }}</span>
+            <span style="color: #555555; padding: 5px 0">{{ u.when }}</span>
+          </span>
+          <span style="font-size: 18px; font-weight: 700; color: #1A237E; line-height: 1.3">{{ u.title }}</span>
+          <span style="font-size: 14px; line-height: 1.55; color: #444444">{{ u.what }}</span>
+          <span style="margin-top: auto; font-size: 13px; font-weight: 700; color: #6D4C00; background: #FFF8E1; padding: 8px 10px; border-radius: 6px">Next taught: {{ u.again }}</span>
+        </a>
+      </sc-for>
+    </section>
+
+    <p style="margin: 0; font-size: 14px; color: #555555">[Earlier units from the 2024 and 2025 planners]</p>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1120}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { level: 'All' };
+  }
+  renderVals() {
+    var self = this;
+    var units = [
+      { level: 'Foundation', when: 'Term 1, 2026', title: 'How Things Move', what: 'Size, shape and material: rolling shapes, parachutes, LEGO Science.', again: 'Term 1, 2028' },
+      { level: 'Year 1/2', when: 'Term 1, 2026', title: 'Pushes and Pulls', what: 'Ramps and cars, magnet mazes, a forces book in Book Creator.', again: 'Term 1, 2028' },
+      { level: 'Year 3/4', when: 'Term 1, 2026', title: 'Heat on the Move', what: 'Ice rescue, melt races, a micro:bit thermometer, a Minecraft heat museum.', again: 'Term 1, 2028' },
+      { level: 'Year 5/6', when: 'Term 1, 2026', title: 'Light', what: 'Mirror mazes, kaleidoscopes, periscopes, refraction and the Light Quest assessment.', again: 'Term 1, 2028' },
+      { level: 'Foundation', when: 'Term 2, 2026', title: 'Scratch Jr Stories', what: 'Weather and seasons through Scratch Jr projects.', again: 'Term 2, 2028' },
+      { level: 'Year 1/2', when: 'Term 2, 2026', title: 'Code and Recycle', what: 'Code.org puzzles, then a Scratch Jr rubbish-sorting game.', again: 'Term 2, 2028' },
+      { level: 'Year 3/4', when: 'Term 2, 2026', title: 'Rock or Mineral?', what: 'Rock types, identification flowcharts and a Scratch rock detector.', again: 'Term 2, 2028' },
+      { level: 'Year 5/6', when: 'Term 2, 2026', title: 'Natural Hazards in Minecraft', what: 'Tsunamis, bushfires and volcanoes, modelled with code builder.', again: 'Term 2, 2028' },
+      { level: 'Foundation', when: 'Term 3, 2026', title: 'What Living Things Need', what: 'Air, water, food and shelter, from sorting cards to Scratch Jr.', again: 'Term 3, 2028' },
+      { level: 'Year 1/2', when: 'Term 3, 2026', title: 'Living Things and Our Garden', what: 'Animal features, compost and planting seedlings in the school garden.', again: 'Term 3, 2028' },
+      { level: 'Year 3/4', when: 'Term 3, 2026', title: 'Living, Non-living, Once-living', what: 'Living Things Detectives and deep time comics.', again: 'Term 3, 2028' },
+      { level: 'Year 5/6', when: 'Term 3, 2026', title: 'Adaptations and Biomimicry', what: 'The marine adaptations gallery, painted organisms and a Minecraft fungi world.', again: 'Term 3, 2028' }
+    ];
+    var level = this.state.level;
+    var base = 'font-family:inherit;font-size:15px;font-weight:700;padding:11px 18px;border-radius:999px;cursor:pointer;min-height:44px;';
+    var levels = ['All', 'Foundation', 'Year 1/2', 'Year 3/4', 'Year 5/6'];
+    return {
+      pills: levels.map(function (l) {
+        var on = l === level;
+        return {
+          label: l,
+          style: base + (on ? 'background:#3F51B5;color:#FFFFFF;border:1px solid #3F51B5;' : 'background:#FFFFFF;color:#3F51B5;border:1px solid #9FA8DA;'),
+          pick: function () { self.setState({ level: l }); }
+        };
+      }),
+      shown: units.filter(function (u) { return level === 'All' || u.level === level; })
+    };
+  }
+}
+</script>
+</body>
+</html>
