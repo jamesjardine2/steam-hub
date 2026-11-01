@@ -175,6 +175,9 @@ function loadLesson(file, unit) {
   checkValues(file, "vtlm", vtlm, VTLM);
   checkValues(file, "citw", citw, CITW);
   const pdfFile = path.join(path.dirname(file), `${base}.pdf`);
+  // CRT plans are made from the lesson page and saved as crt/NN-crt.pdf.
+  const crtName = `${String(number).padStart(2, "0")}-crt.pdf`;
+  const crtFile = path.join(path.dirname(file), "..", "crt", crtName);
   const live = asList(data.live).map((item) => ({
     kind: item.kind || "LINK",
     title: item.title || "[Untitled]",
@@ -199,6 +202,7 @@ function loadLesson(file, unit) {
     live,
     crtNotes: data.crt_notes || "",
     pdf: fs.existsSync(pdfFile) ? `${unit.url}lessons/${base}.pdf` : null,
+    crtPdf: fs.existsSync(crtFile) ? `${unit.url}crt/${crtName}` : null,
     ...splitSections(content),
     sourcePath: `content/units/${unit.slug}/lessons/${base}.md`,
   };
@@ -286,9 +290,6 @@ function loadUnit(slug, classes, progress) {
       return { name: c, date, dateLabel: date ? formatShortDate(date) : "" };
     });
     lesson.reflections = reflections.filter((r) => r.lesson === lesson.number);
-    lesson.crtPrompt =
-      `Make a CRT version of Lesson ${lesson.number}: ${lesson.title} ` +
-      `(${unit.cohortLabel}, ${unit.title}). Keep the same Learning Intention.`;
   }
   lessons.forEach((l, i) => {
     l.prev = lessons[i - 1] ? { url: lessons[i - 1].url, number: lessons[i - 1].number, title: lessons[i - 1].title } : null;

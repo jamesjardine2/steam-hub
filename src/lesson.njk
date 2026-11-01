@@ -144,12 +144,19 @@ eleventyComputed:
       {% endfor %}
     </div>
 
-    <div class="card amber stack-tight">
+    <div class="card amber stack-tight" data-crt data-unit="{{ unit.slug }}" data-lesson="{{ lesson.number }}">
       <h2 class="card-title">Away for this one?</h2>
       {% if lesson.crtNotes %}<p class="small">{{ lesson.crtNotes }}</p>{% endif %}
-      <p class="small">Copies a CRT request for this lesson and opens the pinned chat, ready to write a CRT version with the same Learning Intention.</p>
-      <a class="btn btn-amber" href="{{ unit.claudeChat or 'https://claude.ai' }}" target="_blank" rel="noopener" data-copy="{{ lesson.crtPrompt }}">Make a CRT version</a>
-      <span class="copy-status" role="status"></span>
+      {% if lesson.crtPdf %}
+        <a class="btn btn-amber" href="{{ lesson.crtPdf }}" download="Lesson {{ lesson.number }} {{ lesson.title }} CRT plan.pdf">Download the CRT plan (PDF)</a>
+        <p class="small">Need it changed? Say what is different and Claude will make a new one.</p>
+      {% else %}
+        <p class="small">Claude writes a printable CRT plan with the same Learning Intention: no screens, everyday resources and every step explained. It takes about 5 to 10 minutes and you can leave the page.</p>
+      {% endif %}
+      <label class="small strong" for="crt-notes">Anything the CRT should know? (optional)</label>
+      <textarea id="crt-notes" rows="2" data-notes placeholder="For example: no scissors in that room, or the class is out of flour"></textarea>
+      <button type="button" class="btn {{ 'btn-outline' if lesson.crtPdf else 'btn-amber' }}" data-start-crt>{{ "Make a new CRT plan" if lesson.crtPdf else "Make a CRT plan with Claude" }}</button>
+      <p class="small" data-status role="status"></p>
     </div>
   </aside>
 </div>

@@ -1,13 +1,14 @@
 // Saving from the site. A static site cannot save by itself, so this talks
 // to the GitHub API with a key kept in this browser (see /settings/):
 // class ticks go into content/progress.json, "Approve" edits a lesson file,
-// and "Plan with Claude" starts the plan-lesson workflow.
+// "Plan with Claude" starts the plan-lesson workflow and "Make a CRT plan"
+// starts the crt-plan workflow.
 
 (() => {
   const REPO = document.body.dataset.repo;
   const BRANCH = document.body.dataset.branch || "main";
   const PROGRESS_PATH = "content/progress.json";
-  const WORKFLOW = "plan-lesson.yml";
+  const PLAN = { workflow: "plan-lesson.yml" };
   const KEY = "steamhub.githubToken";
   const API = "https://api.github.com";
 
@@ -63,8 +64,8 @@
     throw new Error("Someone else saved at the same moment. Please try again.");
   }
 
-  async function startWorkflow(inputs) {
-    const res = await gh(`/repos/${REPO}/actions/workflows/${WORKFLOW}/dispatches`, {
+  async function startWorkflow(workflow, inputs) {
+    const res = await gh(`/repos/${REPO}/actions/workflows/${workflow}/dispatches`, {
       method: "POST",
       body: JSON.stringify({ ref: BRANCH, inputs }),
     });
@@ -203,14 +204,21 @@
     loadProgress();
   }
 
-  // ---- Planning with Claude (unit page) and reviewing a draft (lesson page)
-  // Follows the latest planning run. "since" skips runs from before this
-  // page started one; 0 means follow whatever run is going now.
-  function watchRun(status, doneText, since = Date.now()) {
+  // ---- Claude runs: planning (unit page), reviewing a draft and CRT plans
+  // (lesson page). A job is { workflow, title? }: when a title is given,
+  // only runs with that name count (CRT runs are named per lesson).
+  async function latestRun(job) {
+    const res = await gh(`/repos/${REPO}/actions/workflows/${job.workflow}/runs?per_page=10&event=workflow_dispatch`);
+    const runs = res.ok ? (await res.json()).workflow_runs : [];
+    return runs.find((r) => !job.title || r.display_title === job.title) || null;
+  }
+
+  // Follows the latest run. "since" skips runs from before this page
+  // started one; 0 means follow whatever run is going now.
+  function watchRun(job, status, doneText, since = Date.now()) {
     const check = async () => {
       try {
-        const res = await gh(`/repos/${REPO}/actions/workflows/${WORKFLOW}/runs?per_page=1&event=workflow_dispatch`);
-        const run = res.ok ? (await res.json()).workflow_runs[0] : null;
+        const run = await latestRun(job);
         if (run && Date.parse(run.created_at) > since - 120000) {
           const link = `<a href="${run.html_url}" target="_blank" rel="noopener">watch on GitHub</a>`;
           if (run.status !== "completed") {
@@ -230,7 +238,7 @@
     check();
   }
 
-  async function plan(card, notes, doneText) {
+  async function plan(job, card, notes, doneText) {
     const status = card.querySelector("[data-status]");
     if (!getToken()) {
       status.innerHTML = `Add your GitHub key on <a href="${settingsLink()}">Settings</a> first.`;
@@ -238,9 +246,9 @@
     }
     status.textContent = "Starting...";
     try {
-      await startWorkflow({ unit: card.dataset.unit, lesson: String(card.dataset.lesson), notes });
+      await startWorkflow(job.workflow, { unit: card.dataset.unit, lesson: String(card.dataset.lesson), notes });
       lock(card);
-      watchRun(status, doneText);
+      watchRun(job, status, doneText);
     } catch (err) {
       status.textContent = err.message;
     }
@@ -250,31 +258,30 @@
 
   // If a plan is already running (started earlier or on another device),
   // show its progress instead of offering to start another.
-  async function showRunning(card, doneText) {
+  async function showRunning(job, card, doneText) {
     try {
-      const res = await gh(`/repos/${REPO}/actions/workflows/${WORKFLOW}/runs?per_page=1&event=workflow_dispatch`);
-      const run = res.ok ? (await res.json()).workflow_runs[0] : null;
+      const run = await latestRun(job);
       if (run && run.status !== "completed") {
         lock(card);
-        watchRun(card.querySelector("[data-status]"), doneText, 0);
+        watchRun(job, card.querySelector("[data-status]"), doneText, 0);
       }
     } catch { /* leave the buttons as they are */ }
   }
 
   const planCard = document.querySelector("[data-plan]");
-  if (planCard) showRunning(planCard, "The new lesson is ready as a draft.");
+  if (planCard) showRunning(PLAN, planCard, "The new lesson is ready as a draft.");
   planCard?.querySelector("[data-start-plan]")?.addEventListener("click", () => {
-    plan(planCard, planCard.querySelector("[data-notes]").value.trim(), `Lesson ${planCard.dataset.lesson} is ready as a draft.`);
+    plan(PLAN, planCard, planCard.querySelector("[data-notes]").value.trim(), `Lesson ${planCard.dataset.lesson} is ready as a draft.`);
   });
 
   const review = document.querySelector("[data-review]");
   if (review) {
-    showRunning(review, "Claude has updated the draft.");
+    showRunning(PLAN, review, "Claude has updated the draft.");
     const status = review.querySelector("[data-status]");
     review.querySelector("[data-revise]").addEventListener("click", () => {
       const notes = review.querySelector("[data-notes]").value.trim();
       if (!notes) { status.textContent = "Write what you would like changed first."; return; }
-      plan(review, notes, "Claude has updated the draft.");
+      plan(PLAN, review, notes, "Claude has updated the draft.");
     });
     review.querySelector("[data-approve]").addEventListener("click", async () => {
       if (!getToken()) { status.innerHTML = `Add your GitHub key on <a href="${settingsLink()}">Settings</a> first.`; return; }
@@ -289,6 +296,17 @@
       } catch (err) {
         status.textContent = err.message;
       }
+    });
+  }
+
+  const crt = document.querySelector("[data-crt]");
+  if (crt) {
+    // Matches the run-name in .github/workflows/crt-plan.yml.
+    const job = { workflow: "crt-plan.yml", title: `CRT plan: ${crt.dataset.unit} Lesson ${crt.dataset.lesson}` };
+    const done = "The CRT plan is ready.";
+    showRunning(job, crt, done);
+    crt.querySelector("[data-start-crt]").addEventListener("click", () => {
+      plan(job, crt, crt.querySelector("[data-notes]").value.trim(), done);
     });
   }
 
