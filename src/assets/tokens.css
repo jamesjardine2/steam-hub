@@ -1,10 +1,20 @@
 /* "Electric" design tokens (see DESIGN.md). The only place colours, fonts
    and radii are defined: every other stylesheet uses these variables.
-   Contrast rules: --violet is a fill only, with white text on it; violet
-   text on dark uses --ultraviolet. Dark (--void) text goes on
-   --plasma-pink, --solar-orange and --ion-cyan. */
+
+   Two layers:
+   1. The palette (--void, --violet, ...): fixed values, never redefined.
+   2. Roles (--bg, --text, ...): what the hub and artefacts use for
+      surfaces and text. Dark is the default; [data-theme="light"] maps the
+      same palette the other way round, so light mode adds no new colours.
+      src/assets/theme.js sets data-theme from the device's saved choice.
+
+   Contrast rules: --violet is a fill only on dark, with white text on it;
+   violet text uses --text-violet (Ultraviolet on dark, Violet on light).
+   Dark (--void) text goes on --plasma-pink, --solar-orange and
+   --ion-cyan fills. Orange, pink and cyan text is too pale on light, so
+   their text roles fall back to --text there. */
 :root {
-  /* Base neutrals, stacked for depth: void page, surface cards, raised hover */
+  /* Base neutrals */
   --void: #0C0C0F;
   --surface: #16161D;
   --raised: #22222C;
@@ -13,7 +23,7 @@
   --glow: #F4F4F8;
   --white: #FFFFFF;
 
-  /* Electric accents: violet plus one partner per view */
+  /* Electric accents */
   --violet: #5329E7;
   --ultraviolet: #8B6BFF;
   --volt-blue: #2F6BFF;
@@ -25,4 +35,40 @@
   --radius-card: 16px;
   --radius-input: 10px;
   --radius-pill: 999px;
+
+  /* Roles, dark (default): void page, surface cards, raised hover */
+  color-scheme: dark;
+  --bg: var(--void);
+  --card: var(--surface);
+  --hover: var(--raised);
+  --border: var(--line);
+  --text: var(--glow);
+  --text-muted: var(--mist);
+  --text-violet: var(--ultraviolet);
+  --text-orange: var(--solar-orange);
+  --text-pink: var(--plasma-pink);
+  --text-cyan: var(--ion-cyan);
+  /* Drawings in artefacts: paper and flour, labels, picture backgrounds */
+  --paper: var(--glow);
+  --ink: var(--glow);
+  --panel: var(--surface);
+  --panel-2: var(--raised);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: var(--glow);
+  --card: var(--white);
+  --hover: var(--glow);
+  --border: var(--mist);
+  --text: var(--void);
+  --text-muted: var(--line);
+  --text-violet: var(--violet);
+  --text-orange: var(--void);
+  --text-pink: var(--void);
+  --text-cyan: var(--void);
+  --paper: var(--glow);
+  --ink: var(--void);
+  --panel: var(--white);
+  --panel-2: var(--glow);
 }

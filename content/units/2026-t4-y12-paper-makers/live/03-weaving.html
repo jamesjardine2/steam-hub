@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>How to weave · Year 1/2 Weave It</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
@@ -17,6 +18,7 @@
   <header>
     <span class="t">Year 1/2 · Weave It</span>
     <span class="u">How to make a paper loom and weave</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
     <a href="../lessons/03-weave-it/">Exit</a>
   </header>
 
@@ -24,33 +26,33 @@
     <svg viewBox="90 60 480 470" role="img" aria-labelledby="title">
       <!-- Bottom half of the sheet, with its half of each slit -->
       <g>
-        <rect id="bottomRect" x="150" y="292" width="300" height="212" fill="var(--glow)" stroke="var(--mist)" stroke-width="2"/>
-        <g id="bottomCuts" stroke="var(--glow)" stroke-width="3" stroke-linecap="round"></g>
+        <rect id="bottomRect" x="150" y="292" width="300" height="212" fill="var(--paper)" stroke="var(--mist)" stroke-width="2"/>
+        <g id="bottomCuts" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"></g>
       </g>
       <!-- Top half: flips down to fold and back up to open -->
       <g id="top">
         <rect id="topRect" x="150" y="80" width="300" height="212" stroke="var(--mist)" stroke-width="2"/>
-        <g id="topCuts" stroke="var(--glow)" stroke-width="3" stroke-linecap="round"></g>
+        <g id="topCuts" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"></g>
       </g>
       <line id="crease" x1="150" y1="292" x2="450" y2="292" stroke="var(--mist)" stroke-width="2" stroke-dasharray="6 6"/>
 
       <!-- Weaving -->
       <g id="strips"></g>
       <g id="patches"></g>
-      <g id="slits" stroke="var(--glow)" stroke-width="3" stroke-linecap="round"></g>
+      <g id="slits" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"></g>
       <rect id="outline" x="150" y="80" width="300" height="424" fill="none" stroke="var(--mist)" stroke-width="2"/>
 
       <!-- Labels for cutting -->
-      <text id="foldLabel" x="300" y="280" text-anchor="middle" font-size="18" font-weight="700" fill="var(--violet)">Fold: cut from here</text>
+      <text id="foldLabel" x="300" y="280" text-anchor="middle" font-size="18" font-weight="700" fill="var(--text-violet)">Fold: cut from here</text>
       <g id="stop">
         <line x1="150" y1="480" x2="450" y2="480" stroke="var(--plasma-pink)" stroke-width="3" stroke-dasharray="8 6"/>
-        <text x="462" y="472" font-size="18" font-weight="700" fill="var(--plasma-pink)">Stop!</text>
+        <text x="462" y="472" font-size="18" font-weight="700" fill="var(--text-pink)">Stop!</text>
         <path d="M462 480 H472 M467 480 V504 M462 504 H472" stroke="var(--plasma-pink)" stroke-width="2" fill="none"/>
-        <text x="478" y="498" font-size="15" fill="var(--plasma-pink)">finger-width</text>
+        <text x="478" y="498" font-size="15" fill="var(--text-pink)">finger-width</text>
       </g>
       <g id="scissors">
-        <circle cx="-9" cy="-36" r="8" fill="none" stroke="var(--ultraviolet)" stroke-width="4"/>
-        <circle cx="9" cy="-36" r="8" fill="none" stroke="var(--ultraviolet)" stroke-width="4"/>
+        <circle cx="-9" cy="-36" r="8" fill="none" stroke="var(--text-violet)" stroke-width="4"/>
+        <circle cx="9" cy="-36" r="8" fill="none" stroke="var(--text-violet)" stroke-width="4"/>
         <line id="bladeL" x1="-6" y1="-28" x2="2" y2="0" stroke="var(--mist)" stroke-width="4" stroke-linecap="round"/>
         <line id="bladeR" x1="6" y1="-28" x2="-2" y2="0" stroke="var(--mist)" stroke-width="4" stroke-linecap="round"/>
       </g>
@@ -128,7 +130,7 @@ for (let r = 0; r < ROWS; r++) {
   strips.push(el("rect", { y, height: ROW_H, width: STRIP_L, rx: 3, fill: COLOURS[r % 2] }, $("strips")));
   const g = el("g", {}, $("patches"));
   for (let b = 0; b < BANDS; b++) {
-    if (!isOver(r, b)) el("rect", { x: LEFT + b * BAND, y, width: BAND, height: ROW_H, fill: T("glow") }, g);
+    if (!isOver(r, b)) el("rect", { x: LEFT + b * BAND, y, width: BAND, height: ROW_H, fill: T("paper") }, g);
   }
   patches.push(g);
 }
@@ -138,7 +140,7 @@ function show(node, on) { node.style.display = on ? "" : "none"; }
 function render(s, time) {
   // Fold: the top half is mirrored about the fold line.
   $("top").setAttribute("transform", `translate(0 ${FOLD}) scale(1 ${s.fold}) translate(0 ${-FOLD})`);
-  $("topRect").setAttribute("fill", s.fold >= 0 ? T("glow") : T("raised"));
+  $("topRect").setAttribute("fill", s.fold >= 0 ? T("paper") : T("panel-2"));
   // Once weaving starts the loom is drawn as one sheet with a single outline.
   const edge = s.weave ? "none" : T("mist");
   $("topRect").setAttribute("stroke", edge);

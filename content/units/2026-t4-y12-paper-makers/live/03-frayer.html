@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Word wall · Year 1/2 Weave It</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
@@ -17,6 +18,7 @@
   <header>
     <span class="t">Year 1/2 · Weave It</span>
     <span class="u">Word wall: Frayer model</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
     <a href="../lessons/03-weave-it/">Exit</a>
   </header>
 
@@ -39,21 +41,21 @@ const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(
 if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
 // Small pictures, drawn in a 64x64 box.
 const P = {
-  mat: () => { let s = ""; for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) s += `<rect x="${8 + c * 12}" y="${8 + r * 12}" width="12" height="12" fill="${(r + c) % 2 ? T("glow") : (r % 2 ? T("violet") : T("solar-orange"))}" stroke="var(--mist)"/>`; return s; },
+  mat: () => { let s = ""; for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) s += `<rect x="${8 + c * 12}" y="${8 + r * 12}" width="12" height="12" fill="${(r + c) % 2 ? T("paper") : (r % 2 ? T("violet") : T("solar-orange"))}" stroke="var(--mist)"/>`; return s; },
   basket: () => `<path d="M14 26 H50 L45 54 H19 Z" fill="var(--solar-orange)" stroke="var(--mist)" stroke-width="2"/><path d="M16 34 H48 M17 42 H47 M18 50 H46 M24 26 L22 54 M32 26 V54 M40 26 L42 54" stroke="var(--mist)" stroke-width="2"/><path d="M18 26 C18 6 46 6 46 26" fill="none" stroke="var(--mist)" stroke-width="3"/>`,
-  jumper: () => `<path d="M22 10 L10 18 L14 30 L20 27 V56 H44 V27 L50 30 L54 18 L42 10 C40 16 24 16 22 10 Z" fill="var(--mist)" stroke="var(--glow)" stroke-width="2"/><path d="M22 34 H42 M22 42 H42 M22 50 H42 M27 27 V56 M32 27 V56 M37 27 V56" stroke="var(--glow)" stroke-width="1.2" opacity="0.6"/>`,
+  jumper: () => `<path d="M22 10 L10 18 L14 30 L20 27 V56 H44 V27 L50 30 L54 18 L42 10 C40 16 24 16 22 10 Z" fill="var(--mist)" stroke="var(--ink)" stroke-width="2"/><path d="M22 34 H42 M22 42 H42 M22 50 H42 M27 27 V56 M32 27 V56 M37 27 V56" stroke="var(--ink)" stroke-width="1.2" opacity="0.6"/>`,
   strips: () => `<rect x="12" y="10" width="10" height="44" fill="var(--solar-orange)" transform="rotate(-8 17 32)"/><rect x="28" y="12" width="10" height="44" fill="var(--violet)" transform="rotate(5 33 34)"/><rect x="44" y="9" width="10" height="44" fill="var(--solar-orange)" transform="rotate(-3 49 31)"/>`,
-  glue: () => `<rect x="24" y="22" width="16" height="34" rx="3" fill="var(--volt-blue)"/><rect x="24" y="14" width="16" height="10" rx="2" fill="var(--solar-orange)"/><rect x="26" y="8" width="12" height="7" rx="2" fill="var(--glow)" stroke="var(--mist)"/>`,
+  glue: () => `<rect x="24" y="22" width="16" height="34" rx="3" fill="var(--volt-blue)"/><rect x="24" y="14" width="16" height="10" rx="2" fill="var(--solar-orange)"/><rect x="26" y="8" width="12" height="7" rx="2" fill="var(--paper)" stroke="var(--mist)"/>`,
   rope: () => { let s = `<rect x="6" y="26" width="52" height="12" rx="6" fill="var(--solar-orange)"/>`; for (let x = 10; x < 56; x += 7) s += `<path d="M${x} 26 L${x + 5} 38" stroke="var(--solar-orange)" stroke-width="2"/>`; return s + `<rect x="2" y="24" width="7" height="16" fill="var(--solar-orange)"/><rect x="55" y="24" width="7" height="16" fill="var(--solar-orange)"/>`; },
-  loom: () => `<rect x="10" y="8" width="44" height="48" fill="var(--glow)" stroke="var(--ultraviolet)" stroke-width="2"/><path d="M17 14 V50 M24 14 V50 M32 14 V50 M40 14 V50 M47 14 V50" stroke="var(--glow)" stroke-width="2"/>`,
-  frame: () => `<rect x="8" y="8" width="48" height="48" fill="none" stroke="var(--mist)" stroke-width="5"/><path d="M16 10 V54 M22 10 V54 M28 10 V54 M34 10 V54 M40 10 V54 M46 10 V54" stroke="var(--ultraviolet)" stroke-width="1.5"/><path d="M11 22 H53" stroke="var(--solar-orange)" stroke-width="4"/>`,
-  sheet: () => `<rect x="14" y="8" width="36" height="48" fill="var(--glow)" stroke="var(--ultraviolet)" stroke-width="2"/>`,
-  apart: () => `<rect x="8" y="10" width="9" height="44" fill="var(--glow)" stroke="var(--ultraviolet)" stroke-width="2" transform="rotate(-10 12 32)"/><rect x="21" y="12" width="9" height="44" fill="var(--glow)" stroke="var(--ultraviolet)" stroke-width="2" transform="rotate(4 25 34)"/><rect x="34" y="9" width="9" height="44" fill="var(--glow)" stroke="var(--ultraviolet)" stroke-width="2" transform="rotate(-5 38 31)"/><rect x="47" y="11" width="9" height="44" fill="var(--glow)" stroke="var(--ultraviolet)" stroke-width="2" transform="rotate(9 51 33)"/>`,
-  scissors: () => `<circle cx="20" cy="46" r="8" fill="none" stroke="var(--ultraviolet)" stroke-width="4"/><circle cx="44" cy="46" r="8" fill="none" stroke="var(--ultraviolet)" stroke-width="4"/><path d="M25 40 L40 8 M39 40 L24 8" stroke="var(--mist)" stroke-width="4" stroke-linecap="round"/>`,
+  loom: () => `<rect x="10" y="8" width="44" height="48" fill="var(--paper)" stroke="var(--text-violet)" stroke-width="2"/><path d="M17 14 V50 M24 14 V50 M32 14 V50 M40 14 V50 M47 14 V50" stroke="var(--ink)" stroke-width="2"/>`,
+  frame: () => `<rect x="8" y="8" width="48" height="48" fill="none" stroke="var(--mist)" stroke-width="5"/><path d="M16 10 V54 M22 10 V54 M28 10 V54 M34 10 V54 M40 10 V54 M46 10 V54" stroke="var(--text-violet)" stroke-width="1.5"/><path d="M11 22 H53" stroke="var(--solar-orange)" stroke-width="4"/>`,
+  sheet: () => `<rect x="14" y="8" width="36" height="48" fill="var(--paper)" stroke="var(--text-violet)" stroke-width="2"/>`,
+  apart: () => `<rect x="8" y="10" width="9" height="44" fill="var(--paper)" stroke="var(--text-violet)" stroke-width="2" transform="rotate(-10 12 32)"/><rect x="21" y="12" width="9" height="44" fill="var(--paper)" stroke="var(--text-violet)" stroke-width="2" transform="rotate(4 25 34)"/><rect x="34" y="9" width="9" height="44" fill="var(--paper)" stroke="var(--text-violet)" stroke-width="2" transform="rotate(-5 38 31)"/><rect x="47" y="11" width="9" height="44" fill="var(--paper)" stroke="var(--text-violet)" stroke-width="2" transform="rotate(9 51 33)"/>`,
+  scissors: () => `<circle cx="20" cy="46" r="8" fill="none" stroke="var(--text-violet)" stroke-width="4"/><circle cx="44" cy="46" r="8" fill="none" stroke="var(--text-violet)" stroke-width="4"/><path d="M25 40 L40 8 M39 40 L24 8" stroke="var(--mist)" stroke-width="4" stroke-linecap="round"/>`,
   hammock: () => `<path d="M8 14 Q32 50 56 14" fill="none" stroke="var(--solar-orange)" stroke-width="7"/><circle cx="8" cy="14" r="4" fill="var(--violet)"/><circle cx="56" cy="14" r="4" fill="var(--violet)"/><circle cx="26" cy="27" r="5" fill="var(--void)"/><circle cx="37" cy="27" r="5" fill="var(--void)"/><circle cx="31" cy="19" r="5" fill="var(--void)"/>`,
-  fan: () => `<rect x="2" y="40" width="18" height="16" fill="var(--mist)"/><rect x="44" y="40" width="18" height="16" fill="var(--mist)"/><path d="M6 40 L12 32 L18 40 L24 32 L30 40 L36 32 L42 40 L48 32 L54 40 L58 34" fill="none" stroke="var(--glow)" stroke-width="2.5"/><circle cx="28" cy="27" r="4" fill="var(--void)"/><circle cx="37" cy="27" r="4" fill="var(--void)"/>`,
+  fan: () => `<rect x="2" y="40" width="18" height="16" fill="var(--mist)"/><rect x="44" y="40" width="18" height="16" fill="var(--mist)"/><path d="M6 40 L12 32 L18 40 L24 32 L30 40 L36 32 L42 40 L48 32 L54 40 L58 34" fill="none" stroke="var(--ink)" stroke-width="2.5"/><circle cx="28" cy="27" r="4" fill="var(--void)"/><circle cx="37" cy="27" r="4" fill="var(--void)"/>`,
   torn: () => `<path d="M26 6 H38 V28 L33 31 L38 34 V58 H26 Z" fill="var(--solar-orange)"/>`,
-  sag: () => `<rect x="2" y="38" width="18" height="18" fill="var(--mist)"/><rect x="44" y="38" width="18" height="18" fill="var(--mist)"/><path d="M4 38 Q32 64 60 38" fill="none" stroke="var(--glow)" stroke-width="2.5"/><circle cx="32" cy="45" r="4" fill="var(--void)"/>`,
+  sag: () => `<rect x="2" y="38" width="18" height="18" fill="var(--mist)"/><rect x="44" y="38" width="18" height="18" fill="var(--mist)"/><path d="M4 38 Q32 64 60 38" fill="none" stroke="var(--ink)" stroke-width="2.5"/><circle cx="32" cy="45" r="4" fill="var(--void)"/>`,
 };
 
 // Frayer models for the lesson's key words.

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Lesson slides · Year 1/2 Mix It</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
@@ -17,6 +18,7 @@
   <header>
     <span class="t">Year 1/2 · Mix It</span>
     <span class="u">Stronger Together: Paper Makers · Lesson 4</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
     <a href="../lessons/04-mix-it/">Exit</a>
   </header>
 
@@ -51,13 +53,13 @@
         </div>
         <div class="art">
           <svg viewBox="0 0 360 300" aria-label="A cup of flour and a cup of water">
-            <path d="M40 90 H160 L148 260 H52 Z" fill="none" stroke="var(--ultraviolet)" stroke-width="6" stroke-linejoin="round"/>
-            <path d="M46 150 H154 L148 260 H52 Z" fill="var(--glow)"/>
+            <path d="M40 90 H160 L148 260 H52 Z" fill="none" stroke="var(--text-violet)" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M46 150 H154 L148 260 H52 Z" fill="var(--paper)"/>
             <circle cx="80" cy="190" r="4" fill="var(--mist)"/><circle cx="110" cy="220" r="4" fill="var(--mist)"/><circle cx="125" cy="180" r="4" fill="var(--mist)"/><circle cx="90" cy="240" r="4" fill="var(--mist)"/>
-            <path d="M200 90 H320 L308 260 H212 Z" fill="none" stroke="var(--ultraviolet)" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M200 90 H320 L308 260 H212 Z" fill="none" stroke="var(--text-violet)" stroke-width="6" stroke-linejoin="round"/>
             <path d="M205 150 H315 L308 260 H212 Z" fill="var(--ion-cyan)"/>
-            <text x="100" y="60" text-anchor="middle" font-size="30" font-weight="700" fill="var(--glow)">flour</text>
-            <text x="260" y="60" text-anchor="middle" font-size="30" font-weight="700" fill="var(--glow)">water</text>
+            <text x="100" y="60" text-anchor="middle" font-size="30" font-weight="700" fill="var(--ink)">flour</text>
+            <text x="260" y="60" text-anchor="middle" font-size="30" font-weight="700" fill="var(--ink)">water</text>
           </svg>
         </div>
       </div>
@@ -72,10 +74,10 @@
         </div>
         <div class="art">
           <svg viewBox="0 0 360 300" aria-label="A cup with a question mark">
-            <path d="M100 80 H260 L245 270 H115 Z" fill="none" stroke="var(--ultraviolet)" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M100 80 H260 L245 270 H115 Z" fill="none" stroke="var(--text-violet)" stroke-width="6" stroke-linejoin="round"/>
             <path d="M107 170 H253 L245 270 H115 Z" fill="var(--mist)"/>
             <line x1="200" y1="200" x2="250" y2="30" stroke="var(--mist)" stroke-width="12" stroke-linecap="round"/>
-            <text x="150" y="150" text-anchor="middle" font-size="90" font-weight="700" fill="var(--solar-orange)">?</text>
+            <text x="150" y="150" text-anchor="middle" font-size="90" font-weight="700" fill="var(--text-orange)">?</text>
           </svg>
         </div>
       </div>
@@ -137,7 +139,7 @@ let current = 0;
   let s = "";
   for (let r = 0; r < 6; r++) {
     for (let c = 0; c < 6; c++) {
-      const fill = (r + c) % 2 ? T("glow") : (r % 2 ? T("violet") : T("solar-orange"));
+      const fill = (r + c) % 2 ? T("paper") : (r % 2 ? T("violet") : T("solar-orange"));
       s += `<rect x="${60 + c * 40}" y="${30 + r * 40}" width="40" height="40" fill="${fill}" stroke="var(--mist)" stroke-width="2"/>`;
     }
   }

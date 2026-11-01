@@ -68,7 +68,7 @@ Cohort ids: `f` (Foundation), `y12` (Year 1/2), `y34` (Year 3/4), `y56` (Year 5/
 
 Live artefacts are standalone 1280×720 projector pages in the house style: `NN-slides.html` (the lesson deck), `NN-frayer.html` (Frayer word wall) and an animated how-to (for example `03-weaving.html`). Each page supports `?embed`, which hides its top bar so the deck can show it in a slide. When adding a lesson, copy the previous lesson's pages and change the content.
 
-Artefacts are student-facing, so they are colourful: a dark Electric stage with every accent used for meaning, the same in every lesson. Their styles are shared in `src/assets/live.css` (linked as `../../../assets/live.css` after `tokens.css`); pages have no `<style>` block and no colour codes. The stage div carries a family class (`deck`, `frayer` or `howto`). Slide role classes set the colour: `hook` orange, `safety` pink, `recall` blue, `record` cyan, none for violet (title, Learning Intention). Frayer quadrants are always violet (meaning), orange (what it is like), cyan (examples) and pink (non-examples). Drawings use `fill="var(--token)"`; scripts use `T("token")` for a hex value.
+Artefacts are student-facing, so they are colourful: a dark Electric stage with every accent used for meaning, the same in every lesson. Their styles are shared in `src/assets/live.css` (linked as `../../../assets/live.css` after `tokens.css`); pages have no `<style>` block and no colour codes. The stage div carries a family class (`deck`, `frayer` or `howto`). Slide role classes set the colour: `hook` orange, `safety` pink, `recall` blue, `record` cyan, none for violet (title, Learning Intention). Frayer quadrants are always violet (meaning), orange (what it is like), cyan (examples) and pink (non-examples). Drawings use theme roles for neutrals (`fill="var(--paper)"`, `var(--ink)`, `var(--panel)`, `var(--text-violet)` for outlines) and accents for colour fills, so they work in both modes; scripts use `T("token")` for a hex value. Each artefact loads `theme.js` with `data-area="live"` and has the mode switch in its top bar.
 
 Every non-Markdown file under `content/units/` is copied to the site at the same path under `/units/`, so `content/units/<slug>/live/steps.html` is served at `/units/<slug>/live/steps.html`.
 
@@ -182,6 +182,7 @@ Heading parts, separated by `·`: ISO date, then `Lesson N` or `Unit`, then an o
 The "Electric" design system in `DESIGN.md` (November 2026): dark theme on `--void` #0C0C0F, electric violet `--violet` #5329E7 as the primary, Plus Jakarta Sans for everything.
 
 - All colour, font and radius tokens live in one shared stylesheet, `src/assets/tokens.css`, loaded before `src/assets/site.css`. Never hard-code a colour or font anywhere else, and don't add colours that are not in `DESIGN.md`.
+- **Light and dark mode.** `tokens.css` has the fixed palette plus theme roles (`--bg`, `--card`, `--hover`, `--border`, `--text`, `--text-muted`, `--text-violet`, `--text-orange`, ..., and for drawings `--paper`, `--ink`, `--panel`, `--panel-2`). Dark is the default; `[data-theme="light"]` maps the same palette the other way, so no new colours. Stylesheets use the roles for surfaces and text, and the palette only for accent fills and text on those fills. `src/assets/theme.js` sets the mode from a per-device choice: the hub (switch in the top bar) starts dark, live artefacts (switch in their top bar) start light, and the two are remembered separately. CRT plans ignore it and always print light.
 - `--violet` is a fill only, always with white text. Violet text on dark uses `--ultraviolet`. Dark text goes on `--solar-orange`, `--plasma-pink` and `--ion-cyan`.
 - One partner accent per view. The hub uses `--solar-orange` for "next to plan", drafts, CRT and notes. Live artefacts are the exception: they are for students and use all the accents, each with a fixed meaning (see Content model).
 - CRT plans print on white paper: `src/assets/crt.css` keeps them light, with violet headers and orange notes. They are printed from the built site (`_site/units/<unit>/crt/`) so the shared stylesheets load. Never give them a dark theme.
@@ -203,7 +204,7 @@ src/settings.njk          # connect a device (GitHub key) and Claude setup steps
 src/assets/hub.js         # ticks, approve and plan buttons (GitHub API)
 .github/workflows/plan-lesson.yml  # Claude Code plans a lesson as a draft
 .github/plan-lesson.md    # the instructions Claude follows in that workflow
-src/assets/               # tokens.css (design tokens), site.css, live.css (artefacts), crt.css (CRT print), site.js
+src/assets/               # tokens.css (design tokens), theme.js (light/dark), site.css, live.css (artefacts), crt.css (CRT print), site.js
 content/                  # all teaching content
 templates/                # lesson and unit templates, spec for Claude chats
 steam-hub-handover/       # original brief and mockups (not built)
