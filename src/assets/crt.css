@@ -1,0 +1,35 @@
+/* Printed CRT plans (content/units/<unit>/crt/NN-crt.html), linked as
+   ../../../assets/crt.css after tokens.css and printed to A4 PDFs.
+   Light for printing: white paper, near-black text, Electric violet
+   headers. Only small areas are filled, to save toner. Violet text is
+   fine here because it sits on white (about 7.4:1); on paper, secondary
+   text uses --line, because --mist is too pale to print. */
+
+@page { size: A4; margin: 14mm 15mm 16mm; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 10.5pt/1.5 var(--font); color: var(--void); background: var(--white); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.head { background: var(--violet); color: var(--white); padding: 18px 22px 16px; margin-bottom: 14px; border-radius: 10px; }
+.head h1 { margin: 0 0 6px; font-size: 21pt; font-weight: 800; letter-spacing: -0.025em; line-height: 1.05; }
+.head p { margin: 0; color: var(--white); font-size: 10pt; font-weight: 500; }
+.note { border: 1.5px solid var(--solar-orange); border-left-width: 6px; border-radius: 6px; padding: 12px 18px; margin: 0 0 14px; }
+.note p { margin: 0; }
+.note p + p { margin-top: 6px; }
+h2 { color: var(--violet); border-left: 6px solid var(--violet); border-bottom: 1px solid var(--violet); font-size: 13pt; font-weight: 800; letter-spacing: -0.02em; margin: 18px 0 8px; padding: 4px 12px 5px; break-after: avoid; }
+h3 { font-size: 10.5pt; font-weight: 700; margin: 8px 0 2px; }
+p { margin: 0 0 6px; }
+ul { margin: 4px 0 8px; padding-left: 20px; }
+li { margin-bottom: 3px; }
+li::marker { color: var(--violet); }
+section { break-inside: avoid; }
+section.long { break-inside: auto; }
+table { width: 100%; border-collapse: collapse; margin: 6px 0 8px; font-size: 10pt; }
+th { background: var(--violet); color: var(--white); text-align: left; font-weight: 700; padding: 7px 10px; }
+td { border: 1px solid var(--mist); padding: 7px 10px; vertical-align: top; }
+td:first-child { font-weight: 700; }
+tr { break-inside: avoid; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 6px 0 10px; break-inside: avoid; }
+.steps figure { margin: 0; text-align: center; }
+.steps figcaption { font-size: 9pt; color: var(--line); }
+.steps h3 { color: var(--violet); text-align: left; margin-bottom: 4px; }
+.steps svg { width: 100%; height: auto; display: block; margin-bottom: 4px; }
+.key { border: 1.5px solid var(--solar-orange); border-left-width: 6px; border-radius: 6px; padding: 12px 18px; margin: 12px 0; break-inside: avoid; }

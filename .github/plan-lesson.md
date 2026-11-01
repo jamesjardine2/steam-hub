@@ -28,7 +28,9 @@ Then remove this lesson's entry from the `outline` in `unit.md`.
 
 ## Artefacts (new lesson)
 
-Make three projector pages in `content/units/<unit>/live/`, each copied from the previous lesson's matching page so the layout, controls, colours and `?embed` mode stay the same:
+Make three projector pages in `content/units/<unit>/live/`, each copied from the previous lesson's matching page so the layout, controls and `?embed` mode stay the same.
+
+Styling is shared: every page links the font, `../../../assets/tokens.css` and `../../../assets/live.css`, and has no `<style>` block of its own and no colour codes. The stage div has a family class (`stage deck`, `stage frayer` or `stage howto`). Drawings use tokens, for example `fill="var(--ion-cyan)"`; in scripts, `T("violet")` gives a token's hex value. Colour carries meaning, the same in every lesson: give each slide its role class, `hook` (orange, think about it), `safety` (pink), `recall` (blue, last lesson), `record` (cyan) or none (violet, for the title, Learning Intention and anything else). Keep student text in `--glow`.
 
 - `NN-slides.html`: title, a recall of last lesson, the CIC hook (two or three slides), any safety slide needed, the LISC, the word wall and the how-to embedded with `?embed`, and a "Record it" slide when there is something to record.
 - `NN-frayer.html`: Frayer models for three key words from the lesson, each with simple drawn SVG pictures for the examples and non-examples.

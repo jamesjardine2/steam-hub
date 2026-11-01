@@ -68,6 +68,8 @@ Cohort ids: `f` (Foundation), `y12` (Year 1/2), `y34` (Year 3/4), `y56` (Year 5/
 
 Live artefacts are standalone 1280×720 projector pages in the house style: `NN-slides.html` (the lesson deck), `NN-frayer.html` (Frayer word wall) and an animated how-to (for example `03-weaving.html`). Each page supports `?embed`, which hides its top bar so the deck can show it in a slide. When adding a lesson, copy the previous lesson's pages and change the content.
 
+Artefacts are student-facing, so they are colourful: a dark Electric stage with every accent used for meaning, the same in every lesson. Their styles are shared in `src/assets/live.css` (linked as `../../../assets/live.css` after `tokens.css`); pages have no `<style>` block and no colour codes. The stage div carries a family class (`deck`, `frayer` or `howto`). Slide role classes set the colour: `hook` orange, `safety` pink, `recall` blue, `record` cyan, none for violet (title, Learning Intention). Frayer quadrants are always violet (meaning), orange (what it is like), cyan (examples) and pink (non-examples). Drawings use `fill="var(--token)"`; scripts use `T("token")` for a hex value.
+
 Every non-Markdown file under `content/units/` is copied to the site at the same path under `/units/`, so `content/units/<slug>/live/steps.html` is served at `/units/<slug>/live/steps.html`.
 
 ### unit.md
@@ -181,7 +183,8 @@ The "Electric" design system in `DESIGN.md` (November 2026): dark theme on `--vo
 
 - All colour, font and radius tokens live in one shared stylesheet, `src/assets/tokens.css`, loaded before `src/assets/site.css`. Never hard-code a colour or font anywhere else, and don't add colours that are not in `DESIGN.md`.
 - `--violet` is a fill only, always with white text. Violet text on dark uses `--ultraviolet`. Dark text goes on `--solar-orange`, `--plasma-pink` and `--ion-cyan`.
-- One partner accent per view. The hub uses `--solar-orange` for "next to plan", drafts, CRT and notes.
+- One partner accent per view. The hub uses `--solar-orange` for "next to plan", drafts, CRT and notes. Live artefacts are the exception: they are for students and use all the accents, each with a fixed meaning (see Content model).
+- CRT plans print on white paper: `src/assets/crt.css` keeps them light, with violet headers and orange notes. They are printed from the built site (`_site/units/<unit>/crt/`) so the shared stylesheets load. Never give them a dark theme.
 - Flat: no gradients, glows or shadows. Cards radius 16px, buttons and pills fully rounded, inputs 10px.
 - Must work on a phone and on a classroom projector. Anything students read stays in `--glow`, not `--mist`. Touch targets at least 44px.
 
@@ -200,7 +203,7 @@ src/settings.njk          # connect a device (GitHub key) and Claude setup steps
 src/assets/hub.js         # ticks, approve and plan buttons (GitHub API)
 .github/workflows/plan-lesson.yml  # Claude Code plans a lesson as a draft
 .github/plan-lesson.md    # the instructions Claude follows in that workflow
-src/assets/               # tokens.css (design tokens), site.css, site.js
+src/assets/               # tokens.css (design tokens), site.css, live.css (artefacts), crt.css (CRT print), site.js
 content/                  # all teaching content
 templates/                # lesson and unit templates, spec for Claude chats
 steam-hub-handover/       # original brief and mockups (not built)

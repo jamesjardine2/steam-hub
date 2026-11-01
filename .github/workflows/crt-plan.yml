@@ -72,8 +72,12 @@ jobs:
           DIR="content/units/$UNIT/crt"
           [ -f "$DIR/$NN-crt.html" ] || { echo "Claude did not write $DIR/$NN-crt.html"; exit 1; }
           if grep -nP '[\x{2013}\x{2014}]' "$DIR/$NN-crt.html"; then echo "Found an en or em dash, not publishing."; exit 1; fi
+          # Print from the built site, where ../../../assets/ (tokens.css,
+          # crt.css) resolves. The time budget lets the web font load.
+          npm run build
           google-chrome --headless=new --no-sandbox --disable-gpu --no-pdf-header-footer \
-            --print-to-pdf="$PWD/$DIR/$NN-crt.pdf" "file://$PWD/$DIR/$NN-crt.html"
+            --virtual-time-budget=10000 \
+            --print-to-pdf="$PWD/$DIR/$NN-crt.pdf" "file://$PWD/_site/units/$UNIT/crt/$NN-crt.html"
           [ -s "$DIR/$NN-crt.pdf" ] || { echo "The PDF was not made"; exit 1; }
 
       - name: Check the site builds

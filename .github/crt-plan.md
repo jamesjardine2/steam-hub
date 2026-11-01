@@ -16,7 +16,7 @@ A CRT (casual relief teacher) takes the lesson when James is away. They do not k
 
 ## Write
 
-`content/units/<unit>/crt/NN-crt.html`, a copy of `04-crt.html` with its `<style>` block unchanged and the same section order:
+`content/units/<unit>/crt/NN-crt.html`, a copy of `04-crt.html` with the same `<head>` links (the font, `tokens.css` and `crt.css`, which hold all the styling) and the same section order. Do not add a `<style>` block or any colour codes: drawings use the tokens, for example `stroke="var(--violet)"`. The PDF is printed on white paper, so keep drawings light: outlines in `--violet`, `--line` or `--solar-orange`, fills in `--glow` or `--white`, and text in `--violet` or `--line`.
 
 1. Header: "Lesson N: Title", then "Year X/Y STEAM | Unit: ... | CRT plan | 45 minutes".
 2. Amber note: how much preparation is needed (aim for "No preparation needed"), "No screens are used", what goes into the STEAM journal, and that journals are on the shelves as you walk in the door.

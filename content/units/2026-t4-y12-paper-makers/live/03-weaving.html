@@ -5,57 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>How to weave · Year 1/2 Weave It</title>
-<style>
-:root {
-  --indigo: #3F51B5;
-  --deep: #1A237E;
-  --chip: #283593;
-  --pale: #E8EAF6;
-  --line: #9FA8DA;
-  --amber: #F9A825;
-  --amber-bg: #FFF8E1;
-  --amber-text: #6D4C00;
-  --red: #C62828;
-}
-* { box-sizing: border-box; }
-html, body { margin: 0; height: 100%; background: #1A1A1A; font-family: Helvetica, Arial, sans-serif; overflow: hidden; }
-
-/* Designed at 1280x720 and scaled to fit the screen or projector. */
-.stage { position: absolute; left: 50%; top: 50%; width: 1280px; height: 720px; transform: translate(-50%, -50%); background: #FFFFFF; color: #222222; display: flex; flex-direction: column; }
-header { height: 64px; flex: 0 0 auto; background: var(--indigo); color: #FFFFFF; display: flex; align-items: center; gap: 20px; padding: 0 28px; }
-header .t { font-weight: 700; font-size: 18px; }
-header .u { margin-left: auto; font-size: 15px; color: var(--pale); }
-header a { color: #FFFFFF; font-weight: 700; font-size: 15px; padding: 12px 8px; }
-
-.body { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; gap: 32px; padding: 12px 56px 12px 24px; }
-svg { flex: 0 0 600px; height: 100%; }
-.text { flex: 1 1 auto; display: flex; flex-direction: column; gap: 22px; }
-.num { width: 88px; height: 88px; border-radius: 50%; background: var(--pale); color: var(--indigo); font-weight: 700; font-size: 52px; display: flex; align-items: center; justify-content: center; }
-h1 { margin: 0; font-size: 54px; line-height: 1.15; color: var(--deep); }
-.sub { margin: 0; font-size: 32px; line-height: 1.3; color: #333333; }
-.words { display: flex; flex-wrap: wrap; gap: 10px; min-height: 58px; }
-.word { font-size: 28px; font-weight: 700; padding: 10px 16px; border-radius: 10px; background: #F1F1F1; color: #AAAAAA; }
-.word.done.over { background: var(--amber-bg); color: var(--amber-text); }
-.word.done.under { background: var(--pale); color: var(--chip); }
-.word.now { outline: 4px solid var(--amber); }
-.check { margin: 0; font-size: 34px; font-weight: 700; color: var(--amber-text); background: var(--amber-bg); border-radius: 14px; padding: 18px 22px; }
-.check[hidden] { display: none; }
-
-footer { height: 80px; flex: 0 0 auto; border-top: 1px solid #E0E0E0; display: flex; align-items: center; gap: 12px; padding: 0 28px; }
-button { font-family: inherit; font-size: 16px; font-weight: 700; padding: 12px 20px; border-radius: 8px; cursor: pointer; min-height: 48px; background: #FFFFFF; color: var(--indigo); border: 1px solid var(--line); }
-button.primary { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
-button:disabled { opacity: 0.4; cursor: default; }
-.dots { display: flex; gap: 8px; margin: 0 auto; }
-.dot { width: 48px; padding: 0; }
-.dot[aria-current="step"] { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
-/* Inside the lesson slides (?embed): no top bar, white surround. */
-.embed body { background: #FFFFFF; }
-.embed header { display: none; }
-.embed .stage { height: 656px; }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
 </head>
 <body>
-<div class="stage" id="stage">
+<div class="stage howto" id="stage">
   <header>
     <span class="t">Year 1/2 · Weave It</span>
     <span class="u">How to make a paper loom and weave</span>
@@ -66,35 +24,35 @@ button:disabled { opacity: 0.4; cursor: default; }
     <svg viewBox="90 60 480 470" role="img" aria-labelledby="title">
       <!-- Bottom half of the sheet, with its half of each slit -->
       <g>
-        <rect id="bottomRect" x="150" y="292" width="300" height="212" fill="#FFFFFF" stroke="#9FA8DA" stroke-width="2"/>
-        <g id="bottomCuts" stroke="#283593" stroke-width="3" stroke-linecap="round"></g>
+        <rect id="bottomRect" x="150" y="292" width="300" height="212" fill="var(--glow)" stroke="var(--mist)" stroke-width="2"/>
+        <g id="bottomCuts" stroke="var(--glow)" stroke-width="3" stroke-linecap="round"></g>
       </g>
       <!-- Top half: flips down to fold and back up to open -->
       <g id="top">
-        <rect id="topRect" x="150" y="80" width="300" height="212" stroke="#9FA8DA" stroke-width="2"/>
-        <g id="topCuts" stroke="#283593" stroke-width="3" stroke-linecap="round"></g>
+        <rect id="topRect" x="150" y="80" width="300" height="212" stroke="var(--mist)" stroke-width="2"/>
+        <g id="topCuts" stroke="var(--glow)" stroke-width="3" stroke-linecap="round"></g>
       </g>
-      <line id="crease" x1="150" y1="292" x2="450" y2="292" stroke="#C5CAE9" stroke-width="2" stroke-dasharray="6 6"/>
+      <line id="crease" x1="150" y1="292" x2="450" y2="292" stroke="var(--mist)" stroke-width="2" stroke-dasharray="6 6"/>
 
       <!-- Weaving -->
       <g id="strips"></g>
       <g id="patches"></g>
-      <g id="slits" stroke="#283593" stroke-width="3" stroke-linecap="round"></g>
-      <rect id="outline" x="150" y="80" width="300" height="424" fill="none" stroke="#9FA8DA" stroke-width="2"/>
+      <g id="slits" stroke="var(--glow)" stroke-width="3" stroke-linecap="round"></g>
+      <rect id="outline" x="150" y="80" width="300" height="424" fill="none" stroke="var(--mist)" stroke-width="2"/>
 
       <!-- Labels for cutting -->
-      <text id="foldLabel" x="300" y="280" text-anchor="middle" font-size="18" font-weight="700" fill="#3F51B5">Fold: cut from here</text>
+      <text id="foldLabel" x="300" y="280" text-anchor="middle" font-size="18" font-weight="700" fill="var(--violet)">Fold: cut from here</text>
       <g id="stop">
-        <line x1="150" y1="480" x2="450" y2="480" stroke="#C62828" stroke-width="3" stroke-dasharray="8 6"/>
-        <text x="462" y="472" font-size="18" font-weight="700" fill="#C62828">Stop!</text>
-        <path d="M462 480 H472 M467 480 V504 M462 504 H472" stroke="#C62828" stroke-width="2" fill="none"/>
-        <text x="478" y="498" font-size="15" fill="#C62828">finger-width</text>
+        <line x1="150" y1="480" x2="450" y2="480" stroke="var(--plasma-pink)" stroke-width="3" stroke-dasharray="8 6"/>
+        <text x="462" y="472" font-size="18" font-weight="700" fill="var(--plasma-pink)">Stop!</text>
+        <path d="M462 480 H472 M467 480 V504 M462 504 H472" stroke="var(--plasma-pink)" stroke-width="2" fill="none"/>
+        <text x="478" y="498" font-size="15" fill="var(--plasma-pink)">finger-width</text>
       </g>
       <g id="scissors">
-        <circle cx="-9" cy="-36" r="8" fill="none" stroke="#3F51B5" stroke-width="4"/>
-        <circle cx="9" cy="-36" r="8" fill="none" stroke="#3F51B5" stroke-width="4"/>
-        <line id="bladeL" x1="-6" y1="-28" x2="2" y2="0" stroke="#555555" stroke-width="4" stroke-linecap="round"/>
-        <line id="bladeR" x1="6" y1="-28" x2="-2" y2="0" stroke="#555555" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="-9" cy="-36" r="8" fill="none" stroke="var(--ultraviolet)" stroke-width="4"/>
+        <circle cx="9" cy="-36" r="8" fill="none" stroke="var(--ultraviolet)" stroke-width="4"/>
+        <line id="bladeL" x1="-6" y1="-28" x2="2" y2="0" stroke="var(--mist)" stroke-width="4" stroke-linecap="round"/>
+        <line id="bladeR" x1="6" y1="-28" x2="-2" y2="0" stroke="var(--mist)" stroke-width="4" stroke-linecap="round"/>
       </g>
     </svg>
 
@@ -116,6 +74,8 @@ button:disabled { opacity: 0.4; cursor: default; }
 </div>
 
 <script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
 if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
 // Loom geometry (SVG units). The sheet is folded short edge to short edge
 // at y = 292, so slits are cut from the fold and stop a finger-width
@@ -123,7 +83,7 @@ if (new URLSearchParams(location.search).has("embed")) document.documentElement.
 const LEFT = 150, WIDTH = 300, FOLD = 292, CUT = 188, BANDS = 6, BAND = WIDTH / BANDS;
 const ROW_TOP = 108, ROW_H = 68, ROW_GAP = 4, ROWS = 5;
 const STRIP_X = 120, STRIP_L = 360;
-const COLOURS = ["#F9A825", "#3F51B5"];
+const COLOURS = [T("solar-orange"), T("violet")];
 const NS = "http://www.w3.org/2000/svg";
 
 const seg = (p, a, b) => Math.min(1, Math.max(0, (p - a) / (b - a)));
@@ -168,7 +128,7 @@ for (let r = 0; r < ROWS; r++) {
   strips.push(el("rect", { y, height: ROW_H, width: STRIP_L, rx: 3, fill: COLOURS[r % 2] }, $("strips")));
   const g = el("g", {}, $("patches"));
   for (let b = 0; b < BANDS; b++) {
-    if (!isOver(r, b)) el("rect", { x: LEFT + b * BAND, y, width: BAND, height: ROW_H, fill: "#FFFFFF" }, g);
+    if (!isOver(r, b)) el("rect", { x: LEFT + b * BAND, y, width: BAND, height: ROW_H, fill: T("glow") }, g);
   }
   patches.push(g);
 }
@@ -178,9 +138,9 @@ function show(node, on) { node.style.display = on ? "" : "none"; }
 function render(s, time) {
   // Fold: the top half is mirrored about the fold line.
   $("top").setAttribute("transform", `translate(0 ${FOLD}) scale(1 ${s.fold}) translate(0 ${-FOLD})`);
-  $("topRect").setAttribute("fill", s.fold >= 0 ? "#FFFFFF" : "#EEF0FA");
+  $("topRect").setAttribute("fill", s.fold >= 0 ? T("glow") : T("raised"));
   // Once weaving starts the loom is drawn as one sheet with a single outline.
-  const edge = s.weave ? "none" : "#9FA8DA";
+  const edge = s.weave ? "none" : T("mist");
   $("topRect").setAttribute("stroke", edge);
   $("bottomRect").setAttribute("stroke", edge);
   show($("crease"), s.cuts >= 5 && s.fold > -0.99 && !s.weave);

@@ -5,72 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Word wall · Year 1/2 Design a Carrier</title>
-<style>
-:root {
-  --indigo: #3F51B5;
-  --deep: #1A237E;
-  --chip: #283593;
-  --pale: #E8EAF6;
-  --line: #9FA8DA;
-  --amber: #F9A825;
-  --amber-bg: #FFF8E1;
-  --amber-text: #6D4C00;
-  --red: #C62828;
-  --red-bg: #FDECEA;
-}
-* { box-sizing: border-box; }
-html, body { margin: 0; height: 100%; background: #1A1A1A; font-family: Helvetica, Arial, sans-serif; overflow: hidden; }
-
-/* Designed at 1280x720 and scaled to fit the screen or projector. */
-.stage { position: absolute; left: 50%; top: 50%; width: 1280px; height: 720px; transform: translate(-50%, -50%); background: #F6F7FB; color: #222222; display: flex; flex-direction: column; }
-header { height: 64px; flex: 0 0 auto; background: var(--indigo); color: #FFFFFF; display: flex; align-items: center; gap: 20px; padding: 0 28px; }
-header .t { font-weight: 700; font-size: 18px; }
-header .u { margin-left: auto; font-size: 15px; color: var(--pale); }
-header a { color: #FFFFFF; font-weight: 700; font-size: 15px; padding: 12px 8px; }
-
-.body { flex: 1 1 auto; min-height: 0; position: relative; padding: 18px 28px; }
-.grid { height: 100%; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 18px; }
-.box { position: relative; background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 16px; padding: 18px 24px; overflow: hidden; display: flex; flex-direction: column; gap: 12px; }
-.box.top { padding-bottom: 58px; }
-.box.left { padding-right: 40px; }
-.box.right { padding-left: 40px; }
-.label { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--indigo); }
-.box.no .label { color: var(--red); }
-.box.right .label { text-align: right; }
-.box.left:not(.top) .items, .box.right:not(.top) .items { margin-top: 10px; }
-.def { margin: 0; font-size: 34px; line-height: 1.3; font-weight: 700; color: var(--deep); }
-.traits { margin: 0; padding-left: 30px; font-size: 28px; line-height: 1.4; }
-.items { display: flex; gap: 14px; }
-.item { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; font-size: 21px; line-height: 1.25; }
-.pic { position: relative; width: 84px; height: 84px; border-radius: 14px; background: var(--pale); display: flex; align-items: center; justify-content: center; }
-.box.no .pic { background: var(--red-bg); }
-.pic svg { width: 64px; height: 64px; }
-.mark { position: absolute; right: -8px; top: -8px; width: 30px; height: 30px; border-radius: 50%; color: #FFFFFF; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; background: var(--indigo); }
-.box.no .mark { background: var(--red); }
-
-/* Cover hides each box until it is tapped, so the class can predict first. */
-.cover { position: absolute; inset: 0; border: 0; border-radius: 16px; background: var(--pale); color: var(--chip); font-family: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
-.cover strong { font-size: 30px; }
-.cover span { font-size: 20px; color: var(--indigo); }
-.box.no .cover { background: var(--red-bg); color: var(--red); }
-.box.no .cover span { color: var(--red); }
-.cover[hidden] { display: none; }
-
-.word { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); min-width: 240px; padding: 14px 38px; border-radius: 999px; background: var(--indigo); color: #FFFFFF; text-align: center; font-size: 48px; font-weight: 700; border: 6px solid #FFFFFF; box-shadow: 0 4px 16px rgba(26, 35, 126, 0.25); pointer-events: none; }
-
-footer { height: 80px; flex: 0 0 auto; background: #FFFFFF; border-top: 1px solid #E0E0E0; display: flex; align-items: center; gap: 12px; padding: 0 28px; }
-footer .hint { font-size: 15px; color: #555555; margin-right: 6px; }
-button.btn { font-family: inherit; font-size: 18px; font-weight: 700; padding: 12px 22px; border-radius: 8px; cursor: pointer; min-height: 48px; background: #FFFFFF; color: var(--indigo); border: 1px solid var(--line); }
-button.btn[aria-pressed="true"] { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
-.spacer { margin-left: auto; }
-/* Inside the lesson slides (?embed): no top bar, white surround. */
-.embed body { background: #FFFFFF; }
-.embed header { display: none; }
-.embed .stage { height: 656px; }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
 </head>
 <body>
-<div class="stage" id="stage">
+<div class="stage frayer" id="stage">
   <header>
     <span class="t">Year 1/2 · Design a Carrier</span>
     <span class="u">Word wall: Frayer model</span>
@@ -91,24 +34,26 @@ button.btn[aria-pressed="true"] { background: var(--indigo); color: #FFFFFF; bor
 </div>
 
 <script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
 if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
 // Small pictures, drawn in a 64x64 box.
-const bag = (inner) => `<path d="M10 24 H54 L50 58 H14 Z" fill="#F1E2B8" stroke="#3F51B5" stroke-width="3" stroke-linejoin="round"/>${inner}`;
+const bag = (inner) => `<path d="M10 24 H54 L50 58 H14 Z" fill="var(--mist)" stroke="var(--ultraviolet)" stroke-width="3" stroke-linejoin="round"/>${inner}`;
 const P = {
-  plan: () => `<rect x="8" y="8" width="48" height="48" rx="3" fill="#FFFFFF" stroke="#3F51B5" stroke-width="3"/><path d="M18 42 H46 L44 50 H20 Z" fill="none" stroke="#3F51B5" stroke-width="2"/><path d="M24 42 V30 M40 42 V30 M24 30 Q32 20 40 30" fill="none" stroke="#F9A825" stroke-width="3"/>`,
-  pencil: () => `<path d="M14 50 L44 12 L52 18 L22 56 L12 58 Z" fill="#F9A825" stroke="#C79100" stroke-width="3" stroke-linejoin="round"/><path d="M12 58 L14 50 L22 56 Z" fill="#FFFFFF" stroke="#C79100" stroke-width="2"/>`,
-  idea: () => `<circle cx="32" cy="26" r="16" fill="#FFF8E1" stroke="#C79100" stroke-width="3"/><rect x="25" y="42" width="14" height="8" fill="#BDBDBD"/><path d="M27 58 H37" stroke="#9E9E9E" stroke-width="3" stroke-linecap="round"/><path d="M28 30 L32 22 L36 30" fill="none" stroke="#C79100" stroke-width="2"/>`,
-  bagWithHandle: () => bag(`<path d="M20 24 C20 6 44 6 44 24" fill="none" stroke="#3F51B5" stroke-width="4"/>`),
-  basket: () => `<path d="M8 28 H56 L50 58 H14 Z" fill="#E0B97A" stroke="#3F51B5" stroke-width="3" stroke-linejoin="round"/><path d="M12 28 C12 6 52 6 52 28" fill="none" stroke="#3F51B5" stroke-width="4"/><path d="M18 38 H46 M20 48 H44" stroke="#C79100" stroke-width="2"/>`,
-  toy: () => `<rect x="18" y="26" width="28" height="28" rx="4" fill="#3F51B5"/><circle cx="32" cy="16" r="10" fill="#F9A825"/><circle cx="28" cy="14" r="2" fill="#222222"/><circle cx="36" cy="14" r="2" fill="#222222"/>`,
-  rock: () => `<path d="M8 50 C8 30 22 20 36 22 C50 24 58 38 54 52 Z" fill="#9E9E9E" stroke="#616161" stroke-width="3"/>`,
-  fold: () => `<path d="M10 52 L26 12 L54 12 L38 52 Z" fill="#FFFFFF" stroke="#3F51B5" stroke-width="3"/><path d="M26 12 L38 52" stroke="#F9A825" stroke-width="3" stroke-dasharray="5 4"/>`,
-  twist: () => `<path d="M16 8 C48 20 16 28 48 40 C58 44 52 54 48 58 M24 8 C56 20 24 28 56 40" fill="none" stroke="#3F51B5" stroke-width="5" stroke-linecap="round"/>`,
-  weave: () => { let s = ""; for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) s += `<rect x="${8 + c * 12}" y="${8 + r * 12}" width="12" height="12" fill="${(r + c) % 2 ? "#FFFFFF" : (r % 2 ? "#3F51B5" : "#F9A825")}" stroke="#9FA8DA"/>`; return s; },
-  paste: () => `<rect x="10" y="18" width="44" height="10" fill="#FFFFFF" stroke="#3F51B5" stroke-width="2"/><rect x="10" y="28" width="44" height="6" fill="#F1E2B8"/><rect x="10" y="34" width="44" height="10" fill="#FFFFFF" stroke="#3F51B5" stroke-width="2"/>`,
-  flat: () => `<rect x="8" y="26" width="48" height="8" fill="#FFFFFF" stroke="#9FA8DA" stroke-width="2"/>`,
-  tape: () => `<circle cx="32" cy="32" r="22" fill="#FFF8E1" stroke="#C79100" stroke-width="3"/><circle cx="32" cy="32" r="10" fill="#FFFFFF" stroke="#C79100" stroke-width="3"/>`,
-  scissors: () => `<circle cx="18" cy="48" r="8" fill="none" stroke="#3F51B5" stroke-width="3"/><circle cx="46" cy="48" r="8" fill="none" stroke="#3F51B5" stroke-width="3"/><path d="M22 42 L46 8 M42 42 L18 8" stroke="#9E9E9E" stroke-width="4" stroke-linecap="round"/>`,
+  plan: () => `<rect x="8" y="8" width="48" height="48" rx="3" fill="var(--glow)" stroke="var(--ultraviolet)" stroke-width="3"/><path d="M18 42 H46 L44 50 H20 Z" fill="none" stroke="var(--ultraviolet)" stroke-width="2"/><path d="M24 42 V30 M40 42 V30 M24 30 Q32 20 40 30" fill="none" stroke="var(--solar-orange)" stroke-width="3"/>`,
+  pencil: () => `<path d="M14 50 L44 12 L52 18 L22 56 L12 58 Z" fill="var(--solar-orange)" stroke="var(--solar-orange)" stroke-width="3" stroke-linejoin="round"/><path d="M12 58 L14 50 L22 56 Z" fill="var(--glow)" stroke="var(--solar-orange)" stroke-width="2"/>`,
+  idea: () => `<circle cx="32" cy="26" r="16" fill="var(--raised)" stroke="var(--solar-orange)" stroke-width="3"/><rect x="25" y="42" width="14" height="8" fill="var(--mist)"/><path d="M27 58 H37" stroke="var(--mist)" stroke-width="3" stroke-linecap="round"/><path d="M28 30 L32 22 L36 30" fill="none" stroke="var(--solar-orange)" stroke-width="2"/>`,
+  bagWithHandle: () => bag(`<path d="M20 24 C20 6 44 6 44 24" fill="none" stroke="var(--ultraviolet)" stroke-width="4"/>`),
+  basket: () => `<path d="M8 28 H56 L50 58 H14 Z" fill="var(--solar-orange)" stroke="var(--ultraviolet)" stroke-width="3" stroke-linejoin="round"/><path d="M12 28 C12 6 52 6 52 28" fill="none" stroke="var(--ultraviolet)" stroke-width="4"/><path d="M18 38 H46 M20 48 H44" stroke="var(--solar-orange)" stroke-width="2"/>`,
+  toy: () => `<rect x="18" y="26" width="28" height="28" rx="4" fill="var(--violet)"/><circle cx="32" cy="16" r="10" fill="var(--solar-orange)"/><circle cx="28" cy="14" r="2" fill="var(--void)"/><circle cx="36" cy="14" r="2" fill="var(--void)"/>`,
+  rock: () => `<path d="M8 50 C8 30 22 20 36 22 C50 24 58 38 54 52 Z" fill="var(--mist)" stroke="var(--mist)" stroke-width="3"/>`,
+  fold: () => `<path d="M10 52 L26 12 L54 12 L38 52 Z" fill="var(--glow)" stroke="var(--ultraviolet)" stroke-width="3"/><path d="M26 12 L38 52" stroke="var(--solar-orange)" stroke-width="3" stroke-dasharray="5 4"/>`,
+  twist: () => `<path d="M16 8 C48 20 16 28 48 40 C58 44 52 54 48 58 M24 8 C56 20 24 28 56 40" fill="none" stroke="var(--ultraviolet)" stroke-width="5" stroke-linecap="round"/>`,
+  weave: () => { let s = ""; for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) s += `<rect x="${8 + c * 12}" y="${8 + r * 12}" width="12" height="12" fill="${(r + c) % 2 ? T("glow") : (r % 2 ? T("violet") : T("solar-orange"))}" stroke="var(--mist)"/>`; return s; },
+  paste: () => `<rect x="10" y="18" width="44" height="10" fill="var(--glow)" stroke="var(--ultraviolet)" stroke-width="2"/><rect x="10" y="28" width="44" height="6" fill="var(--mist)"/><rect x="10" y="34" width="44" height="10" fill="var(--glow)" stroke="var(--ultraviolet)" stroke-width="2"/>`,
+  flat: () => `<rect x="8" y="26" width="48" height="8" fill="var(--glow)" stroke="var(--mist)" stroke-width="2"/>`,
+  tape: () => `<circle cx="32" cy="32" r="22" fill="var(--raised)" stroke="var(--solar-orange)" stroke-width="3"/><circle cx="32" cy="32" r="10" fill="var(--glow)" stroke="var(--solar-orange)" stroke-width="3"/>`,
+  scissors: () => `<circle cx="18" cy="48" r="8" fill="none" stroke="var(--ultraviolet)" stroke-width="3"/><circle cx="46" cy="48" r="8" fill="none" stroke="var(--ultraviolet)" stroke-width="3"/><path d="M22 42 L46 8 M42 42 L18 8" stroke="var(--mist)" stroke-width="4" stroke-linecap="round"/>`,
 };
 
 // Frayer models for the lesson's key words.

@@ -1,0 +1,137 @@
+/* Student-facing live artefacts (content/units/<unit>/live/*.html):
+   1280x720 projector pages, linked as ../../../assets/live.css after
+   tokens.css. Colours come only from tokens.css.
+
+   Dark "Electric" stage with bright accents. Colour carries meaning, the
+   same in every lesson, so students learn the cues:
+     violet  what we are learning (title, LISC, step numbers)
+     orange  think about it (hooks, predictions)
+     pink    stay safe, and non-examples
+     cyan    record it, and examples
+     blue    remember last lesson
+   Each slide uses violet plus its one partner colour. Anything students
+   read is in --glow (never --mist), because projectors wash out greys. */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--void); font-family: var(--font); overflow: hidden; }
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; }
+
+/* Designed at 1280x720 and scaled to fit the screen or projector. */
+.stage { position: absolute; left: 50%; top: 50%; width: 1280px; height: 720px; transform: translate(-50%, -50%); background: var(--void); color: var(--glow); display: flex; flex-direction: column; }
+header { height: 64px; flex: 0 0 auto; background: var(--surface); border-bottom: 1px solid var(--line); color: var(--glow); display: flex; align-items: center; gap: 20px; padding: 0 28px; }
+header .t { font-weight: 800; letter-spacing: -0.02em; font-size: 20px; }
+header .u { margin-left: auto; font-size: 15px; color: var(--mist); }
+header a { color: var(--glow); background: var(--raised); text-decoration: none; font-weight: 500; font-size: 15px; padding: 10px 18px; border-radius: var(--radius-pill); }
+
+footer { height: 80px; flex: 0 0 auto; background: var(--surface); border-top: 1px solid var(--line); display: flex; align-items: center; gap: 12px; padding: 0 28px; }
+button { font-family: inherit; font-size: 17px; font-weight: 500; padding: 12px 22px; border-radius: var(--radius-pill); cursor: pointer; min-height: 48px; background: var(--raised); color: var(--glow); border: 1px solid var(--line); }
+button.primary, .dot[aria-current="step"], button.btn[aria-pressed="true"] { background: var(--violet); color: var(--white); border-color: var(--violet); }
+button:disabled { opacity: 0.4; cursor: default; }
+.dots { display: flex; gap: 8px; margin: 0 auto; }
+.dot { width: 48px; padding: 0; }
+.spacer { margin-left: auto; }
+
+/* Inside the lesson slides (?embed): no top bar. */
+.embed header { display: none; }
+.embed .stage { height: 656px; }
+
+/* ---------- Lesson slides (NN-slides.html), stage class "deck" ---------- */
+.deck footer { height: 72px; }
+.deck .name { font-size: 15px; color: var(--mist); min-width: 200px; text-align: right; }
+.deck .slides { flex: 1 1 auto; min-height: 0; position: relative; }
+
+/* Each slide's partner colour: --accent fills, --accent-text on dark,
+   --on-accent for text on the fill. */
+.slide { --accent: var(--violet); --accent-text: var(--ultraviolet); --on-accent: var(--white); }
+.slide.hook { --accent: var(--solar-orange); --accent-text: var(--solar-orange); --on-accent: var(--void); }
+.slide.safety { --accent: var(--plasma-pink); --accent-text: var(--plasma-pink); --on-accent: var(--void); }
+.slide.record { --accent: var(--ion-cyan); --accent-text: var(--ion-cyan); --on-accent: var(--void); }
+.slide.recall { --accent: var(--volt-blue); --accent-text: var(--glow); --on-accent: var(--white); }
+
+.slide { position: absolute; inset: 0; padding: 40px 72px 40px 84px; display: flex; flex-direction: column; justify-content: center; gap: 26px; border-left: 14px solid var(--accent); }
+.slide[hidden] { display: none; }
+.slide.frame { padding: 0; border-left: 0; }
+.slide.frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+.kicker { align-self: flex-start; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; background: var(--accent); color: var(--on-accent); border-radius: var(--radius-pill); padding: 8px 20px; }
+.big { margin: 0; font-size: 54px; line-height: 1.12; font-weight: 800; letter-spacing: -0.025em; color: var(--glow); }
+.mid { margin: 0; font-size: 34px; line-height: 1.35; color: var(--glow); }
+.row { display: flex; gap: 56px; align-items: center; }
+.row > .copy { flex: 1 1 auto; display: flex; flex-direction: column; gap: 22px; }
+.art { flex: 0 0 440px; height: 380px; border-radius: 24px; background: var(--surface); border: 3px solid var(--accent); display: flex; align-items: center; justify-content: center; }
+.art svg { width: 360px; height: 300px; }
+.thumbs { display: flex; gap: 18px; font-size: 30px; font-weight: 800; }
+.thumbs span { background: var(--accent); color: var(--on-accent); border-radius: var(--radius-card); padding: 12px 26px; }
+
+/* Title slide: violet fill, the lesson name in the signature white pill. */
+.title-slide { background: var(--violet); border-left: 0; color: var(--white); }
+.title-slide .kicker { background: var(--white); color: var(--violet); }
+.title-slide h1 { align-self: flex-start; margin: 0; font-size: 104px; line-height: 1.05; letter-spacing: -0.03em; }
+.title-slide .mid { color: var(--white); }
+
+/* Success criteria and safety lists, one coloured dot per line. */
+.sc { display: flex; flex-direction: column; gap: 14px; font-size: 32px; line-height: 1.3; }
+.sc span { display: flex; align-items: baseline; gap: 18px; }
+.sc span::before { content: ""; flex: 0 0 18px; height: 18px; border-radius: 50%; background: var(--accent); transform: translateY(-2px); }
+
+/* Board table for the record slide. */
+.board { border-collapse: separate; border-spacing: 0; font-size: 32px; }
+.board th, .board td { border: 2px solid var(--mist); padding: 16px 28px; text-align: center; }
+.board tr:first-child th { background: var(--accent); color: var(--on-accent); }
+.board th { color: var(--glow); background: var(--surface); }
+
+/* Link-out panel (a photo that stays on its owner's site). */
+.photo { flex: 0 0 460px; height: 420px; border-radius: 24px; border: 3px dashed var(--accent); background: var(--surface); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 28px; text-align: center; color: var(--glow); }
+.photo strong { font-size: 30px; line-height: 1.25; }
+.photo a { background: var(--violet); color: var(--white); text-decoration: none; font-weight: 500; font-size: 20px; padding: 16px 26px; border-radius: var(--radius-pill); }
+.credit { margin: 0; font-size: 16px; line-height: 1.45; color: var(--mist); }
+
+/* ---------- Word wall (NN-frayer.html) ---------- */
+/* Quadrants are colour-coded the same on every word wall:
+   meaning violet, what it is like orange, examples cyan, non-examples pink. */
+.frayer .body { flex: 1 1 auto; min-height: 0; position: relative; padding: 18px 28px; }
+.frayer .grid { height: 100%; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 18px; }
+.frayer .box { --accent: var(--violet); --accent-text: var(--ultraviolet); --on-accent: var(--white); position: relative; background: var(--surface); border: 3px solid var(--accent); border-radius: var(--radius-card); padding: 18px 24px; overflow: hidden; display: flex; flex-direction: column; gap: 12px; }
+.frayer .box:nth-child(2) { --accent: var(--solar-orange); --accent-text: var(--solar-orange); --on-accent: var(--void); }
+.frayer .box:nth-child(3) { --accent: var(--ion-cyan); --accent-text: var(--ion-cyan); --on-accent: var(--void); }
+.frayer .box:nth-child(4) { --accent: var(--plasma-pink); --accent-text: var(--plasma-pink); --on-accent: var(--void); }
+.frayer .box.top { padding-bottom: 58px; }
+.frayer .box.left { padding-right: 40px; }
+.frayer .box.right { padding-left: 40px; }
+.frayer .label { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-text); }
+.frayer .box.right .label { text-align: right; }
+.frayer .box.left:not(.top) .items, .frayer .box.right:not(.top) .items { margin-top: 10px; }
+.frayer .def { margin: 0; font-size: 34px; line-height: 1.3; font-weight: 700; color: var(--glow); }
+.frayer .traits { margin: 0; padding-left: 30px; font-size: 28px; line-height: 1.4; }
+.frayer .traits li::marker { color: var(--accent-text); }
+.frayer .items { display: flex; gap: 14px; }
+.frayer .item { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; font-size: 21px; line-height: 1.25; }
+.frayer .pic { position: relative; width: 84px; height: 84px; border-radius: 14px; background: var(--raised); display: flex; align-items: center; justify-content: center; }
+.frayer .pic svg { width: 64px; height: 64px; }
+.frayer .mark { position: absolute; right: -8px; top: -8px; width: 30px; height: 30px; border-radius: 50%; font-size: 20px; font-weight: 800; display: flex; align-items: center; justify-content: center; background: var(--accent); color: var(--on-accent); }
+
+/* Cover hides each box until it is tapped, so the class can predict first. */
+.frayer .cover { position: absolute; inset: 0; border: 0; border-radius: 0; background: var(--accent); color: var(--on-accent); font-family: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 0; }
+.frayer .cover strong { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
+.frayer .cover span { font-size: 20px; font-weight: 500; }
+.frayer .cover[hidden] { display: none; }
+
+.frayer .word { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); min-width: 240px; padding: 14px 40px; border-radius: var(--radius-pill); background: var(--white); color: var(--violet); text-align: center; font-size: 52px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; border: 8px solid var(--void); pointer-events: none; }
+.frayer footer .hint { font-size: 15px; color: var(--mist); margin-right: 6px; }
+
+/* ---------- Animated how-to (for example 04-mixing.html) ---------- */
+.howto .body { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; gap: 32px; padding: 12px 56px 12px 24px; }
+.howto svg { flex: 0 0 600px; height: 100%; }
+.howto .text { flex: 1 1 auto; display: flex; flex-direction: column; gap: 22px; }
+.howto .num { width: 88px; height: 88px; border-radius: 50%; background: var(--violet); color: var(--white); font-weight: 800; font-size: 52px; display: flex; align-items: center; justify-content: center; }
+.howto h1 { margin: 0; font-size: 52px; line-height: 1.12; color: var(--glow); }
+.howto .sub { margin: 0; font-size: 32px; line-height: 1.3; color: var(--glow); }
+.howto .words { display: flex; flex-wrap: wrap; gap: 10px; min-height: 58px; }
+.howto .word { font-size: 28px; font-weight: 800; padding: 10px 20px; border-radius: var(--radius-pill); background: var(--raised); color: var(--mist); }
+.howto .word.done { background: var(--solar-orange); color: var(--void); }
+.howto .word.done.yes, .howto .word.done.under { background: var(--ion-cyan); color: var(--void); }
+.howto .word.done.no { background: var(--plasma-pink); color: var(--void); }
+.howto .word.done.over { background: var(--solar-orange); color: var(--void); }
+.howto .word.now { outline: 4px solid var(--glow); outline-offset: 3px; }
+.howto .check { margin: 0; font-size: 34px; font-weight: 800; color: var(--glow); background: var(--surface); border-left: 8px solid var(--solar-orange); border-radius: var(--radius-card); padding: 18px 22px; }
+.howto .check[hidden] { display: none; }

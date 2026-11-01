@@ -5,71 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Lesson slides · Year 1/2 Weave It</title>
-<style>
-:root {
-  --indigo: #3F51B5;
-  --deep: #1A237E;
-  --chip: #283593;
-  --pale: #E8EAF6;
-  --soft: #C5CAE9;
-  --line: #9FA8DA;
-  --amber: #F9A825;
-  --amber-bg: #FFF8E1;
-  --amber-text: #6D4C00;
-}
-* { box-sizing: border-box; }
-html, body { margin: 0; height: 100%; background: #1A1A1A; font-family: Helvetica, Arial, sans-serif; overflow: hidden; }
-
-/* Designed at 1280x720 and scaled to fit the screen or projector. */
-.stage { position: absolute; left: 50%; top: 50%; width: 1280px; height: 720px; transform: translate(-50%, -50%); background: #FFFFFF; color: #222222; display: flex; flex-direction: column; }
-header { height: 64px; flex: 0 0 auto; background: var(--indigo); color: #FFFFFF; display: flex; align-items: center; gap: 20px; padding: 0 28px; }
-header .t { font-weight: 700; font-size: 18px; }
-header .u { margin-left: auto; font-size: 15px; color: var(--pale); }
-header a { color: #FFFFFF; font-weight: 700; font-size: 15px; padding: 12px 8px; }
-
-.slides { flex: 1 1 auto; min-height: 0; position: relative; }
-.slide { position: absolute; inset: 0; padding: 40px 72px; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
-.slide[hidden] { display: none; }
-.slide.frame { padding: 0; }
-.slide.frame iframe { width: 100%; height: 100%; border: 0; display: block; }
-
-.kicker { margin: 0; font-size: 22px; font-weight: 700; color: var(--indigo); text-transform: uppercase; letter-spacing: 0.06em; }
-.big { margin: 0; font-size: 52px; line-height: 1.2; font-weight: 700; color: var(--deep); }
-.mid { margin: 0; font-size: 34px; line-height: 1.35; color: #333333; }
-.row { display: flex; gap: 56px; align-items: center; }
-.row > .copy { flex: 1 1 auto; display: flex; flex-direction: column; gap: 22px; }
-.art { flex: 0 0 440px; height: 380px; border-radius: 20px; background: var(--pale); display: flex; align-items: center; justify-content: center; }
-.art svg { width: 360px; height: 300px; }
-.thumbs { display: flex; gap: 18px; font-size: 30px; font-weight: 700; }
-.thumbs span { background: var(--amber-bg); color: var(--amber-text); border-radius: 12px; padding: 12px 20px; }
-
-/* Title slide */
-.title-slide { background: var(--indigo); color: #FFFFFF; }
-.title-slide .kicker { color: var(--soft); }
-.title-slide h1 { margin: 0; font-size: 96px; line-height: 1.05; }
-.title-slide .mid { color: var(--pale); }
-
-/* Basket slide: the photo stays on the museum's site (all rights reserved). */
-.photo { flex: 0 0 460px; height: 420px; border-radius: 20px; border: 3px dashed var(--line); background: var(--pale); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 28px; text-align: center; color: var(--chip); }
-.photo strong { font-size: 30px; line-height: 1.25; }
-.photo a { background: var(--indigo); color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 20px; padding: 16px 22px; border-radius: 10px; }
-.credit { margin: 0; font-size: 16px; line-height: 1.45; color: #555555; }
-
-/* LISC slide (as in the Live mockup) */
-.sc { display: flex; flex-direction: column; gap: 10px; font-size: 32px; line-height: 1.3; }
-
-footer { height: 72px; flex: 0 0 auto; border-top: 1px solid #E0E0E0; display: flex; align-items: center; gap: 12px; padding: 0 28px; background: #FFFFFF; }
-button { font-family: inherit; font-size: 16px; font-weight: 700; padding: 12px 20px; border-radius: 8px; cursor: pointer; min-height: 48px; background: #FFFFFF; color: var(--indigo); border: 1px solid var(--line); }
-button.primary { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
-button:disabled { opacity: 0.4; cursor: default; }
-.dots { display: flex; gap: 8px; margin: 0 auto; }
-.dot { width: 48px; padding: 0; }
-.dot[aria-current="step"] { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
-.name { font-size: 15px; color: #555555; min-width: 200px; text-align: right; }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
 </head>
 <body>
-<div class="stage" id="stage">
+<div class="stage deck" id="stage">
   <header>
     <span class="t">Year 1/2 · Weave It</span>
     <span class="u">Stronger Together: Paper Makers · Lesson 3</span>
@@ -83,7 +27,7 @@ button:disabled { opacity: 0.4; cursor: default; }
       <p class="mid">Stronger Together: Paper Makers</p>
     </section>
 
-    <section class="slide" data-name="Hook: will it carry?">
+    <section class="slide hook" data-name="Hook: will it carry?">
       <div class="row">
         <div class="copy">
           <p class="kicker">Think about it</p>
@@ -92,19 +36,19 @@ button:disabled { opacity: 0.4; cursor: default; }
         </div>
         <div class="art">
           <svg viewBox="0 0 360 300" aria-label="Four loose paper strips with pebbles on them">
-            <rect x="50" y="60" width="44" height="190" fill="#F9A825"/>
-            <rect x="114" y="60" width="44" height="190" fill="#3F51B5"/>
-            <rect x="178" y="60" width="44" height="190" fill="#F9A825"/>
-            <rect x="242" y="60" width="44" height="190" fill="#3F51B5"/>
-            <circle cx="148" cy="150" r="20" fill="#222222"/>
-            <circle cx="192" cy="150" r="20" fill="#222222"/>
-            <circle cx="170" cy="118" r="20" fill="#222222"/>
+            <rect x="50" y="60" width="44" height="190" fill="var(--solar-orange)"/>
+            <rect x="114" y="60" width="44" height="190" fill="var(--violet)"/>
+            <rect x="178" y="60" width="44" height="190" fill="var(--solar-orange)"/>
+            <rect x="242" y="60" width="44" height="190" fill="var(--violet)"/>
+            <circle cx="148" cy="150" r="20" fill="var(--mist)"/>
+            <circle cx="192" cy="150" r="20" fill="var(--mist)"/>
+            <circle cx="170" cy="118" r="20" fill="var(--mist)"/>
           </svg>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-name="Hook: no glue, no tape">
+    <section class="slide hook" data-name="Hook: no glue, no tape">
       <div class="row">
         <div class="copy">
           <p class="kicker">Oh no!</p>
@@ -113,19 +57,19 @@ button:disabled { opacity: 0.4; cursor: default; }
         </div>
         <div class="art">
           <svg viewBox="0 0 360 300" aria-label="Paper strips sliding apart and pebbles falling">
-            <rect x="40" y="40" width="44" height="170" fill="#F9A825" transform="rotate(-14 62 125)"/>
-            <rect x="118" y="50" width="44" height="170" fill="#3F51B5" transform="rotate(-5 140 135)"/>
-            <rect x="198" y="50" width="44" height="170" fill="#F9A825" transform="rotate(6 220 135)"/>
-            <rect x="276" y="40" width="44" height="170" fill="#3F51B5" transform="rotate(15 298 125)"/>
-            <circle cx="150" cy="262" r="18" fill="#222222"/>
-            <circle cx="196" cy="270" r="18" fill="#222222"/>
-            <circle cx="238" cy="256" r="18" fill="#222222"/>
+            <rect x="40" y="40" width="44" height="170" fill="var(--solar-orange)" transform="rotate(-14 62 125)"/>
+            <rect x="118" y="50" width="44" height="170" fill="var(--violet)" transform="rotate(-5 140 135)"/>
+            <rect x="198" y="50" width="44" height="170" fill="var(--solar-orange)" transform="rotate(6 220 135)"/>
+            <rect x="276" y="40" width="44" height="170" fill="var(--violet)" transform="rotate(15 298 125)"/>
+            <circle cx="150" cy="262" r="18" fill="var(--mist)"/>
+            <circle cx="196" cy="270" r="18" fill="var(--mist)"/>
+            <circle cx="238" cy="256" r="18" fill="var(--mist)"/>
           </svg>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-name="Hook: look at your sleeve">
+    <section class="slide hook" data-name="Hook: look at your sleeve">
       <div class="row">
         <div class="copy">
           <p class="kicker">Look closely</p>
@@ -135,9 +79,9 @@ button:disabled { opacity: 0.4; cursor: default; }
         <div class="art">
           <svg viewBox="0 0 360 300" aria-label="Close-up of woven threads">
             <clipPath id="lens"><circle cx="180" cy="150" r="128"/></clipPath>
-            <circle cx="180" cy="150" r="128" fill="#FFFFFF"/>
+            <circle cx="180" cy="150" r="128" fill="var(--glow)"/>
             <g id="threads" clip-path="url(#lens)"></g>
-            <circle cx="180" cy="150" r="128" fill="none" stroke="#3F51B5" stroke-width="10"/>
+            <circle cx="180" cy="150" r="128" fill="none" stroke="var(--ultraviolet)" stroke-width="10"/>
           </svg>
         </div>
       </div>
@@ -184,6 +128,8 @@ button:disabled { opacity: 0.4; cursor: default; }
 </div>
 
 <script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
 const $ = (id) => document.getElementById(id);
 const slides = [...document.querySelectorAll(".slide")];
 let current = 0;
@@ -196,8 +142,8 @@ let current = 0;
       const x = 40 + c * 28, y = 10 + r * 28;
       const across = (r + c) % 2 === 0;
       s += across
-        ? `<rect x="${x}" y="${y + 6}" width="28" height="16" rx="6" fill="#7986CB"/>`
-        : `<rect x="${x + 6}" y="${y}" width="16" height="28" rx="6" fill="#3F51B5"/>`;
+        ? `<rect x="${x}" y="${y + 6}" width="28" height="16" rx="6" fill="var(--volt-blue)"/>`
+        : `<rect x="${x + 6}" y="${y}" width="16" height="28" rx="6" fill="var(--violet)"/>`;
     }
   }
   $("threads").innerHTML = s;

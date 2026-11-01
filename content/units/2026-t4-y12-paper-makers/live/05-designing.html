@@ -5,57 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>How to test and design · Year 1/2 Design a Carrier</title>
-<style>
-:root {
-  --indigo: #3F51B5;
-  --deep: #1A237E;
-  --chip: #283593;
-  --pale: #E8EAF6;
-  --line: #9FA8DA;
-  --amber: #F9A825;
-  --amber-bg: #FFF8E1;
-  --amber-text: #6D4C00;
-  --red: #C62828;
-  --red-bg: #FDECEA;
-}
-* { box-sizing: border-box; }
-html, body { margin: 0; height: 100%; background: #1A1A1A; font-family: Helvetica, Arial, sans-serif; overflow: hidden; }
-
-/* Designed at 1280x720 and scaled to fit the screen or projector. */
-.stage { position: absolute; left: 50%; top: 50%; width: 1280px; height: 720px; transform: translate(-50%, -50%); background: #FFFFFF; color: #222222; display: flex; flex-direction: column; }
-header { height: 64px; flex: 0 0 auto; background: var(--indigo); color: #FFFFFF; display: flex; align-items: center; gap: 20px; padding: 0 28px; }
-header .t { font-weight: 700; font-size: 18px; }
-header .u { margin-left: auto; font-size: 15px; color: var(--pale); }
-header a { color: #FFFFFF; font-weight: 700; font-size: 15px; padding: 12px 8px; }
-
-.body { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; gap: 32px; padding: 12px 56px 12px 24px; }
-svg { flex: 0 0 600px; height: 100%; }
-.text { flex: 1 1 auto; display: flex; flex-direction: column; gap: 22px; }
-.num { width: 88px; height: 88px; border-radius: 50%; background: var(--pale); color: var(--indigo); font-weight: 700; font-size: 52px; display: flex; align-items: center; justify-content: center; }
-h1 { margin: 0; font-size: 50px; line-height: 1.15; color: var(--deep); }
-.sub { margin: 0; font-size: 32px; line-height: 1.3; color: #333333; }
-.words { display: flex; flex-wrap: wrap; gap: 10px; min-height: 58px; }
-.word { font-size: 28px; font-weight: 700; padding: 10px 16px; border-radius: 10px; background: #F1F1F1; color: #AAAAAA; }
-.word.done { background: var(--amber-bg); color: var(--amber-text); }
-.word.done.yes { background: var(--pale); color: var(--chip); }
-.word.done.no { background: var(--red-bg); color: var(--red); }
-
-footer { height: 80px; flex: 0 0 auto; border-top: 1px solid #E0E0E0; display: flex; align-items: center; gap: 12px; padding: 0 28px; }
-button { font-family: inherit; font-size: 16px; font-weight: 700; padding: 12px 20px; border-radius: 8px; cursor: pointer; min-height: 48px; background: #FFFFFF; color: var(--indigo); border: 1px solid var(--line); }
-button.primary { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
-button:disabled { opacity: 0.4; cursor: default; }
-.dots { display: flex; gap: 8px; margin: 0 auto; }
-.dot { width: 48px; padding: 0; }
-.dot[aria-current="step"] { background: var(--indigo); color: #FFFFFF; border-color: var(--indigo); }
-
-/* Inside the lesson slides (?embed): no top bar, white surround. */
-.embed body { background: #FFFFFF; }
-.embed header { display: none; }
-.embed .stage { height: 656px; }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
 </head>
 <body>
-<div class="stage" id="stage">
+<div class="stage howto" id="stage">
   <header>
     <span class="t">Year 1/2 · Design a Carrier</span>
     <span class="u">How to test and design</span>
@@ -81,22 +39,24 @@ button:disabled { opacity: 0.4; cursor: default; }
 </div>
 
 <script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
 if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
 
-const INK = "#3F51B5", AMBER = "#F9A825", PASTE = "#F1E2B8";
+const INK = T("ultraviolet"), AMBER = T("solar-orange"), PASTE = T("mist");
 const seg = (p, a, b) => Math.min(1, Math.max(0, (p - a) / (b - a)));
 const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-const backdrop = `<rect x="10" y="10" width="460" height="450" rx="22" fill="#F6F7FB"/>`;
+const backdrop = `<rect x="10" y="10" width="460" height="450" rx="22" fill="var(--surface)"/>`;
 const label = (x, y, text, size = 26, colour = INK) => `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="700" fill="${colour}">${text}</text>`;
-const book = (x, y) => `<rect x="${x}" y="${y}" width="110" height="90" fill="#C5CAE9" stroke="${INK}" stroke-width="4"/><line x1="${x + 14}" y1="${y}" x2="${x + 14}" y2="${y + 90}" stroke="${INK}" stroke-width="3"/>`;
-const block = (x, y, i) => `<rect x="${x}" y="${y}" width="28" height="28" fill="${i % 2 ? AMBER : INK}" stroke="#FFFFFF" stroke-width="2"/>`;
+const book = (x, y) => `<rect x="${x}" y="${y}" width="110" height="90" fill="var(--volt-blue)" stroke="${INK}" stroke-width="4"/><line x1="${x + 14}" y1="${y}" x2="${x + 14}" y2="${y + 90}" stroke="${INK}" stroke-width="3"/>`;
+const block = (x, y, i) => `<rect x="${x}" y="${y}" width="28" height="28" fill="${i % 2 ? AMBER : INK}" stroke="var(--void)" stroke-width="2"/>`;
 
 // Strip across the gap, sagging by "sag" pixels, with n blocks stacked in the middle.
 function bridge(sag, n, layered) {
   const y = 250;
-  let s = book(50, y) + book(320, y) + `<line x1="20" y1="340" x2="460" y2="340" stroke="#BDBDBD" stroke-width="4"/>`;
+  let s = book(50, y) + book(320, y) + `<line x1="20" y1="340" x2="460" y2="340" stroke="var(--mist)" stroke-width="4"/>`;
   const thick = layered ? 14 : 5;
-  s += `<path d="M110 ${y - thick / 2} Q240 ${y - thick / 2 + sag * 2} 370 ${y - thick / 2}" fill="none" stroke="${layered ? AMBER : "#9FA8DA"}" stroke-width="${thick}"/>`;
+  s += `<path d="M110 ${y - thick / 2} Q240 ${y - thick / 2 + sag * 2} 370 ${y - thick / 2}" fill="none" stroke="${layered ? AMBER : T("mist")}" stroke-width="${thick}"/>`;
   if (layered) s += `<path d="M110 ${y + 4} Q240 ${y + 4 + sag * 2} 370 ${y + 4}" fill="none" stroke="${INK}" stroke-width="5"/>`;
   for (let i = 0; i < n; i++) s += block(226 + (i % 2) * 28 - 14, y + sag - 30 - Math.floor(i / 2) * 28 - 0, i);
   return s;
@@ -108,10 +68,10 @@ const SCENES = [
   (p) => {
     const slide = ease(seg(p, 0, 0.4));
     const x1 = 50 - 40 * (1 - slide), x2 = 320 + 40 * (1 - slide);
-    let s = backdrop + `<line x1="20" y1="340" x2="460" y2="340" stroke="#BDBDBD" stroke-width="4"/>`;
+    let s = backdrop + `<line x1="20" y1="340" x2="460" y2="340" stroke="var(--mist)" stroke-width="4"/>`;
     s += book(x1, 250) + book(x2, 250);
     const strip = ease(seg(p, 0.45, 0.8));
-    s += `<rect x="${110}" y="${250 - 5 - (1 - strip) * 120}" width="260" height="6" fill="#FFFFFF" stroke="#9FA8DA" stroke-width="2"/>`;
+    s += `<rect x="${110}" y="${250 - 5 - (1 - strip) * 120}" width="260" height="6" fill="var(--glow)" stroke="var(--mist)" stroke-width="2"/>`;
     if (p > 0.82) s += `<line x1="110" y1="205" x2="370" y2="205" stroke="${INK}" stroke-width="3"/><path d="M110 195 V215 M370 195 V215" stroke="${INK}" stroke-width="3"/>` + label(240, 190, "one hand apart", 26);
     return s;
   },
@@ -127,10 +87,10 @@ const SCENES = [
     let s = backdrop;
     const bar = (x, h, colour, name) =>
       `<rect x="${x}" y="${340 - h * t}" width="90" height="${h * t}" fill="${colour}" stroke="${INK}" stroke-width="3"/>` + label(x + 45, 380, name, 24);
-    s += `<line x1="60" y1="340" x2="420" y2="340" stroke="#BDBDBD" stroke-width="4"/>`;
-    s += bar(100, 100, "#E8EAF6", "single") + bar(280, 220, AMBER, "layered");
+    s += `<line x1="60" y1="340" x2="420" y2="340" stroke="var(--mist)" stroke-width="4"/>`;
+    s += bar(100, 100, T("raised"), "single") + bar(280, 220, AMBER, "layered");
     s += label(240, 70, "Write both numbers", 32);
-    if (p > 0.7) s += label(240, 430, "Which held more?", 30, "#F9A825");
+    if (p > 0.7) s += label(240, 430, "Which held more?", 30, T("solar-orange"));
     return s;
   },
   // 4. Draw the carrier: base, sides, handle, in that order.
@@ -139,7 +99,7 @@ const SCENES = [
       const t = seg(p, a, b);
       return t > 0 ? `<path d="${d}" fill="none" stroke="${colour}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="${1 - t}"/>` : "";
     };
-    let s = backdrop + `<rect x="50" y="50" width="380" height="370" rx="8" fill="#FFFFFF" stroke="#9FA8DA" stroke-width="3"/>`;
+    let s = backdrop + `<rect x="50" y="50" width="380" height="370" rx="8" fill="var(--raised)" stroke="var(--glow)" stroke-width="3" stroke-dasharray="10 8"/>`;
     s += draw(0.05, 0.3, "M130 360 H350");
     s += draw(0.3, 0.6, "M130 360 L110 230 M350 360 L370 230");
     s += draw(0.6, 0.9, "M110 230 C110 100 370 100 370 230");
@@ -153,9 +113,9 @@ const SCENES = [
     const arrow = (a, x1, y1, x2, y2, text, tx, ty) => {
       const t = seg(p, a, a + 0.2);
       if (t <= 0) return "";
-      return `<g opacity="${t}"><line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${AMBER}" stroke-width="4"/><circle cx="${x2}" cy="${y2}" r="6" fill="${AMBER}"/>${label(tx, ty, text, 22, "#6D4C00")}</g>`;
+      return `<g opacity="${t}"><line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${AMBER}" stroke-width="4"/><circle cx="${x2}" cy="${y2}" r="6" fill="${AMBER}"/>${label(tx, ty, text, 22, T("solar-orange"))}</g>`;
     };
-    let s = backdrop + `<rect x="50" y="50" width="380" height="370" rx="8" fill="#FFFFFF" stroke="#9FA8DA" stroke-width="3"/>`;
+    let s = backdrop + `<rect x="50" y="50" width="380" height="370" rx="8" fill="var(--raised)" stroke="var(--glow)" stroke-width="3" stroke-dasharray="10 8"/>`;
     s += `<path d="M130 360 H350 M130 360 L110 230 M350 360 L370 230 M110 230 C110 100 370 100 370 230" fill="none" stroke="${INK}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`;
     s += arrow(0.05, 240, 360, 240, 330, "pasted base", 240, 305);
     s += arrow(0.3, 70, 300, 116, 300, "woven sides", 100, 280);
