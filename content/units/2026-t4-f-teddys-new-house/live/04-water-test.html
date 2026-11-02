@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>How to test a roof · Foundation Keep Teddy dry</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<!-- Pictures shared by every artefact in this unit. -->
+<script src="pictures.js"></script>
+</head>
+<body>
+<div class="stage howto" id="stage">
+  <header>
+    <span class="t">Foundation · Keep Teddy dry</span>
+    <span class="u">How to test a roof</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/04-keep-teddy-dry/">Exit</a>
+  </header>
+
+  <div class="body">
+    <svg viewBox="0 0 480 470" id="scene" role="img" aria-labelledby="title"></svg>
+    <div class="text" aria-live="polite">
+      <span class="num" id="num">1</span>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="words" id="words"></div>
+    </div>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" id="again">Play again</button>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
+const seg = (p, a, b) => Math.min(1, Math.max(0, (p - a) / (b - a)));
+const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const backdrop = `<rect x="10" y="10" width="460" height="450" rx="22" fill="var(--panel)"/>`;
+const label = (x, y, text, size = 26, colour = "var(--ink)") => `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="700" fill="${colour}">${text}</text>`;
+const O = 'stroke="var(--ink)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"';
+
+// Side view: a tray, a paper towel and a square of material on top.
+const TRAY_Y = 380;
+const tray = `<rect x="60" y="${TRAY_Y}" width="360" height="22" rx="6" fill="var(--volt-blue)" ${O}/>`;
+const towel = `<rect x="100" y="${TRAY_Y - 16}" width="280" height="16" fill="var(--paper)" ${O}/>`;
+const square = (y) => `<rect x="120" y="${y}" width="240" height="14" rx="3" fill="var(--plasma-pink)" ${O}/>`;
+const drop = (x, y) => `<path d="M${x} ${y - 14} q-9 14 0 20 q9 -6 0 -20 Z" fill="var(--ion-cyan)" ${O}/>`;
+const dropper = (x, y) => `<g transform="translate(${x - 60} ${y - 60})">${PIC.dropper()}</g>`;
+
+// Top view of a paper towel: a wet patch or dry.
+const topTowel = (x, wet) => `<rect x="${x}" y="150" width="170" height="170" fill="var(--paper)" ${O}/>` + (wet ? `<circle cx="${x + 85}" cy="235" r="46" fill="var(--ion-cyan)" opacity="0.8"/>` : "");
+
+const SCENES = [
+  // 1. Paper towel on the tray, then the material on top.
+  (p) => backdrop + tray + towel + square(120 + ease(seg(p, 0.3, 0.9)) * (TRAY_Y - 16 - 14 - 120)) + label(240, 70, "tray, towel, material", 28),
+  // 2. Drip 10 drops from the dropper.
+  (p) => {
+    const q = seg(p, 0.05, 0.95) * 10, n = Math.min(10, Math.floor(q)), f = q - n;
+    let s = backdrop + tray + towel + square(TRAY_Y - 16 - 14);
+    for (let i = 0; i < Math.min(n, 10); i++) s += `<ellipse cx="${150 + i * 20}" cy="${TRAY_Y - 34}" rx="7" ry="4" fill="var(--ion-cyan)" ${O}/>`;
+    if (n < 10) s += drop(240, 130 + f * 190);
+    s += dropper(240, 100);
+    return s + label(240, 60, String(Math.min(10, n + (f > 0.5 ? 1 : 0))), 40);
+  },
+  // 3. Lift the material.
+  (p) => {
+    const up = ease(seg(p, 0.2, 0.8));
+    return backdrop + tray + towel + square(TRAY_Y - 16 - 14 - up * 130) + `<path d="M240 ${TRAY_Y - 60 - up * 130} L240 ${TRAY_Y - 130 - up * 130}" stroke="var(--solar-orange)" stroke-width="10" stroke-linecap="round"/>` + label(240, 70, "lift it up", 30);
+  },
+  // 4. Look at the paper towel from above: wet or dry?
+  (p) => backdrop + topTowel(50, true) + topTowel(260, false) + (p > 0.4 ? label(135, 370, "wet", 34) + label(345, 370, "dry", 34) : "") + label(240, 90, "look at the towel", 30),
+  // 5. Test every material.
+  (p) => {
+    const cols = ["var(--plasma-pink)", "var(--solar-orange)", "var(--ion-cyan)", "var(--volt-blue)"];
+    let s = backdrop;
+    cols.forEach((c, i) => {
+      const k = ease(seg(p, i * 0.2, i * 0.2 + 0.25));
+      s += `<rect x="${40 + i * 106}" y="${210 - k * 20}" width="90" height="90" rx="6" fill="${c}" ${O} opacity="${0.35 + 0.65 * k}"/>`;
+    });
+    return s + label(240, 120, "test all 4", 38);
+  },
+  // 6. Pick the best roof: Teddy stays dry.
+  (p) => {
+    const k = ease(seg(p, 0.1, 0.8));
+    return backdrop + `<g transform="translate(90 ${-40 + k * 50}) scale(2.5)">${PIC.roof()}</g><g transform="translate(176 300) scale(1.2)">${PIC.teddyHappy()}</g>` + (p > 0.7 ? label(240, 60, "Dry!", 36) : "");
+  },
+];
+
+const STEPS = [
+  { title: "Towel, then material.", sub: "Put them on your tray.", dur: 5000, words: [] },
+  { title: "Drip 10 drops.", sub: "Drip gently. Count them.", dur: 8000, words: [] },
+  { title: "Lift it up.", sub: "Take the material off.", dur: 4000, words: [] },
+  { title: "Look at the towel.", sub: "Is it wet or dry?", dur: 5000, words: [["wet", "no"], ["dry", "yes"]], wordsFrom: 0.4 },
+  { title: "Test all 4.", sub: "Wipe the tray between tests.", dur: 6000, words: [] },
+  { title: "Pick the best roof.", sub: "Which one kept the towel dry?", dur: 5000, words: [["waterproof", "yes"]], wordsFrom: 0.7 },
+];
+
+const $ = (id) => document.getElementById(id);
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let current = 0, start = 0, frame = 0;
+
+function renderWords(step, p) {
+  const n = step.words.length;
+  $("words").innerHTML = step.words.map((w, i) => {
+    const [text, kind] = Array.isArray(w) ? w : [w, ""];
+    const at = step.wordsAt ? step.wordsAt[i] : (step.wordsFrom ?? 0.1) + (i / n) * (1 - (step.wordsFrom ?? 0.1)) * 0.8;
+    return `<span class="word ${kind}${p >= at ? " done" : ""}">${text}</span>`;
+  }).join("");
+}
+
+function tick(now) {
+  const step = STEPS[current];
+  const p = reduceMotion ? 1 : Math.min(1, (now - start) / step.dur);
+  $("scene").innerHTML = SCENES[current](p);
+  renderWords(step, p);
+  if (p < 1) frame = requestAnimationFrame(tick);
+}
+
+function go(i) {
+  current = Math.max(0, Math.min(STEPS.length - 1, i));
+  const step = STEPS[current];
+  $("num").textContent = current + 1;
+  $("title").textContent = step.title;
+  $("sub").textContent = step.sub;
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("back").disabled = current === 0;
+  $("next").disabled = current === STEPS.length - 1;
+  cancelAnimationFrame(frame);
+  start = performance.now();
+  frame = requestAnimationFrame(tick);
+}
+
+STEPS.forEach((_, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Step ${j + 1}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+$("again").addEventListener("click", () => go(current));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(current + 1); }
+  if (e.key === "ArrowLeft") go(current - 1);
+});
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go(0);
+</script>
+</body>
+</html>

@@ -20,9 +20,6 @@ curriculum:
 claude_chat: https://claude.ai/chat/e8d61706-1e6b-4e1d-85c3-825e8bda0ff9
 links: []
 outline:
-  - number: 4
-    title: Keep Teddy Dry
-    summary: Roof water test. Drip water onto different materials to find the best roof for Teddy's house, bringing in what materials are like (VC2TDE2C04).
   - number: 5
     title: A House for Teddy
     summary: Draw and label a plan for Teddy's house, choosing a roof material from the water test and including a door that opens.

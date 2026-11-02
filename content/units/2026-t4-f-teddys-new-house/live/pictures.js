@@ -79,6 +79,12 @@ const PIC = (() => {
       for (let r = 0; r < 4; r++) for (let c = 0; c < 8; c++) s += `<circle cx="${18 + c * 12}" cy="${42 + r * 12}" r="3" fill="var(--paper)" opacity="0.6"/>`;
       return s;
     },
+    // Lesson 4: the water test
+    paper: () => `<path d="M26 10 L84 10 L100 26 L100 110 L26 110 Z" fill="var(--paper)" ${O}/><path d="M84 10 L84 26 L100 26" fill="none" ${O}/><path d="M38 48 L88 48 M38 64 L88 64 M38 80 L74 80" stroke="var(--mist)" stroke-width="4" stroke-linecap="round"/>`,
+    foil: () => `<path d="M18 30 L52 18 L100 28 L106 70 L92 104 L48 108 L16 90 Z" fill="var(--mist)" ${O}/><path d="M18 30 L52 60 L100 28 M52 60 L48 108 M52 60 L106 70 M52 60 L16 90" fill="none" stroke="var(--paper)" stroke-width="3" stroke-linejoin="round"/>`,
+    plastic: () => `<rect x="20" y="24" width="80" height="72" rx="8" fill="var(--panel-2)" ${O}/><path d="M34 42 L58 42 M34 54 L46 54" stroke="var(--paper)" stroke-width="5" stroke-linecap="round"/>`,
+    cloth: () => `<rect x="20" y="24" width="80" height="72" fill="var(--plasma-pink)" ${O}/>${[40, 60, 80].map((p) => `<path d="M${p} 24 L${p} 96 M20 ${p + 4} L100 ${p + 4}" stroke="var(--paper)" stroke-width="3" stroke-dasharray="6 6" opacity="0.7"/>`).join("")}`,
+    dropper: () => `<path d="M52 18 Q60 6 68 18 L68 44 L52 44 Z" fill="var(--plasma-pink)" ${O}/><rect x="48" y="44" width="24" height="10" fill="var(--paper)" ${O}/><path d="M54 54 L54 84 L60 98 L66 84 L66 54 Z" fill="var(--paper)" ${O}/><path d="M60 102 q-8 10 0 14 q8 -4 0 -14 Z" fill="var(--ion-cyan)" ${O}/>`,
   };
 })();
 
