@@ -7,9 +7,11 @@ lesson_count: 7
 focus: "D&T + Science"
 blurb: "Designing a house for Teddy: homes, rooms, strong LEGO walls and a roof that keeps the rain out."
 lisc:
-  intention: "[Unit Learning Intention to add]"
+  intention: To design and build a house for Teddy that keeps him safe, dry and comfy.
   criteria:
-    - "[Unit Success Criteria to add]"
+    - say what makes a home and what each room is for
+    - test ways to make a house strong and dry
+    - plan, build and show a house for Teddy
 curriculum:
   - VC2TDE2S01
   - VC2TDE2C04
