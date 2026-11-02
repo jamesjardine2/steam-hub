@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>How to build and test · Foundation Strong walls for Teddy</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<!-- Pictures shared by every artefact in this unit. -->
+<script src="pictures.js"></script>
+</head>
+<body>
+<div class="stage howto" id="stage">
+  <header>
+    <span class="t">Foundation · Strong walls for Teddy</span>
+    <span class="u">How to build and test</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/03-strong-walls-for-teddy/">Exit</a>
+  </header>
+
+  <div class="body">
+    <svg viewBox="0 0 480 470" id="scene" role="img" aria-labelledby="title"></svg>
+    <div class="text" aria-live="polite">
+      <span class="num" id="num">1</span>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="words" id="words"></div>
+    </div>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" id="again">Play again</button>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
+const seg = (p, a, b) => Math.min(1, Math.max(0, (p - a) / (b - a)));
+const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const backdrop = `<rect x="10" y="10" width="460" height="450" rx="22" fill="var(--panel)"/>`;
+const label = (x, y, text, size = 26, colour = "var(--ink)") => `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="700" fill="${colour}">${text}</text>`;
+const O = 'stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"';
+
+const BRICK_W = 60, BRICK_H = 30, X0 = 150, BASE = 390;
+const brick = (x, y, colour, rot = 0, cx = 0, cy = 0) => `<rect x="${x}" y="${y}" width="${BRICK_W}" height="${BRICK_H}" rx="3" fill="${colour}" ${O} transform="rotate(${rot} ${cx} ${cy})"/>`;
+const ground = `<rect x="40" y="${BASE}" width="400" height="16" rx="4" fill="var(--volt-blue)" ${O}/>`;
+const hand = (x, y) => `<g transform="translate(${x} ${y})"><path d="M0 0 L-46 0" stroke="var(--solar-orange)" stroke-width="10" stroke-linecap="round"/><path d="M-30 -14 L-50 0 L-30 14" fill="none" stroke="var(--solar-orange)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+
+// Wall A: 3 towers of 5 bricks. Wall B: 5 rows that overlap.
+function towers(fall = 0) {
+  let s = "";
+  for (let c = 0; c < 3; c++) {
+    const rot = fall * (35 + c * 12), px = X0 + c * BRICK_W, py = BASE;
+    for (let r = 0; r < 5; r++) s += brick(px, BASE - (r + 1) * BRICK_H, "var(--plasma-pink)", rot, px + BRICK_W, py);
+  }
+  return s;
+}
+function overlapWall(rows = 5, sway = 0, drop = 1, colour = "var(--volt-blue)") {
+  let s = "", n = 0;
+  for (let r = 0; r < rows; r++) {
+    const y = BASE - (r + 1) * BRICK_H, odd = r % 2;
+    const parts = odd ? [[X0, BRICK_W / 2], [X0 + BRICK_W / 2, BRICK_W], [X0 + 1.5 * BRICK_W, BRICK_W], [X0 + 2.5 * BRICK_W, BRICK_W / 2]] : [[X0, BRICK_W], [X0 + BRICK_W, BRICK_W], [X0 + 2 * BRICK_W, BRICK_W]];
+    for (const [x, w] of parts) {
+      const t = Math.min(1, Math.max(0, drop * 18 - n)); n++;
+      if (t <= 0) continue;
+      s += `<rect x="${x}" y="${y - (1 - ease(t)) * 200}" width="${w}" height="${BRICK_H}" rx="3" fill="${colour}" ${O} opacity="${t}" transform="rotate(${sway * (r + 1)} ${X0 + 1.5 * BRICK_W} ${BASE})"/>`;
+    }
+  }
+  return s;
+}
+
+// Seen from above: a base plate with 4 walls and a door gap.
+function plan(t) {
+  let s = `<rect x="80" y="80" width="320" height="320" rx="10" fill="var(--volt-blue)" ${O}/>`;
+  for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) s += `<circle cx="${100 + c * 40}" cy="${100 + r * 40}" r="7" fill="var(--paper)" opacity="0.45"/>`;
+  const walls = [[120, 120, 240, 28], [332, 120, 28, 240], [120, 120, 28, 240], [120, 332, 85, 28], [275, 332, 85, 28]];
+  walls.forEach(([x, y, w, h], i) => {
+    const k = seg(t, i * 0.16, i * 0.16 + 0.16);
+    if (k > 0) s += `<rect x="${x}" y="${y}" width="${w * (w > h ? k : 1)}" height="${h * (h > w ? k : 1)}" fill="var(--plasma-pink)" ${O}/>`;
+  });
+  if (t > 0.85) s += label(240, 438, "door", 26) + `<path d="M240 400 L240 366" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>`;
+  return s;
+}
+
+const SCENES = [
+  // 1. Wall A: towers side by side fall apart when pushed.
+  (p) => {
+    const push = seg(p, 0.3, 0.45), fall = ease(seg(p, 0.45, 0.8));
+    let s = backdrop + ground + towers(fall);
+    if (p > 0.15 && p < 0.55) s += hand(X0 - 16 + push * 20, BASE - 4.5 * BRICK_H);
+    return s + label(240, 60, "Wall A: towers", 30);
+  },
+  // 2. Wall B: each brick sits across the join below it.
+  (p) => backdrop + ground + overlapWall(5, 0, ease(seg(p, 0, 0.95))) + label(240, 60, "Wall B: overlap", 30),
+  // 3. Push Wall B: it wobbles a little and stays up.
+  (p) => {
+    const push = seg(p, 0.25, 0.4);
+    const sway = Math.sin(seg(p, 0.4, 0.75) * Math.PI * 3) * 1.2 * (1 - seg(p, 0.4, 0.75));
+    let s = backdrop + ground + overlapWall(5, sway);
+    if (p > 0.1 && p < 0.5) s += hand(X0 - 16 + push * 20, BASE - 4.5 * BRICK_H);
+    return s + (p > 0.75 ? label(240, 60, "It stays up!", 32) : label(240, 60, "Wall B: overlap", 30));
+  },
+  // 4. Build 4 walls and a door on the base plate.
+  (p) => backdrop + plan(ease(seg(p, 0.05, 0.95))),
+  // 5. Wobble test: low over the table, count to 5.
+  (p) => {
+    const count = Math.min(5, Math.floor(seg(p, 0.05, 0.95) * 5) + 1);
+    const wob = Math.sin(p * 70) * 7 * (p < 0.95 ? 1 : 0);
+    let s = backdrop + `<rect x="30" y="420" width="420" height="30" rx="6" fill="var(--panel-2)" ${O}/>`;
+    s += `<g transform="translate(${wob} 0)"><g transform="translate(0 -20)">${ground}${overlapWall(4)}</g></g>`;
+    return s + label(240, 80, String(count), 64);
+  },
+  // 6. A brick falls off the top, then goes back on: fixed.
+  (p) => {
+    const off = ease(seg(p, 0.1, 0.35)), back = ease(seg(p, 0.55, 0.85));
+    const t = off * (1 - back);
+    let s = backdrop + ground + overlapWall(4);
+    const x = X0 + 2 * BRICK_W, y = BASE - 5 * BRICK_H;
+    s += brick(x + t * 90, y + t * 150, "var(--solar-orange)", t * 60, x + BRICK_W / 2, y + BRICK_H / 2);
+    s += brick(X0, y, "var(--volt-blue)") + brick(X0 + BRICK_W, y, "var(--volt-blue)");
+    return s + (p > 0.85 ? label(240, 60, "Fixed!", 34) : "");
+  },
+];
+
+const STEPS = [
+  { title: "Towers fall down.", sub: "Wall A has 3 towers side by side.", dur: 5000, words: [["weak", "no"]], wordsFrom: 0.8 },
+  { title: "Overlap the bricks.", sub: "Each brick sits across a join.", dur: 7000, words: [["overlap", "yes"]], wordsFrom: 0.9 },
+  { title: "Push it. It stays up!", sub: "Overlapping makes a strong wall.", dur: 5000, words: [["strong", "yes"]], wordsFrom: 0.75 },
+  { title: "Build 4 walls and a door.", sub: "Build on your base plate.", dur: 6000, words: [] },
+  { title: "Wobble test.", sub: "Low over the table. Count to 5.", dur: 6000, words: [] },
+  { title: "Fix the weak part.", sub: "Then test it again.", dur: 5000, words: [["fix it", "yes"]], wordsFrom: 0.85 },
+];
+
+const $ = (id) => document.getElementById(id);
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let current = 0, start = 0, frame = 0;
+
+function renderWords(step, p) {
+  const n = step.words.length;
+  $("words").innerHTML = step.words.map((w, i) => {
+    const [text, kind] = Array.isArray(w) ? w : [w, ""];
+    const at = step.wordsAt ? step.wordsAt[i] : (step.wordsFrom ?? 0.1) + (i / n) * (1 - (step.wordsFrom ?? 0.1)) * 0.8;
+    return `<span class="word ${kind}${p >= at ? " done" : ""}">${text}</span>`;
+  }).join("");
+}
+
+function tick(now) {
+  const step = STEPS[current];
+  const p = reduceMotion ? 1 : Math.min(1, (now - start) / step.dur);
+  $("scene").innerHTML = SCENES[current](p);
+  renderWords(step, p);
+  if (p < 1) frame = requestAnimationFrame(tick);
+}
+
+function go(i) {
+  current = Math.max(0, Math.min(STEPS.length - 1, i));
+  const step = STEPS[current];
+  $("num").textContent = current + 1;
+  $("title").textContent = step.title;
+  $("sub").textContent = step.sub;
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("back").disabled = current === 0;
+  $("next").disabled = current === STEPS.length - 1;
+  cancelAnimationFrame(frame);
+  start = performance.now();
+  frame = requestAnimationFrame(tick);
+}
+
+STEPS.forEach((_, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Step ${j + 1}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+$("again").addEventListener("click", () => go(current));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(current + 1); }
+  if (e.key === "ArrowLeft") go(current - 1);
+});
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go(0);
+</script>
+</body>
+</html>

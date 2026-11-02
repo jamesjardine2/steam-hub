@@ -38,6 +38,19 @@ resources:
   - Scissors and glue sticks
   - STEAM journals (class tub)
   - Design challenge cards, one set per table (last page of the PDF)
+live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: Riddle, LISC, picture talk and big idea
+    file: 01-slides.html
+  - kind: HTML
+    title: How to cut, sort and stick
+    note: Animated steps for the projector
+    file: 01-sorting.html
+  - kind: HTML
+    title: "Word wall: Frayer model"
+    note: home, dry and comfy
+    file: 01-frayer.html
 crt_notes: Written for a CRT. No preparation is needed; everything is in the labelled tub on the STEAM desk and the journals are in the class tub.
 ---
 No preparation is needed. Everything is in the **labelled tub on the STEAM desk**: the handouts (one per student, plus one for you to hold up), the Design challenge cards already cut into sets, scissors and glue sticks. STEAM journals are in the class tub. Bring the class straight to the mat and start with the hook.

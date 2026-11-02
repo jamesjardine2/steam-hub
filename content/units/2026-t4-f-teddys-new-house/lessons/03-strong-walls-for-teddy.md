@@ -42,6 +42,19 @@ resources:
   - LEGO tubs and base plates (on the table next to the STEAM desk)
   - Teddy's letter (page 5 of the PDF)
   - STEAM journals (class tub) and pencils
+live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: Teddy, the wall test, LISC and the wobble test
+    file: 03-slides.html
+  - kind: HTML
+    title: How to build and test
+    note: Animated steps for the projector
+    file: 03-building.html
+  - kind: HTML
+    title: "Word wall: Frayer model"
+    note: wall, overlap and strong
+    file: 03-frayer.html
 crt_notes: Written for a CRT, with only LEGO, Teddy's letter, journals and pencils. Houses are pulled apart at the end, so nothing needs to be stored.
 ---
 No preparation is needed. The **LEGO tubs and base plates** are on the table next to the STEAM desk. Teddy's letter is with this plan (page 5 of the PDF). STEAM journals are in the class tub. Bring the class straight to the mat and grab a handful of LEGO bricks for the demonstration.

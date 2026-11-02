@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cut, sort, stick · Foundation Home or not a home?</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<!-- Pictures shared by every artefact in this unit. -->
+<script src="pictures.js"></script>
+</head>
+<body>
+<div class="stage howto" id="stage">
+  <header>
+    <span class="t">Foundation · Home or not a home?</span>
+    <span class="u">Cut, sort, stick</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/01-home-or-not-a-home/">Exit</a>
+  </header>
+
+  <div class="body">
+    <svg viewBox="0 0 480 470" id="scene" role="img" aria-labelledby="title"></svg>
+    <div class="text" aria-live="polite">
+      <span class="num" id="num">1</span>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="words" id="words"></div>
+    </div>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" id="again">Play again</button>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
+const seg = (p, a, b) => Math.min(1, Math.max(0, (p - a) / (b - a)));
+const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const backdrop = `<rect x="10" y="10" width="460" height="450" rx="22" fill="var(--panel)"/>`;
+const label = (x, y, text, size = 26, colour = "var(--ink)") => `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="700" fill="${colour}">${text}</text>`;
+const O = 'stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"';
+
+// What this page sorts. Labels go at the top of each page ("cols") or down
+// the left side ("rows"); each picture names its label's index.
+const CONFIG = {
+  "layout": "cols",
+  "labels": [
+    {
+      "mark": "✓",
+      "colour": "var(--ion-cyan)"
+    },
+    {
+      "mark": "✗",
+      "colour": "var(--plasma-pink)"
+    }
+  ],
+  "pictures": [
+    [
+      "house",
+      0
+    ],
+    [
+      "school",
+      1
+    ],
+    [
+      "caravan",
+      0
+    ],
+    [
+      "bus",
+      1
+    ],
+    [
+      "tent",
+      0
+    ],
+    [
+      "supermarket",
+      1
+    ],
+    [
+      "stilts",
+      0
+    ],
+    [
+      "playground",
+      1
+    ],
+    [
+      "apartment",
+      0
+    ]
+  ],
+  "steps": [
+    {
+      "title": "Open your journal.",
+      "sub": "Find a new double page.",
+      "dur": 3500,
+      "words": []
+    },
+    {
+      "title": "Glue the labels.",
+      "sub": "Tick on the left. Cross on the right.",
+      "dur": 4000,
+      "words": [
+        [
+          "someone lives here",
+          "yes"
+        ],
+        [
+          "nobody lives here",
+          "no"
+        ]
+      ],
+      "wordsFrom": 0.2
+    },
+    {
+      "title": "Cut out the pictures.",
+      "sub": "Cut on the thick lines.",
+      "dur": 6000,
+      "words": []
+    },
+    {
+      "title": "Sort them on the table.",
+      "sub": "No glue yet!",
+      "dur": 7000,
+      "words": []
+    },
+    {
+      "title": "A dot, not a lot.",
+      "sub": "One dot of glue on the back.",
+      "dur": 4500,
+      "words": [
+        [
+          "dot",
+          "yes"
+        ]
+      ],
+      "wordsFrom": 0.4
+    },
+    {
+      "title": "Stick each one under its label.",
+      "sub": "Press it down.",
+      "dur": 8000,
+      "words": []
+    }
+  ]
+};
+
+// A picture card from pictures.js, centred on x, y.
+const card = (x, y, name, size = 64, rot = 0, extra = "") => `<g transform="translate(${x} ${y}) rotate(${rot})">
+  <rect x="${-size / 2}" y="${-size / 2}" width="${size}" height="${size}" rx="4" fill="var(--paper)" ${O}/>
+  <svg x="${-size / 2 + 4}" y="${-size / 2 + 4}" width="${size - 8}" height="${size - 8}" viewBox="0 0 120 120">${PIC[name]()}</svg>${extra}</g>`;
+
+function labelCard(i, x, y) {
+  const l = CONFIG.labels[i];
+  if (CONFIG.layout === "cols") {
+    return `<g transform="translate(${x} ${y})"><rect x="-70" y="-24" width="140" height="48" rx="8" fill="var(--paper)" ${O}/>
+      <circle cx="0" cy="0" r="17" fill="${l.colour}"/>${label(0, 9, l.mark, 26, "var(--void)")}</g>`;
+  }
+  return `<g transform="translate(${x} ${y})"><rect x="-38" y="-46" width="76" height="92" rx="8" fill="var(--paper)" ${O}/>
+    <svg x="-30" y="-42" width="60" height="60" viewBox="0 0 120 120">${PIC[l.pic]()}</svg>${label(0, 36, l.word, 15)}</g>`;
+}
+
+// Where each label and picture ends up in the journal (and on the table).
+const labelPos = (i) => CONFIG.layout === "cols" ? [135 + i * 210, 100] : [78, 110 + i * 125];
+function slotPos(k) {
+  const g = CONFIG.pictures[k][1];
+  const n = CONFIG.pictures.slice(0, k).filter((p) => p[1] === g).length;
+  if (CONFIG.layout === "cols") return [92 + 210 * g + (n % 2) * 86, 180 + Math.floor(n / 2) * 80];
+  return [160 + n * 76, 110 + g * 125];
+}
+const scatter = (k) => [80 + ((k * 137) % 320), 380 + ((k * 53) % 50)];
+
+const journal = (open = 1) => {
+  const w = 210 * open;
+  return `<rect x="${240 - w}" y="50" width="${w}" height="380" fill="var(--paper)" ${O}/>
+    <rect x="240" y="50" width="210" height="380" fill="${open < 1 ? "var(--violet)" : "var(--paper)"}" ${O}/>
+    ${open < 1 ? `<rect x="240" y="50" width="${210 * (1 - open)}" height="380" fill="var(--violet)" ${O}/>` : ""}
+    <path d="M240 50 L240 430" stroke="var(--mist)" stroke-width="4"/>`;
+};
+const table = `<rect x="20" y="40" width="440" height="410" rx="16" fill="var(--panel-2)" ${O}/>`;
+const labels = (p = 1) => CONFIG.labels.map((_, i) => {
+  const t = ease(seg(p, i * 0.25, i * 0.25 + 0.3));
+  if (t <= 0) return "";
+  const [x, y] = labelPos(i);
+  return `<g opacity="${t}">${labelCard(i, x, y - 40 * (1 - t))}</g>`;
+}).join("");
+
+function scissors(x, y, open) {
+  const a = 14 * open;
+  return `<g transform="translate(${x} ${y})">
+    <path d="M0 0 L40 ${-a / 3}" stroke="var(--mist)" stroke-width="6" stroke-linecap="round"/><path d="M0 0 L40 ${a / 3}" stroke="var(--mist)" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="-12" cy="-10" r="9" fill="none" stroke="var(--plasma-pink)" stroke-width="5"/><circle cx="-12" cy="10" r="9" fill="none" stroke="var(--plasma-pink)" stroke-width="5"/></g>`;
+}
+const glueStick = (x, y) => `<g transform="translate(${x} ${y})"><rect x="-16" y="-80" width="32" height="70" rx="6" fill="var(--violet)" ${O}/><rect x="-12" y="-12" width="24" height="14" fill="var(--paper)" ${O}/></g>`;
+
+const SCENES = [
+  // 1. Open the journal to a new double page.
+  (p) => backdrop + journal(ease(seg(p, 0.15, 0.8))),
+  // 2. Glue the labels in place.
+  (p) => backdrop + journal() + labels(p),
+  // 3. Cut out a picture along the thick lines.
+  (p) => {
+    const name = CONFIG.pictures[0][0];
+    const t = seg(p, 0.05, 0.75), side = Math.min(3, Math.floor(t * 4)), f = (t * 4) - side;
+    const c = [[150, 120], [330, 120], [330, 300], [150, 300]];
+    const [x1, y1] = c[side], [x2, y2] = c[(side + 1) % 4];
+    const lift = ease(seg(p, 0.78, 1));
+    let s = backdrop + `<rect x="60" y="40" width="360" height="380" fill="var(--paper)" ${O}/>`;
+    s += `<rect x="150" y="120" width="180" height="180" fill="none" stroke="var(--ink)" stroke-width="6"/>`;
+    s += card(240, 210 - lift * 40, name, 170, -6 * lift);
+    if (t < 1) s += scissors(x1 + (x2 - x1) * f, y1 + (y2 - y1) * f, Math.abs(Math.sin(p * 40)));
+    return s;
+  },
+  // 4. Sort on the table first: no glue yet.
+  (p) => {
+    let s = backdrop + table + CONFIG.labels.map((_, i) => labelCard(i, ...labelPos(i))).join("");
+    CONFIG.pictures.forEach(([name], k) => {
+      const t = ease(seg(p, 0.05 + k * 0.06, 0.25 + k * 0.06));
+      const [sx, sy] = scatter(k), [ex, ey] = slotPos(k);
+      s += card(sx + (ex - sx) * t, sy + (ey - sy) * t, name, 60, (1 - t) * ((k % 3) - 1) * 12);
+    });
+    return s;
+  },
+  // 5. A dot of glue on the back, not a lot.
+  (p) => {
+    const down = Math.sin(Math.PI * seg(p, 0.15, 0.55));
+    const dot = seg(p, 0.35, 0.4);
+    let s = backdrop + `<rect x="140" y="150" width="200" height="200" rx="6" fill="var(--paper)" ${O}/>`;
+    if (dot > 0) s += `<circle cx="240" cy="250" r="${14 * dot}" fill="var(--ion-cyan)" ${O}/>`;
+    s += glueStick(240, 160 + down * 78);
+    if (p > 0.7) s += label(240, 420, "A dot, not a lot!", 32);
+    return s;
+  },
+  // 6. Stick each picture in place.
+  (p) => {
+    let s = backdrop + journal() + labels(1);
+    CONFIG.pictures.forEach(([name], k) => {
+      const t = ease(seg(p, 0.04 + k * 0.08, 0.16 + k * 0.08));
+      if (t <= 0) return;
+      const [ex, ey] = slotPos(k);
+      s += card(ex, ey + (1 - t) * 160, name, 60);
+    });
+    return s;
+  },
+];
+
+const STEPS = CONFIG.steps;
+
+const $ = (id) => document.getElementById(id);
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let current = 0, start = 0, frame = 0;
+
+function renderWords(step, p) {
+  const n = step.words.length;
+  $("words").innerHTML = step.words.map((w, i) => {
+    const [text, kind] = Array.isArray(w) ? w : [w, ""];
+    const at = step.wordsAt ? step.wordsAt[i] : (step.wordsFrom ?? 0.1) + (i / n) * (1 - (step.wordsFrom ?? 0.1)) * 0.8;
+    return `<span class="word ${kind}${p >= at ? " done" : ""}">${text}</span>`;
+  }).join("");
+}
+
+function tick(now) {
+  const step = STEPS[current];
+  const p = reduceMotion ? 1 : Math.min(1, (now - start) / step.dur);
+  $("scene").innerHTML = SCENES[current](p);
+  renderWords(step, p);
+  if (p < 1) frame = requestAnimationFrame(tick);
+}
+
+function go(i) {
+  current = Math.max(0, Math.min(STEPS.length - 1, i));
+  const step = STEPS[current];
+  $("num").textContent = current + 1;
+  $("title").textContent = step.title;
+  $("sub").textContent = step.sub;
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("back").disabled = current === 0;
+  $("next").disabled = current === STEPS.length - 1;
+  cancelAnimationFrame(frame);
+  start = performance.now();
+  frame = requestAnimationFrame(tick);
+}
+
+STEPS.forEach((_, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Step ${j + 1}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+$("again").addEventListener("click", () => go(current));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(current + 1); }
+  if (e.key === "ArrowLeft") go(current - 1);
+});
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go(0);
+</script>
+</body>
+</html>
