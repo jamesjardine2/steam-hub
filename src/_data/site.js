@@ -200,7 +200,10 @@ function loadLesson(file, unit) {
     vtlm,
     citw,
     sequence: asList(data.sequence),
-    resources: asList(data.resources),
+    // A resource is text, or { text, file } / { text, url } to link it.
+    resources: asList(data.resources).map((r) => typeof r === "string"
+      ? { text: r, href: null }
+      : { text: r.text || "", href: r.url || (r.file ? `${unit.url}live/${r.file}` : null) }),
     live,
     crtNotes: data.crt_notes || "",
     pdf: fs.existsSync(pdfFile) ? `${unit.url}lessons/${base}.pdf` : null,

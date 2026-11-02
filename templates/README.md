@@ -20,7 +20,7 @@ When I ask for the hub file for a lesson, output a single Markdown file with YAM
 - `vtlm`: the VTLM 2.0 elements used. Only these values: Focus the learning; Explicit explanation and modelling; Scaffold practice; Monitor progress.
 - `citw`: the CITW strategies used. Only these values: CICs; Vocabulary; Frayer model; Strategy instruction and modelling; Worked examples.
 - `sequence`: the lesson at a glance, each with `phase` (Hook, I do, We do, You do, Review), `time` (for example "5 min") and `what` (one sentence).
-- `resources`: a list of materials.
+- `resources`: a list of materials. To link one to a file in the unit's `live/` folder (a handout, say), write it as `- text: ...` with `file: name.webp` on the next line (or `url:` for a link).
 - `live`: artefacts to show on the projector, each with `kind` (SLIDE, HTML, IMG, VIDEO or LINK), `title`, `note`, and either `file` (a file in the unit's live folder) or `url`.
 - `crt_notes`: two or three sentences on what would change if a CRT took the lesson, keeping the same Learning Intention.
 

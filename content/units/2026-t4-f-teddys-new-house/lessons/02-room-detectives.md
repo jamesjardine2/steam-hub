@@ -35,7 +35,8 @@ sequence:
     time: 7 min
     what: 3 or 4 students explain why one thing belongs in its room. Thumbs for each Success Criterion, then pack away.
 resources:
-  - Room detectives cut-and-paste handout (one per student, plus one for the teacher to hold up)
+  - text: Room detectives cut-and-paste handout (one per student, plus one for the teacher to hold up)
+    file: 02-handout.webp
   - Scissors and glue sticks
   - STEAM journals (class tub)
   - Design challenge cards, one set per table (last page of the PDF)
@@ -52,6 +53,10 @@ live:
     title: "Word wall: Frayer model"
     note: kitchen, bedroom and bathroom
     file: 02-frayer.html
+  - kind: IMG
+    title: "Handout: Room detectives"
+    note: 3 room labels and 12 photos to cut and sort (print on A4)
+    file: 02-handout.webp
 crt_notes: Written for a CRT. No preparation is needed; everything is in the labelled tub on the STEAM desk and the journals are in the class tub.
 ---
 No preparation is needed. Everything is in the **labelled tub on the STEAM desk**: the handouts (one per student, plus one for you to hold up), the Design challenge cards already cut into sets, scissors and glue sticks. STEAM journals are in the class tub. Bring the class straight to the mat and start with the hook.

@@ -83,7 +83,7 @@ eleventyComputed:
 
       {% call m.accordion("Resources", (lesson.resources | length) + " items" if lesson.resources.length else "") %}
         {% if lesson.resources.length %}
-        <ul class="list">{% for r in lesson.resources %}<li>{{ r }}</li>{% endfor %}</ul>
+        <ul class="list">{% for r in lesson.resources %}<li>{% if r.href %}<a href="{{ r.href }}" target="_blank" rel="noopener">{{ r.text }}</a>{% else %}{{ r.text }}{% endif %}</li>{% endfor %}</ul>
         {% else %}
         <p class="ph">[Resources to add]</p>
         {% endif %}
