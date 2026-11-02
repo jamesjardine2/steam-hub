@@ -22,6 +22,11 @@
 <div class="chips">{% for c in list %}<span class="chip">{{ c }}</span>{% endfor %}</div>
 {% endmacro %}
 
+{# Curriculum codes as chips that open the code on the VCAA site. #}
+{% macro codes(list) %}
+<div class="chips">{% for c in list %}<a class="chip" href="{{ c | vc2Url }}" target="_blank" rel="noopener" title="Open {{ c }} in the Victorian Curriculum">{{ c }}</a>{% endfor %}</div>
+{% endmacro %}
+
 {% macro reflection(r, where="") %}
 <div class="reflection">
   <p class="meta">{{ r.dateLabel }}{% if where %} · {{ where }}{% endif %}{% if r.className %} · {{ r.className }}{% endif %}</p>

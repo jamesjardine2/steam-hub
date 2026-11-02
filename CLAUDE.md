@@ -34,6 +34,7 @@ The original brief and the five design mockups are in `steam-hub-handover/`. The
 - **"Next lesson in Claude"** opens the unit's pinned chat (`claude_chat`).
 - **"Make a CRT plan with Claude"** on a lesson page starts the `crt-plan` workflow: Claude Code follows `.github/crt-plan.md`, writes `content/units/<unit>/crt/NN-crt.html` (no screens, everyday resources, every step scripted, same LISC), Chrome prints it to `NN-crt.pdf`, and the lesson page offers the PDF to download. James can add notes and make a new one at any time. CRT plans are made on request, never for every lesson. `crt/04-crt.html` in Paper Makers is the layout to copy.
 - **Current term** is the newest file in `content/terms/`.
+- **Curriculum codes link to the VCAA site** (`lib/vc2.js`): chips and any code in lesson text open the code on f10.vcaa.vic.edu.au (the learning area's curriculum page with `#CODE`, or the VCAA search for areas not mapped yet). Write codes in full (VC2TDE2C04) so they link.
 - **Go live and Archive** are hidden from the navigation until Phases 3 and 2.
 
 ## Saving from the site (added November 2026)
@@ -195,6 +196,7 @@ The "Electric" design system in `DESIGN.md` (November 2026): dark theme on `--vo
 ```
 CLAUDE.md
 eleventy.config.js        # Eleventy setup, path prefix, copies unit files
+lib/vc2.js                # links Victorian Curriculum 2.0 codes to the VCAA site
 src/_data/site.js         # loads content/, computes everything
 src/_includes/            # base layout and macros
 src/index.njk             # Overview

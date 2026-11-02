@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { HtmlBasePlugin } from "@11ty/eleventy";
+import { vc2Url } from "./lib/vc2.js";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
@@ -11,6 +12,9 @@ export default function (eleventyConfig) {
   // Published so the site can show the latest ticks without a GitHub key.
   eleventyConfig.addPassthroughCopy({ "content/progress.json": "progress.json" });
   eleventyConfig.addWatchTarget("content/");
+
+  // Link for a Victorian Curriculum 2.0 code (see lib/vc2.js).
+  eleventyConfig.addFilter("vc2Url", vc2Url);
 
   // Text in square brackets is a placeholder for content still to come.
   eleventyConfig.addFilter("isPlaceholder", (value) =>

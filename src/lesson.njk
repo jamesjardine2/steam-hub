@@ -91,7 +91,7 @@ eleventyComputed:
 
       {% call m.accordion("Curriculum and approach") %}
         <div class="stack-tight">
-          {% if lesson.curriculum.length %}{{ m.chips(lesson.curriculum) }}{% else %}<p class="small muted">Unit codes: {{ unit.curriculum | join(", ") }}</p>{% endif %}
+          {% if lesson.curriculum.length %}{{ m.codes(lesson.curriculum) }}{% else %}<p class="small muted">Unit codes:</p>{{ m.codes(unit.curriculum) }}{% endif %}
           {% if lesson.vtlm.length %}<p class="small strong">VTLM 2.0</p>{{ m.chips(lesson.vtlm) }}{% endif %}
           {% if lesson.citw.length %}<p class="small strong">CITW</p>{{ m.chips(lesson.citw) }}{% endif %}
           {% if not lesson.vtlm.length and not lesson.citw.length %}<p class="ph small">[VTLM and CITW elements to add]</p>{% endif %}

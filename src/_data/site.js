@@ -7,6 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import markdownIt from "markdown-it";
+import { linkVc2 } from "../../lib/vc2.js";
 
 const REPO = "jamesjardine2/steam-hub";
 const BRANCH = "main";
@@ -39,7 +40,8 @@ const md = markdownIt({ html: true, linkify: true });
 function renderMd(text) {
   if (!text || !text.trim()) return "";
   // Paragraphs that start with "[" are placeholders.
-  return md.render(text).replace(/<p>\[/g, '<p class="ph">[');
+  // Curriculum codes link to the Victorian Curriculum site.
+  return linkVc2(md.render(text).replace(/<p>\[/g, '<p class="ph">['));
 }
 
 function warn(file, message) {

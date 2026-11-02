@@ -76,6 +76,9 @@ h2 .ph, h3 .ph, h1 .ph { font-style: normal; }
 .pill { background: var(--white); color: var(--violet); border: 1.5px solid var(--violet); font-weight: 800; letter-spacing: -0.02em; font-size: 14px; padding: 6px 12px; border-radius: var(--radius-pill); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { background: var(--hover); color: var(--text); border: 1px solid var(--border); font-size: 13px; font-weight: 500; padding: 6px 12px; border-radius: var(--radius-pill); }
+a.chip { text-decoration: none; }
+a.chip:hover { border-color: var(--text-violet); color: var(--text); }
+a.vc2 { font-weight: 700; }
 
 /* Buttons */
 .actions { display: flex; flex-wrap: wrap; gap: 10px; }
