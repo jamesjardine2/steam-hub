@@ -2,7 +2,7 @@
 number: 4
 title: Keep Teddy dry
 summary: "Rain is coming for Teddy. Groups drip water on paper, foil, plastic and cloth to find the best roof material."
-status: draft
+status: planned
 duration: 45
 lisc:
   intention: To find out which material keeps water out.
