@@ -25,7 +25,7 @@ citw:
 sequence:
   - phase: Hook (CIC)
     time: 5 min
-    what: Teddy's walls are strong, but rain is coming. Show the four materials and ask which would keep Teddy dry.
+    what: "Play the Teddy's house animation: Teddy builds his walls, then the storm arrives. Show the four materials and ask which would keep Teddy dry."
   - phase: Predict
     time: 5 min
     what: Students point to the material they think is best and say why. Name the key words roof, waterproof and soak.
@@ -49,9 +49,13 @@ resources:
   - STEAM journals (class tub) and pencils
   - Spare paper towels or a cloth for spills
 live:
+  - kind: HTML
+    title: "Hook: Teddy's house and the storm"
+    note: Animation to open the lesson. Click to play, M mutes
+    file: 04-storm.html
   - kind: SLIDE
     title: Lesson slides
-    note: Rain is coming, predict, LISC, the water test and record it
+    note: The storm animation, predict, LISC, the water test and record it
     file: 04-slides.html
   - kind: HTML
     title: How to test a roof
@@ -73,7 +77,7 @@ crt_notes: Needs only everyday materials (paper, foil, a plastic sheet, cloth, p
 
 | Time | Step | What to do |
 |---|---|---|
-| 0 to 5 min | Hook (CIC) | **Rain is coming!** Show the slide of sad Teddy and the rain. Say: "Teddy's walls are strong, but the rain is coming and he has no roof." Hold up the four materials one at a time and name them. Ask: "Which one could keep Teddy dry?" |
+| 0 to 5 min | Hook (CIC) | **Rain is coming!** Play the animation on slide 2 (click it to start; it has sound). Teddy builds his strong brick walls from Lesson 3, then a storm rolls in. Let it finish on the rain and Teddy's sad face, then say: "Teddy's walls are strong, but look at the rain. What does Teddy need to stay dry?" Hold up the four materials one at a time and name them. Ask: "Which one could keep Teddy dry?" |
 | 5 to 10 min | Predict | Students point to the material they think will keep the rain out and tell a partner why. Take a few ideas. Introduce the key words with the word wall: a **roof** is the top of a house; **waterproof** means water cannot get through; to **soak** is to take water in. Read the Learning Intention and the Success Criteria. |
 | 10 to 14 min | Demonstrate the test | Show the how-to slides. Model one test with one material: put the paper towel on the tray, put the material on top, drip 10 drops (children count aloud), lift the material, look at the towel. Ask: "Is the towel wet or dry? What does that tell us about the material?" Remind children of the safety rules (water stays on the tray, drip gently, wipe spills). |
 | 14 to 28 min | Water test | Groups test all four materials, taking turns to drip. A fresh paper towel for each test. Walk around and ask: "What do you think will happen? Is the towel wet or dry? Did the water go through?" Use the words **waterproof** and **soak** as they come up. |
