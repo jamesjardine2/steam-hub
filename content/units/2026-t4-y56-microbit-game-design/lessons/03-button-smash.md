@@ -58,7 +58,7 @@ live:
     file: 03-frayer.html
   - kind: HTML
     title: Variables in Real Life
-    note: "Interactive CIC: video likes, footy scoreboard and wallet. Press V to show the variables"
+    note: "Interactive CIC: video likes, footy scoreboard and wallet, with a Show the variables switch"
     file: 03-variables.html
 crt_notes: Works for a CRT with the plan PDF. No Jacdac kit is needed, only micro:bits, battery packs and iPads. If Bluetooth will not pair, the whole game can be played in the simulator.
 ---
