@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>What is a variable? · Year 5/6 Button Smash</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<style>
+/* The video plays from ClickView under the school's licence; the file
+   itself is never copied into this public site. */
+.video-page .body { flex: 1 1 auto; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.video-page .frame { width: 100%; max-width: 1180px; aspect-ratio: 16 / 9; max-height: 100%; border-radius: var(--radius-card); overflow: hidden; background: var(--void); }
+.video-page iframe { width: 100%; height: 100%; border: 0; display: block; }
+</style>
+</head>
+<body>
+<div class="stage video-page" id="stage">
+  <header>
+    <span class="t">Year 5/6 · What is a variable?</span>
+    <span class="u">Button Smash · Lesson 3</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/03-button-smash/">Exit</a>
+  </header>
+  <div class="body">
+    <div class="frame">
+      <iframe src="https://clickv.ie/w/YMruZjB" title="What is a variable? (ClickView)" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<script>
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+const stage = document.getElementById("stage");
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / stage.offsetHeight);
+  stage.style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+</script>
+</body>
+</html>

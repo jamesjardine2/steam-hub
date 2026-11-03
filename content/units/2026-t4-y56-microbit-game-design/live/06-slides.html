@@ -141,6 +141,8 @@ function go(i) {
     const f = document.createElement("iframe");
     f.src = slide.dataset.src;
     f.title = slide.dataset.name;
+    f.allow = "autoplay; fullscreen";
+    f.allowFullscreen = true;
     slide.appendChild(f);
   }
   [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));

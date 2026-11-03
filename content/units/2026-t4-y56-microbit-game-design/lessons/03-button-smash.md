@@ -43,6 +43,8 @@ resources:
   - micro:bit V2 and battery pack (one per pair)
   - iPads with the micro:bit app (one per pair)
   - Projector for the hook and the algorithm
+  - text: "Video: What is a variable? (ClickView, 1 min 40)"
+    url: https://clickv.ie/w/YMruZjB
 live:
   - kind: SLIDE
     title: Lesson slides
@@ -60,6 +62,10 @@ live:
     title: Variables in Real Life
     note: "Interactive CIC: video likes, footy scoreboard and wallet, with a Show the variables switch"
     file: 03-variables.html
+  - kind: VIDEO
+    title: "Video: What is a variable?"
+    note: "ClickView, 1 min 40: a game's high score and lives as labelled boxes"
+    file: 03-video.html
 crt_notes: Works for a CRT with the plan PDF. No Jacdac kit is needed, only micro:bits, battery packs and iPads. If Bluetooth will not pair, the whole game can be played in the simulator.
 ---
 Students build a 10 second button smashing game using only the micro:bit's own A and B buttons. The hardware stays familiar so all the thinking goes into the code, and the limits they hit become the reason to bring Jacdac modules back in next lesson.
@@ -82,7 +88,7 @@ This is what should end up on the board before anyone touches an iPad. Students 
 | Time | Step | What to do and say |
 |---|---|---|
 | 0 to 5 min | Hook | Play the finished game yourself on the projector. Take challenges from two students. Do not explain the code yet. Share the Learning Intention and Success Criteria. |
-| 5 to 12 min | Design the algorithm | Whole class, no devices. Ask: "What does the program actually need to do?" Build the plain-language steps on the board together. Push them until someone realises the program needs to know whether the game is running, otherwise presses count before it starts. Name that a **flag**: a variable that holds true or false instead of a number. |
+| 5 to 12 min | Design the algorithm | Whole class, no devices. Ask: "What does the program actually need to do?" Build the plain-language steps on the board together. Push them until someone realises the program needs to know whether the game is running, otherwise presses count before it starts. Name that a **flag**: a variable that holds true or false instead of a number. If the class needs it, play **Variables in Real Life**, then the short **What is a variable?** video (ClickView, 1 min 40) before naming the idea. |
 | 12 to 28 min | Build in the simulator | In pairs. Build the core game and test it entirely with the on-screen micro:bit. Checkpoints on the board: (1) score counts up, (2) B starts a new game with the score at 0, (3) presses stop counting after 10 seconds. No downloading until all three work. |
 | 28 to 36 min | Download and play | One download each, then actual smashing. Rotate pairs so everyone gets a turn. Record scores on the board as a class leaderboard. |
 | 36 to 42 min | Fairness and debugging | "Is the game fair?" Students will have found the cheats and the bugs. Discuss, then let them fix one. Fast finishers take an extension and use their second download. |
