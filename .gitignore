@@ -1,3 +1,8 @@
 node_modules/
 _site/
 .DS_Store
+
+# Licensed videos (ClickView and similar) must not go into the public repo.
+*.mp4
+*.mov
+*.m4v
