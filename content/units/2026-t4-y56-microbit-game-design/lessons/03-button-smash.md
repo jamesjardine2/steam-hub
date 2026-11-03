@@ -44,6 +44,18 @@ resources:
   - iPads with the micro:bit app (one per pair)
   - Projector for the hook and the algorithm
 live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: Hook, algorithm, variables, build steps, leaderboard
+    file: 03-slides.html
+  - kind: HTML
+    title: Build the game
+    note: The Button Smash code, block by block
+    file: 03-code.html
+  - kind: HTML
+    title: "Word wall: Frayer model"
+    note: variable, flag and bug
+    file: 03-frayer.html
   - kind: LINK
     title: Variables in Real Life
     note: "Interactive CIC: likes counter, footy scoreboard and wallet, with a Show the variables switch"

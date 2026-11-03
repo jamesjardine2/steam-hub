@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Lesson slides · Year 5/6 Button Smash with Jacdac</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<!-- Pictures and code blocks shared by every artefact in this unit. -->
+<script src="kit.js"></script>
+</head>
+<body>
+<div class="stage deck" id="stage">
+  <header>
+    <span class="t">Year 5/6 · Button Smash with Jacdac</span>
+    <span class="u">micro:bit Game Design · Lesson 4</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/04-button-smash-with-jacdac/">Exit</a>
+  </header>
+
+  <div class="slides" id="slides">
+    <section class="slide title-slide" data-name="Button Smash with Jacdac">
+      <p class="kicker">Lesson 4</p>
+      <h1>Button Smash with Jacdac</h1>
+    </section>
+
+    <section class="slide recall" data-name="Last week">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Remember</p>
+          <p class="big">What did the playing variable remember?</p>
+        </div>
+        <div class="art" data-pic="flag"></div>
+      </div>
+    </section>
+
+    <section class="slide hook" data-name="Which would you smash?">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Think about it</p>
+          <p class="big">Which would you rather smash?</p>
+        </div>
+        <div class="art many two"><figure data-pic="microbitButtons"><figcaption>A</figcaption></figure><figure data-pic="button"><figcaption>Jacdac</figcaption></figure></div>
+      </div>
+    </section>
+
+    <section class="slide hook" data-name="Did it count?">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Think about it</p>
+          <p class="big">How do you know your press counted?</p>
+        </div>
+        <div class="art" data-pic="question"></div>
+      </div>
+    </section>
+
+    <section class="slide" data-name="Learning Intention">
+      <p class="kicker">Learning Intention</p>
+      <p class="li">To improve a game by adding Jacdac inputs and outputs that make it more fun to play.</p>
+    </section>
+
+    <section class="slide" data-name="Success Criteria">
+      <p class="kicker">Success Criteria: I can</p>
+      <div class="sc">
+        <span>swap the micro:bit&#x27;s button for a Jacdac button in my code.</span>
+        <span>add lights and sounds that show the player what is happening.</span>
+        <span>test my game with another pair and explain one improvement.</span>
+      </div>
+    </section>
+
+    <section class="slide" data-name="The swap">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">The swap</p>
+          <p class="big">Only the event block changes.</p>
+        </div>
+        <div class="art wide" data-blocks="[[&quot;modules&quot;, &quot;on button1 down&quot;, 0], [&quot;logic&quot;, &quot;if playing then&quot;, 1], [&quot;variables&quot;, &quot;change score by 1&quot;, 2]]"></div>
+      </div>
+    </section>
+
+    <section class="slide" data-name="Make it better">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Make it better</p>
+          <p class="big">Add one light and one sound.</p>
+          <p class="mid">Each one tells the player something.</p>
+        </div>
+        <div class="art many two"><figure data-pic="ringGreen"></figure><figure data-pic="note"></figure></div>
+      </div>
+    </section>
+
+    <section class="slide frame" data-name="Swap and add feedback" data-src="04-code.html?embed"></section>
+
+    <section class="slide frame" data-name="Word wall" data-src="04-frayer.html?embed"></section>
+
+    <section class="slide record" data-name="Share">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Share it</p>
+          <p class="big">We added ___ so the player knows ___.</p>
+        </div>
+        <div class="art" data-pic="speech"></div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <span class="name" id="name"></span>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const slides = [...document.querySelectorAll(".slide")];
+let current = 0;
+
+// Draw the shared pictures (pictures.js) into every data-pic element.
+document.querySelectorAll("[data-pic]").forEach((el) => {
+  el.insertAdjacentHTML("afterbegin", picSvg(el.dataset.pic));
+});
+// Code slides: MakeCode-style blocks drawn by kit.js.
+document.querySelectorAll("[data-blocks]").forEach((el) => {
+  const rows = JSON.parse(el.dataset.blocks);
+  // Fit the picture to the blocks so short programs show large.
+  const w = Math.max(240, ...rows.map(([, t, d]) => Math.max(150, t.length * 10.5 + 26) + d * 26)) + 20;
+  el.innerHTML = `<svg viewBox="0 0 ${w} ${rows.length * 38 + 16}" class="code">${blockStack(rows, 10, 10)}</svg>`;
+});
+
+function go(i) {
+  current = Math.max(0, Math.min(slides.length - 1, i));
+  slides.forEach((s, j) => { s.hidden = j !== current; });
+  const slide = slides[current];
+  // Embedded pages load the first time their slide is shown.
+  if (slide.dataset.src && !slide.querySelector("iframe")) {
+    const f = document.createElement("iframe");
+    f.src = slide.dataset.src;
+    f.title = slide.dataset.name;
+    slide.appendChild(f);
+  }
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("name").textContent = slide.dataset.name;
+  $("back").disabled = current === 0;
+  $("next").disabled = current === slides.length - 1;
+  history.replaceState(null, "", `#${current + 1}`);
+}
+
+slides.forEach((s, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Slide ${j + 1}: ${s.dataset.name}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+document.addEventListener("keydown", (e) => {
+  if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); go(current + 1); }
+  if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); go(current - 1); }
+});
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / 720);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
+</body>
+</html>

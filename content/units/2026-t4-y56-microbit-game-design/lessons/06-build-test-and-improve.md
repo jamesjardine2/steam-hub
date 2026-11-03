@@ -47,6 +47,11 @@ resources:
   - Markers, coloured dot stickers, blank labels
   - STEAM journals
   - Level up challenge cards (printed or displayed; in the plan PDF)
+live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: Build, silent test protocol, two rounds, improve
+    file: 06-slides.html
 crt_notes: Best taught by James, because the silent tests depend on the criteria the class built in Lesson 5. A CRT can run the Pet Hamster backup lesson instead.
 ---
 Pairs build the panel they planned in Lesson 5, then find out whether it works by watching other students use it **without saying a word**. A second tester shows whether a problem was a one-off or a real design flaw.

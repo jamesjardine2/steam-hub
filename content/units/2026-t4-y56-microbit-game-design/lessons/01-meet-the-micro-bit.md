@@ -43,6 +43,19 @@ resources:
   - micro:bit V2 and battery pack (one per pair)
   - iPads with the micro:bit app (one per pair)
   - STEAM journals
+live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: Hook, inputs and outputs, LISC, Year 6 challenge
+    file: 01-slides.html
+  - kind: HTML
+    title: Code, test, download
+    note: "Animated steps: the app, the simulator and Bluetooth"
+    file: 01-app.html
+  - kind: HTML
+    title: "Word wall: Frayer model"
+    note: input, output and event
+    file: 01-frayer.html
 crt_notes: "Works for a CRT as written. If Bluetooth will not pair, skip the download: everything can be tested in the simulator. The Pet Hamster lesson (Files and links on the unit page) is a ready-made CRT backup."
 ---
 This lesson starts the unit for both year levels. **Year 5** meet the micro:bit for the first time this year (**What is a micro:bit?**). **Year 6** have used it before, so theirs is a **micro:bit refresher** that moves faster and ends with a challenge. The hook, the inputs and outputs talk, the app demonstration and the download routine are the same for both.

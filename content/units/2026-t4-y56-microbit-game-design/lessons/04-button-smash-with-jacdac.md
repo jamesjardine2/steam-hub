@@ -43,6 +43,19 @@ resources:
   - One kit tray per pair (micro:bit V2, Jacdapter, Jacdac button, 8 pixel LED ring, cables, battery pack)
   - One iPad per pair with the micro:bit app and last week's Button Smash project
   - Make it better menu on the board (below)
+live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: Hook, the swap, make it better, share
+    file: 04-slides.html
+  - kind: HTML
+    title: Swap and add feedback
+    note: The swap, then lights, sound and the score ring
+    file: 04-code.html
+  - kind: HTML
+    title: "Word wall: Frayer model"
+    note: feedback and user
+    file: 04-frayer.html
 crt_notes: Needs the Jacdac kits and the projects from Lesson 3, so it is best taught by James. A CRT can run the Pet Hamster backup lesson instead.
 ---
 Last week's Button Smash used the micro:bit's own A and B buttons. This week the same game moves onto Jacdac: a big sturdy button to smash, the LED ring to show what is happening, and sound. Students already know how to add the Jacdac extension and module blocks from Lesson 2, so the swap takes minutes and the rest of the lesson goes into making the game more fun to play.

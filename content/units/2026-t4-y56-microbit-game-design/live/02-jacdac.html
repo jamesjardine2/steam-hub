@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Connect and light up · Year 5/6 Intro to Jacdac</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<!-- Pictures and code blocks shared by every artefact in this unit. -->
+<script src="kit.js"></script>
+</head>
+<body>
+<div class="stage howto" id="stage">
+  <header>
+    <span class="t">Year 5/6 · Intro to Jacdac</span>
+    <span class="u">Connect and light up</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/02-intro-to-jacdac/">Exit</a>
+  </header>
+
+  <div class="body">
+    <svg viewBox="0 0 480 470" id="scene" role="img" aria-labelledby="title"></svg>
+    <div class="text" aria-live="polite">
+      <span class="num" id="num">1</span>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="words" id="words"></div>
+    </div>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" id="again">Play again</button>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
+const seg = (p, a, b) => Math.min(1, Math.max(0, (p - a) / (b - a)));
+const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const backdrop = `<rect x="10" y="10" width="460" height="450" rx="22" fill="var(--panel)"/>`;
+const label = (x, y, text, size = 26, colour = "var(--ink)") => `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="700" fill="${colour}">${text}</text>`;
+const O = 'stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"';
+
+// Shared scene helpers.
+const pic = (name, x, y, size = 120, extra = "") => `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="0 0 120 120" ${extra}>${PIC[name]()}</svg>`;
+// Code that grows: rows appear one by one as p goes from a to b.
+function code(rows, p, a = 0, b = 0.9, y = 240, scale = 0.82) {
+  const n = Math.min(rows.length, Math.floor(seg(p, a, b) * rows.length + (p >= b ? 1 : 0.0001) * 0) + (p > a ? 1 : 0));
+  return `<g transform="translate(20 ${y}) scale(${scale})">${blockStack(rows, 0, 0, Math.min(rows.length, n), n - 1)}</g>`;
+}
+function ipad(inner) {
+  return `<rect x="70" y="16" width="340" height="250" rx="18" fill="var(--ink)"/><rect x="82" y="28" width="316" height="226" rx="6" fill="var(--panel-2)"/>${inner}`;
+}
+function sim(display = [], aOn = false, bOn = false, x = 96, y = 10, s = 2.4) {
+  let d = "";
+  for (let r = 0; r < 5; r++) for (let c = 0; c < 5; c++) d += `<rect x="${44 + c * 7}" y="${40 + r * 7}" width="4" height="4" fill="${display.includes(r * 5 + c) ? "var(--solar-orange)" : "var(--paper)"}"/>`;
+  return `<g transform="translate(${x} ${y}) scale(${s})"><rect x="14" y="22" width="92" height="76" rx="10" fill="var(--violet)" ${O}/>${d}
+    <circle cx="28" cy="60" r="7" fill="${aOn ? "var(--solar-orange)" : "var(--panel-2)"}" ${O}/><circle cx="92" cy="60" r="7" fill="${bOn ? "var(--solar-orange)" : "var(--panel-2)"}" ${O}/>
+    <text x="28" y="84" text-anchor="middle" font-size="9" font-weight="800" fill="var(--white)">A</text><text x="92" y="84" text-anchor="middle" font-size="9" font-weight="800" fill="var(--white)">B</text></g>`;
+}
+const HEART = [1, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 22];
+const DIGITS = { 0: [1,2,3,5,8,10,13,15,18,21,22,23], 1: [2,6,7,12,17,21,22,23], 2: [1,2,3,8,11,12,13,15,21,22,23], 3: [1,2,3,8,11,12,13,18,21,22,23], 4: [0,3,5,8,10,11,12,13,18,23], 5: [1,2,3,5,11,12,13,18,21,22,23], 6: [1,2,3,5,10,11,12,13,15,18,21,22,23], 7: [1,2,3,8,12,17,22], 8: [1,2,3,5,8,11,12,13,15,18,21,22,23], 9: [1,2,3,5,8,11,12,13,18,21,22,23] };
+function ringSvg(x, y, size, colours) {
+  let s = "";
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2 - Math.PI / 2, r = size * 0.32, cx = x + size / 2 + r * Math.cos(a), cy = y + size / 2 + r * Math.sin(a);
+    s += `<circle cx="${cx}" cy="${cy}" r="${size * 0.07}" fill="${colours[i] || "var(--panel)"}" stroke="var(--ink)" stroke-width="2"/>`;
+  }
+  return `<circle cx="${x + size / 2}" cy="${y + size / 2}" r="${size * 0.32}" fill="none" stroke="var(--ink)" stroke-width="${size * 0.16}"/>` + s;
+}
+
+const SCENES = [
+  (p) => {
+    const t = ease(seg(p, 0.1, 0.7));
+    return backdrop + pic("jacdaptor", 150, 200, 180) + `<g transform="translate(0 ${-130 * (1 - t)})">${pic("microbit", 175, 130, 130)}</g>` + label(240, 440, t >= 1 ? "Click!" : "", 30);
+  },
+  (p) => {
+    const a = ease(seg(p, 0.1, 0.45)), b = ease(seg(p, 0.5, 0.85));
+    let s = backdrop + pic("jacdaptor", 150, 60, 180) + pic("button", 40, 300, 130) + pic("ring", 300, 300, 130);
+    s += `<path d="M215 140 C215 ${140 + 120 * a} 105 ${180 + 60 * a} 105 ${180 + 120 * a}" fill="none" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/>`;
+    if (b > 0) s += `<path d="M265 140 C265 ${140 + 120 * b} 365 ${180 + 60 * b} 365 ${180 + 120 * b}" fill="none" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/>`;
+    return s;
+  },
+  (p) => {
+    const typed = "jacdac".slice(0, Math.floor(seg(p, 0.15, 0.6) * 6) + 1);
+    return backdrop + ipad(`<rect x="110" y="60" width="260" height="40" rx="8" fill="var(--panel)" stroke="var(--ink)" stroke-width="2"/><text x="126" y="87" font-size="20" font-weight="700" fill="var(--ink)">${p > 0.15 ? typed : "Search..."}</text>` +
+      (p > 0.65 ? `<rect x="110" y="120" width="120" height="100" rx="8" fill="var(--solar-orange)" stroke="var(--ink)" stroke-width="${p > 0.8 ? 5 : 2}"/><text x="170" y="178" text-anchor="middle" font-size="20" font-weight="800" fill="var(--void)">jacdac</text>` : "")) + label(240, 330, "Extensions, then search jacdac", 24);
+  },
+  (p) => {
+    let s = backdrop + sim([], false, false, 40, 40, 1.2);
+    if (p > 0.15) s += pic("button", 230, 50, 100);
+    if (p > 0.45) s += pic("ring", 340, 50, 100);
+    const pulse = p > 0.7 ? 3 + 3 * Math.sin(p * 30) : 2;
+    if (p > 0.6) s += `<rect x="120" y="260" width="240" height="56" rx="10" fill="var(--violet)" stroke="var(--ink)" stroke-width="${pulse}"/><text x="240" y="296" text-anchor="middle" font-size="22" font-weight="800" fill="var(--white)">ADD BLOCKS</text>`;
+    return s + label(240, 380, "Simulators: + button, + LED ring 8 pixels", 20);
+  },
+  (p) => backdrop + code([["modules", "on button down", 0], ["modules", "set led all to ●", 1]], p, 0.1, 0.6, 150, 1.4) + label(240, 380, "Find them in Modules", 24),
+  (p) => {
+    const on = p > 0.35;
+    return backdrop + `<g transform="translate(0 ${on && p < 0.45 ? 6 : 0})">${pic("button", 60, 150, 150)}</g>` + ringSvg(260, 130, 180, on ? Array(8).fill(T("violet")) : []) + label(240, 400, on ? "It lights up!" : "Press the button", 30);
+  },
+];
+const STEPS = [
+  { title: "Slot in the micro:bit.", sub: "Push it all the way into the Jacdapter.", dur: 3500, words: [] },
+  { title: "Click in the cables.", sub: "One for the button, one for the ring.", dur: 4500, words: [["input", "yes"], ["output", "yes"]], wordsAt: [0.45, 0.85] },
+  { title: "Add the jacdac extension.", sub: "A green Modules drawer appears.", dur: 4500, words: [] },
+  { title: "Add your modules.", sub: "Then tap ADD BLOCKS.", dur: 4500, words: [] },
+  { title: "Code it.", sub: "on button down, then set led all.", dur: 3500, words: [] },
+  { title: "Press it for real.", sub: "Download, then press the button.", dur: 4000, words: [] },
+];
+
+const $ = (id) => document.getElementById(id);
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let current = 0, start = 0, frame = 0;
+
+function renderWords(step, p) {
+  const n = step.words.length;
+  $("words").innerHTML = step.words.map((w, i) => {
+    const [text, kind] = Array.isArray(w) ? w : [w, ""];
+    const at = step.wordsAt ? step.wordsAt[i] : (step.wordsFrom ?? 0.1) + (i / n) * (1 - (step.wordsFrom ?? 0.1)) * 0.8;
+    return `<span class="word ${kind}${p >= at ? " done" : ""}">${text}</span>`;
+  }).join("");
+}
+
+function tick(now) {
+  const step = STEPS[current];
+  const p = reduceMotion ? 1 : Math.min(1, (now - start) / step.dur);
+  $("scene").innerHTML = SCENES[current](p);
+  renderWords(step, p);
+  if (p < 1) frame = requestAnimationFrame(tick);
+}
+
+function go(i) {
+  current = Math.max(0, Math.min(STEPS.length - 1, i));
+  const step = STEPS[current];
+  $("num").textContent = current + 1;
+  $("title").textContent = step.title;
+  $("sub").textContent = step.sub;
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("back").disabled = current === 0;
+  $("next").disabled = current === STEPS.length - 1;
+  cancelAnimationFrame(frame);
+  start = performance.now();
+  frame = requestAnimationFrame(tick);
+}
+
+STEPS.forEach((_, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Step ${j + 1}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+$("again").addEventListener("click", () => go(current));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(current + 1); }
+  if (e.key === "ArrowLeft") go(current - 1);
+});
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go(0);
+</script>
+</body>
+</html>

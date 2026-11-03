@@ -84,6 +84,9 @@ header .u { display: none; }
 .art.many figure { margin: 0; display: flex; flex-direction: column; align-items: center; font-size: 40px; font-weight: 800; }
 .art.many svg { width: 130px; height: 130px; }
 .art.many.two svg { width: 190px; height: 190px; }
+/* Code slides: MakeCode-style blocks (drawn by a unit's kit.js). */
+.art.wide { flex: 0 0 540px; padding: 20px; }
+.art.wide svg.code { width: 500px; height: auto; max-height: 340px; }
 .thumbs { display: flex; gap: 18px; font-size: 30px; font-weight: 800; }
 .thumbs span { background: var(--accent); color: var(--on-accent); border-radius: var(--radius-card); padding: 12px 26px; }
 

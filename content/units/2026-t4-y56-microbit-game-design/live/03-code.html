@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Build the game · Year 5/6 Button Smash</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<!-- Pictures and code blocks shared by every artefact in this unit. -->
+<script src="kit.js"></script>
+</head>
+<body>
+<div class="stage howto" id="stage">
+  <header>
+    <span class="t">Year 5/6 · Button Smash</span>
+    <span class="u">Build the game</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/03-button-smash/">Exit</a>
+  </header>
+
+  <div class="body">
+    <svg viewBox="0 0 480 470" id="scene" role="img" aria-labelledby="title"></svg>
+    <div class="text" aria-live="polite">
+      <span class="num" id="num">1</span>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="words" id="words"></div>
+    </div>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" id="again">Play again</button>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
+const seg = (p, a, b) => Math.min(1, Math.max(0, (p - a) / (b - a)));
+const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const backdrop = `<rect x="10" y="10" width="460" height="450" rx="22" fill="var(--panel)"/>`;
+const label = (x, y, text, size = 26, colour = "var(--ink)") => `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="700" fill="${colour}">${text}</text>`;
+const O = 'stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"';
+
+// Shared scene helpers.
+const pic = (name, x, y, size = 120, extra = "") => `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="0 0 120 120" ${extra}>${PIC[name]()}</svg>`;
+// Code that grows: rows appear one by one as p goes from a to b.
+function code(rows, p, a = 0, b = 0.9, y = 240, scale = 0.82) {
+  const n = Math.min(rows.length, Math.floor(seg(p, a, b) * rows.length + (p >= b ? 1 : 0.0001) * 0) + (p > a ? 1 : 0));
+  return `<g transform="translate(20 ${y}) scale(${scale})">${blockStack(rows, 0, 0, Math.min(rows.length, n), n - 1)}</g>`;
+}
+function ipad(inner) {
+  return `<rect x="70" y="16" width="340" height="250" rx="18" fill="var(--ink)"/><rect x="82" y="28" width="316" height="226" rx="6" fill="var(--panel-2)"/>${inner}`;
+}
+function sim(display = [], aOn = false, bOn = false, x = 96, y = 10, s = 2.4) {
+  let d = "";
+  for (let r = 0; r < 5; r++) for (let c = 0; c < 5; c++) d += `<rect x="${44 + c * 7}" y="${40 + r * 7}" width="4" height="4" fill="${display.includes(r * 5 + c) ? "var(--solar-orange)" : "var(--paper)"}"/>`;
+  return `<g transform="translate(${x} ${y}) scale(${s})"><rect x="14" y="22" width="92" height="76" rx="10" fill="var(--violet)" ${O}/>${d}
+    <circle cx="28" cy="60" r="7" fill="${aOn ? "var(--solar-orange)" : "var(--panel-2)"}" ${O}/><circle cx="92" cy="60" r="7" fill="${bOn ? "var(--solar-orange)" : "var(--panel-2)"}" ${O}/>
+    <text x="28" y="84" text-anchor="middle" font-size="9" font-weight="800" fill="var(--white)">A</text><text x="92" y="84" text-anchor="middle" font-size="9" font-weight="800" fill="var(--white)">B</text></g>`;
+}
+const HEART = [1, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 22];
+const DIGITS = { 0: [1,2,3,5,8,10,13,15,18,21,22,23], 1: [2,6,7,12,17,21,22,23], 2: [1,2,3,8,11,12,13,15,21,22,23], 3: [1,2,3,8,11,12,13,18,21,22,23], 4: [0,3,5,8,10,11,12,13,18,23], 5: [1,2,3,5,11,12,13,18,21,22,23], 6: [1,2,3,5,10,11,12,13,15,18,21,22,23], 7: [1,2,3,8,12,17,22], 8: [1,2,3,5,8,11,12,13,15,18,21,22,23], 9: [1,2,3,5,8,11,12,13,18,21,22,23] };
+function ringSvg(x, y, size, colours) {
+  let s = "";
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2 - Math.PI / 2, r = size * 0.32, cx = x + size / 2 + r * Math.cos(a), cy = y + size / 2 + r * Math.sin(a);
+    s += `<circle cx="${cx}" cy="${cy}" r="${size * 0.07}" fill="${colours[i] || "var(--panel)"}" stroke="var(--ink)" stroke-width="2"/>`;
+  }
+  return `<circle cx="${x + size / 2}" cy="${y + size / 2}" r="${size * 0.32}" fill="none" stroke="var(--ink)" stroke-width="${size * 0.16}"/>` + s;
+}
+
+const START = [["input", "on button B pressed", 0], ["variables", "set score to 0", 1], ["basic", "show string \"GO\"", 1], ["basic", "clear screen", 1], ["variables", "set playing to true", 1], ["basic", "pause (ms) 10000", 1], ["variables", "set playing to false", 1], ["basic", "show string \"TIME\"", 1], ["basic", "show number score", 1]];
+const SMASH = [["input", "on button A pressed", 0], ["logic", "if playing then", 1], ["variables", "change score by 1", 2]];
+const SCENES = [
+  (p) => backdrop + pic("variableBox", 60, 90, 150) + (p > 0.45 ? pic("flagOff", 270, 100, 150) : "") + label(135, 290, "score", 28) + (p > 0.45 ? label(345, 290, "playing", 28) : ""),
+  (p) => backdrop + code(START, p, 0.05, 0.85, 30, 1.1),
+  (p) => backdrop + code(SMASH, p, 0.1, 0.7, 120, 1.3),
+  (p) => {
+    const n = Math.min(9, Math.floor(seg(p, 0.15, 0.75) * 9));
+    const over = p > 0.8;
+    const press = !over && p > 0.15 && (p * 40) % 2 < 1;
+    return backdrop + sim(over ? DIGITS[n] : [], press, false) + label(240, 330, over ? `TIME: score ${n}` : p > 0.15 ? "Smash A!" : "Press B: GO", 30);
+  },
+  (p) => backdrop + code([["input", "on button B pressed", 0], ["logic", "if not playing then", 1], ["variables", "set score to 0", 2], ["basic", "...the rest of the game", 2]], p, 0.1, 0.7, 120, 1.15) + (p > 0.8 ? label(240, 400, "B can't restart mid-game", 24) : ""),
+];
+const STEPS = [
+  { title: "Make two variables.", sub: "score counts. playing is true or false.", dur: 3500, words: [["variable", "yes"], ["flag", "yes"]], wordsAt: [0.2, 0.6] },
+  { title: "B starts the game.", sub: "Score to 0, GO, then 10 seconds.", dur: 8000, words: [] },
+  { title: "A adds 1, only while playing.", sub: "The if checks the flag.", dur: 4500, words: [] },
+  { title: "Test it.", sub: "Can you score after TIME?", dur: 6000, words: [] },
+  { title: "Fix a bug.", sub: "Pressing B mid-game restarted it.", dur: 4500, words: [["bug", "no"], ["fixed", "yes"]], wordsAt: [0.1, 0.8] },
+];
+
+const $ = (id) => document.getElementById(id);
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let current = 0, start = 0, frame = 0;
+
+function renderWords(step, p) {
+  const n = step.words.length;
+  $("words").innerHTML = step.words.map((w, i) => {
+    const [text, kind] = Array.isArray(w) ? w : [w, ""];
+    const at = step.wordsAt ? step.wordsAt[i] : (step.wordsFrom ?? 0.1) + (i / n) * (1 - (step.wordsFrom ?? 0.1)) * 0.8;
+    return `<span class="word ${kind}${p >= at ? " done" : ""}">${text}</span>`;
+  }).join("");
+}
+
+function tick(now) {
+  const step = STEPS[current];
+  const p = reduceMotion ? 1 : Math.min(1, (now - start) / step.dur);
+  $("scene").innerHTML = SCENES[current](p);
+  renderWords(step, p);
+  if (p < 1) frame = requestAnimationFrame(tick);
+}
+
+function go(i) {
+  current = Math.max(0, Math.min(STEPS.length - 1, i));
+  const step = STEPS[current];
+  $("num").textContent = current + 1;
+  $("title").textContent = step.title;
+  $("sub").textContent = step.sub;
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("back").disabled = current === 0;
+  $("next").disabled = current === STEPS.length - 1;
+  cancelAnimationFrame(frame);
+  start = performance.now();
+  frame = requestAnimationFrame(tick);
+}
+
+STEPS.forEach((_, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Step ${j + 1}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+$("again").addEventListener("click", () => go(current));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(current + 1); }
+  if (e.key === "ArrowLeft") go(current - 1);
+});
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go(0);
+</script>
+</body>
+</html>

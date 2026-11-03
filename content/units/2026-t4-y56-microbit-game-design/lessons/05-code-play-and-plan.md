@@ -46,6 +46,19 @@ resources:
   - iPads with the micro:bit app
   - STEAM journals
   - Level up challenge cards (printed or displayed; in the plan PDF)
+live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: The game, design brief, criteria and planning
+    file: 05-slides.html
+  - kind: HTML
+    title: The reaction game
+    note: How it plays, then the code
+    file: 05-code.html
+  - kind: HTML
+    title: "Word wall: Frayer model"
+    note: criteria, interface and prototype
+    file: 05-frayer.html
 crt_notes: Best taught by James, because the design criteria are co-constructed with the class and carry into Lesson 6. A CRT can run the Pet Hamster backup lesson instead.
 ---
 Lessons 5 and 6 turn the unit into a design task. Students design, build and test a **control panel** that lets a brand new player use a micro:bit and Jacdac game without being told how. The focus is the **user**, not decoration. Because the task includes repeated user testing and optional level up challenges, there is no natural finish line for fast finishers.

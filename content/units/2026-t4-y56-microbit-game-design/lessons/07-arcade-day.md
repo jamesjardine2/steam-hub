@@ -39,6 +39,11 @@ resources:
   - iPads with the micro:bit app and each pair's game
   - Sticky notes in two colours (keep and change), or feedback slips
   - STEAM journals
+live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: Arcade rules, three rounds, feedback and evaluation
+    file: 07-slides.html
 crt_notes: Can run with a CRT if the panels and kits are ready on the tables, since the arcade routine is simple. Skip the final improvement and go straight to the journal evaluation if time is short.
 ---
 The last lesson of the unit, and a buffer: if Term 4 events take a lesson, this one can be dropped without leaving the game unfinished. It completes the design cycle by evaluating the finished games against the class criteria, and gives the reaction games and panels an audience.

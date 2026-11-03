@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Lesson slides · Year 5/6 Reaction Game: Code, Play and Plan</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<!-- Pictures and code blocks shared by every artefact in this unit. -->
+<script src="kit.js"></script>
+</head>
+<body>
+<div class="stage deck" id="stage">
+  <header>
+    <span class="t">Year 5/6 · Reaction Game: Code, Play and Plan</span>
+    <span class="u">micro:bit Game Design · Lesson 5</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/05-code-play-and-plan/">Exit</a>
+  </header>
+
+  <div class="slides" id="slides">
+    <section class="slide title-slide" data-name="Reaction Game">
+      <p class="kicker">Lesson 5</p>
+      <h1>Reaction Game</h1>
+    </section>
+
+    <section class="slide recall" data-name="Last week">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Remember</p>
+          <p class="big">How did lights and sound help the player?</p>
+        </div>
+        <div class="art many two"><figure data-pic="ringGreen"></figure><figure data-pic="note"></figure></div>
+      </div>
+    </section>
+
+    <section class="slide hook" data-name="The game">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">The game</p>
+          <p class="big">Press start. Wait for green. Hit it!</p>
+        </div>
+        <div class="art many two"><figure data-pic="ringRed"><figcaption>wait</figcaption></figure><figure data-pic="ringGreen"><figcaption>hit!</figcaption></figure></div>
+      </div>
+    </section>
+
+    <section class="slide" data-name="Design brief">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Design brief</p>
+          <p class="big">Design a control panel a new player can use without being told how.</p>
+        </div>
+        <div class="art" data-pic="panel"></div>
+      </div>
+    </section>
+
+    <section class="slide" data-name="Learning Intention">
+      <p class="kicker">Learning Intention</p>
+      <p class="li">To find the problems players have with our game and plan a control panel that solves them.</p>
+    </section>
+
+    <section class="slide" data-name="Success Criteria">
+      <p class="kicker">Success Criteria: I can</p>
+      <div class="sc">
+        <span>connect and run my game code.</span>
+        <span>identify problems a new player has when using the game.</span>
+        <span>sketch a control panel layout and explain why I put each part where I did.</span>
+      </div>
+    </section>
+
+    <section class="slide frame" data-name="The reaction game" data-src="05-code.html?embed"></section>
+
+    <section class="slide hook" data-name="Would a Prep know?">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Think about it</p>
+          <p class="big">Would a Prep student know how to play this?</p>
+          <p class="mid">List every moment you were confused.</p>
+        </div>
+        <div class="art" data-pic="plainButtons"></div>
+      </div>
+    </section>
+
+    <section class="slide record" data-name="Criteria">
+      <div class="row">
+        <div class="copy">
+          <p class="kicker">Our criteria</p>
+          <p class="big">About the player, not the looks.</p>
+          <p class="mid">Could we check it by watching someone play?</p>
+        </div>
+        <div class="art" data-pic="checklist"></div>
+      </div>
+    </section>
+
+    <section class="slide frame" data-name="Word wall" data-src="05-frayer.html?embed"></section>
+
+    <section class="slide " data-name="Plan">
+      <p class="kicker">Plan your panel</p>
+      <div class="sc">
+        <span>Sketch two layouts.</span>
+        <span>Label why each part goes there.</span>
+        <span>Circle one. Link it to a criterion.</span>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <span class="name" id="name"></span>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const slides = [...document.querySelectorAll(".slide")];
+let current = 0;
+
+// Draw the shared pictures (pictures.js) into every data-pic element.
+document.querySelectorAll("[data-pic]").forEach((el) => {
+  el.insertAdjacentHTML("afterbegin", picSvg(el.dataset.pic));
+});
+// Code slides: MakeCode-style blocks drawn by kit.js.
+document.querySelectorAll("[data-blocks]").forEach((el) => {
+  const rows = JSON.parse(el.dataset.blocks);
+  // Fit the picture to the blocks so short programs show large.
+  const w = Math.max(240, ...rows.map(([, t, d]) => Math.max(150, t.length * 10.5 + 26) + d * 26)) + 20;
+  el.innerHTML = `<svg viewBox="0 0 ${w} ${rows.length * 38 + 16}" class="code">${blockStack(rows, 10, 10)}</svg>`;
+});
+
+function go(i) {
+  current = Math.max(0, Math.min(slides.length - 1, i));
+  slides.forEach((s, j) => { s.hidden = j !== current; });
+  const slide = slides[current];
+  // Embedded pages load the first time their slide is shown.
+  if (slide.dataset.src && !slide.querySelector("iframe")) {
+    const f = document.createElement("iframe");
+    f.src = slide.dataset.src;
+    f.title = slide.dataset.name;
+    slide.appendChild(f);
+  }
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("name").textContent = slide.dataset.name;
+  $("back").disabled = current === 0;
+  $("next").disabled = current === slides.length - 1;
+  history.replaceState(null, "", `#${current + 1}`);
+}
+
+slides.forEach((s, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Slide ${j + 1}: ${s.dataset.name}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+document.addEventListener("keydown", (e) => {
+  if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); go(current + 1); }
+  if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); go(current - 1); }
+});
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / 720);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
+</body>
+</html>

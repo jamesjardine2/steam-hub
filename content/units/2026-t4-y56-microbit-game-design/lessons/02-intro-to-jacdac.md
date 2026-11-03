@@ -47,6 +47,18 @@ resources:
   - One iPad per pair with the micro:bit app and Bluetooth on
   - Labelled kit diagram on the board, and your own assembled kit for demonstrating
 live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: Hook, kit tour, LISC, rules and cliffhanger
+    file: 02-slides.html
+  - kind: HTML
+    title: Connect and light up
+    note: "Animated steps: hardware, extension, code"
+    file: 02-jacdac.html
+  - kind: HTML
+    title: "Word wall: Frayer model"
+    note: module, extension and pixel
+    file: 02-frayer.html
   - kind: LINK
     title: Jacdac iPad setup handout
     note: 15 steps with screenshots, from the app to a lit ring
