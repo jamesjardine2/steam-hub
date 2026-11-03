@@ -24,11 +24,14 @@ sequence:
   - phase: Hook
     time: 5 min
     what: Play the finished game on the projector and take challenges from two students. Share the LISC.
-  - phase: Design the algorithm
+  - phase: Variables
     time: 7 min
-    what: No devices. Build the plain-language steps on the board until someone realises the game needs to know if it is running. Name that a flag.
+    what: "\"What does the game need to remember?\" Variables in Real Life, the What Are Variables? video, then variable, flag and bug on the word wall."
+  - phase: Design the algorithm
+    time: 4 min
+    what: No devices. Build the plain-language steps on the board, using a score variable and a playing flag.
   - phase: Build in the simulator
-    time: 16 min
+    time: 12 min
     what: "Checkpoints: score counts up, B starts a new game, presses stop counting after 10 seconds. No downloading until all three work."
   - phase: Download and play
     time: 8 min
@@ -88,8 +91,9 @@ This is what should end up on the board before anyone touches an iPad. Students 
 | Time | Step | What to do and say |
 |---|---|---|
 | 0 to 5 min | Hook | Play the finished game yourself on the projector. Take challenges from two students. Do not explain the code yet. Share the Learning Intention and Success Criteria. |
-| 5 to 12 min | Design the algorithm | Whole class, no devices. Ask: "What does the program actually need to do?" Build the plain-language steps on the board together. Push them until someone realises the program needs to know whether the game is running, otherwise presses count before it starts. Name that a **flag**: a variable that holds true or false instead of a number. If the class needs it, play **Variables in Real Life**, then the short **What Are Variables?** video (ClickView, 1 min 40) before naming the idea. |
-| 12 to 28 min | Build in the simulator | In pairs. Build the core game and test it entirely with the on-screen micro:bit. Checkpoints on the board: (1) score counts up, (2) B starts a new game with the score at 0, (3) presses stop counting after 10 seconds. No downloading until all three work. |
+| 5 to 12 min | Variables | Ask: "What does the game need to remember?" Take ideas. Play **Variables in Real Life** with the variables hidden, then switch them on. Play the **What Are Variables?** video (ClickView, 1 min 40). Name the ideas: a **variable** holds one value, and a **flag** is a variable that holds true or false. Show the word wall (variable, flag, bug). |
+| 12 to 16 min | Design the algorithm | Whole class, no devices. Ask: "What does the program actually need to do?" Build the plain-language steps on the board together, using a **score** variable and a **playing** flag so presses only count while the game is running. |
+| 16 to 28 min | Build in the simulator | In pairs. Build the core game and test it entirely with the on-screen micro:bit. Checkpoints on the board: (1) score counts up, (2) B starts a new game with the score at 0, (3) presses stop counting after 10 seconds. No downloading until all three work. |
 | 28 to 36 min | Download and play | One download each, then actual smashing. Rotate pairs so everyone gets a turn. Record scores on the board as a class leaderboard. |
 | 36 to 42 min | Fairness and debugging | "Is the game fair?" Students will have found the cheats and the bugs. Discuss, then let them fix one. Fast finishers take an extension and use their second download. |
 | 42 to 45 min | Pack up and hook | Thirty second demo: swap the A button block for a Jacdac button module. Same game, better button. That is next lesson. |
