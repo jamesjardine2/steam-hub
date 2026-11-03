@@ -308,7 +308,13 @@ function loadUnit(slug, classes, progress) {
       return { number: s.number, title: s.title, enabled: Boolean(s.lesson), date, dateLabel: date ? formatShortDate(date) : "" };
     });
     const nextCell = cells.find((cell) => !cell.date);
-    return { name: c, cells, next: nextCell ? `Lesson ${nextCell.number}: ${nextCell.title}` : "All done" };
+    return {
+      name: c,
+      cells,
+      next: nextCell ? `Lesson ${nextCell.number}: ${nextCell.title}` : "All done",
+      // Short form for the home page's at-a-glance panel.
+      glance: nextCell ? `L${nextCell.number} ${nextCell.title}` : "All done",
+    };
   });
 
   return Object.assign(unit, {

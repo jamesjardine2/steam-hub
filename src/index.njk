@@ -12,6 +12,29 @@ nav: overview
   <p class="muted">Foundation to Year 6 at a glance</p>
 </section>
 
+{% if site.dashboards.length %}
+<section class="card stack-tight" aria-labelledby="glance-title">
+  <div class="row-between">
+    <h2 class="card-title" id="glance-title">Where each class is up to</h2>
+    <a class="small" href="#tick-classes">Tick classes</a>
+  </div>
+  <div class="glance-grid">
+    {% for u in site.dashboards %}
+    <div class="glance-col">
+      <a class="glance-head" href="{{ u.url }}"><span class="pill">{{ u.cohortLabel }}</span><span class="glance-unit">{{ u.title }}</span></a>
+      {% for row in u.classRows %}
+      <a class="glance-row" href="{{ u.url }}" data-glance data-unit="{{ u.slug }}" data-class="{{ row.name }}" title="{{ row.name }}: {{ row.next }}">
+        <span class="glance-class">{{ row.name }}</span>
+        <span class="glance-bar" aria-hidden="true">{% for c in row.cells %}<i data-n="{{ c.number }}"{% if c.date %} class="on"{% endif %}></i>{% endfor %}</span>
+        <span class="glance-next" data-glance-next>{{ row.glance }}</span>
+      </a>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <section class="card-grid">
 {% for slot in site.overview %}
   {% set u = slot.unit %}
@@ -47,15 +70,23 @@ nav: overview
 {% endfor %}
 </section>
 
-{% for u in site.dashboards %}
-<section class="card stack">
-  <div class="row-between">
-    <h2 class="card-title">Where each class is up to: {{ u.cohortLabel }}</h2>
-    <a class="small" href="{{ u.url }}">{{ u.title }}</a>
-  </div>
-  {{ m.progressTable(u) }}
+{% if site.dashboards.length %}
+<section id="tick-classes" class="accs">
+  {% call m.accordion("Tick classes", "Mark which lessons each class has finished") %}
+    <div class="stack-lg">
+    {% for u in site.dashboards %}
+      <div class="stack-tight">
+        <div class="row-between">
+          <h3 class="card-title">{{ u.cohortLabel }}</h3>
+          <a class="small" href="{{ u.url }}">{{ u.title }}</a>
+        </div>
+        {{ m.progressTable(u) }}
+      </div>
+    {% endfor %}
+    </div>
+  {% endcall %}
 </section>
-{% endfor %}
+{% endif %}
 
 <section class="split">
   <div class="card stack wide">

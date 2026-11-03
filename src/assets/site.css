@@ -228,3 +228,17 @@ button.btn:disabled { opacity: 0.5; cursor: default; outline: none; }
 /* Light or dark mode switch (theme.js) */
 .theme-toggle { font: inherit; font-size: 14px; font-weight: 500; line-height: 1.2; color: var(--text); background: transparent; border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 10px 14px; min-height: 44px; cursor: pointer; }
 .theme-toggle:hover { background: var(--hover); }
+
+/* Home page: where each class is up to, at a glance */
+.glance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px 28px; }
+.glance-col { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.glance-head { display: flex; align-items: center; gap: 8px; text-decoration: none; margin-bottom: 4px; min-width: 0; }
+.glance-unit { font-size: 13px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.glance-row { display: grid; grid-template-columns: 34px auto minmax(0, 1fr); align-items: center; gap: 10px; padding: 6px 8px; min-height: 36px; border-radius: var(--radius-input); text-decoration: none; color: var(--text); }
+.glance-row:hover { background: var(--hover); color: var(--text); }
+.glance-class { font-weight: 800; }
+.glance-bar { display: flex; gap: 3px; }
+.glance-bar i { width: 9px; height: 14px; border-radius: 3px; background: var(--border); }
+.glance-bar i.on { background: var(--violet); }
+.glance-next { font-size: 13px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.glance-head .pill { flex: 0 0 auto; white-space: nowrap; }

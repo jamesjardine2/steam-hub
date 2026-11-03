@@ -119,6 +119,16 @@
       const open = [...row.querySelectorAll("[data-tick]")].find((b) => !b.dataset.date);
       row.querySelector("[data-next]").textContent = open ? `Lesson ${open.dataset.lesson}: ${open.dataset.lessonTitle}` : "All done";
     });
+    // Home page at-a-glance panel: one short line per class.
+    document.querySelectorAll("[data-glance]").forEach((row) => {
+      const mine = ticks.filter((b) => b.dataset.unit === row.dataset.unit && b.dataset.class === row.dataset.class && b.classList.contains("tick-cell"));
+      if (!mine.length) return;
+      mine.forEach((b) => row.querySelector(`[data-n="${b.dataset.lesson}"]`)?.classList.toggle("on", Boolean(b.dataset.date)));
+      const open = mine.find((b) => !b.dataset.date);
+      const text = open ? `L${open.dataset.lesson} ${open.dataset.lessonTitle}` : "All done";
+      row.querySelector("[data-glance-next]").textContent = text;
+      row.title = `${row.dataset.class}: ${open ? `Lesson ${open.dataset.lesson}: ${open.dataset.lessonTitle}` : "All done"}`;
+    });
   }
 
   function applyProgress(data) {
@@ -309,6 +319,12 @@
       plan(job, crt, crt.querySelector("[data-notes]").value.trim(), done);
     });
   }
+
+  // Home page: the "Tick classes" link opens the tick tables.
+  document.querySelectorAll('a[href="#tick-classes"]').forEach((a) => a.addEventListener("click", () => {
+    const d = document.querySelector("#tick-classes details");
+    if (d) d.open = true;
+  }));
 
   // ---- Accordions: expand or collapse all
   document.querySelector("[data-expand-all]")?.addEventListener("click", (e) => {
