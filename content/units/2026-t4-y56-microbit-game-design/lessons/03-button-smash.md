@@ -56,10 +56,10 @@ live:
     title: "Word wall: Frayer model"
     note: variable, flag and bug
     file: 03-frayer.html
-  - kind: LINK
+  - kind: HTML
     title: Variables in Real Life
-    note: "Interactive CIC: likes counter, footy scoreboard and wallet, with a Show the variables switch"
-    url: https://claude.ai/chat/0c809ca1-cb2b-41dd-b054-d5acda7e3ba8?artifact=dd26bce7-03b7-4bc8-80f6-2cf3b172b576
+    note: "Interactive CIC: video likes, footy scoreboard and wallet. Press V to show the variables"
+    file: 03-variables.html
 crt_notes: Works for a CRT with the plan PDF. No Jacdac kit is needed, only micro:bits, battery packs and iPads. If Bluetooth will not pair, the whole game can be played in the simulator.
 ---
 Students build a 10 second button smashing game using only the micro:bit's own A and B buttons. The hardware stays familiar so all the thinking goes into the code, and the limits they hit become the reason to bring Jacdac modules back in next lesson.

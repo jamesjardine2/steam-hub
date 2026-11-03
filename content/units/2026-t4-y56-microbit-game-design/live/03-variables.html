@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Variables in Real Life · Year 5/6 Button Smash</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<style>
+/* Variables in Real Life: three everyday screens whose numbers are
+   variables. Start with the variables hidden; once students have worked
+   out what the computer must be remembering, press V (or the switch in
+   the bottom bar) to show them. Keys 1, 2 and 3 change screens. */
+.vars-page .body { flex: 1 1 auto; min-height: 0; padding: 28px 40px; }
+.vars-page section { display: none; height: 100%; gap: 24px; grid-template-columns: 1fr; }
+.vars-page section.active { display: grid; }
+.show-vars .vars-page section.active { grid-template-columns: 1fr 300px; }
+.vars-page .panel { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 22px; min-height: 0; }
+.vars-page .big { border: 0; font-family: inherit; font-weight: 800; font-size: 20px; padding: 14px 24px; border-radius: var(--radius-pill); cursor: pointer; min-height: 52px; }
+.vars-page .big:active { transform: scale(0.96); }
+footer .tab[aria-pressed="true"] { background: var(--violet); color: var(--white); border-color: var(--violet); }
+footer .switch-btn[aria-pressed="true"] { background: var(--solar-orange); color: var(--void); border-color: var(--solar-orange); }
+
+/* What the computer remembers */
+.vars { display: none; align-self: stretch; overflow: hidden; }
+.show-vars .vars { display: flex; flex-direction: column; gap: 8px; }
+.vars h2 { margin: 0 0 6px; font-size: 20px; }
+.monitor { display: flex; align-items: center; justify-content: space-between; gap: 10px; border: 2px solid var(--solar-orange); border-radius: var(--radius-input); padding: 8px 10px; font-weight: 700; font-size: 16px; }
+.monitor .val { background: var(--solar-orange); color: var(--void); border-radius: 8px; padding: 3px 12px; min-width: 64px; text-align: center; font-size: 18px; font-weight: 800; transition: transform 0.15s; }
+.monitor .val.bump { transform: scale(1.25); }
+.codelog h3 { font-size: 15px; margin: 10px 0 6px; color: var(--text-muted); }
+.block { display: inline-block; font-weight: 700; padding: 6px 12px; border-radius: 8px; margin: 0 0 6px; font-size: 15px; background: var(--violet); color: var(--white); }
+.block.set { background: var(--plasma-pink); color: var(--void); }
+.block.if { background: var(--ion-cyan); color: var(--void); }
+.block.old { opacity: 0.45; }
+.legend { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+.legend span { padding: 1px 8px; border-radius: 5px; font-weight: 800; }
+.legend .c { background: var(--violet); color: var(--white); }
+.legend .s { background: var(--plasma-pink); color: var(--void); }
+
+/* Video */
+.player { position: relative; aspect-ratio: 16 / 9; max-height: 370px; border-radius: var(--radius-card); overflow: hidden; background: var(--violet); display: grid; place-items: center; cursor: pointer; }
+.player .scene { position: absolute; inset: 0; display: grid; place-items: center; font-size: 130px; }
+.player .playbtn { position: relative; width: 96px; height: 96px; border-radius: 50%; background: var(--white); display: grid; place-items: center; }
+.player .playbtn::after { content: ""; margin-left: 8px; border-left: 34px solid var(--violet); border-top: 21px solid transparent; border-bottom: 21px solid transparent; }
+.player.playing .playbtn { display: none; }
+.player .bar { position: absolute; left: 0; bottom: 0; height: 8px; width: 0; background: var(--plasma-pink); }
+.player.playing .bar { animation: prog 6s linear forwards; }
+@keyframes prog { to { width: 100%; } }
+.player .wobble { animation: wob 0.6s ease-in-out infinite alternate; }
+@keyframes wob { from { transform: rotate(-8deg); } to { transform: rotate(8deg) translateY(-10px); } }
+.vtitle { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin: 14px 0 2px; }
+.views { color: var(--text-muted); font-weight: 700; font-size: 17px; }
+.channel { display: flex; align-items: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+.avatar { width: 54px; height: 54px; border-radius: 50%; background: var(--solar-orange); display: grid; place-items: center; color: var(--void); font-weight: 800; font-size: 20px; }
+.chname { font-weight: 800; font-size: 19px; }
+.subs { color: var(--text-muted); font-weight: 700; }
+.subbtn { background: var(--violet); color: var(--white); }
+.subbtn.subbed { background: var(--hover); color: var(--text); }
+.actions { margin-left: auto; display: flex; gap: 10px; }
+.vpill { background: var(--hover); color: var(--text); display: flex; align-items: center; gap: 8px; }
+.vpill .ico { font-size: 22px; }
+.vpill.pop { animation: pop 0.35s; }
+@keyframes pop { 50% { transform: scale(1.15); } }
+.smallrow { display: flex; gap: 10px; margin-top: 14px; }
+.ghost { background: transparent; border: 2px dashed var(--border) !important; color: var(--text-muted); font-size: 17px !important; }
+.float { position: fixed; pointer-events: none; font-weight: 800; font-size: 26px; color: var(--text-violet); animation: flo 0.9s ease-out forwards; z-index: 50; }
+.float.neg { color: var(--text-pink); }
+@keyframes flo { to { transform: translateY(-70px); opacity: 0; } }
+
+/* Scoreboard: always dark, like a real one */
+.board { background: var(--void); border-radius: var(--radius-card); padding: 26px; color: var(--white); display: flex; flex-direction: column; }
+.board .top { text-align: center; font-weight: 800; letter-spacing: 0.2em; color: var(--solar-orange); margin-bottom: 16px; font-size: 18px; }
+.teams { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.team { background: var(--surface); border-radius: var(--radius-card); padding: 18px; text-align: center; }
+.tname { font-size: 28px; font-weight: 800; outline: none; border-bottom: 2px dashed transparent; padding: 2px 6px; display: inline-block; min-width: 80px; color: var(--white); }
+.tname:hover, .tname:focus { border-bottom-color: var(--mist); }
+.tscore { font-size: 120px; font-weight: 800; color: var(--solar-orange); line-height: 1.05; font-variant-numeric: tabular-nums; transition: transform 0.2s; }
+.tscore.bump { transform: scale(1.12); color: var(--white); }
+.gb { font-size: 22px; font-weight: 700; color: var(--mist); font-variant-numeric: tabular-nums; }
+.gb b { color: var(--white); }
+.tbtns { display: flex; gap: 10px; justify-content: center; margin-top: 14px; }
+.goal { background: var(--ion-cyan); color: var(--void); }
+.behind { background: var(--volt-blue); color: var(--white); }
+.newgame { background: var(--raised); color: var(--white); display: block; margin: 18px auto 0; }
+.hint { text-align: center; color: var(--mist); margin-top: 10px; font-weight: 700; }
+
+/* Wallet */
+.wallet { display: grid; grid-template-columns: 340px 1fr; grid-template-rows: auto 1fr; gap: 20px; min-height: 0; }
+.wcard { background: var(--volt-blue); color: var(--white); border-radius: var(--radius-card); padding: 24px; }
+.wcard .label { font-weight: 700; }
+.wcard .bal { font-size: 76px; font-weight: 800; font-variant-numeric: tabular-nums; transition: transform 0.2s; }
+.wcard .bal.bump { transform: scale(1.06); }
+.wcard.shake { animation: shake 0.4s; }
+@keyframes shake { 20%, 60% { transform: translateX(-10px); } 40%, 80% { transform: translateX(10px); } }
+.msg { min-height: 26px; font-weight: 800; margin-top: 4px; }
+.earn { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.earn .big { background: var(--white); color: var(--volt-blue); font-size: 16px; padding: 10px 14px; min-height: 44px; }
+.shop { grid-column: 2; grid-row: 1 / 3; }
+.shop h2, .history h2 { margin: 0 0 12px; font-size: 22px; }
+.items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.item { background: var(--hover); border: 2px solid var(--border); border-radius: var(--radius-card); padding: 14px 8px; text-align: center; cursor: pointer; font-family: inherit; font-weight: 700; font-size: 16px; color: var(--text); }
+.item:hover { border-color: var(--text-violet); }
+.item .em { font-size: 40px; display: block; }
+.item .price { color: var(--text-pink); display: block; margin-top: 4px; font-weight: 800; }
+.history { overflow: hidden; }
+.history ul { list-style: none; margin: 0; padding: 0; max-height: 210px; overflow: auto; }
+.history li { display: flex; justify-content: space-between; padding: 7px 4px; border-bottom: 1px solid var(--border); font-weight: 700; }
+.history .plus { color: var(--text-violet); }
+.history .minus { color: var(--text-pink); }
+.history .empty { color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="stage vars-page" id="stage">
+  <header>
+    <span class="t">Year 5/6 · Variables in Real Life</span>
+    <span class="u">Button Smash · Lesson 3</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/03-button-smash/">Exit</a>
+  </header>
+
+  <div class="body">
+    <!-- Video -->
+    <section id="video" class="active">
+      <div class="panel">
+        <div class="player" id="player">
+          <div class="scene" id="scene">🤖</div>
+          <div class="playbtn"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="vtitle">I Built a Robot That Eats My Homework</div>
+        <div class="views"><span id="viewsTxt">0</span> views</div>
+        <div class="channel">
+          <div class="avatar">SL</div>
+          <div>
+            <div class="chname">STEAM Lab</div>
+            <div class="subs"><span id="subsTxt">0</span> subscribers</div>
+          </div>
+          <button class="big subbtn" id="subBtn">Subscribe</button>
+          <div class="actions">
+            <button class="big vpill" id="likeBtn"><span class="ico">👍</span><span id="likesTxt">0</span></button>
+            <button class="big vpill" id="dislikeBtn"><span class="ico">👎</span><span id="dislikesTxt">0</span></button>
+          </div>
+        </div>
+        <div class="smallrow">
+          <button class="big ghost" id="viralBtn">🚀 Go viral</button>
+          <button class="big ghost" id="vidReset">Set everything to 0</button>
+        </div>
+      </div>
+      <aside class="panel vars">
+        <h2>What the computer remembers</h2>
+        <div class="monitor"><span>views</span><span class="val" data-var="views">0</span></div>
+        <div class="monitor"><span>likes</span><span class="val" data-var="likes">0</span></div>
+        <div class="monitor"><span>dislikes</span><span class="val" data-var="dislikes">0</span></div>
+        <div class="monitor"><span>subscribers</span><span class="val" data-var="subscribers">0</span></div>
+        <div class="codelog"><h3>Code that just ran</h3><div class="log" id="log-video"></div></div>
+        <div class="legend"><span class="c">change</span> adds to what's there. <span class="s">set</span> replaces it.</div>
+      </aside>
+    </section>
+
+    <!-- Scoreboard -->
+    <section id="footy">
+      <div class="board">
+        <div class="top">GRAND FINAL</div>
+        <div class="teams">
+          <div class="team">
+            <div class="tname" contenteditable="true" spellcheck="false" id="homeName">Tigers</div>
+            <div class="tscore" id="homeScore">0</div>
+            <div class="gb"><b id="homeGoals">0</b> goals &nbsp; <b id="homeBehinds">0</b> behinds</div>
+            <div class="tbtns">
+              <button class="big goal" data-act="goal" data-team="home">GOAL +6</button>
+              <button class="big behind" data-act="behind" data-team="home">BEHIND +1</button>
+            </div>
+          </div>
+          <div class="team">
+            <div class="tname" contenteditable="true" spellcheck="false" id="awayName">Bulldogs</div>
+            <div class="tscore" id="awayScore">0</div>
+            <div class="gb"><b id="awayGoals">0</b> goals &nbsp; <b id="awayBehinds">0</b> behinds</div>
+            <div class="tbtns">
+              <button class="big goal" data-act="goal" data-team="away">GOAL +6</button>
+              <button class="big behind" data-act="behind" data-team="away">BEHIND +1</button>
+            </div>
+          </div>
+        </div>
+        <button class="big newgame" id="newGame">New game</button>
+        <div class="hint">Tip: click a team name to change it</div>
+      </div>
+      <aside class="panel vars">
+        <h2>What the computer remembers</h2>
+        <div class="monitor"><span id="vHomeG">Tigers goals</span><span class="val" data-var="homeGoals">0</span></div>
+        <div class="monitor"><span id="vHomeB">Tigers behinds</span><span class="val" data-var="homeBehinds">0</span></div>
+        <div class="monitor"><span id="vHomeS">Tigers score</span><span class="val" data-var="homeScore">0</span></div>
+        <div class="monitor"><span id="vAwayG">Bulldogs goals</span><span class="val" data-var="awayGoals">0</span></div>
+        <div class="monitor"><span id="vAwayB">Bulldogs behinds</span><span class="val" data-var="awayBehinds">0</span></div>
+        <div class="monitor"><span id="vAwayS">Bulldogs score</span><span class="val" data-var="awayScore">0</span></div>
+        <div class="codelog"><h3>Code that just ran</h3><div class="log" id="log-footy"></div></div>
+        <div class="legend"><span class="c">change</span> adds to what's there. <span class="s">set</span> replaces it.</div>
+      </aside>
+    </section>
+
+    <!-- Wallet -->
+    <section id="wallet">
+      <div class="wallet">
+        <div class="wcard" id="wcard">
+          <div class="label">My Wallet</div>
+          <div class="bal" id="balTxt">$20.00</div>
+          <div class="msg" id="wmsg"></div>
+          <div class="earn">
+            <button class="big" data-earn="500" data-why="Pocket money">+$5 pocket money</button>
+            <button class="big" data-earn="2000" data-why="Birthday money">+$20 birthday</button>
+            <button class="big" id="walletReset">Start with $20</button>
+          </div>
+        </div>
+        <div class="panel shop">
+          <h2>School Canteen</h2>
+          <div class="items" id="items"></div>
+        </div>
+        <div class="panel history">
+          <h2>Receipts</h2>
+          <ul id="hist"><li class="empty">Nothing bought yet</li></ul>
+        </div>
+      </div>
+      <aside class="panel vars">
+        <h2>What the computer remembers</h2>
+        <div class="monitor"><span>wallet</span><span class="val" data-var="wallet">$20.00</span></div>
+        <div class="monitor"><span>items bought</span><span class="val" data-var="bought">0</span></div>
+        <div class="codelog"><h3>Code that just ran</h3><div class="log" id="log-wallet"></div></div>
+        <div class="legend"><span class="c">change</span> adds to what's there. <span class="s">set</span> replaces it.</div>
+      </aside>
+    </section>
+  </div>
+
+  <footer>
+    <button type="button" class="tab" data-tab="video" aria-pressed="true">Video</button>
+    <button type="button" class="tab" data-tab="footy" aria-pressed="false">Scoreboard</button>
+    <button type="button" class="tab" data-tab="wallet" aria-pressed="false">Wallet</button>
+    <button type="button" class="switch-btn spacer" id="varToggle" aria-pressed="false">Show the variables (V)</button>
+  </footer>
+</div>
+
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
+  // Screens and the variables switch (also keys 1, 2, 3 and V).
+  const tabs = [...document.querySelectorAll(".tab")];
+  function showTab(name) {
+    tabs.forEach((t) => t.setAttribute("aria-pressed", String(t.dataset.tab === name)));
+    document.querySelectorAll(".vars-page section").forEach((s) => s.classList.toggle("active", s.id === name));
+  }
+  tabs.forEach((t) => t.addEventListener("click", () => showTab(t.dataset.tab)));
+  const tog = $("varToggle");
+  function flip() {
+    const on = tog.getAttribute("aria-pressed") !== "true";
+    tog.setAttribute("aria-pressed", String(on));
+    document.documentElement.classList.toggle("show-vars", on);
+  }
+  tog.addEventListener("click", flip);
+  document.addEventListener("keydown", (e) => {
+    if (e.target.isContentEditable) return;
+    if (e.key === "1") showTab("video");
+    if (e.key === "2") showTab("footy");
+    if (e.key === "3") showTab("wallet");
+    if (e.key === "v" || e.key === "V") flip();
+  });
+
+  function setMon(name, text) {
+    document.querySelectorAll('[data-var="' + name + '"]').forEach((el) => {
+      el.textContent = text;
+      el.classList.add("bump");
+      setTimeout(() => el.classList.remove("bump"), 180);
+    });
+  }
+  function log(panel, lines) {
+    const box = $("log-" + panel);
+    box.querySelectorAll(".block").forEach((b) => b.classList.add("old"));
+    lines.slice().reverse().forEach(([kind, text]) => {
+      const d = document.createElement("div");
+      const b = document.createElement("span");
+      b.className = "block" + (kind === "set" ? " set" : kind === "if" ? " if" : "");
+      b.textContent = text;
+      d.appendChild(b);
+      box.prepend(d);
+    });
+    while (box.children.length > 6) box.lastChild.remove();
+  }
+  function floatAt(el, text, neg) {
+    const r = el.getBoundingClientRect();
+    const f = document.createElement("div");
+    f.className = "float" + (neg ? " neg" : "");
+    f.textContent = text;
+    f.style.left = (r.left + r.width / 2 - 20) + "px";
+    f.style.top = (r.top - 10) + "px";
+    document.body.appendChild(f);
+    setTimeout(() => f.remove(), 950);
+  }
+  const fmt = (n) => n.toLocaleString("en-AU");
+
+  // Video
+  const V = { views: 0, likes: 0, dislikes: 0, subscribers: 0 };
+  let subbed = false;
+  const scenes = ["🤖", "🤖📄", "🤖😋", "📄💥", "🤖🍝"];
+  function renderV() {
+    $("viewsTxt").textContent = fmt(V.views);
+    $("likesTxt").textContent = fmt(V.likes);
+    $("dislikesTxt").textContent = fmt(V.dislikes);
+    $("subsTxt").textContent = fmt(V.subscribers);
+    $("subBtn").textContent = subbed ? "Subscribed ✓" : "Subscribe";
+    $("subBtn").classList.toggle("subbed", subbed);
+    Object.keys(V).forEach((k) => setMon(k, fmt(V[k])));
+  }
+  let playTimer = null;
+  $("player").addEventListener("click", () => {
+    const p = $("player");
+    if (p.classList.contains("playing")) return;
+    V.views += 1;
+    renderV();
+    log("video", [["change", "change views by 1"]]);
+    floatAt(p, "+1 view");
+    p.classList.add("playing");
+    const sc = $("scene");
+    sc.classList.add("wobble");
+    let i = 0;
+    playTimer = setInterval(() => { i = (i + 1) % scenes.length; sc.textContent = scenes[i]; }, 1200);
+    setTimeout(() => {
+      clearInterval(playTimer);
+      p.classList.remove("playing");
+      sc.classList.remove("wobble");
+      sc.textContent = "🤖";
+      const bar = p.querySelector(".bar"); bar.style.animation = "none"; bar.offsetHeight; bar.style.animation = "";
+    }, 6000);
+  });
+  function pill(btn) { btn.classList.remove("pop"); void btn.offsetWidth; btn.classList.add("pop"); }
+  $("likeBtn").addEventListener("click", (e) => {
+    V.likes += 1; renderV(); pill(e.currentTarget); floatAt(e.currentTarget, "+1");
+    log("video", [["change", "change likes by 1"]]);
+  });
+  $("dislikeBtn").addEventListener("click", (e) => {
+    V.dislikes += 1; renderV(); pill(e.currentTarget); floatAt(e.currentTarget, "+1", true);
+    log("video", [["change", "change dislikes by 1"]]);
+  });
+  $("subBtn").addEventListener("click", (e) => {
+    subbed = !subbed;
+    V.subscribers += subbed ? 1 : -1;
+    renderV();
+    floatAt(e.currentTarget, subbed ? "+1" : "-1", !subbed);
+    log("video", [["change", "change subscribers by " + (subbed ? "1" : "-1")]]);
+  });
+  $("viralBtn").addEventListener("click", () => {
+    let steps = 0;
+    const t = setInterval(() => {
+      V.views += 900 + Math.floor(Math.random() * 600);
+      V.likes += 60 + Math.floor(Math.random() * 60);
+      V.subscribers += 10 + Math.floor(Math.random() * 15);
+      renderV();
+      if (++steps >= 25) clearInterval(t);
+    }, 120);
+    log("video", [["change", "change views by lots"], ["change", "change likes by lots"], ["change", "change subscribers by lots"]]);
+  });
+  $("vidReset").addEventListener("click", () => {
+    V.views = V.likes = V.dislikes = V.subscribers = 0; subbed = false; renderV();
+    log("video", [["set", "set views to 0"], ["set", "set likes to 0"], ["set", "set dislikes to 0"], ["set", "set subscribers to 0"]]);
+  });
+
+  // Scoreboard
+  const F = { home: { g: 0, b: 0 }, away: { g: 0, b: 0 } };
+  const tname = (t) => ($(t + "Name").textContent.trim() || (t === "home" ? "Home" : "Away"));
+  function renderF() {
+    ["home", "away"].forEach((t) => {
+      const s = F[t].g * 6 + F[t].b;
+      $(t + "Score").textContent = s;
+      $(t + "Goals").textContent = F[t].g;
+      $(t + "Behinds").textContent = F[t].b;
+      setMon(t + "Goals", F[t].g); setMon(t + "Behinds", F[t].b); setMon(t + "Score", s);
+    });
+  }
+  function relabel() {
+    const h = tname("home"), a = tname("away");
+    $("vHomeG").textContent = h + " goals"; $("vHomeB").textContent = h + " behinds"; $("vHomeS").textContent = h + " score";
+    $("vAwayG").textContent = a + " goals"; $("vAwayB").textContent = a + " behinds"; $("vAwayS").textContent = a + " score";
+  }
+  ["homeName", "awayName"].forEach((id) => {
+    $(id).addEventListener("input", relabel);
+    $(id).addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); e.target.blur(); } });
+  });
+  document.querySelectorAll("[data-act]").forEach((btn) => btn.addEventListener("click", () => {
+    const t = btn.dataset.team, n = tname(t);
+    if (btn.dataset.act === "goal") {
+      F[t].g += 1;
+      log("footy", [["change", "change " + n + " goals by 1"], ["change", "change " + n + " score by 6"]]);
+      floatAt($(t + "Score"), "+6");
+    } else {
+      F[t].b += 1;
+      log("footy", [["change", "change " + n + " behinds by 1"], ["change", "change " + n + " score by 1"]]);
+      floatAt($(t + "Score"), "+1");
+    }
+    renderF();
+    const sc = $(t + "Score"); sc.classList.add("bump"); setTimeout(() => sc.classList.remove("bump"), 200);
+  }));
+  $("newGame").addEventListener("click", () => {
+    F.home = { g: 0, b: 0 }; F.away = { g: 0, b: 0 }; renderF();
+    log("footy", [["set", "set " + tname("home") + " score to 0"], ["set", "set " + tname("away") + " score to 0"]]);
+  });
+
+  // Wallet
+  const items = [
+    ["🌭", "Sausage roll", 450], ["🧃", "Juice box", 250], ["🍎", "Apple", 150],
+    ["🧊", "Zooper Dooper", 100], ["🥧", "Meat pie", 550], ["🍪", "Choc chip cookie", 200],
+    ["📚", "Book fair book", 1500], ["🎮", "New video game", 7900],
+  ];
+  let bal = 2000, bought = 0;
+  const money = (c) => (c < 0 ? "-$" : "$") + (Math.abs(c) / 100).toFixed(2);
+  const hist = $("hist");
+  function addHist(text, cents) {
+    const empty = hist.querySelector(".empty"); if (empty) empty.remove();
+    const li = document.createElement("li");
+    const a = document.createElement("span"); a.textContent = text;
+    const b = document.createElement("span"); b.className = cents >= 0 ? "plus" : "minus"; b.textContent = (cents >= 0 ? "+" : "") + money(cents);
+    li.append(a, b); hist.prepend(li);
+  }
+  function renderW() {
+    $("balTxt").textContent = money(bal);
+    setMon("wallet", money(bal)); setMon("bought", bought);
+    const b = $("balTxt"); b.classList.add("bump"); setTimeout(() => b.classList.remove("bump"), 200);
+  }
+  const say = (t) => { $("wmsg").textContent = t; };
+  const box = $("items");
+  items.forEach(([em, name, price]) => {
+    const btn = document.createElement("button");
+    btn.className = "item";
+    btn.innerHTML = '<span class="em"></span><span class="nm"></span><span class="price"></span>';
+    btn.querySelector(".em").textContent = em;
+    btn.querySelector(".nm").textContent = name;
+    btn.querySelector(".price").textContent = money(price);
+    btn.addEventListener("click", () => {
+      if (price > bal) {
+        const w = $("wcard"); w.classList.remove("shake"); void w.offsetWidth; w.classList.add("shake");
+        say("Not enough money for the " + name.toLowerCase() + "!");
+        log("wallet", [["if", "if wallet < " + money(price) + " then say \"Not enough money!\""]]);
+        return;
+      }
+      bal -= price; bought += 1; renderW();
+      say("Bought: " + name);
+      addHist(em + " " + name, -price);
+      floatAt($("balTxt"), "-" + money(price), true);
+      log("wallet", [["change", "change wallet by -" + money(price)], ["change", "change items bought by 1"]]);
+    });
+    box.appendChild(btn);
+  });
+  document.querySelectorAll("[data-earn]").forEach((btn) => btn.addEventListener("click", () => {
+    const c = +btn.dataset.earn; bal += c; renderW();
+    say(btn.dataset.why + "!");
+    addHist(btn.dataset.why, c);
+    floatAt($("balTxt"), "+" + money(c));
+    log("wallet", [["change", "change wallet by " + money(c)]]);
+  }));
+  $("walletReset").addEventListener("click", () => {
+    bal = 2000; bought = 0; renderW(); say("");
+    hist.innerHTML = '<li class="empty">Nothing bought yet</li>';
+    log("wallet", [["set", "set wallet to $20.00"], ["set", "set items bought to 0"]]);
+  });
+
+  renderV(); renderF(); renderW();
+  log("video", [["set", "set likes to 0"]]);
+  log("footy", [["set", "set Tigers score to 0"]]);
+  log("wallet", [["set", "set wallet to $20.00"]]);
+
+  function fit() {
+    const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+    $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+  }
+  addEventListener("resize", fit);
+  fit();
+})();
+</script>
+</body>
+</html>
