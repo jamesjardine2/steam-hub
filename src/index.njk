@@ -12,29 +12,6 @@ nav: overview
   <p class="muted">Foundation to Year 6 at a glance</p>
 </section>
 
-{% if site.dashboards.length %}
-<section class="card stack-tight" aria-labelledby="glance-title">
-  <div class="row-between">
-    <h2 class="card-title" id="glance-title">Where each class is up to</h2>
-    <a class="small" href="#tick-classes">Tick classes</a>
-  </div>
-  <div class="glance-grid">
-    {% for u in site.dashboards %}
-    <div class="glance-col">
-      <a class="glance-head" href="{{ u.url }}"><span class="pill">{{ u.cohortLabel }}</span><span class="glance-unit">{{ u.title }}</span></a>
-      {% for row in u.classRows %}
-      <a class="glance-row" href="{{ u.url }}" data-glance data-unit="{{ u.slug }}" data-class="{{ row.name }}" title="{{ row.name }}: {{ row.next }}">
-        <span class="glance-class">{{ row.name }}</span>
-        <span class="glance-bar" aria-hidden="true">{% for c in row.cells %}<i data-n="{{ c.number }}"{% if c.date %} class="on"{% endif %}></i>{% endfor %}</span>
-        <span class="glance-next" data-glance-next>{{ row.glance }}</span>
-      </a>
-      {% endfor %}
-    </div>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
-
 <section class="card-grid">
 {% for slot in site.overview %}
   {% set u = slot.unit %}
@@ -69,6 +46,29 @@ nav: overview
   </article>
 {% endfor %}
 </section>
+
+{% if site.dashboards.length %}
+<section class="card stack-tight" aria-labelledby="glance-title">
+  <div class="row-between">
+    <h2 class="card-title" id="glance-title">Where each class is up to</h2>
+    <a class="small" href="#tick-classes">Tick classes</a>
+  </div>
+  <div class="glance-grid">
+    {% for u in site.dashboards %}
+    <div class="glance-col">
+      <a class="glance-head" href="{{ u.url }}"><span class="pill">{{ u.cohortLabel }}</span><span class="glance-unit">{{ u.title }}</span></a>
+      {% for row in u.classRows %}
+      <a class="glance-row" href="{{ u.url }}" data-glance data-unit="{{ u.slug }}" data-class="{{ row.name }}" title="{{ row.name }}: {{ row.next }}">
+        <span class="glance-class">{{ row.name }}</span>
+        <span class="glance-bar" aria-hidden="true">{% for c in row.cells %}<i data-n="{{ c.number }}"{% if c.date %} class="on"{% endif %}></i>{% endfor %}</span>
+        <span class="glance-next" data-glance-next>{{ row.glance }}</span>
+      </a>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
 
 {% if site.dashboards.length %}
 <section id="tick-classes" class="accs">
