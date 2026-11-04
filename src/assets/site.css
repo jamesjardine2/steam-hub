@@ -259,6 +259,8 @@ button.btn:disabled { opacity: 0.5; cursor: default; outline: none; }
 .lens-label { font-weight: 500; color: var(--text); }
 .lens-level { margin-left: auto; font-size: 12px; font-weight: 700; color: var(--tone); white-space: nowrap; }
 .lens-path { margin: 2px 0 0; font-size: 13px; color: var(--text-muted); }
+.lens-how { margin: 6px 0 0; font-size: 14px; line-height: 1.45; color: var(--text); }
+p.lens-how.ph { display: inline-block; padding: 2px 8px; font-size: 13px; }
 .lens-links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; margin-top: 4px; font-size: 13px; }
 .lens-link { display: inline-flex; align-items: center; gap: 5px; color: var(--text-violet); text-decoration: none; font-weight: 500; }
 a.lens-link:hover { text-decoration: underline; }

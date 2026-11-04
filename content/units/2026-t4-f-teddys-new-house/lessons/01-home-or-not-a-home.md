@@ -18,11 +18,21 @@ vtlm:
 citw:
   - CICs
 pedagogy:
-  citw.interest_cues: focus
-  vtlm.explicit.explain: focus
-  vtlm.explicit.scaffold: present
-  pcms.6: present
-  vc.dt: focus
+  citw.interest_cues:
+    level: focus
+    how: "The mystery home riddle is read one clue at a time, so students keep guessing until the caravan is revealed, then answer: 'Is this a home? How do you know?'"
+  vtlm.explicit.explain:
+    level: focus
+    how: "The teacher models setting up the journal and sorting one picture under the tick or cross label before students start, and the class says the big idea together: every home keeps people safe, dry and comfy."
+  vtlm.explicit.scaffold:
+    level: present
+    how: "Students sort the pictures on the table before gluing, and early finishers move on to a Design challenge card."
+  pcms.6:
+    level: present
+    how: "Thumbs up or down for every picture, partner talk on the hotel question, and the big idea said together."
+  vc.dt:
+    level: focus
+    how: "Students explore how homes are designed to keep people safe, dry and comfy by sorting places that are and are not homes (VC2TDE2S01)."
 sequence:
   - phase: Hook (CIC)
     time: 5 min

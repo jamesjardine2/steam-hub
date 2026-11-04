@@ -91,6 +91,7 @@
   <div class="lens-text">
     <div class="lens-top"><span class="lens-label">{{ row.label }}</span><span class="lens-level tier-{{ row.tier }}">{{ row.levelLabel }}</span></div>
     <p class="lens-path">{{ row.path }}</p>
+    {% for h in row.howHtml %}<p class="lens-how">{{ h | safe }}</p>{% else %}<p class="lens-how ph">[How this lesson uses it: to add]</p>{% endfor %}
     <div class="lens-links">
       {{ lensSource(row) }}
       {% for f in row.further %}<a class="lens-further" href="{{ f.url }}" target="_blank" rel="noopener">{{ f.label }}</a>{% endfor %}
@@ -119,7 +120,7 @@
         {% if r.source %}<a href="{{ r.source.url }}" target="_blank" rel="noopener">{% else %}<span class="lens-missing-row">{% endif %}<i class="ti {{ r.icon }} tier-{{ r.tier }}" data-lens-icon="{{ r.id }}" aria-hidden="true"></i><span class="lens-grid-name">{{ r.label }}</span>{% if r.source %}</a>{% else %}</span>{% endif %}
       </th>
       {% for cell in r.cells %}
-      <td data-lesson-col="{{ loop.index0 }}">{% if cell %}<span class="lens-dot lens-{{ cell }} tier-{{ r.tier }}" title="Lesson {{ grid.columns[loop.index0].number }}: {{ 'Focus' if cell == 'focus' else 'Present' }}"></span><span class="visually-hidden">{{ cell }}</span>{% endif %}</td>
+      <td data-lesson-col="{{ loop.index0 }}">{% if cell %}<span class="lens-dot lens-{{ cell.level }} tier-{{ r.tier }}" title="Lesson {{ grid.columns[loop.index0].number }}, {{ 'Focus' if cell.level == 'focus' else 'Present' }}: {{ cell.how or 'how to add' }}"></span><span class="visually-hidden">{{ cell.level }}</span>{% endif %}</td>
       {% endfor %}
     </tr>
     {% endfor %}

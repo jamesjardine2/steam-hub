@@ -19,11 +19,21 @@ vtlm:
 citw:
   - CICs
 pedagogy:
-  vtlm.explicit.explain: focus
-  citw.interest_cues: present
-  vtlm.explicit.monitor: present
-  pcms.6: present
-  vc.dt: focus
+  vtlm.explicit.explain:
+    level: focus
+    how: "The teacher models gluing the three room labels and placing one picture next to its room, and the class says the big idea together: every room has a job."
+  citw.interest_cues:
+    level: present
+    how: "The 'Which room am I in?' mime hook: students guess the room from silent mimes of brushing teeth, cooking and going to bed, and say how they knew."
+  vtlm.explicit.monitor:
+    level: present
+    how: "While students sort, the teacher asks each one what an object is used for and why it belongs in that room, and students rate each Success Criterion with a thumb at the end."
+  pcms.6:
+    level: present
+    how: "Students call out the room for each picture, mime a room for the class, and talk with a partner about where people cook, sleep and wash in a tent or caravan."
+  vc.dt:
+    level: focus
+    how: "Students identify what each room in a home is for and which things suit that job (VC2TDE2S01), and early finishers draw and describe a room of their own (VC2TDE2D02)."
 sequence:
   - phase: Hook (CIC)
     time: 5 min

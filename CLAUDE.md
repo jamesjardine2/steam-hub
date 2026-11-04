@@ -117,10 +117,10 @@ lisc:
 curriculum: [VC2S2U05]
 vtlm: [Focus the learning, Scaffold practice]
 citw: [CICs, Worked examples]
-pedagogy:                  # optional: tag id from src/_data/lenses.json: focus or present
-  vtlm.explicit.scaffold: focus
-  citw.interest_cues: focus
-  pcms.6: present
+pedagogy:                  # optional: tag ids from src/_data/lenses.json
+  citw.interest_cues:
+    level: focus           # focus or present
+    how: "The storm animation opens the lesson and asks which material would keep Teddy dry."
 sequence:                  # "Lesson at a glance"
   - phase: Hook
     time: 5 min
@@ -140,7 +140,7 @@ The body is the full lesson plan in Markdown.
 Allowed `vtlm` values: Focus the learning; Explicit explanation and modelling; Scaffold practice; Monitor progress.
 Allowed `citw` values: CICs; Vocabulary; Frayer model; Strategy instruction and modelling; Worked examples.
 
-`pedagogy` tags (added November 2026, see `HANDOVER.md` in `steam-hub-handover/pedagogy/`): every key must be a node id in `src/_data/lenses.json` and every value `focus` (what the lesson deliberately targets, usually 1 to 3) or `present` (it happens but is not the target). The build warns about anything else. Routine nodes (`"routine": true`, such as the values acknowledgement) are not tagged; the unit page lists them once as "Built into every lesson". The lesson page shows the tags in a "Pedagogy and sources" accordion (icon, label, level, path, source link) and the unit page shows "Pedagogy at a glance", a grid of tags by lesson. A tag without its own link uses the nearest parent's; with none up the chain it shows an amber "add link". Once a lesson has tags they replace its VTLM and CITW chips. Teacher pages only: never on artefacts or CRT plans. Tier colours are `--tier-*` in `tokens.css`; icons are the Tabler outline webfont, loaded only on pages with tags. `npm run check-links` (`scripts/check-links.mjs`, once a term) checks every source link that needs no login, lists unverified nodes, and with `-- --write` updates the `checked` dates.
+`pedagogy` tags (added November 2026, see `HANDOVER.md` in `steam-hub-handover/pedagogy/`): every key must be a node id in `src/_data/lenses.json`, with a `level` of `focus` (what the lesson deliberately targets, usually 1 to 3) or `present` (it happens but is not the target), and `how`: at least one statement (a string, or a list) saying how this lesson uses that practice, taken from the plan itself, not a definition of the practice. James asked (November 2026) that every tag carries one. The build warns about unknown ids, wrong levels and missing statements; a tag without a statement shows "[How this lesson uses it: to add]". The statement shows under the tag on the lesson page and as the dot's tooltip on the unit grid. Routine nodes (`"routine": true`, such as the values acknowledgement) are not tagged; the unit page lists them once as "Built into every lesson". The lesson page shows the tags in a "Pedagogy and sources" accordion (icon, label, level, path, source link) and the unit page shows "Pedagogy at a glance", a grid of tags by lesson. A tag without its own link uses the nearest parent's; with none up the chain it shows an amber "add link". Once a lesson has tags they replace its VTLM and CITW chips. Teacher pages only: never on artefacts or CRT plans. Tier colours are `--tier-*` in `tokens.css`; icons are the Tabler outline webfont, loaded only on pages with tags. `npm run check-links` (`scripts/check-links.mjs`, once a term) checks every source link that needs no login, lists unverified nodes, and with `-- --write` updates the `checked` dates.
 The build prints a warning for anything else.
 
 ### LISC format

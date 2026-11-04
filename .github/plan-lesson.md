@@ -21,7 +21,7 @@ Write `content/units/<unit>/lessons/NN-short-name.md` (two-digit number) with:
 - `status: draft`
 - The outline entry's title and idea as the starting point, adjusted by James's notes.
 - A LISC in the exact format (intention starts with "To"; three criteria that finish "I can ...").
-- `curriculum`, `vtlm` and `citw` tags (allowed values only), and `pedagogy` tags (ids from `src/_data/lenses.json` only, 1 to 3 as `focus`, others `present`, no routine nodes), `sequence` (six steps adding up to 45 minutes), `resources`, `crt_notes`, and a `live` list naming the three artefacts below.
+- `curriculum`, `vtlm` and `citw` tags (allowed values only), and `pedagogy` tags (ids from `src/_data/lenses.json` only, each with `level` (1 to 3 as `focus`, others `present`) and `how`, a sentence saying how this lesson uses that practice by naming the actual activity; no routine nodes), `sequence` (six steps adding up to 45 minutes), `resources`, `crt_notes`, and a `live` list naming the three artefacts below.
 - A full plan body in the same sections as the earlier lessons: the setup note, how the activity works with key words, the lesson sequence table with what to do and say, what to draw on the board, roaming questions, support and extension, the key idea, notes for the teacher (include safety where relevant) and curriculum links.
 
 Then remove this lesson's entry from the `outline` in `unit.md`.

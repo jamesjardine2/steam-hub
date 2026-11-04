@@ -19,7 +19,13 @@ When I ask for the hub file for a lesson, output a single Markdown file with YAM
 - `curriculum`: Victorian Curriculum 2.0 codes for this lesson, for example VC2S2U05.
 - `vtlm`: the VTLM 2.0 elements used. Only these values: Focus the learning; Explicit explanation and modelling; Scaffold practice; Monitor progress.
 - `citw`: the CITW strategies used. Only these values: CICs; Vocabulary; Frayer model; Strategy instruction and modelling; Worked examples.
-- `pedagogy` (optional): a map of tag id to `focus` or `present`. Ids come from `src/_data/lenses.json` in the hub (for example `vtlm.explicit.scaffold`, `citw.interest_cues`, `pcms.6`, `vc.dt`). Mark 1 to 3 as `focus` (what the lesson deliberately targets) and anything else that happens as `present`. Don't tag routines such as `fcps.values`.
+- `pedagogy` (optional): a map of tag id to `level` and `how`. Ids come from `src/_data/lenses.json` in the hub (for example `vtlm.explicit.scaffold`, `citw.interest_cues`, `pcms.6`, `vc.dt`). `level` is `focus` for 1 to 3 practices the lesson deliberately targets and `present` for others that happen. `how` is at least one sentence on how this lesson uses the practice, naming the actual activity (for example "Groups drip 10 drops on four materials and check the towel underneath"). Don't tag routines such as `fcps.values`.
+  ```yaml
+  pedagogy:
+    citw.guided_investigations:
+      level: focus
+      how: "Groups predict, then drip water on four materials to find the best roof."
+  ```
 - `sequence`: the lesson at a glance, each with `phase` (Hook, I do, We do, You do, Review), `time` (for example "5 min") and `what` (one sentence).
 - `resources`: a list of materials. To link one to a file in the unit's `live/` folder (a handout, say), write it as `- text: ...` with `file: name.webp` on the next line (or `url:` for a link).
 - `live`: artefacts to show on the projector, each with `kind` (SLIDE, HTML, IMG, VIDEO or LINK), `title`, `note`, and either `file` (a file in the unit's live folder) or `url`.

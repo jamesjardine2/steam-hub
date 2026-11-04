@@ -36,7 +36,8 @@ const CITW = [
 ];
 
 // Pedagogy tags: the vocabulary is src/_data/lenses.json. A lesson's
-// `pedagogy` map gives each tag id a level, focus or present.
+// `pedagogy` map gives each tag id a level (focus or present) and `how`:
+// one or more statements on how this lesson uses that practice.
 const LENSES_FILE = path.join(process.cwd(), "src", "_data", "lenses.json");
 const LENSES = (() => {
   try {
@@ -164,13 +165,16 @@ function lensSource(id) {
   return null;
 }
 
-function lensRow(id, level) {
+function lensRow(id, level, how = []) {
   const n = LENSES[id];
   const tierIndex = TIERS.findIndex((t) => t.id === n.tier);
   return {
     id,
     level,
     levelLabel: level === "focus" ? "Focus" : "Present",
+    how,
+    // Curriculum codes in a statement link to the VCAA site, like lesson text.
+    howHtml: how.map((h) => linkVc2(md.utils.escapeHtml(h))),
     label: n.label,
     tier: n.tier,
     tierIndex: tierIndex < 0 ? TIERS.length : tierIndex,
@@ -183,8 +187,11 @@ function lensRow(id, level) {
   };
 }
 
-// Checks a lesson's pedagogy map against lenses.json. Routines are left out:
-// the unit page lists them once as "Built into every lesson".
+// Checks a lesson's pedagogy map against lenses.json. Each entry is
+//   tag.id: { level: focus, how: "..." }   (how can also be a list)
+// A bare level still works, with a warning until a statement is added.
+// Routines are left out: the unit page lists them once as "Built into
+// every lesson".
 function loadPedagogy(file, raw) {
   if (raw == null) return {};
   if (typeof raw !== "object" || Array.isArray(raw)) {
@@ -193,18 +200,21 @@ function loadPedagogy(file, raw) {
   }
   const tags = {};
   for (const [id, value] of Object.entries(raw)) {
-    const level = String(value).toLowerCase();
+    const entry = value && typeof value === "object" ? value : { level: value };
+    const level = String(entry.level).toLowerCase();
+    const how = asList(entry.how).map((h) => String(h).trim()).filter(Boolean);
     if (!LENSES[id]) { warn(file, `unknown pedagogy tag "${id}" (not in lenses.json)`); continue; }
     if (!LEVELS.includes(level)) { warn(file, `pedagogy tag "${id}" has level "${value}" (use focus or present)`); continue; }
     if (LENSES[id].routine) continue;
-    tags[id] = level;
+    if (!how.length) warn(file, `pedagogy tag "${id}" needs a how statement saying how this lesson uses it`);
+    tags[id] = { level, how };
   }
   return tags;
 }
 
 function pedagogyRows(tags) {
   return Object.entries(tags)
-    .map(([id, level]) => lensRow(id, level))
+    .map(([id, t]) => lensRow(id, t.level, t.how))
     .sort((a, b) => (a.level === b.level ? 0 : a.level === "focus" ? -1 : 1) || a.tierIndex - b.tierIndex);
 }
 
@@ -221,7 +231,10 @@ function pedagogyGrid(slots) {
       .sort((a, b) => order.indexOf(a) - order.indexOf(b))
       .map((id) => ({
         ...lensRow(id, ""),
-        cells: slots.map((s) => (s.lesson ? s.lesson.pedagogyTags[id] || "" : "")),
+        cells: slots.map((s) => {
+          const t = s.lesson && s.lesson.pedagogyTags[id];
+          return t ? { level: t.level, how: t.how.join(" ") } : null;
+        }),
       })),
   })).filter((g) => g.rows.length);
   return {

@@ -23,13 +23,27 @@ citw:
   - Vocabulary
   - Frayer model
 pedagogy:
-  citw.interest_cues: focus
-  citw.vocab: focus
-  citw.guided_investigations: focus
-  vtlm.explicit.explain: present
-  vtlm.explicit.monitor: present
-  pcms.6: present
-  vc.dt: focus
+  citw.interest_cues:
+    level: focus
+    how: "The Teddy's house animation opens the lesson: Teddy finishes his house, a storm rolls in, and the class is asked which material would keep Teddy dry."
+  citw.vocab:
+    level: focus
+    how: "Roof, waterproof and soak are introduced with the Frayer word wall before the test and used again while groups test."
+  citw.guided_investigations:
+    level: focus
+    how: "Groups predict, then drip 10 drops on paper, foil, plastic and cloth and check the towel underneath to find the best roof material."
+  vtlm.explicit.explain:
+    level: present
+    how: "The teacher models one test (towel, material, 10 drops, lift, look) before groups start."
+  vtlm.explicit.monitor:
+    level: present
+    how: "Roaming questions ('Wet or dry? What does that tell us?') and the class tick and cross chart show what each group found."
+  pcms.6:
+    level: present
+    how: "Students point to their prediction, tell a partner why, count the drops aloud and say the key idea together."
+  vc.dt:
+    level: focus
+    how: "Students test four materials to find which keeps water out (VC2TDE2C04) and choose the best one for Teddy's roof (VC2TDE2D04)."
 sequence:
   - phase: Hook (CIC)
     time: 5 min

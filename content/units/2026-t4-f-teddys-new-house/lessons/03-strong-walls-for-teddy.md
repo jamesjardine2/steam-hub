@@ -20,11 +20,21 @@ citw:
   - CICs
   - Worked examples
 pedagogy:
-  vtlm.explicit.scaffold: focus
-  citw.guided_investigations: focus
-  citw.interest_cues: present
-  pcms.2: present
-  vc.dt: focus
+  vtlm.explicit.scaffold:
+    level: focus
+    how: "The teacher builds Wall A and Wall B as a worked example, and it stays on show while pairs build: 'Does your wall look like this one?'"
+  citw.guided_investigations:
+    level: focus
+    how: "Students predict which wall is stronger and watch the push test, then run their own wobble test, find the weak part, fix it and test again."
+  citw.interest_cues:
+    level: present
+    how: "Teddy's sad letter about his house falling down sets up the problem the class has to solve."
+  pcms.2:
+    level: present
+    how: "Builder rules before building (share the bricks, build on the base plate only, no breaking other houses) and a set pack-up routine for bricks, base plates and journals."
+  vc.dt:
+    level: focus
+    how: "Pairs build a LEGO house with overlapping walls, then test and improve it (VC2TDE2D03, VC2TDE2D04)."
 sequence:
   - phase: Hook (CIC)
     time: 5 min
