@@ -2,7 +2,7 @@
 number: 4
 title: Tin-foil Boats
 summary: "Predict, then test: groups shape one square of foil into a boat, predict how many pebbles it will hold, then run a fair test in the water tub."
-status: draft
+status: planned
 duration: 45
 lisc:
   intention: To predict how many pebbles a foil boat will hold, then test it fairly and improve the design.
