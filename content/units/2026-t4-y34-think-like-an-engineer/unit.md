@@ -31,6 +31,8 @@ assessment:
     when: Lesson 8
 claude_chat: https://claude.ai/chat/0382bbe4-29d4-4b53-bf18-053500b1bd6e
 links:
+  - label: "Challenge Card stick-in (PDF, two per A4 sheet)"
+    url: /units/2026-t4-y34-think-like-an-engineer/live/challenge-card.pdf
   - label: "Minecraft Education: Design an Animal"
     url: https://education.minecraft.net/en-us/challenges/design-an-animal
 outline:

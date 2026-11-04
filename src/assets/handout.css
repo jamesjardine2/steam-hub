@@ -1,0 +1,29 @@
+/* Printed student handouts and stick-ins (for example the Year 3/4
+   Challenge Card), linked as ../../../assets/handout.css after tokens.css
+   and printed to PDF from the built site. Light for printing: white
+   paper, near-black text, violet headers, outlines rather than fills to
+   save toner. Each .card is A5 portrait; two sit side by side on A4
+   landscape, with a dashed line to cut along. */
+
+@page { size: A4 landscape; margin: 8mm; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--white); color: var(--void); font-family: var(--font); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.sheet { display: grid; grid-template-columns: 1fr 1fr; width: 281mm; height: 194mm; }
+.card { display: flex; flex-direction: column; gap: 3.2mm; padding: 4mm 6mm; height: 100%; }
+.card + .card { border-left: 0.6mm dashed var(--mist); }
+.card-head { display: flex; justify-content: space-between; align-items: center; background: var(--violet); color: var(--white); border-radius: 3mm; padding: 2.6mm 4mm; }
+.card-head h1 { margin: 0; font-size: 17pt; font-weight: 800; letter-spacing: -0.02em; }
+.card-head span { font-size: 9.5pt; font-weight: 600; }
+.cycle { display: flex; gap: 1.4mm; align-items: center; font-size: 8.5pt; font-weight: 700; color: var(--violet); }
+.cycle span { flex: 1; text-align: center; border: 0.4mm solid var(--violet); border-radius: 99px; padding: 0.8mm 0; }
+.cycle b { flex: 0 0 auto; color: var(--mist); font-weight: 700; }
+.field { display: flex; flex-direction: column; gap: 1mm; }
+.field-label { font-size: 10pt; font-weight: 800; color: var(--violet); }
+.field-hint { font-weight: 500; color: var(--line); font-size: 8.5pt; }
+.line { border-bottom: 0.35mm solid var(--mist); height: 6.4mm; }
+.box { border: 0.5mm solid var(--violet); border-radius: 2.5mm; flex: 1 1 auto; position: relative; }
+.box .field-hint { position: absolute; left: 3mm; top: 2mm; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+.tile { border: 0.5mm solid var(--violet); border-radius: 2.5mm; padding: 2mm 3mm; height: 19mm; display: flex; flex-direction: column; justify-content: space-between; }
+.tile.predict { border-color: var(--solar-orange); border-width: 0.8mm; }
+.tile .unit { align-self: flex-end; font-size: 9pt; font-weight: 600; color: var(--line); }

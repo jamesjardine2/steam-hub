@@ -74,7 +74,8 @@ resources:
   - "Small pebbles of a similar size, about 60 per tub (or marbles)"
   - "Shallow tubs of water, one per two groups, on towels"
   - Old towels or a cloth per tub for spills
-  - "Challenge Cards, one per group [stick-in to make: the problem, the constraints, a sketch, the prediction, the result and one change]"
+  - text: "Challenge Card stick-in (PDF): print two per A4 sheet, cut on the dashed line, one per group"
+    file: challenge-card.pdf
   - STEAM journals and pencils
 live:
   - kind: SLIDE
