@@ -142,6 +142,9 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") show((current + WORDS.length - 1) % WORDS.length);
 });
 
+// Inside the lesson slides, the arrows uncover each box, then move to the next word (live.js).
+window.liveSteps = { kind: "words", count: WORDS.length, at: () => current, show };
+
 function fit() {
   const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
   $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;

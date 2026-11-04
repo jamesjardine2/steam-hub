@@ -162,3 +162,10 @@ header .u { display: none; }
 .howto .word.now { outline: 4px solid var(--text); outline-offset: 3px; }
 .howto .check { margin: 0; font-size: 34px; font-weight: 800; color: var(--text); background: var(--card); border-left: 8px solid var(--solar-orange); border-radius: var(--radius-card); padding: 18px 22px; }
 .howto .check[hidden] { display: none; }
+
+/* Steps inside a slide (live.js): small dots that show for a moment after
+   each arrow press while a word wall or how-to is on screen, then fade. */
+.substeps { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); display: flex; gap: 8px; opacity: 0; transition: opacity 0.4s; pointer-events: none; z-index: 5; }
+.substeps.show { opacity: 1; transition-duration: 0.1s; }
+.substeps span { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+.substeps span.on { background: var(--text-violet); }

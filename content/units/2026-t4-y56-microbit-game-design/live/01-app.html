@@ -171,6 +171,9 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") go(current - 1);
 });
 
+// Inside the lesson slides, the arrows go through these steps first (live.js).
+window.liveSteps = { kind: "steps", count: STEPS.length, at: () => current, go };
+
 function fit() {
   const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
   $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
