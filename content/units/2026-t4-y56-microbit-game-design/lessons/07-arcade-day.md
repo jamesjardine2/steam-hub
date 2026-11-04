@@ -17,6 +17,25 @@ vtlm:
   - Monitor progress
 citw:
   - CICs
+pedagogy:
+  citw.peer_consolidation:
+    level: focus
+    how: "In three arcade rounds, players rotate, play each game without being told how, and leave one keep and one change."
+  citw.cognitive_writing:
+    level: focus
+    how: "A journal evaluation against the class criteria, plus the game's inputs, outputs and variables."
+  citw.retrieval:
+    level: present
+    how: "The evaluation asks students to name inputs, outputs and variables from across the unit."
+  citw.problem_solving:
+    level: present
+    how: "Pairs read their feedback, choose one change and make it."
+  citw.targeted_support:
+    level: present
+    how: "Students who need it give feedback with the criteria list in hand, ticking the ones the game meets."
+  vc.dt:
+    level: focus
+    how: "Students evaluate their game and panel against the class design criteria (VC2TDE6D04)."
 sequence:
   - phase: Set up the arcade
     time: 5 min

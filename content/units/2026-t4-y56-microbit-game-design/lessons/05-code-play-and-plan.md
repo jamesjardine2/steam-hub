@@ -22,6 +22,28 @@ vtlm:
 citw:
   - CICs
   - Worked examples
+pedagogy:
+  citw.interest_cues:
+    level: present
+    how: "The teacher explains the Reaction Game with a kit in hand and introduces the design brief and the choice of game."
+  citw.problem_solving:
+    level: focus
+    how: "Pairs play like a new player and list every confusion, the class turns the problems into 3 or 4 design criteria, then pairs sketch two panel layouts."
+  vtlm.explicit.explain:
+    level: present
+    how: "The teacher models weak and strong criteria, such as 'It's easy to use' against 'A new player can start a game without asking.'"
+  citw.questions:
+    level: present
+    how: "Roaming questions such as 'Would a Prep student know which button to press first?' and 'Which problem does that part of your sketch solve?'"
+  citw.cognitive_writing:
+    level: present
+    how: "Pairs circle one layout and write one sentence linking it to a criterion."
+  vc.digitech:
+    level: focus
+    how: "Students define the problem with co-developed criteria and design a user interface for their game (VC2TDI6C01, VC2TDI6C03)."
+  vc.dt:
+    level: focus
+    how: "Pairs sketch and annotate two layouts (VC2TDE6D02) against negotiated design criteria (VC2TDE6D04)."
 sequence:
   - phase: Hook
     time: 5 min

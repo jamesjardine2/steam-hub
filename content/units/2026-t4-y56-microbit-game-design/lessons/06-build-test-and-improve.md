@@ -20,6 +20,28 @@ vtlm:
   - Monitor progress
 citw:
   - Strategy instruction and modelling
+pedagogy:
+  citw.strategy_modelling:
+    level: focus
+    how: "The teacher models the silent test protocol and the class rehearses the no talking rule before testing."
+  citw.guided_investigations:
+    level: focus
+    how: "Two rounds of silent testing by different pairs, with makers tallying every hesitation or mistake to tell a one-off from a real design flaw."
+  citw.problem_solving:
+    level: present
+    how: "Pairs make at least one change from the test results and annotate it in the journal."
+  citw.questions:
+    level: present
+    how: "While pairs build: 'Which problem does that solve?'"
+  pcms.2:
+    level: present
+    how: "The no talking rule during tests, then components back in kits and panels stacked flat."
+  vc.dt:
+    level: focus
+    how: "Pairs build their control panel and evaluate it against the class criteria (VC2TDE6D03, VC2TDE6D04)."
+  vc.digitech:
+    level: present
+    how: "The panel is the user interface for their game, tested with real users (VC2TDI6C03)."
 sequence:
   - phase: Revisit
     time: 5 min

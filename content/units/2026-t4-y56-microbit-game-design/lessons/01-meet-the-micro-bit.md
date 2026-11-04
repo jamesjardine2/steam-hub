@@ -20,6 +20,25 @@ citw:
   - CICs
   - Vocabulary
   - Worked examples
+pedagogy:
+  citw.interest_cues:
+    level: focus
+    how: "The teacher holds up a micro:bit: 'This is a tiny computer. What do you think it can sense? What can it do?'"
+  citw.vocab:
+    level: focus
+    how: "Input, output and event are on the word wall, and the class sorts the board's parts into inputs and outputs."
+  vtlm.explicit.explain:
+    level: focus
+    how: "The teacher models Create Code, a new project and one event block, testing in the simulator first."
+  citw.targeted_support:
+    level: present
+    how: "Year 5 pairs follow a tutorial (Flashing Heart, then Smiley Buttons) while Year 6 take the refresher challenge card; blocks are colour matched to their menus."
+  pcms.2:
+    level: present
+    how: "One download per pair (RESET three times, check the pattern), then battery packs unplugged and tubs counted."
+  vc.digitech:
+    level: focus
+    how: "Students name the micro:bit's inputs and outputs (VC2TDI6S01) and code their first event (VC2TDI6C04)."
 sequence:
   - phase: Hook (CIC)
     time: 5 min

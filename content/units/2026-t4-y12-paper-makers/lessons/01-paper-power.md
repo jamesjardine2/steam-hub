@@ -13,6 +13,25 @@ curriculum:
   - VC2TDE2C04
 citw:
   - CICs
+pedagogy:
+  citw.interest_cues:
+    level: focus
+    how: "Flat paper sags under one pebble while a fan of the same paper holds many: 'It is the same paper. What changed?'"
+  citw.guided_investigations:
+    level: focus
+    how: "Pairs predict the winning shape, then test flat, fan and tube across a one hand-span gap, counting pebbles and swapping placer and counter."
+  vtlm.explicit.explain:
+    level: present
+    how: "The teacher models rolling a tube, placing pebbles and drawing the recording layout before pairs start."
+  citw.questions:
+    level: present
+    how: "Roaming questions such as 'Is it the same paper? So what changed?' and a sentence stem when pairs share."
+  vc.science:
+    level: focus
+    how: "Folding and rolling change how paper holds weight, but it is still paper (VC2S2U05)."
+  vc.dt:
+    level: present
+    how: "Pairs compare which paper shape works best for a job, holding pebbles across a gap (VC2TDE2C04)."
 sequence:
   - phase: Settle
     time: 3 min

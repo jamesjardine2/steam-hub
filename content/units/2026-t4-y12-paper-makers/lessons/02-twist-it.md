@@ -13,6 +13,25 @@ curriculum:
   - VC2TDE2C04
 citw:
   - CICs
+pedagogy:
+  citw.interest_cues:
+    level: focus
+    how: "A torn strip rips under one book while a twisted rope of torn strips holds it: 'What changed?'"
+  citw.guided_investigations:
+    level: focus
+    how: "Pairs predict, test one strip, then twist 3 strips into a rope (counting to 20) and test it, recording both scores."
+  vtlm.explicit.explain:
+    level: present
+    how: "The teacher models tearing 4 strips, the tiny starter tear and the lift before pairs start."
+  citw.targeted_support:
+    level: present
+    how: "The teacher holds the rope and counts twists with pairs who need it; fast finishers compare 2 strips against 4, or a loose rope against a tight one."
+  vc.science:
+    level: focus
+    how: "Twisting torn strips changes how strong the paper is without making a new material (VC2S2U05)."
+  vc.dt:
+    level: present
+    how: "Students choose the stronger paper form for lifting a book (VC2TDE2C04)."
 sequence:
   - phase: Settle
     time: 3 min

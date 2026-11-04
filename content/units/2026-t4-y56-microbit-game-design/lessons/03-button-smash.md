@@ -20,6 +20,28 @@ citw:
   - CICs
   - Strategy instruction and modelling
   - Worked examples
+pedagogy:
+  citw.interest_cues:
+    level: present
+    how: "The finished game is played on the projector, with challenges taken from two students."
+  citw.vocab:
+    level: focus
+    how: "Variable, flag and bug are taught on the word wall after 'What does the game need to remember?'"
+  citw.visuals:
+    level: present
+    how: "The Variables in Real Life page and the What Are Variables? video show variables as labelled boxes."
+  citw.strategy_modelling:
+    level: focus
+    how: "With no devices, the class builds the game's plain-language algorithm on the board using a score variable and a playing flag."
+  vtlm.explicit.monitor:
+    level: present
+    how: "Three simulator checkpoints (score counts up, B starts a new game, presses stop after 10 seconds) before anyone downloads."
+  citw.problem_solving:
+    level: present
+    how: "The class discusses whether the game is fair and the cheats and bugs they found, then each pair fixes one."
+  vc.digitech:
+    level: focus
+    how: "Students design an algorithm (VC2TDI6C02) and build it as a program with variables (VC2TDI6C04)."
 sequence:
   - phase: Hook
     time: 5 min

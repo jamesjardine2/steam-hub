@@ -20,6 +20,28 @@ vtlm:
 citw:
   - CICs
   - Worked examples
+pedagogy:
+  citw.interest_cues:
+    level: focus
+    how: "Students smash last week's game on the tiny A button, then on a Jacdac button: 'Which would you rather smash? How could the game tell you what is happening?'"
+  vtlm.explicit.explain:
+    level: focus
+    how: "The teacher models opening last week's project, adding the Jacdac blocks and swapping on button A pressed for on button down, then testing in the simulator."
+  citw.vocab:
+    level: present
+    how: "Feedback and user are on the word wall."
+  citw.peer_consolidation:
+    level: present
+    how: "Pairs play each other's games, then two pairs explain one improvement: 'We added ___ so the player knows ___.'"
+  citw.targeted_support:
+    level: present
+    how: "Pairs who need it do the swap with the teacher first, then add one thing: green for GO and red for TIME."
+  vc.digitech:
+    level: focus
+    how: "Pairs add lights and sounds so the game tells the player what is happening (VC2TDI6C03, VC2TDI6C04)."
+  vc.dt:
+    level: present
+    how: "The Jacdac kit turns electrical energy into light and sound in the game (VC2TDE6C01)."
 sequence:
   - phase: Hook (CIC)
     time: 5 min

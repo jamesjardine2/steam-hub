@@ -15,6 +15,31 @@ curriculum:
 citw:
   - CICs
   - Frayer model
+pedagogy:
+  citw.interest_cues:
+    level: focus
+    how: "Loose strips drop the pebbles, then the hook shows sleeve threads and Wurundjeri baskets woven from grass fibres."
+  citw.vocab:
+    level: focus
+    how: "Weave, loom and strong are taught with the Frayer word wall."
+  vtlm.explicit.explain:
+    level: present
+    how: "The teacher models making the loom (5 slits, stopping a finger-width from the edge), tearing strips and weaving over, under."
+  citw.guided_investigations:
+    level: present
+    how: "Pairs carry about 15 pebbles on their woven mat to test whether weaving holds the strips together."
+  citw.targeted_support:
+    level: present
+    how: "The teacher cuts slits for students who find scissors tricky and weaves the first strip with them; two woven strips counts as success."
+  fcps.place:
+    level: present
+    how: "Wurundjeri baskets woven from grass fibres show weaving as a technique used on this Country."
+  vc.science:
+    level: focus
+    how: "Weaving changes how paper strips hold together without glue, and the mat is still paper (VC2S2U05)."
+  vc.dt:
+    level: present
+    how: "Students learn weaving as a technique people use to make products such as baskets and clothing (VC2TDE2S01, VC2TDE2C04)."
 sequence:
   - phase: Settle
     time: 3 min

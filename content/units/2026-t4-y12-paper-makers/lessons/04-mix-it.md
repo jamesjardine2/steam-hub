@@ -20,6 +20,28 @@ citw:
   - CICs
   - Frayer model
   - Worked examples
+pedagogy:
+  citw.interest_cues:
+    level: focus
+    how: "Dry flour and plain water both fail to stick two papers: 'What if we mix them?', then the teacher mixes them in front of the class."
+  vtlm.explicit.explain:
+    level: focus
+    how: "The teacher describes flour as powdery and water as runny, then models 2 spoons of each stirred 20 times."
+  citw.guided_investigations:
+    level: focus
+    how: "Pairs make paste and stick-test flour, water and paste, then paste 3 strips into a layered strip for next week."
+  citw.vocab:
+    level: present
+    how: "Mix, paste and sticky are on the Frayer word wall."
+  pcms.2:
+    level: present
+    how: "A set clean-up routine: wipe hands and tables before recording, then journals away."
+  vc.science:
+    level: focus
+    how: "Mixing flour and water makes a paste with different properties from either one (VC2S2U05)."
+  vc.dt:
+    level: present
+    how: "Students choose paste as a material for joining paper (VC2TDE2C04)."
 sequence:
   - phase: Settle
     time: 3 min

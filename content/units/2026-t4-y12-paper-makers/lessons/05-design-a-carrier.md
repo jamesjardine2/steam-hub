@@ -24,6 +24,28 @@ citw:
   - Vocabulary
   - Frayer model
   - Worked examples
+pedagogy:
+  citw.interest_cues:
+    level: present
+    how: "Students predict with thumbs whether a single strip or the dried layered strip holds more blocks, then watch one of each tested."
+  vtlm.explicit.explain:
+    level: focus
+    how: "The teacher models drawing a carrier from the side with a base, sides and a handle, and labelling the techniques."
+  citw.guided_investigations:
+    level: present
+    how: "Pairs test their own layered strip against a single strip, adding blocks one at a time and recording the counts."
+  citw.vocab:
+    level: present
+    how: "Design, carrier and technique are on the Frayer word wall."
+  citw.targeted_support:
+    level: present
+    how: "Pairs who need it get a design sheet with the base, sides and handle outlined, so they only add the labels."
+  vc.dt:
+    level: focus
+    how: "Pairs choose a toy, then draw and label a carrier design using at least two techniques from the unit (VC2TDE2D01, VC2TDE2D02, VC2TDE2D03)."
+  vc.science:
+    level: present
+    how: "The layered strip test shows how pasting paper together changes its strength (VC2S2U05)."
 sequence:
   - phase: Settle
     time: 3 min

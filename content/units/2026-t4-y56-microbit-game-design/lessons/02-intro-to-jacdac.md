@@ -21,6 +21,25 @@ vtlm:
 citw:
   - CICs
   - Worked examples
+pedagogy:
+  citw.interest_cues:
+    level: focus
+    how: "'Neither of these has a battery, a screen or a brain. How could the micro:bit know which one is which?'"
+  vtlm.explicit.scaffold:
+    level: focus
+    how: "Pairs follow the 15-step iPad setup handout, swapping roles at step 8, with a checkpoint at step 10."
+  vtlm.explicit.monitor:
+    level: present
+    how: "The step 10 checkpoint, and thumbs for each Success Criterion at the end."
+  citw.peer_consolidation:
+    level: present
+    how: "In Break it on purpose, each student changes one thing to surprise their partner: 'What else could a press mean?'"
+  pcms.2:
+    level: present
+    how: "The tray rule, and the kit goes back in the tray against the labelled diagram."
+  vc.digitech:
+    level: focus
+    how: "Pairs connect a Jacdac button (input) and LED ring (output) to the micro:bit and code them (VC2TDI6S01, VC2TDI6S02, VC2TDI6C04)."
 sequence:
   - phase: Hook (CIC)
     time: 5 min
