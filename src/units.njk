@@ -16,7 +16,7 @@ permalink: /units/
   <div class="card-grid fill">
     {% for u in group.units %}
     <a class="card unit-link" href="{{ u.url }}">
-      <span class="row-between"><span class="pill">{{ u.cohortLabel }}</span><span class="small muted">{{ u.plannedCount }} of {{ u.lessonCount }} planned</span></span>
+      <span class="row-between"><span class="pill">{{ u.cohortLabel }}</span><span class="small muted">{% if u.status == "draft" %}Draft unit{% else %}{{ u.plannedCount }} of {{ u.lessonCount }} planned{% endif %}</span></span>
       <span class="unit-link-title">{{ u.title }}</span>
       <span class="blurb">{{ u.blurb }}</span>
       <span class="next-taught">Next taught: {{ u.nextTaught }}</span>

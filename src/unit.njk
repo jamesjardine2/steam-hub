@@ -23,6 +23,20 @@ eleventyComputed:
   </div>
 </section>
 
+{% if unit.status == "draft" %}
+<section class="card amber stack-tight" data-unit-review data-path="content/units/{{ unit.slug }}/unit.md" data-plan="{{ unit.plan }}" data-unit-title="{{ unit.title }}">
+  <h2 class="card-title">This unit is a draft</h2>
+  <p class="small">Claude wrote it from your plan{% if unit.plan %} (<a href="/planning/?plan={{ unit.plan }}">see the plan</a>){% endif %}. Read it through, then approve it, or tell Claude what to change. It joins the Overview once it is approved and its term has started.</p>
+  <div class="actions"><button type="button" class="btn" data-approve>Approve this unit</button></div>
+  {% if unit.plan %}
+  <label class="small strong" for="unit-changes">Ask for changes</label>
+  <textarea id="unit-changes" rows="3" data-notes placeholder="e.g. Make Lesson 3 a garden lesson and drop the second test"></textarea>
+  <div class="actions"><button type="button" class="btn btn-amber" data-revise>Send to Claude</button></div>
+  {% endif %}
+  <p class="small" data-status role="status"></p>
+</section>
+{% endif %}
+
 <div class="columns">
   <section class="main-col stack">
     {% if unit.classRows.length %}
@@ -73,6 +87,18 @@ eleventyComputed:
       <h2 class="card-title">Unit LISC</h2>
       {{ m.lisc(unit.lisc, "[Unit LISC to add in unit.md]") }}
     </div>
+    {% if unit.assessment.length %}
+    <div class="card stack-tight">
+      <h2 class="card-title">Assessment</h2>
+      {% if unit.reportSubject %}<p class="small muted">Reports: {{ unit.reportSubject }}</p>{% endif %}
+      {% for a in unit.assessment %}
+      <div class="assess-item">
+        <p class="strong">{{ a.title }}{% if a.when %} <span class="small muted">· {{ a.when }}</span>{% endif %}</p>
+        {% if a.how %}<p class="small">{{ a.how }}</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
     <div class="card">
       <h2 class="card-title">Curriculum</h2>
       {% if unit.curriculum.length %}{{ m.codes(unit.curriculum) }}{% else %}<p class="ph">[Curriculum codes to add]</p>{% endif %}

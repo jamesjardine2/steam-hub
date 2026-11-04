@@ -33,7 +33,7 @@ The original brief and the five design mockups are in `steam-hub-handover/`. The
 - **Reflections live in a separate `reflections.md` per unit,** so a pinned chat can regenerate a lesson file without wiping notes. The "Add a reflection" button opens GitHub's web editor on that file (a static site cannot save a textarea).
 - **"Next lesson in Claude"** opens the unit's pinned chat (`claude_chat`).
 - **"Make a CRT plan with Claude"** on a lesson page starts the `crt-plan` workflow: Claude Code follows `.github/crt-plan.md`, writes `content/units/<unit>/crt/NN-crt.html` (no screens, everyday resources, every step scripted, same LISC), Chrome prints it to `NN-crt.pdf`, and the lesson page offers the PDF to download. James can add notes and make a new one at any time. CRT plans are made on request, never for every lesson. `crt/04-crt.html` in Paper Makers is the layout to copy.
-- **Current term** is the newest file in `content/terms/`.
+- **Current term** is the newest file in `content/terms/` (units planned ahead for a later term do not move the Overview on). Add the term file when a new term starts.
 - **Curriculum codes link to the VCAA site** (`lib/vc2.js`): chips and any code in lesson text open the code on f10.vcaa.vic.edu.au (the learning area's curriculum page with `#CODE` for every learning area, or the VCAA search for languages and capabilities). Write codes in full (VC2TDE2C04) so they link.
 - **Curriculum data** (`src/_data/curriculum.json`, November 2026): every Science, Design and Technologies and Digital Technologies code from Foundation to Level 6, with its strand, sub-strand and a short summary in our own words (the VCAA owns the official wording and the site is public, so it stays on the VCAA site). Code chips show the summary on hover. The build warns about any Science or Technologies code up to Level 6 in a unit or lesson that is not in the file.
 - **Connections** (`connections:` on a unit or lesson): codes from other learning areas the work links to (Health, Music, Maths, English, ...). They show as dashed chips labelled with the learning area, under the curriculum codes.
@@ -47,6 +47,7 @@ The original brief and the five design mockups are in `steam-hub-handover/`. The
 - **Class ticks.** `content/classes.json` lists classes by year and cohort (2026 Year 1/2: 1A, 1B, 1C, 2A, 2B, 2C; 2027 will have four Year 1 classes). Ticks are saved to `content/progress.json` as `{ unit slug: { lesson number: { class: "YYYY-MM-DD" } } }`, one commit per tick. They appear on each lesson page ("Classes finished"), on the unit page and on the home page ("Where each class is up to"). The "Up to" column is the first lesson a class has not finished. The file is also published at `/progress.json` so the site can show fresh ticks without a key.
 - **Plan with Claude.** The unit page's "Plan Lesson N with Claude" button (and "Send to Claude" on a draft) starts `.github/workflows/plan-lesson.yml`. It runs Claude Code headless with the `CLAUDE_CODE_OAUTH_TOKEN` repo secret (James's Claude subscription, made with `claude setup-token`), following `.github/plan-lesson.md`. Claude writes the lesson as `status: draft` plus its three artefacts, the workflow checks the build and dashes, commits, and starts the deploy. Keep `.github/plan-lesson.md` in step with this file.
 - **Approve.** A draft lesson page shows "Approve this lesson", which changes `status: draft` to `status: planned` in the lesson file.
+- **Planning** (`/planning/`, November 2026; spec in `PLANNING.md`). Backward design: a survey of non-negotiables (curriculum targets from `curriculum.json`, report subject, must-use and don't-use resources from `resources.json`, checking understanding, dates, links to class learning, notes, and an optional "spark"), then Claude suggests three directions, James picks and mixes part by part, and Claude writes a draft unit. Each question is labelled from "Gut and Evidence in Teaching": Evidence leads (cyan), Your call (orange), Both (violet) or Fixed. A plan is `content/plans/<year>-t<term>-<cohort>.json`; `src/assets/planning.js` saves it through the GitHub API (it reuses hub.js through `window.steamHub`) and starts `.github/workflows/plan-unit.yml`, which runs Claude Code following `.github/plan-unit.md` in rounds `directions`, `draft` and `revise`, then checks the result with `scripts/check-plan.mjs`. A unit written this way has `status: draft` and `plan: <id>`; its unit page shows "Approve this unit" and "Send to Claude", and it stays off the Overview until approved. Keep `.github/plan-unit.md` in step with this file.
 
 ## Lesson pages
 
@@ -67,6 +68,8 @@ content/
         01-paper-power.pdf        # optional plan PDF, same base name
       live/                       # artefacts used in lessons, prefixed with the lesson number (04-slides.html)
       crt/                        # CRT plans made from the lesson page (04-crt.html and 04-crt.pdf)
+  plans/
+    2027-t1-y12.json              # a plan in progress from the Planning page
 ```
 
 Cohort ids: `f` (Foundation), `y12` (Year 1/2), `y34` (Year 3/4), `y56` (Year 5/6).
@@ -94,6 +97,13 @@ lisc:
 curriculum: [VC2S2U05, VC2TDE2C04]
 connections: [VC2HP2P01]   # optional: codes from other learning areas
 claude_chat: https://claude.ai/chat/...   # pinned chat for this cohort and term
+status: planned            # optional: draft for a unit written from the Planning page
+plan: 2027-t1-y12          # optional: the plan it came from
+report_subject: Digital Technologies   # optional: the reporting subject it feeds
+assessment:                # optional: the assessment plan, shown on the unit page
+  - title: Book Creator page
+    how: One page per pair showing the design and test.
+    when: Lesson 7
 links:                     # optional extra files and links
   - label: ...
     url: ...
@@ -219,6 +229,10 @@ src/units.njk             # all units
 src/unit.njk              # one page per unit
 src/lesson.njk            # one page per lesson
 src/settings.njk          # connect a device (GitHub key) and Claude setup steps
+src/planning.njk          # Planning page (script: src/assets/planning.js)
+.github/workflows/plan-unit.yml    # Claude Code plans a unit (directions, draft, revise)
+.github/plan-unit.md      # the instructions Claude follows in that workflow
+scripts/check-plan.mjs    # checks a plan after each round
 src/assets/hub.js         # ticks, approve and plan buttons (GitHub API)
 .github/workflows/plan-lesson.yml  # Claude Code plans a lesson as a draft
 .github/plan-lesson.md    # the instructions Claude follows in that workflow

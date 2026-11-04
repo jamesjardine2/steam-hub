@@ -11,6 +11,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
   // Published so the site can show the latest ticks without a GitHub key.
   eleventyConfig.addPassthroughCopy({ "content/progress.json": "progress.json" });
+  // Plans in progress, so the Planning page can show them without a key.
+  eleventyConfig.addPassthroughCopy({ "content/plans": "plans" });
   eleventyConfig.addWatchTarget("content/");
 
   // Link for a Victorian Curriculum 2.0 code (see lib/vc2.js).
@@ -18,6 +20,9 @@ export default function (eleventyConfig) {
   // A code's short summary from src/_data/curriculum.json, for chip tooltips.
   const curriculum = JSON.parse(fs.readFileSync("src/_data/curriculum.json", "utf8")).codes;
   eleventyConfig.addFilter("vc2Summary", (code) => (curriculum[code] ? curriculum[code].summary : ""));
+
+  // Data for a page script, safe inside <script type="application/json">.
+  eleventyConfig.addFilter("jsonScript", (value) => JSON.stringify(value).replace(/</g, "\\u003c"));
 
   // Text in square brackets is a placeholder for content still to come.
   eleventyConfig.addFilter("isPlaceholder", (value) =>

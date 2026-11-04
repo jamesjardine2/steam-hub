@@ -320,6 +320,7 @@ function loadReflections(file) {
       dateLabel: formatDate(date),
       lesson: lessonMatch ? Number(lessonMatch[1]) : null,
       className: bits[2] || "",
+      text: body.trim(),
       html: renderMd(body),
     });
   }
@@ -408,6 +409,13 @@ function loadUnit(slug, classes, progress) {
     connections: connectionChips(loadCodes(file, data.connections, "connections")),
     claudeChat: data.claude_chat || "",
     links: asList(data.links),
+    // A unit written from the Planning page starts as a draft: it is not on
+    // the Overview until it is approved on its unit page.
+    status: data.status === "draft" ? "draft" : "planned",
+    plan: data.plan || "",
+    reportSubject: data.report_subject || "",
+    // Assessment plan: [{ title, how, when }]
+    assessment: asList(data.assessment).map((a) => (typeof a === "string" ? { title: a, how: "", when: "" } : { title: a.title || "", how: a.how || "", when: a.when || "" })),
     nextTaught: data.next_taught || termLabel(year + 2, term),
     reflectionsEditUrl: `https://github.com/${REPO}/edit/${BRANCH}/content/units/${slug}/reflections.md`,
     classes: (classes[String(year)] || {})[data.cohort] || [],
@@ -494,6 +502,62 @@ function loadUnit(slug, classes, progress) {
   });
 }
 
+// The Planning page (src/planning.njk, src/assets/planning.js). Plans in
+// progress are JSON files in content/plans/; the page reads and saves them
+// through the GitHub API. This gathers what the page needs to know.
+function loadPlanning(units, classes, terms, currentTerm) {
+  const dir = path.join(CONTENT, "plans");
+  const plans = listDir(dir)
+    .filter((f) => f.endsWith(".json"))
+    .map((f) => {
+      const plan = readJson(path.join(dir, f), null);
+      if (!plan) return null;
+      const cohort = COHORTS.find((c) => c.id === plan.cohort);
+      return {
+        id: path.basename(f, ".json"),
+        cohortLabel: cohort ? cohort.label : plan.cohort,
+        termLabel: termLabel(Number(plan.year), Number(plan.term)),
+        termKey: Number(plan.year) * 10 + Number(plan.term),
+        status: plan.status || "survey",
+        title: (plan.unit && plan.unit.title) || "",
+        unitUrl: plan.unit && plan.unit.slug ? `/units/${plan.unit.slug}/` : "",
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.termKey - a.termKey);
+  const next = currentTerm.term === 4 ? { year: currentTerm.year + 1, term: 1 } : { year: currentTerm.year, term: currentTerm.term + 1 };
+  return {
+    plans,
+    next,
+    // Everything the page script needs, embedded as JSON.
+    data: {
+      repo: REPO,
+      branch: BRANCH,
+      cohorts: COHORTS,
+      classes,
+      next,
+      lessonCount: DEFAULT_LESSON_COUNT,
+      // Semester 1 reports Digital Technologies, Semester 2 Design and Technologies.
+      reportSubjects: { 1: "Digital Technologies", 2: "Digital Technologies", 3: "Design and Technologies", 4: "Design and Technologies" },
+      units: units.map((u) => ({
+        slug: u.slug,
+        title: u.title,
+        cohort: u.cohort,
+        year: u.year,
+        term: u.term,
+        termKey: u.termKey,
+        termLabel: u.termLabel,
+        status: u.status,
+        url: u.url,
+        lessonCount: u.lessonCount,
+        curriculum: u.curriculum,
+        lisc: u.lisc ? { intention: u.lisc.intention, criteria: u.lisc.criteria } : null,
+        reflections: u.unitReflections.map((r) => r.text || "").filter(Boolean),
+      })),
+    },
+  };
+}
+
 export default function () {
   const terms = loadTerms();
   const classes = readJson(path.join(CONTENT, "classes.json"), {});
@@ -504,7 +568,11 @@ export default function () {
     .filter(Boolean)
     .sort((a, b) => b.termKey - a.termKey || COHORTS.findIndex((c) => c.id === a.cohort) - COHORTS.findIndex((c) => c.id === b.cohort));
 
-  const latestKey = Math.max(0, ...terms.map((t) => t.key), ...units.map((u) => u.termKey));
+  // The current term is the newest file in content/terms/. Units planned
+  // ahead for a later term do not move the Overview on.
+  const latestKey = terms.length
+    ? Math.max(...terms.map((t) => t.key))
+    : Math.max(0, ...units.filter((u) => u.status !== "draft").map((u) => u.termKey));
   const currentTerm = terms.find((t) => t.key === latestKey) || {
     key: latestKey,
     year: Math.floor(latestKey / 10),
@@ -512,7 +580,7 @@ export default function () {
     label: termLabel(Math.floor(latestKey / 10), latestKey % 10),
     notesHtml: "",
   };
-  const currentUnits = units.filter((u) => u.termKey === currentTerm.key);
+  const currentUnits = units.filter((u) => u.termKey === currentTerm.key && u.status !== "draft");
 
   const overview = COHORTS.map((c) => ({
     ...c,
@@ -541,6 +609,7 @@ export default function () {
   }
 
   return {
+    planning: loadPlanning(units, classes, terms, currentTerm),
     repo: REPO,
     branch: BRANCH,
     currentTerm,

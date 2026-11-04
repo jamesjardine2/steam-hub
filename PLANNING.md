@@ -2,7 +2,7 @@
 
 A Planning section in the hub where planning starts, instead of a blank chat. It follows backward design (Understanding by Design): decide what students should learn, then how we will know they learned it, then the lessons. The hub asks short questions to pin down the non-negotiables, Claude suggests a range of directions, and James chooses or mixes at every step.
 
-Status: step 1 (data) is built: `src/_data/curriculum.json`, `src/_data/resources.json`, links for every learning area and `connections` on units and lessons. Steps 2 to 6 are not built yet.
+Status: steps 1 (data) and 2 (unit planning) are built. Steps 3 to 6 are not built yet.
 
 ## 1. What it plans
 
@@ -26,7 +26,7 @@ Round 2 Draft unit                (Claude, about 5 to 10 minutes)
 Step 5  Approve or ask for changes (page, like approving a lesson)
 ```
 
-A plan in progress is saved as `content/plans/<year>-t<term>-<cohort>.md`: the answers, the directions Claude offered and the choices made. Once approved it becomes the unit folder, and the plan file stays as a record of why the unit looks the way it does.
+A plan in progress is saved as `content/plans/<year>-t<term>-<cohort>.json`: the answers, the directions Claude offered and the choices made. Once approved it becomes the unit folder, and the plan file stays as a record of why the unit looks the way it does.
 
 ### Step 1: what the hub knows
 

@@ -1,0 +1,69 @@
+---
+layout: base.njk
+title: Planning
+nav: planning
+permalink: /planning/
+---
+{# Backward design: what students learn, how we will know, then the lessons.
+   The page script (assets/planning.js) runs the survey, saves the plan
+   through the GitHub API and starts the plan-unit workflow. #}
+<section class="page-head">
+  <div>
+    <p class="kicker">Backward design</p>
+    <h1>Planning</h1>
+    <p class="lede">Start a unit here. Pin down what can't change, let Claude suggest three directions, then pick and mix. Claude writes a draft unit for you to approve.</p>
+  </div>
+</section>
+
+<div class="plan-stages" aria-label="The three stages">
+  <span><strong>1</strong> What should they learn?</span>
+  <span><strong>2</strong> How will we know?</span>
+  <span><strong>3</strong> What will the lessons be?</span>
+</div>
+
+<div id="plan-app" class="stack" data-plan-app>
+  <section class="card stack-tight" data-plan-list>
+    <h2 class="card-title">Plans</h2>
+    {% for p in site.planning.plans %}
+    <a class="link-row plan-row" href="/planning/?plan={{ p.id }}">
+      <span><span class="pill">{{ p.cohortLabel }}</span> {{ p.termLabel }}{% if p.title %}: {{ p.title }}{% endif %}</span>
+      <span class="small muted">{{ {"survey": "Questions", "directions": "Directions ready", "chosen": "Writing the unit", "draft": "Draft unit"}[p.status] or p.status }}</span>
+    </a>
+    {% else %}
+    <p class="muted small">No plans yet.</p>
+    {% endfor %}
+  </section>
+
+  <section class="card stack-tight" data-plan-new>
+    <h2 class="card-title">Start a unit plan</h2>
+    <div class="plan-new-grid">
+      <label class="field"><span class="small strong">Cohort</span>
+        <select data-new-cohort>
+          {% for c in site.planning.data.cohorts %}<option value="{{ c.id }}">{{ c.label }}</option>{% endfor %}
+        </select>
+      </label>
+      <label class="field"><span class="small strong">Year</span>
+        <input type="number" data-new-year value="{{ site.planning.next.year }}" min="2026" max="2040">
+      </label>
+      <label class="field"><span class="small strong">Term</span>
+        <select data-new-term>
+          {% for t in [1, 2, 3, 4] %}<option value="{{ t }}"{% if t == site.planning.next.term %} selected{% endif %}>Term {{ t }}</option>{% endfor %}
+        </select>
+      </label>
+      <label class="field"><span class="small strong">Lessons</span>
+        <input type="number" data-new-lessons value="{{ site.planning.data.lessonCount }}" min="1" max="12">
+      </label>
+    </div>
+    <div class="actions"><button type="button" class="btn" data-new-start>Start planning</button></div>
+    <p class="small" data-status role="status"></p>
+  </section>
+
+  <div data-plan-view hidden></div>
+</div>
+
+<script type="application/json" id="planning-data">{{ site.planning.data | jsonScript | safe }}</script>
+<script type="application/json" id="curriculum-data">{{ curriculum.codes | jsonScript | safe }}</script>
+<script type="application/json" id="resources-data">{{ resources.resources | jsonScript | safe }}</script>
+<script type="application/json" id="lenses-data">{{ lenses.nodes | jsonScript | safe }}</script>
+<a hidden id="plans-url" href="/plans/"></a>
+<script src="/assets/planning.js" defer></script>

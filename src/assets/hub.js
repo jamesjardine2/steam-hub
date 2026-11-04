@@ -1,8 +1,10 @@
 // Saving from the site. A static site cannot save by itself, so this talks
 // to the GitHub API with a key kept in this browser (see /settings/):
 // class ticks go into content/progress.json, "Approve" edits a lesson file,
-// "Plan with Claude" starts the plan-lesson workflow and "Make a CRT plan"
-// starts the crt-plan workflow.
+// "Plan with Claude" starts the plan-lesson workflow, "Make a CRT plan"
+// starts the crt-plan workflow, and a draft unit can be approved or sent
+// back to the plan-unit workflow. The Planning page (planning.js) uses the
+// same helpers through window.steamHub.
 
 (() => {
   const REPO = document.body.dataset.repo;
@@ -248,7 +250,7 @@
     check();
   }
 
-  async function plan(job, card, notes, doneText) {
+  async function plan(job, card, notes, doneText, inputs = { unit: card.dataset.unit, lesson: String(card.dataset.lesson) }) {
     const status = card.querySelector("[data-status]");
     if (!getToken()) {
       status.innerHTML = `Add your GitHub key on <a href="${settingsLink()}">Settings</a> first.`;
@@ -256,7 +258,7 @@
     }
     status.textContent = "Starting...";
     try {
-      await startWorkflow(job.workflow, { unit: card.dataset.unit, lesson: String(card.dataset.lesson), notes });
+      await startWorkflow(job.workflow, { ...inputs, notes });
       lock(card);
       watchRun(job, status, doneText);
     } catch (err) {
@@ -309,6 +311,35 @@
     });
   }
 
+  // A draft unit written from the Planning page.
+  const unitReview = document.querySelector("[data-unit-review]");
+  if (unitReview) {
+    const status = unitReview.querySelector("[data-status]");
+    const planId = unitReview.dataset.plan;
+    // Matches the run-name in .github/workflows/plan-unit.yml.
+    const job = { workflow: "plan-unit.yml", title: `Plan unit: ${planId} (revise)` };
+    if (planId) showRunning(job, unitReview, "Claude has updated the draft unit.");
+    unitReview.querySelector("[data-revise]")?.addEventListener("click", () => {
+      const notes = unitReview.querySelector("[data-notes]").value.trim();
+      if (!notes) { status.textContent = "Write what you would like changed first."; return; }
+      plan(job, unitReview, notes, "Claude has updated the draft unit.", { plan: planId, round: "revise" });
+    });
+    unitReview.querySelector("[data-approve]").addEventListener("click", async () => {
+      if (!getToken()) { status.innerHTML = `Add your GitHub key on <a href="${settingsLink()}">Settings</a> first.`; return; }
+      status.textContent = "Approving...";
+      try {
+        await updateFile(unitReview.dataset.path, (text) => {
+          if (!/^status:\s*draft\s*$/m.test(text || "")) throw new Error("This unit is no longer a draft.");
+          return text.replace(/^status:\s*draft\s*$/m, "status: planned");
+        }, `Approve unit: ${unitReview.dataset.unitTitle}`);
+        unitReview.querySelectorAll("button, textarea").forEach((b) => { b.disabled = true; });
+        status.textContent = "Approved. The site updates in a minute or two.";
+      } catch (err) {
+        status.textContent = err.message;
+      }
+    });
+  }
+
   const crt = document.querySelector("[data-crt]");
   if (crt) {
     // Matches the run-name in .github/workflows/crt-plan.yml.
@@ -333,6 +364,9 @@
     all.forEach((d) => { d.open = open; });
     e.currentTarget.textContent = open ? "Collapse all" : "Expand all";
   });
+
+  // Shared with the Planning page script.
+  window.steamHub = { getToken, readFile, updateFile, startWorkflow, latestRun, watchRun, problem, settingsLink };
 
   // ---- Settings page
   const settings = document.querySelector("[data-settings]");

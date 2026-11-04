@@ -1,0 +1,91 @@
+name: Plan a unit with Claude
+run-name: "Plan unit: ${{ inputs.plan }} (${{ inputs.round }})"
+
+# Started from the Planning page. Round "directions": Claude reads James's
+# answers in content/plans/<plan>.json and writes three directions into it.
+# Round "draft": Claude writes the draft unit from James's choices.
+# Round "revise": Claude changes the draft unit following James's notes.
+
+on:
+  workflow_dispatch:
+    inputs:
+      plan:
+        description: "Plan id, e.g. 2027-t1-y12"
+        required: true
+        type: string
+      round:
+        description: "directions, draft or revise"
+        required: true
+        type: string
+      notes:
+        description: "Notes from James (revise)"
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: plan-unit
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm install -g @anthropic-ai/claude-code
+
+      - name: Check the inputs
+        env:
+          PLAN: ${{ inputs.plan }}
+          ROUND: ${{ inputs.round }}
+        run: |
+          [[ "$PLAN" =~ ^[0-9]{4}-t[1-4]-(f|y12|y34|y56)$ && -f "content/plans/$PLAN.json" ]] || { echo "Unknown plan: $PLAN"; exit 1; }
+          [[ "$ROUND" =~ ^(directions|draft|revise)$ ]] || { echo "Round must be directions, draft or revise"; exit 1; }
+
+      - name: Claude plans the unit
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          PLAN: ${{ inputs.plan }}
+          ROUND: ${{ inputs.round }}
+          NOTES: ${{ inputs.notes }}
+        run: |
+          claude -p "Read .github/plan-unit.md and follow it exactly. Plan: content/plans/$PLAN.json. Round: $ROUND. Notes from James: ${NOTES:-none}" \
+            --permission-mode acceptEdits \
+            --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "Bash(npx @11ty/eleventy *)" "Bash(node scripts/check-plan.mjs *)" "Bash(grep *)"
+
+      - name: Check the plan, the build and dashes
+        env:
+          PLAN: ${{ inputs.plan }}
+          ROUND: ${{ inputs.round }}
+        run: |
+          node scripts/check-plan.mjs "$PLAN" "$ROUND"
+          npm run build
+          if grep -rnP '[\x{2013}\x{2014}]' content/; then echo "Found an en or em dash, not publishing."; exit 1; fi
+
+      - name: Commit and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PLAN: ${{ inputs.plan }}
+          ROUND: ${{ inputs.round }}
+        run: |
+          git config user.name "Claude (unit planner)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/plans content/units
+          if git diff --cached --quiet; then echo "Claude made no changes."; exit 1; fi
+          git commit -m "Plan $PLAN: $ROUND" -m "Written by Claude from the hub's Planning page."
+          # James may have saved answers while Claude worked.
+          git pull --rebase
+          git push
+          # Pushes made with the workflow's own token do not start other
+          # workflows, so start the deploy directly.
+          gh workflow run deploy.yml --ref main
