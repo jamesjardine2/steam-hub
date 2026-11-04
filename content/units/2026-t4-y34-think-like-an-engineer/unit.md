@@ -36,9 +36,6 @@ links:
   - label: "Minecraft Education: Design an Animal"
     url: https://education.minecraft.net/en-us/challenges/design-an-animal
 outline:
-  - number: 5
-    title: Helicopters or Towers
-    summary: "Paper helicopters, or index-card towers that hold a book. Habit: change one thing at a time, a first look at fair testing."
   - number: 6
     title: Marshmallow Challenge
     summary: "The tallest freestanding spaghetti tower. Habit: prototype early and test often. Hook: kindergarteners often beat business-school graduates because they test sooner. Frayer model for prototype."

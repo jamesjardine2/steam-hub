@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Word wall · Year 3/4 Paper Helicopters</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+</head>
+<body>
+<div class="stage frayer" id="stage">
+  <header>
+    <span class="t">Year 3/4 · Paper Helicopters</span>
+    <span class="u">Word wall: Frayer model</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/05-paper-helicopters/">Exit</a>
+  </header>
+
+  <div class="body">
+    <div class="grid" id="grid"></div>
+    <div class="word" id="word" aria-live="polite"></div>
+  </div>
+
+  <footer>
+    <span class="hint">Word:</span>
+    <div id="words" style="display: flex; gap: 10px"></div>
+    <button type="button" class="btn spacer" id="showAll">Show all</button>
+    <button type="button" class="btn" id="hideAll">Hide all</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+// Small pictures, drawn in a 64x64 box.
+const STK = `stroke="var(--text-violet)" stroke-width="2.5" stroke-linejoin="round"`;
+// A helicopter: wing half-length w, optional paperclip count c.
+const heli = (w, c = 0, x = 32, top = 14) =>
+  `<path d="M${x - w} ${top} L${x - 3} ${top - 2} L${x - 3} ${top + 6} L${x - w} ${top + 8} Z" fill="var(--paper)" ${STK}/>` +
+  `<path d="M${x + 3} ${top - 2} L${x + w} ${top} L${x + w} ${top + 8} L${x + 3} ${top + 6} Z" fill="var(--paper)" ${STK}/>` +
+  `<rect x="${x - 4}" y="${top + 6}" width="8" height="26" fill="var(--paper)" ${STK}/>` +
+  Array.from({ length: c }, (_, i) => `<rect x="${x - 5}" y="${top + 28 + i * 7}" width="10" height="9" rx="3" fill="none" stroke="var(--solar-orange)" stroke-width="2.5"/>`).join("");
+const cross = `<path d="M8 8 L56 56 M56 8 L8 56" stroke="var(--plasma-pink)" stroke-width="5" stroke-linecap="round"/>`;
+const clock = (t) => `<circle cx="32" cy="34" r="20" fill="var(--panel-2)" stroke="var(--text-violet)" stroke-width="3"/><path d="M32 34 V20 M32 34 L42 40" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/><text x="32" y="10" text-anchor="middle" font-size="11" font-weight="800" fill="var(--ink)">${t}</text>`;
+const drop = (n) => `<path d="M32 8 V48 M26 40 L32 50 L38 40" stroke="var(--solar-orange)" stroke-width="4" fill="none" stroke-linecap="round"/><text x="50" y="30" text-anchor="middle" font-size="22" font-weight="800" fill="var(--ink)">${n}</text>`;
+const P = {
+  wingLen: () => heli(10, 0, 16, 18) +heli(14, 0, 48, 18),
+  clips: () => heli(12, 1, 16, 10) + heli(12, 3, 48, 10),
+  height: () => `<path d="M10 8 H54 M10 56 H54" stroke="var(--text-violet)" stroke-width="2.5" stroke-dasharray="4 3"/><path d="M32 12 V52 M26 44 L32 52 L38 44" stroke="var(--solar-orange)" stroke-width="4" fill="none" stroke-linecap="round"/>`,
+  twoChanges: () => heli(10, 0, 16, 10) + heli(14, 2, 48, 10) + `<text x="32" y="58" text-anchor="middle" font-size="14" font-weight="800" fill="var(--ink)">2 changes</text>`,
+  seconds: () => clock("3.2 s"),
+  sameAll: () => heli(12, 1, 16, 14) + heli(12, 1, 48, 14) + `<text x="32" y="40" text-anchor="middle" font-size="16" font-weight="800" fill="var(--ink)">=</text>`,
+  d1: () => drop("1"),
+  d2: () => drop("2"),
+  d3: () => drop("3"),
+  once: () => drop("1") + cross,
+  mixed: () => heli(12, 0, 16, 14) + `<rect x="36" y="14" width="22" height="22" fill="var(--mist)" ${STK}/>` + `<circle cx="47" cy="48" r="8" fill="var(--paper)" ${STK}/>`,
+  guess: () => `<text x="32" y="46" text-anchor="middle" font-size="44" font-weight="800" fill="var(--violet)">?</text>`,
+  paper: () => `<rect x="14" y="8" width="36" height="48" fill="var(--paper)" ${STK}/><path d="M20 20 H44 M20 28 H44 M20 36 H36" stroke="var(--mist)" stroke-width="3"/>`,
+  longer: () => heli(8, 0, 16, 18) + heli(15, 0, 48, 18),
+  tall: () => `<path d="M10 8 H28 M36 36 H54" stroke="var(--text-violet)" stroke-width="2.5" stroke-dasharray="4 3"/><path d="M20 12 V50 M14 42 L20 50 L26 42" stroke="var(--solar-orange)" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M46 40 V52 M41 46 L46 52 L51 46" stroke="var(--solar-orange)" stroke-width="4" fill="none" stroke-linecap="round"/>`,
+  bigPaper: () => `<rect x="4" y="30" width="24" height="26" fill="var(--paper)" ${STK}/><rect x="34" y="8" width="26" height="48" fill="var(--mist)" ${STK}/>`,
+};
+
+// Frayer models for the lesson's key words.
+const WORDS = [
+  {
+    word: "variable",
+    def: "The one thing you change in a test.",
+    traits: ["you choose it", "change only one at a time", "you measure what happens"],
+    yes: [["wingLen", "wing length"], ["clips", "number of paperclips"], ["height", "drop height (in another test)"]],
+    no: [["twoChanges", "changing two things at once"], ["seconds", "the time it fell (a result)"], ["paper", "the paper we keep the same"]],
+  },
+  {
+    word: "trial",
+    def: "One go at a test. We repeat it to check the result.",
+    traits: ["the same test each time", "we do three", "write each result down"],
+    yes: [["d1", "drop 1"], ["d2", "drop 2"], ["d3", "drop 3"]],
+    no: [["once", "one go and stop"], ["mixed", "a different test each time"], ["guess", "a prediction"]],
+  },
+  {
+    word: "control",
+    def: "Something you keep the same in a test.",
+    traits: ["decided before you start", "same for every version", "keeps the test fair"],
+    yes: [["paper", "the same paper"], ["height", "the same drop height"], ["sameAll", "the same paperclip"]],
+    no: [["longer", "longer wings on one"], ["tall", "a higher drop for one"], ["bigPaper", "bigger paper for one"]],
+  },
+];
+
+const BOXES = [
+  { key: "def", label: "What does it mean?", cls: "top left" },
+  { key: "traits", label: "What is it like?", cls: "top right" },
+  { key: "yes", label: "Examples", cls: "left" },
+  { key: "no", label: "Non-examples", cls: "right no" },
+];
+
+const $ = (id) => document.getElementById(id);
+const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pic = (name, mark) => `<span class="pic"><svg viewBox="0 0 64 64" aria-hidden="true">${P[name]()}</svg><span class="mark">${mark}</span></span>`;
+
+function content(w, key) {
+  if (key === "def") return `<p class="def">${esc(w.def)}</p>`;
+  if (key === "traits") return `<ul class="traits">${w.traits.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+  const mark = key === "yes" ? "✓" : "✗";
+  return `<div class="items">${w[key].map(([p, t]) => `<div class="item">${pic(p, mark)}<span>${esc(t)}</span></div>`).join("")}</div>`;
+}
+
+let current = 0;
+
+function show(i) {
+  current = i;
+  const w = WORDS[i];
+  $("word").textContent = w.word;
+  $("grid").innerHTML = BOXES.map((b, n) => `
+    <section class="box ${b.cls}" aria-label="${b.label}">
+      <p class="label">${b.label}</p>
+      ${content(w, b.key)}
+      <button type="button" class="cover" data-box="${n}"><strong>${b.label}</strong><span>Think first, then tap to show</span></button>
+    </section>`).join("");
+  [...$("words").children].forEach((btn, j) => btn.setAttribute("aria-pressed", String(j === i)));
+}
+
+function reveal(n) {
+  const cover = document.querySelector(`.cover[data-box="${n}"]`);
+  if (cover) cover.hidden = true;
+}
+
+WORDS.forEach((w, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "btn";
+  b.textContent = w.word;
+  b.addEventListener("click", () => show(j));
+  $("words").appendChild(b);
+});
+$("grid").addEventListener("click", (e) => {
+  const cover = e.target.closest(".cover");
+  if (cover) cover.hidden = true;
+});
+$("showAll").addEventListener("click", () => BOXES.forEach((_, n) => reveal(n)));
+$("hideAll").addEventListener("click", () => show(current));
+document.addEventListener("keydown", (e) => {
+  if (["1", "2", "3", "4"].includes(e.key)) reveal(Number(e.key) - 1);
+  if (e.key === "ArrowRight") show((current + 1) % WORDS.length);
+  if (e.key === "ArrowLeft") show((current + WORDS.length - 1) % WORDS.length);
+});
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+show(0);
+</script>
+</body>
+</html>
