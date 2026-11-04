@@ -55,16 +55,20 @@ const P = {
   tape: () => `<circle cx="32" cy="32" r="22" fill="var(--panel-2)" stroke="var(--solar-orange)" stroke-width="3"/><circle cx="32" cy="32" r="10" fill="var(--paper)" stroke="var(--solar-orange)" stroke-width="3"/><path d="M50 44 L62 52 L58 58 L46 50 Z" fill="var(--panel-2)" stroke="var(--solar-orange)" stroke-width="2"/>`,
   honey: () => `<rect x="16" y="20" width="32" height="36" rx="6" fill="var(--solar-orange)" stroke="var(--solar-orange)" stroke-width="3"/><rect x="14" y="12" width="36" height="9" rx="3" fill="var(--violet)"/><path d="M26 56 C26 62 30 62 30 56" fill="var(--solar-orange)"/>`,
   strip: () => `<rect x="24" y="6" width="16" height="52" fill="var(--paper)" stroke="var(--text-violet)" stroke-width="2"/>`,
+  fan: () => { let s = ""; for (let i = 0; i < 6; i++) { const x = 6 + i * 9; s += `<path d="M${x} ${i % 2 ? 18 : 24} L${x + 9} ${i % 2 ? 24 : 18} L${x + 9} ${i % 2 ? 54 : 48} L${x} ${i % 2 ? 48 : 54} Z" fill="${i % 2 ? T("paper") : T("mist")}" stroke="var(--text-violet)" stroke-width="2" stroke-linejoin="round"/>`; } return s; },
+  label: () => `<path d="M8 20 H44 L58 32 L44 44 H8 Z" fill="var(--paper)" stroke="var(--text-violet)" stroke-width="3" stroke-linejoin="round"/><circle cx="46" cy="32" r="3" fill="var(--text-violet)"/><text x="24" y="37" text-anchor="middle" font-size="12" font-weight="700" fill="var(--void)">flour</text>`,
+  count: () => `<path d="M4 26 H20 L18 54 H6 Z" fill="var(--paper)" stroke="var(--text-violet)" stroke-width="2.5"/><path d="M24 26 H40 L38 54 H26 Z" fill="var(--paper)" stroke="var(--text-violet)" stroke-width="2.5"/><path d="M44 26 H60 L58 54 H46 Z" fill="var(--paper)" stroke="var(--text-violet)" stroke-width="2.5"/><text x="32" y="18" text-anchor="middle" font-size="14" font-weight="800" fill="var(--ink)">3</text>`,
+  cupboard: () => `<rect x="10" y="6" width="44" height="52" rx="3" fill="var(--panel-2)" stroke="var(--text-violet)" stroke-width="3"/><line x1="32" y1="6" x2="32" y2="58" stroke="var(--text-violet)" stroke-width="3"/><circle cx="27" cy="34" r="2.5" fill="var(--solar-orange)"/><circle cx="37" cy="34" r="2.5" fill="var(--solar-orange)"/>`,
 };
 
 // Frayer models for the lesson's key words.
 const WORDS = [
   {
-    word: "mix",
-    def: "To stir things together so they join up.",
-    traits: ["you stir or shake it", "the things join together", "it can make something new"],
-    yes: [["paste", "flour and water stirred into paste"], ["paints", "mixing two paint colours"], ["batter", "cake mix in a bowl"]],
-    no: [["twoCups", "flour and water in two cups"], ["blocks", "blocks in a tower"], ["mat", "weaving strips"]],
+    word: "property",
+    def: "What a material is like: how it looks, feels or acts.",
+    traits: ["you can see, feel or test it", "powdery, runny and sticky are properties", "every material has properties"],
+    yes: [["flour", "flour is powdery"], ["water", "water is runny"], ["paste", "paste is sticky"]],
+    no: [["label", "its name"], ["count", "how many cups"], ["cupboard", "where it is kept"]],
   },
   {
     word: "paste",
@@ -74,11 +78,11 @@ const WORDS = [
     no: [["flour", "dry flour"], ["water", "water"], ["tape", "sticky tape"]],
   },
   {
-    word: "sticky",
-    def: "Sticky things hold on to what they touch.",
-    traits: ["it holds things together", "it feels tacky on your fingers", "it is hard to pull apart"],
-    yes: [["paste", "paste"], ["tape", "sticky tape"], ["honey", "honey"]],
-    no: [["flour", "dry flour"], ["water", "water"], ["strip", "a dry paper strip"]],
+    word: "new material",
+    def: "A material made from other materials, with new properties.",
+    traits: ["made from other materials", "it has new properties", "it is not like what it was made from"],
+    yes: [["paste", "paste from flour and water"], ["batter", "cake batter"], ["strip", "paper, made from wood"]],
+    no: [["fan", "a folded fan: still paper"], ["mat", "a woven mat: still paper"], ["twoCups", "flour and water side by side"]],
   },
 ];
 

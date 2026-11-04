@@ -32,7 +32,7 @@ pedagogy:
     how: "Pairs make paste and stick-test flour, water and paste, then paste 3 strips into a layered strip for next week."
   citw.vocab:
     level: present
-    how: "Mix, paste and sticky are on the Frayer word wall."
+    how: "Property, paste and new material are taught with the Frayer word wall: properties name what flour, water and paste are like, and folded, twisted and woven paper from Lessons 1 to 3 are the non-examples of a new material."
   pcms.2:
     level: present
     how: "A set clean-up routine: wipe hands and tables before recording, then journals away."
@@ -83,7 +83,7 @@ live:
     file: 04-mixing.html
   - kind: HTML
     title: "Word wall: Frayer model"
-    note: mix, paste and sticky
+    note: property, paste and new material
     file: 04-frayer.html
 crt_notes: Works for a CRT if the flour cups, water, spoons and tray are set out on a tray beforehand and the allergy check is done. Skip the iPad photo, so all recording goes into STEAM journals.
 ---
@@ -97,7 +97,7 @@ Some preparation needed: before the lesson, check the class medical list for whe
 - **Stick test:** stick 3 squares onto the strip: one with a pinch of dry flour, one with a little water and one with paste. Press each one for a count of 5. Then lift the strip so the squares hang underneath, and give it a gentle shake.
 - **Layer it:** tear 3 more strips. Spread paste on the first strip, lay the second strip on top, spread paste again, lay the third strip on top. Write the pair's initials in pencil on the end and put it on the class tray to dry for next week.
 
-**Key words:** powdery, runny, mix, stir, paste, sticky, new material, layer
+**Key words:** property, powdery, runny, mix, stir, paste, sticky, new material, layer
 
 ## Lesson sequence
 
@@ -105,7 +105,7 @@ Some preparation needed: before the lesson, check the class medical list for whe
 |---|---|---|
 | 0 to 3 min | Settle | Students sit on the floor facing you. Ask: "Last week, how did we make paper stronger?" (By weaving strips over and under.) Read the Learning Intention and Success Criteria aloud. |
 | 3 to 10 min | CIC hook | Hold up two small squares of paper. Ask: "Could flour stick these together?" Thumbs up or down. Sprinkle dry flour on one, press the other on top and lift: it falls off. Ask: "What about water?" Try again with a few drops of water: it slips off. Say: "Flour can't do it. Water can't do it... or can they? Watch." Mix 2 spoons of flour and 2 spoons of water in front of the class while they count the stirs to 20. Stick the squares with the paste and lift. It holds! Ask: "What changed?" |
-| 10 to 15 min | Describe and model | Pass a cup of flour around for each student to feel a pinch. Build two word lists on the board: flour is ___ (powdery, dry, soft, white), water is ___ (runny, wet, it flows). Show the word wall for **mix** and **paste**. Model the stick test and the layered strip once, saying each step aloud. |
+| 10 to 15 min | Describe and model | Pass a cup of flour around for each student to feel a pinch. Build two word lists on the board: flour is ___ (powdery, dry, soft, white), water is ___ (runny, wet, it flows). These words are the **properties** of flour and water. Show the word wall for **property**, **paste** and **new material**. Model the stick test and the layered strip once, saying each step aloud. |
 | 15 to 30 min | Make and test in pairs | Helpers hand out a flour cup, a water cup, 2 spoons, a mixing cup and 2 sheets of paper per pair. Pairs make paste, do the stick test with flour, water and paste, then make one layered strip with 3 strips and put it on the class tray. Roam with the questions below. |
 | 30 to 39 min | Clean up and record | Pack up first: spoons and cups to the sink, leftover paste scraped into the bin, newspaper folded up, hands wiped. Give each student 1 sheet. They fold it in half and draw the 3 squares on the front, then tick the ones that stuck and cross the ones that fell. Helpers hand out journals. Students glue the folded sheet in and write the date and the title **Mix It**. Pairs photograph their stick test in the class Book Creator book with a smiley rating. |
 | 39 to 45 min | Share | 3 or 4 pairs share using the sentence stem on the board. Finish with the key idea (below). Journals onto the shelves by the door. |
