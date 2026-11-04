@@ -47,7 +47,7 @@ The original brief and the five design mockups are in `steam-hub-handover/`. The
 
 ## Lesson pages
 
-The lesson body is split on `## ` headings into accordion sections ("Lesson overview"), after LISC and "Lesson at a glance". Text before the first heading shows as a note above the accordions. Keep lesson bodies in `## ` sections so this works.
+The lesson body is split on `## ` headings into accordion sections ("Lesson overview"). The order is LISC, Pedagogy and sources (when the lesson has tags, with its curriculum codes at the bottom), Lesson at a glance, the body sections, Resources, then Reflections. Text before the first heading shows as a note above the accordions, and a `## The key idea` section is added to that note. Some sections stay in the file (so the archive can search them) but are not shown: `## Notes for the CRT` (the CRT gets the CRT plan PDF) always, and `## Curriculum links` once the lesson has pedagogy tags, which also replace the Curriculum and approach accordion. Keep lesson bodies in `## ` sections so this works. (James, November 2026: fewer accordions, pedagogy near the top.)
 
 ## Content model
 

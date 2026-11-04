@@ -106,19 +106,29 @@ function readJson(file, fallback) {
 }
 
 // A lesson body becomes an intro plus one accordion section per "## " heading.
-function splitSections(text) {
+// Some sections are not shown as accordions on the lesson page; they stay in
+// the file, so the archive can still search them.
+const CRT_SECTIONS = /^notes for (the|a) crt$/i; // the CRT gets the CRT plan PDF
+const CURRICULUM_SECTIONS = /^curriculum links$/i; // pedagogy tags cover these
+const KEY_IDEA_SECTIONS = /^(the )?key idea$/i; // shown in the overview note
+
+function splitSections(text, { hasPedagogy = false } = {}) {
   const parts = text.split(/^## +/m);
-  const intro = parts.shift();
-  return {
-    introHtml: renderMd(intro),
-    sections: parts.map((part) => {
-      const newline = part.indexOf("\n");
-      return {
-        title: (newline === -1 ? part : part.slice(0, newline)).trim(),
-        html: renderMd(newline === -1 ? "" : part.slice(newline + 1)),
-      };
-    }),
-  };
+  let intro = parts.shift();
+  const sections = [];
+  for (const part of parts) {
+    const newline = part.indexOf("\n");
+    const title = (newline === -1 ? part : part.slice(0, newline)).trim();
+    const body = newline === -1 ? "" : part.slice(newline + 1).trim();
+    if (CRT_SECTIONS.test(title)) continue;
+    if (hasPedagogy && CURRICULUM_SECTIONS.test(title)) continue;
+    if (KEY_IDEA_SECTIONS.test(title)) {
+      intro = `${intro.trim()}\n\n**Key idea:** ${body}\n`;
+      continue;
+    }
+    sections.push({ title, html: renderMd(body) });
+  }
+  return { introHtml: renderMd(intro), sections };
 }
 
 function asList(value) {
@@ -330,7 +340,7 @@ function loadLesson(file, unit) {
     crtNotes: data.crt_notes || "",
     pdf: fs.existsSync(pdfFile) ? `${unit.url}lessons/${base}.pdf` : null,
     crtPdf: fs.existsSync(crtFile) ? `${unit.url}crt/${crtName}` : null,
-    ...splitSections(content),
+    ...splitSections(content, { hasPedagogy: Object.keys(pedagogyTags).length > 0 }),
     sourcePath: `content/units/${unit.slug}/lessons/${base}.md`,
   };
 }
