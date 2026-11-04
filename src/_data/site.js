@@ -35,6 +35,25 @@ const CITW = [
   "Worked examples",
 ];
 
+// Pedagogy tags: the vocabulary is src/_data/lenses.json. A lesson's
+// `pedagogy` map gives each tag id a level, focus or present.
+const LENSES_FILE = path.join(process.cwd(), "src", "_data", "lenses.json");
+const LENSES = (() => {
+  try {
+    return JSON.parse(fs.readFileSync(LENSES_FILE, "utf8")).nodes || {};
+  } catch (e) {
+    console.warn(`[steam-hub] src/_data/lenses.json: could not be read: ${e.message}`);
+    return {};
+  }
+})();
+const LEVELS = ["focus", "present"];
+const TIERS = [
+  { id: "department", label: "Department" },
+  { id: "adopted", label: "School-adopted" },
+  { id: "fcps", label: "FCPS" },
+  { id: "curriculum", label: "Curriculum" },
+];
+
 const md = markdownIt({ html: true, linkify: true });
 
 function renderMd(text) {
@@ -126,6 +145,93 @@ function checkValues(file, field, values, allowed) {
   }
 }
 
+// A tag's source: its own link, else the nearest parent's (marked as the
+// broader source), else null, which the page shows as "add link".
+function lensSource(id) {
+  const own = LENSES[id];
+  let node = own;
+  while (node) {
+    if (node.source_url) {
+      return {
+        url: node.source_url,
+        label: node.source_label || node.label,
+        login: Boolean(node.requires_login || own.requires_login),
+        inherited: node !== own,
+      };
+    }
+    node = LENSES[node.parent];
+  }
+  return null;
+}
+
+function lensRow(id, level) {
+  const n = LENSES[id];
+  const tierIndex = TIERS.findIndex((t) => t.id === n.tier);
+  return {
+    id,
+    level,
+    levelLabel: level === "focus" ? "Focus" : "Present",
+    label: n.label,
+    tier: n.tier,
+    tierIndex: tierIndex < 0 ? TIERS.length : tierIndex,
+    icon: n.icon || "ti-tag",
+    path: asList(n.path).join(" › "),
+    source: lensSource(id),
+    missingLabel: n.source_label || n.label,
+    further: asList(n.further).filter((f) => f && f.url),
+    routine: Boolean(n.routine),
+  };
+}
+
+// Checks a lesson's pedagogy map against lenses.json. Routines are left out:
+// the unit page lists them once as "Built into every lesson".
+function loadPedagogy(file, raw) {
+  if (raw == null) return {};
+  if (typeof raw !== "object" || Array.isArray(raw)) {
+    warn(file, "pedagogy should be a map of tag id to focus or present");
+    return {};
+  }
+  const tags = {};
+  for (const [id, value] of Object.entries(raw)) {
+    const level = String(value).toLowerCase();
+    if (!LENSES[id]) { warn(file, `unknown pedagogy tag "${id}" (not in lenses.json)`); continue; }
+    if (!LEVELS.includes(level)) { warn(file, `pedagogy tag "${id}" has level "${value}" (use focus or present)`); continue; }
+    if (LENSES[id].routine) continue;
+    tags[id] = level;
+  }
+  return tags;
+}
+
+function pedagogyRows(tags) {
+  return Object.entries(tags)
+    .map(([id, level]) => lensRow(id, level))
+    .sort((a, b) => (a.level === b.level ? 0 : a.level === "focus" ? -1 : 1) || a.tierIndex - b.tierIndex);
+}
+
+// The unit grid: one row per tag used in any lesson, grouped by tier, with
+// one cell per lesson slot ("focus", "present" or "").
+function pedagogyGrid(slots) {
+  const ids = [...new Set(slots.flatMap((s) => (s.lesson ? Object.keys(s.lesson.pedagogyTags) : [])))];
+  if (!ids.length) return null;
+  const order = Object.keys(LENSES);
+  const groups = TIERS.map((t) => ({
+    ...t,
+    rows: ids
+      .filter((id) => LENSES[id].tier === t.id)
+      .sort((a, b) => order.indexOf(a) - order.indexOf(b))
+      .map((id) => ({
+        ...lensRow(id, ""),
+        cells: slots.map((s) => (s.lesson ? s.lesson.pedagogyTags[id] || "" : "")),
+      })),
+  })).filter((g) => g.rows.length);
+  return {
+    columns: slots.map((s) => ({ number: s.number, title: s.title, url: s.lesson ? s.lesson.url : null })),
+    groups,
+    count: ids.length,
+    routines: Object.keys(LENSES).filter((id) => LENSES[id].routine).map((id) => lensRow(id, "")),
+  };
+}
+
 function loadTerms() {
   const dir = path.join(CONTENT, "terms");
   return listDir(dir)
@@ -176,6 +282,7 @@ function loadLesson(file, unit) {
   const citw = asList(data.citw);
   checkValues(file, "vtlm", vtlm, VTLM);
   checkValues(file, "citw", citw, CITW);
+  const pedagogyTags = loadPedagogy(file, data.pedagogy);
   const pdfFile = path.join(path.dirname(file), `${base}.pdf`);
   // CRT plans are made from the lesson page and saved as crt/NN-crt.pdf.
   const crtName = `${String(number).padStart(2, "0")}-crt.pdf`;
@@ -199,6 +306,8 @@ function loadLesson(file, unit) {
     curriculum: asList(data.curriculum),
     vtlm,
     citw,
+    pedagogyTags,
+    pedagogy: pedagogyRows(pedagogyTags),
     sequence: asList(data.sequence),
     // A resource is text, or { text, file } / { text, url } to link it.
     resources: asList(data.resources).map((r) => typeof r === "string"
@@ -321,6 +430,7 @@ function loadUnit(slug, classes, progress) {
     lessons,
     classRows,
     slots,
+    pedagogy: pedagogyGrid(slots),
     plannedCount: slots.filter((s) => s.planned).length,
     nextToPlan: next ? { number: next.number, title: next.title } : null,
     pdfs: lessons.filter((l) => l.pdf).map((l) => ({ number: l.number, title: l.title, url: l.pdf })),

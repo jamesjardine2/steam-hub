@@ -10,7 +10,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
-<link rel="stylesheet" href="/assets/tokens.css">
+{# Tabler icons for pedagogy tags, only on pages that show them. #}
+{% if (lesson and lesson.pedagogy.length) or (unit and unit.pedagogy) %}<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+{% endif %}<link rel="stylesheet" href="/assets/tokens.css">
 <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body data-repo="{{ site.repo }}" data-branch="{{ site.branch }}">

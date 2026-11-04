@@ -1,0 +1,1033 @@
+{
+  "_meta": {
+    "description": "Controlled vocabulary for STEAM hub pedagogy tags. Every tag used on a lesson must be an id in this file.",
+    "updated": "2026-11-04",
+    "tiers": {
+      "department": "Victorian Department of Education requirement or guidance",
+      "fcps": "Footscray City Primary School specific choice or context",
+      "adopted": "Published framework the school has chosen to use",
+      "curriculum": "Victorian Curriculum F-10 Version 2.0"
+    },
+    "verified_meaning": "true = URL and title seen on an official page on 2026-11-04. false = best available link or inferred; James to confirm."
+  },
+  "nodes": {
+    "vtlm": {
+      "label": "VTLM 2.0",
+      "tier": "department",
+      "parent": null,
+      "icon": "ti-school",
+      "path": [
+        "VTLM 2.0"
+      ],
+      "source_url": "https://content.sdp.education.vic.gov.au/media/victorian-teaching-and-learning-model-2-0-2816",
+      "source_label": "VTLM 2.0 overview (PDF, DE)",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04",
+      "further": [
+        {
+          "label": "VTLM 2.0 guidance (PAL)",
+          "url": "https://www2.education.vic.gov.au/pal/victorian-teaching-learning-model/guidance"
+        },
+        {
+          "label": "VTLM 2.0 guides (Arc)",
+          "url": "https://arc.educationapps.vic.gov.au/learning/sites/vtlmresources"
+        },
+        {
+          "label": "VTLM 2.0 Guide Pack (Arc)",
+          "url": "https://arc.educationapps.vic.gov.au/63240.rsf"
+        }
+      ]
+    },
+    "vtlm.planning": {
+      "label": "Planning",
+      "tier": "department",
+      "parent": "vtlm",
+      "icon": "ti-map",
+      "path": [
+        "VTLM 2.0",
+        "Elements of teaching",
+        "Planning"
+      ],
+      "source_url": "https://arc.educationapps.vic.gov.au/63240.rsf",
+      "source_label": "VTLM 2.0 Guide Pack (Arc)",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "vtlm.planning.whole_school": {
+      "label": "Lead a whole-school curriculum approach",
+      "tier": "department",
+      "parent": "vtlm.planning",
+      "icon": "ti-building-community",
+      "path": [
+        "VTLM 2.0",
+        "Planning",
+        "Lead a whole-school curriculum approach"
+      ],
+      "source_url": "https://arc.educationapps.vic.gov.au/51918.rsf",
+      "source_label": "VTLM 2.0 guide (Arc)",
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Strategy name seen in the Guide Pack. This URL's content matches but its title was not confirmed."
+    },
+    "vtlm.planning.materials": {
+      "label": "Develop and deliver quality curriculum materials",
+      "tier": "department",
+      "parent": "vtlm.planning",
+      "icon": "ti-files",
+      "path": [
+        "VTLM 2.0",
+        "Planning",
+        "Develop and deliver quality curriculum materials"
+      ],
+      "source_url": "https://arc.educationapps.vic.gov.au/51920.rsf",
+      "source_label": "VTLM 2.0 guide: Develop and deliver quality curriculum materials (Arc)",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "vtlm.planning.prepare": {
+      "label": "Prepare to teach",
+      "tier": "department",
+      "parent": "vtlm.planning",
+      "icon": "ti-clipboard-list",
+      "path": [
+        "VTLM 2.0",
+        "Planning",
+        "Prepare to teach"
+      ],
+      "source_url": "https://arc.educationapps.vic.gov.au/learning/resource/78127/vtlm-20---prepare-to-teach-students-in-your-classroom",
+      "source_label": "VTLM 2.0: Prepare to teach students in your classroom (Arc)",
+      "requires_login": true,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "URL seen in official guide references. Confirm the exact strategy name on Arc."
+    },
+    "vtlm.enabling": {
+      "label": "Enabling learning",
+      "tier": "department",
+      "parent": "vtlm",
+      "icon": "ti-heart-handshake",
+      "path": [
+        "VTLM 2.0",
+        "Elements of teaching",
+        "Enabling learning"
+      ],
+      "source_url": "https://arc.educationapps.vic.gov.au/63240.rsf",
+      "source_label": "VTLM 2.0 Guide Pack (Arc)",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "vtlm.enabling.inclusive": {
+      "label": "Inclusive classroom",
+      "tier": "department",
+      "parent": "vtlm.enabling",
+      "icon": "ti-users-group",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "Inclusive classroom"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Seen as 'Inclusive classroom' on one Department placemat and 'Inclusive learning' in the Guide Pack. Confirm the name."
+    },
+    "vtlm.enabling.pcms": {
+      "label": "Positive classroom management",
+      "tier": "department",
+      "parent": "vtlm.enabling",
+      "icon": "ti-hand-stop",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "Positive Classroom Management Strategies (PCMS)"
+      ],
+      "source_url": "https://www2.education.vic.gov.au/pal/behaviour-students/guidance/positive-classroom-management-strategies",
+      "source_label": "Positive Classroom Management Strategies (PAL)",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04",
+      "further": [
+        {
+          "label": "PCMS overview placemat (PDF)",
+          "url": "https://www.education.vic.gov.au/Documents/school/PCMS/SWPBS_PCMS_Placemats_Intro.pdf"
+        },
+        {
+          "label": "PCMS resources (schools.vic.gov.au)",
+          "url": "https://www.schools.vic.gov.au/pcms"
+        }
+      ]
+    },
+    "vtlm.enabling.self_reg": {
+      "label": "Enable student self-regulation and self-efficacy",
+      "tier": "department",
+      "parent": "vtlm.enabling",
+      "icon": "ti-brain",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "Enable student self-regulation and self-efficacy"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Strategy name verified in the Guide Pack and PAL. Individual guide URL not yet found; falls back to parent."
+    },
+    "vtlm.enabling.cultural": {
+      "label": "Cultural responsiveness",
+      "tier": "department",
+      "parent": "vtlm.enabling",
+      "icon": "ti-world",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "Cultural responsiveness"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Seen on a Department Enabling learning placemat. Confirm on Arc."
+    },
+    "vtlm.explicit": {
+      "label": "Explicit teaching",
+      "tier": "department",
+      "parent": "vtlm",
+      "icon": "ti-presentation",
+      "path": [
+        "VTLM 2.0",
+        "Elements of teaching",
+        "Explicit teaching"
+      ],
+      "source_url": "https://arc.educationapps.vic.gov.au/63240.rsf",
+      "source_label": "VTLM 2.0 Guide Pack (Arc)",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "vtlm.explicit.focus": {
+      "label": "Focus the learning",
+      "tier": "department",
+      "parent": "vtlm.explicit",
+      "icon": "ti-target",
+      "path": [
+        "VTLM 2.0",
+        "Explicit teaching",
+        "Focus the learning"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Practice name verified on PAL. Individual guide URL not yet found; falls back to the Guide Pack via parent."
+    },
+    "vtlm.explicit.explain": {
+      "label": "Explicit explanation and modelling",
+      "tier": "department",
+      "parent": "vtlm.explicit",
+      "icon": "ti-chalkboard",
+      "path": [
+        "VTLM 2.0",
+        "Explicit teaching",
+        "Explicit explanation and modelling"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Practice name verified on PAL. Individual guide URL not yet found; falls back to parent."
+    },
+    "vtlm.explicit.scaffold": {
+      "label": "Scaffold practice",
+      "tier": "department",
+      "parent": "vtlm.explicit",
+      "icon": "ti-stairs-up",
+      "path": [
+        "VTLM 2.0",
+        "Explicit teaching",
+        "Scaffold practice"
+      ],
+      "source_url": "https://arc.educationapps.vic.gov.au/49150.rsf",
+      "source_label": "VTLM 2.0 guide: Scaffold practice (Arc)",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04",
+      "further": [
+        {
+          "label": "Scaffold practice techniques (Arc)",
+          "url": "https://arc.educationapps.vic.gov.au/learning/sites/vtlmresources/2176/VTLM-20-Scaffold-Practice-Techniques"
+        }
+      ]
+    },
+    "vtlm.explicit.monitor": {
+      "label": "Monitor progress",
+      "tier": "department",
+      "parent": "vtlm.explicit",
+      "icon": "ti-eye",
+      "path": [
+        "VTLM 2.0",
+        "Explicit teaching",
+        "Monitor progress"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Practice name verified on PAL. Individual guide URL not yet found; falls back to parent."
+    },
+    "vtlm.supported": {
+      "label": "Supported application",
+      "tier": "department",
+      "parent": "vtlm",
+      "icon": "ti-tools",
+      "path": [
+        "VTLM 2.0",
+        "Elements of teaching",
+        "Supported application"
+      ],
+      "source_url": "https://arc.educationapps.vic.gov.au/63240.rsf",
+      "source_label": "VTLM 2.0 Guide Pack (Arc)",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04",
+      "notes": "Only 'Vary practice' has been confirmed as a strategy here so far. Add the others from the Guide Pack."
+    },
+    "vtlm.supported.vary": {
+      "label": "Vary practice",
+      "tier": "department",
+      "parent": "vtlm.supported",
+      "icon": "ti-arrows-shuffle",
+      "path": [
+        "VTLM 2.0",
+        "Supported application",
+        "Vary practice"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Name seen in the Guide Pack contents. Falls back to parent."
+    },
+    "pcms.1": {
+      "label": "Classroom behaviour expectations and rules",
+      "tier": "department",
+      "parent": "vtlm.enabling.pcms",
+      "icon": "ti-list-check",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "PCMS",
+        "Practice 1: Classroom behaviour expectations and rules"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Name verified on PAL. Placemat probably at .../PCMS/SWPBS_PCMS_Placemats_Strategy_1.pdf (unconfirmed)."
+    },
+    "pcms.2": {
+      "label": "Classroom procedures and routines",
+      "tier": "department",
+      "parent": "vtlm.enabling.pcms",
+      "icon": "ti-repeat",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "PCMS",
+        "Practice 2: Classroom procedures and routines"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Name verified on PAL. Placemat URL unconfirmed."
+    },
+    "pcms.3": {
+      "label": "Encouraging expected classroom behaviour",
+      "tier": "department",
+      "parent": "vtlm.enabling.pcms",
+      "icon": "ti-thumb-up",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "PCMS",
+        "Practice 3: Encouraging expected classroom behaviour"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Name verified on PAL. Placemat URL unconfirmed."
+    },
+    "pcms.4": {
+      "label": "Discouraging inappropriate classroom behaviour",
+      "tier": "department",
+      "parent": "vtlm.enabling.pcms",
+      "icon": "ti-hand-off",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "PCMS",
+        "Practice 4: Discouraging inappropriate classroom behaviour"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Name verified on PAL. Placemat URL unconfirmed."
+    },
+    "pcms.5": {
+      "label": "Active supervision",
+      "tier": "department",
+      "parent": "vtlm.enabling.pcms",
+      "icon": "ti-walk",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "PCMS",
+        "Practice 5: Active supervision"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Name verified on PAL. Placemat URL unconfirmed."
+    },
+    "pcms.6": {
+      "label": "Opportunities to respond",
+      "tier": "department",
+      "parent": "vtlm.enabling.pcms",
+      "icon": "ti-message-circle-question",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "PCMS",
+        "Practice 6: Opportunities to respond"
+      ],
+      "source_url": "https://www.education.vic.gov.au/Documents/school/PCMS/SWPBS_PCMS_Placemats_Strategy_6.pdf",
+      "source_label": "PCMS placemat: Practice 6 (DE)",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "pcms.7": {
+      "label": "Activity choice and sequence",
+      "tier": "department",
+      "parent": "vtlm.enabling.pcms",
+      "icon": "ti-list-numbers",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "PCMS",
+        "Practice 7: Activity choice and sequence"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Name verified on PAL. Placemat URL unconfirmed."
+    },
+    "pcms.8": {
+      "label": "Task difficulty",
+      "tier": "department",
+      "parent": "vtlm.enabling.pcms",
+      "icon": "ti-adjustments",
+      "path": [
+        "VTLM 2.0",
+        "Enabling learning",
+        "PCMS",
+        "Practice 8: Task difficulty"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Name verified on PAL. Placemat URL unconfirmed."
+    },
+    "swpbs": {
+      "label": "SWPBS",
+      "tier": "department",
+      "parent": null,
+      "icon": "ti-shield-check",
+      "path": [
+        "School-wide Positive Behaviour Support (SWPBS)"
+      ],
+      "source_url": "https://www2.education.vic.gov.au/pal/behaviour-students/guidance/school-wide-positive-behaviour-support-swpbs-framework",
+      "source_label": "SWPBS framework (PAL)",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "fcps.values": {
+      "label": "Values acknowledgement",
+      "tier": "fcps",
+      "parent": "swpbs",
+      "icon": "ti-award",
+      "path": [
+        "SWPBS",
+        "FCPS values matrix",
+        "Acknowledgement routine"
+      ],
+      "source_url": null,
+      "source_label": "FCPS values matrix (Drive)",
+      "requires_login": true,
+      "verified": false,
+      "checked": null,
+      "routine": true,
+      "notes": "James to paste Drive link. Routine: shown once at hub level as 'built into every lesson', not ticked per lesson."
+    },
+    "citw": {
+      "label": "CITW",
+      "tier": "adopted",
+      "parent": null,
+      "icon": "ti-book-2",
+      "path": [
+        "The New Classroom Instruction That Works (Goodwin et al., 2022)"
+      ],
+      "source_url": "https://www.ascd.org/books/the-new-classroom-instruction-that-works",
+      "source_label": "ASCD book page",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04",
+      "notes": "Third edition, ASCD and McREL. 14 strategies in six phases of learning. No free official copy, so links go to the publisher."
+    },
+    "citw.p1": {
+      "label": "Becoming interested",
+      "tier": "adopted",
+      "parent": "citw",
+      "icon": "ti-sparkles",
+      "path": [
+        "CITW",
+        "Phase 1: Helping students become interested in learning"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "citw.p2": {
+      "label": "Committing to learning",
+      "tier": "adopted",
+      "parent": "citw",
+      "icon": "ti-flag",
+      "path": [
+        "CITW",
+        "Phase 2: Helping students commit to learning"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "citw.p3": {
+      "label": "Focusing on new learning",
+      "tier": "adopted",
+      "parent": "citw",
+      "icon": "ti-focus-2",
+      "path": [
+        "CITW",
+        "Phase 3: Helping students focus on new learning"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "citw.p4": {
+      "label": "Making sense of learning",
+      "tier": "adopted",
+      "parent": "citw",
+      "icon": "ti-puzzle",
+      "path": [
+        "CITW",
+        "Phase 4: Helping students make sense of learning"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "citw.p5": {
+      "label": "Practising and reflecting",
+      "tier": "adopted",
+      "parent": "citw",
+      "icon": "ti-refresh",
+      "path": [
+        "CITW",
+        "Phase 5: Helping students practice and reflect"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "citw.p6": {
+      "label": "Extending and applying",
+      "tier": "adopted",
+      "parent": "citw",
+      "icon": "ti-rocket",
+      "path": [
+        "CITW",
+        "Phase 6: Helping students extend and apply learning"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04"
+    },
+    "citw.interest_cues": {
+      "label": "Cognitive interest cues",
+      "tier": "adopted",
+      "parent": "citw.p1",
+      "icon": "ti-bulb",
+      "path": [
+        "CITW",
+        "Becoming interested",
+        "Cognitive interest cues"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Strategy name verified. Phase placement follows the book's strategy order; check against your copy."
+    },
+    "citw.goals": {
+      "label": "Student goal setting and monitoring",
+      "tier": "adopted",
+      "parent": "citw.p2",
+      "icon": "ti-target-arrow",
+      "path": [
+        "CITW",
+        "Committing to learning",
+        "Student goal setting and monitoring"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Phase placement inferred; check against your copy."
+    },
+    "citw.vocab": {
+      "label": "Vocabulary instruction",
+      "tier": "adopted",
+      "parent": "citw.p3",
+      "icon": "ti-vocabulary",
+      "path": [
+        "CITW",
+        "Focusing on new learning",
+        "Vocabulary instruction"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Includes the Frayer model. Phase placement inferred; check against your copy."
+    },
+    "citw.strategy_modelling": {
+      "label": "Strategy instruction and modelling",
+      "tier": "adopted",
+      "parent": "citw.p3",
+      "icon": "ti-route",
+      "path": [
+        "CITW",
+        "Focusing on new learning",
+        "Strategy instruction and modelling"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Includes metacognitive strategies. Phase placement inferred."
+    },
+    "citw.visuals": {
+      "label": "Visualisations and concrete examples",
+      "tier": "adopted",
+      "parent": "citw.p3",
+      "icon": "ti-photo",
+      "path": [
+        "CITW",
+        "Focusing on new learning",
+        "Visualisations and concrete examples"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Phase placement inferred."
+    },
+    "citw.questions": {
+      "label": "High-level questions and student explanations",
+      "tier": "adopted",
+      "parent": "citw.p4",
+      "icon": "ti-help-circle",
+      "path": [
+        "CITW",
+        "Making sense of learning",
+        "High-level questions and student explanations"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Phase placement inferred."
+    },
+    "citw.guided_application": {
+      "label": "Guided initial application with formative feedback",
+      "tier": "adopted",
+      "parent": "citw.p4",
+      "icon": "ti-message-check",
+      "path": [
+        "CITW",
+        "Making sense of learning",
+        "Guided initial application with formative feedback"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Worked examples sit naturally here. Phase placement inferred."
+    },
+    "citw.peer_consolidation": {
+      "label": "Peer-assisted consolidation of learning",
+      "tier": "adopted",
+      "parent": "citw.p4",
+      "icon": "ti-users",
+      "path": [
+        "CITW",
+        "Making sense of learning",
+        "Peer-assisted consolidation of learning"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Phase placement inferred."
+    },
+    "citw.retrieval": {
+      "label": "Retrieval practice",
+      "tier": "adopted",
+      "parent": "citw.p5",
+      "icon": "ti-history",
+      "path": [
+        "CITW",
+        "Practising and reflecting",
+        "Retrieval practice"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Phase placement inferred."
+    },
+    "citw.spaced_practice": {
+      "label": "Spaced and mixed independent practice",
+      "tier": "adopted",
+      "parent": "citw.p5",
+      "icon": "ti-calendar-repeat",
+      "path": [
+        "CITW",
+        "Practising and reflecting",
+        "Spaced and mixed independent practice"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Phase placement inferred."
+    },
+    "citw.targeted_support": {
+      "label": "Targeted support",
+      "tier": "adopted",
+      "parent": "citw.p5",
+      "icon": "ti-lifebuoy",
+      "path": [
+        "CITW",
+        "Practising and reflecting",
+        "Targeted support"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Phase placement inferred."
+    },
+    "citw.cognitive_writing": {
+      "label": "Cognitive writing",
+      "tier": "adopted",
+      "parent": "citw.p6",
+      "icon": "ti-pencil",
+      "path": [
+        "CITW",
+        "Extending and applying",
+        "Cognitive writing"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Phase placement inferred."
+    },
+    "citw.guided_investigations": {
+      "label": "Guided investigations",
+      "tier": "adopted",
+      "parent": "citw.p6",
+      "icon": "ti-microscope",
+      "path": [
+        "CITW",
+        "Extending and applying",
+        "Guided investigations"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Phase placement inferred."
+    },
+    "citw.problem_solving": {
+      "label": "Structured problem solving",
+      "tier": "adopted",
+      "parent": "citw.p6",
+      "icon": "ti-sitemap",
+      "path": [
+        "CITW",
+        "Extending and applying",
+        "Structured problem solving"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Phase placement inferred."
+    },
+    "vc": {
+      "label": "Victorian Curriculum 2.0",
+      "tier": "curriculum",
+      "parent": null,
+      "icon": "ti-certificate",
+      "path": [
+        "Victorian Curriculum F-10 Version 2.0"
+      ],
+      "source_url": "https://f10.vcaa.vic.edu.au/",
+      "source_label": "VCAA: Victorian Curriculum F-10 Version 2.0",
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "Site root inferred from verified subpages."
+    },
+    "vc.dt": {
+      "label": "Design and Technologies",
+      "tier": "curriculum",
+      "parent": "vc",
+      "icon": "ti-hammer",
+      "path": [
+        "VC 2.0",
+        "Technologies",
+        "Design and Technologies"
+      ],
+      "source_url": "https://f10.vcaa.vic.edu.au/learning-areas/technologies/design-and-technologies/curriculum",
+      "source_label": "VCAA: Design and Technologies curriculum",
+      "requires_login": false,
+      "verified": true,
+      "checked": "2026-11-04",
+      "notes": "Add child nodes per content description code (e.g. VC2TDE2D03) as units use them."
+    },
+    "vc.digitech": {
+      "label": "Digital Technologies",
+      "tier": "curriculum",
+      "parent": "vc",
+      "icon": "ti-cpu",
+      "path": [
+        "VC 2.0",
+        "Technologies",
+        "Digital Technologies"
+      ],
+      "source_url": "https://f10.vcaa.vic.edu.au/learning-areas/technologies/digital-technologies/curriculum",
+      "source_label": "VCAA: Digital Technologies curriculum",
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "URL follows the verified D&T pattern; confirm."
+    },
+    "vc.science": {
+      "label": "Science",
+      "tier": "curriculum",
+      "parent": "vc",
+      "icon": "ti-flask",
+      "path": [
+        "VC 2.0",
+        "Science"
+      ],
+      "source_url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
+      "source_label": "VCAA: Science curriculum",
+      "requires_login": false,
+      "verified": false,
+      "checked": "2026-11-04",
+      "notes": "URL follows the verified D&T pattern; confirm."
+    },
+    "fcps": {
+      "label": "FCPS context",
+      "tier": "fcps",
+      "parent": null,
+      "icon": "ti-home-heart",
+      "path": [
+        "Footscray City Primary School"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": null
+    },
+    "fcps.plt": {
+      "label": "Specialist PLT inquiry focus",
+      "tier": "fcps",
+      "parent": "fcps",
+      "icon": "ti-users-group",
+      "path": [
+        "FCPS",
+        "Specialist PLT",
+        "Current inquiry cycle"
+      ],
+      "source_url": null,
+      "source_label": "PLT notes (Drive)",
+      "requires_login": true,
+      "verified": false,
+      "checked": null
+    },
+    "fcps.aip": {
+      "label": "AIP goal",
+      "tier": "fcps",
+      "parent": "fcps",
+      "icon": "ti-chart-arrows",
+      "path": [
+        "FCPS",
+        "Annual Implementation Plan"
+      ],
+      "source_url": null,
+      "source_label": "AIP (Drive)",
+      "requires_login": true,
+      "verified": false,
+      "checked": null
+    },
+    "fcps.place": {
+      "label": "Place and Country",
+      "tier": "fcps",
+      "parent": "fcps",
+      "icon": "ti-map-pin",
+      "path": [
+        "FCPS",
+        "Local context",
+        "Place and Country"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": null
+    },
+    "fcps.sustainability": {
+      "label": "Sustainability (ResourceSmart)",
+      "tier": "fcps",
+      "parent": "fcps",
+      "icon": "ti-leaf",
+      "path": [
+        "FCPS",
+        "Sustainability",
+        "ResourceSmart Schools"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": null
+    },
+    "fcps.partner": {
+      "label": "Partnership",
+      "tier": "fcps",
+      "parent": "fcps",
+      "icon": "ti-link",
+      "path": [
+        "FCPS",
+        "Partnerships"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": null,
+      "notes": "Use child nodes per partner, e.g. fcps.partner.fhs, fcps.partner.corner_garden, fcps.partner.flp."
+    },
+    "fcps.specialist_link": {
+      "label": "Specialist subject link",
+      "tier": "fcps",
+      "parent": "fcps",
+      "icon": "ti-arrows-exchange",
+      "path": [
+        "FCPS",
+        "Connections",
+        "Other Specialist subjects"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": null
+    },
+    "fcps.inquiry_link": {
+      "label": "Classroom inquiry link",
+      "tier": "fcps",
+      "parent": "fcps",
+      "icon": "ti-door",
+      "path": [
+        "FCPS",
+        "Connections",
+        "Classroom inquiry unit"
+      ],
+      "source_url": null,
+      "source_label": null,
+      "requires_login": false,
+      "verified": false,
+      "checked": null
+    }
+  }
+}

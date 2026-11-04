@@ -22,6 +22,14 @@ citw:
   - CICs
   - Vocabulary
   - Frayer model
+pedagogy:
+  citw.interest_cues: focus
+  citw.vocab: focus
+  citw.guided_investigations: focus
+  vtlm.explicit.explain: present
+  vtlm.explicit.monitor: present
+  pcms.6: present
+  vc.dt: focus
 sequence:
   - phase: Hook (CIC)
     time: 5 min

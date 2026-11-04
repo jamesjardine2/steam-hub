@@ -16,6 +16,8 @@ vtlm:                    # any of: Focus the learning; Explicit explanation and 
   - Focus the learning
 citw:                    # any of: CICs; Vocabulary; Frayer model; Strategy instruction and modelling; Worked examples
   - CICs
+pedagogy:                # tag ids from src/_data/lenses.json: focus (1 to 3) or present
+  citw.interest_cues: focus
 sequence:
   - phase: Hook
     time: 5 min

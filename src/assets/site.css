@@ -242,3 +242,55 @@ button.btn:disabled { opacity: 0.5; cursor: default; outline: none; }
 .glance-bar i.on { background: var(--violet); }
 .glance-next { font-size: 13px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .glance-head .pill { flex: 0 0 auto; white-space: nowrap; }
+
+/* Pedagogy and sources (lesson page) and Pedagogy at a glance (unit page).
+   Tags come from src/_data/lenses.json; tier colours are in tokens.css. */
+.tier-department { --tile: var(--tile-department); --tone: var(--tone-department); }
+.tier-fcps { --tile: var(--tile-fcps); --tone: var(--tone-fcps); }
+.tier-adopted { --tile: var(--tile-adopted); --tone: var(--tone-adopted); }
+.tier-curriculum { --tile: var(--tile-curriculum); --tone: var(--tone-curriculum); }
+
+.lens-list { display: flex; flex-direction: column; }
+.lens-row { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1px solid var(--border); }
+.lens-row:first-child { border-top: 0; padding-top: 4px; }
+.lens-tile { flex: 0 0 auto; width: 32px; height: 32px; border-radius: var(--radius-input); background: var(--tile); color: var(--tone); display: grid; place-items: center; font-size: 18px; }
+.lens-text { flex: 1 1 auto; min-width: 0; }
+.lens-top { display: flex; align-items: baseline; gap: 12px; }
+.lens-label { font-weight: 500; color: var(--text); }
+.lens-level { margin-left: auto; font-size: 12px; font-weight: 700; color: var(--tone); white-space: nowrap; }
+.lens-path { margin: 2px 0 0; font-size: 13px; color: var(--text-muted); }
+.lens-links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; margin-top: 4px; font-size: 13px; }
+.lens-link { display: inline-flex; align-items: center; gap: 5px; color: var(--text-violet); text-decoration: none; font-weight: 500; }
+a.lens-link:hover { text-decoration: underline; }
+.lens-link .ti { font-size: 15px; }
+.lens-further { color: var(--text-muted); font-size: 12px; }
+.lens-missing, .lens-missing-row { color: var(--missing-text); }
+span.lens-link.lens-missing { background: var(--missing-fill); border-radius: var(--radius-pill); padding: 1px 8px 1px 6px; }
+span.lens-missing { background: var(--missing-fill); }
+
+.lens-grid-wrap { overflow-x: auto; }
+.lens-grid { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 14px; }
+.lens-grid th, .lens-grid td { padding: 6px 2px; text-align: center; }
+.lens-grid thead th { font-size: 12px; font-weight: 700; color: var(--text-muted); }
+.lens-grid thead a { display: block; min-height: 32px; line-height: 32px; color: var(--text-violet); text-decoration: none; border-radius: var(--radius-input); }
+.lens-grid thead a:hover { background: var(--hover); }
+.lens-grid th.lens-grid-label { width: 45%; text-align: left; font-weight: 500; }
+.lens-grid-label a, .lens-grid-label .lens-missing-row { display: flex; align-items: center; gap: 6px; min-height: 32px; color: var(--text); text-decoration: none; }
+.lens-grid-label a:hover .lens-grid-name { text-decoration: underline; }
+.lens-grid-label .ti { flex: 0 0 auto; font-size: 16px; color: var(--tone); }
+.lens-grid-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lens-missing-row .lens-grid-name { text-decoration: underline dashed var(--link-missing); }
+.lens-grid tbody tr + tr { border-top: 1px solid var(--border); }
+.lens-grid .lens-tier th { text-align: left; padding-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+.lens-grid .is-current { background: var(--hover); }
+.lens-grid thead .is-current { border-radius: var(--radius-input) var(--radius-input) 0 0; }
+.lens-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: middle; }
+.lens-focus { background: var(--tone); }
+.lens-present { border: 2px solid var(--tone); }
+.lens-routine { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 14px 0 0; font-size: 13px; color: var(--text-muted); }
+.lens-routine a { color: var(--text-violet); }
+.lens-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; font-size: 12px; color: var(--text-muted); }
+.lens-legend > span { display: inline-flex; align-items: center; gap: 6px; }
+.lens-legend > span[class^="tier-"] { color: var(--tone); font-weight: 500; }
+.lens-legend .lens-dot { width: 10px; height: 10px; }
+@media (max-width: 600px) { .lens-grid { font-size: 13px; } }

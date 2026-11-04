@@ -19,6 +19,12 @@ vtlm:
 citw:
   - CICs
   - Worked examples
+pedagogy:
+  vtlm.explicit.scaffold: focus
+  citw.guided_investigations: focus
+  citw.interest_cues: present
+  pcms.2: present
+  vc.dt: focus
 sequence:
   - phase: Hook (CIC)
     time: 5 min

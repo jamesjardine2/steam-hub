@@ -29,6 +29,13 @@ eleventyComputed:
     <h2 class="section-title">Where each class is up to</h2>
     {{ m.progressTable(unit) }}
     {% endif %}
+    {% if unit.pedagogy %}
+    <div class="accs">
+      {% call m.accordion("Pedagogy at a glance", unit.pedagogy.count + (" practice" if unit.pedagogy.count == 1 else " practices")) %}
+        {{ m.lensGrid(unit, unit.pedagogy) }}
+      {% endcall %}
+    </div>
+    {% endif %}
     <h2 class="section-title">Lessons</h2>
     {% for s in unit.slots %}
     <article class="card lesson-row">

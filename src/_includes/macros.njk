@@ -75,3 +75,67 @@
   <div class="acc-body">{{ caller() }}</div>
 </details>
 {% endmacro %}
+
+{# Pedagogy tags (src/_data/lenses.json). Teacher pages only. #}
+{% macro lensSource(row) %}
+{% if row.source %}
+<a class="lens-link" href="{{ row.source.url }}" target="_blank" rel="noopener"><i class="ti {{ 'ti-lock' if row.source.login else 'ti-external-link' }}" aria-hidden="true"></i>{{ row.source.label }}{% if row.source.inherited %}<span class="visually-hidden"> (broader source)</span>{% endif %}</a>
+{% else %}
+<span class="lens-link lens-missing"><i class="ti ti-link-off" aria-hidden="true"></i>{{ row.missingLabel }}: add link</span>
+{% endif %}
+{% endmacro %}
+
+{% macro lensRow(row) %}
+<div class="lens-row">
+  <span class="lens-tile tier-{{ row.tier }}"><i class="ti {{ row.icon }}" data-lens-icon="{{ row.id }}" aria-hidden="true"></i></span>
+  <div class="lens-text">
+    <div class="lens-top"><span class="lens-label">{{ row.label }}</span><span class="lens-level tier-{{ row.tier }}">{{ row.levelLabel }}</span></div>
+    <p class="lens-path">{{ row.path }}</p>
+    <div class="lens-links">
+      {{ lensSource(row) }}
+      {% for f in row.further %}<a class="lens-further" href="{{ f.url }}" target="_blank" rel="noopener">{{ f.label }}</a>{% endfor %}
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro lensGrid(unit, grid) %}
+<div class="lens-grid-wrap">
+<table class="lens-grid">
+  <thead>
+    <tr>
+      <th scope="col" class="lens-grid-label"><span class="visually-hidden">Practice</span></th>
+      {% for c in grid.columns %}
+      <th scope="col" data-lesson-col="{{ loop.index0 }}"{% if c.url %} data-lesson-url="{{ c.url }}"{% endif %}>{% if c.url %}<a href="{{ c.url }}" title="Lesson {{ c.number }}: {{ c.title }}">L{{ c.number }}</a>{% else %}<span title="Lesson {{ c.number }} not planned yet">L{{ c.number }}</span>{% endif %}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  {% for g in grid.groups %}
+  <tbody>
+    <tr class="lens-tier"><th scope="rowgroup" colspan="{{ grid.columns.length + 1 }}">{{ g.label }}</th></tr>
+    {% for r in g.rows %}
+    <tr>
+      <th scope="row" class="lens-grid-label" title="{{ r.path }}">
+        {% if r.source %}<a href="{{ r.source.url }}" target="_blank" rel="noopener">{% else %}<span class="lens-missing-row">{% endif %}<i class="ti {{ r.icon }} tier-{{ r.tier }}" data-lens-icon="{{ r.id }}" aria-hidden="true"></i><span class="lens-grid-name">{{ r.label }}</span>{% if r.source %}</a>{% else %}</span>{% endif %}
+      </th>
+      {% for cell in r.cells %}
+      <td data-lesson-col="{{ loop.index0 }}">{% if cell %}<span class="lens-dot lens-{{ cell }} tier-{{ r.tier }}" title="Lesson {{ grid.columns[loop.index0].number }}: {{ 'Focus' if cell == 'focus' else 'Present' }}"></span><span class="visually-hidden">{{ cell }}</span>{% endif %}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+{% if grid.routines.length %}
+<p class="lens-routine"><i class="ti ti-repeat" aria-hidden="true"></i>Built into every lesson: {% for r in grid.routines %}{% if r.source %}<a href="{{ r.source.url }}" target="_blank" rel="noopener">{{ r.label }}</a>{% else %}<span class="lens-missing">{{ r.label }} (add link)</span>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+{% endif %}
+<div class="lens-legend">
+  <span><span class="lens-dot lens-focus tier-curriculum"></span>Focus</span>
+  <span><span class="lens-dot lens-present tier-curriculum"></span>Present</span>
+  <span class="tier-department"><span class="lens-dot lens-focus tier-department"></span>Department</span>
+  <span class="tier-adopted"><span class="lens-dot lens-focus tier-adopted"></span>School-adopted</span>
+  <span class="tier-fcps"><span class="lens-dot lens-focus tier-fcps"></span>FCPS</span>
+  <span class="tier-curriculum"><span class="lens-dot lens-focus tier-curriculum"></span>Curriculum</span>
+</div>
+{% endmacro %}

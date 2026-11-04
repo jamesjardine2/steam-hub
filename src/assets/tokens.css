@@ -31,6 +31,18 @@
   --plasma-pink: #FF2E88;
   --solar-orange: #FF7A1A;
 
+  /* Pedagogy tiers (HANDOVER.md): tile background and bright colour for
+     each tier of lenses.json, plus amber for a tag with no link yet. */
+  --tier-department-bg: #2A1F6E;
+  --tier-department: #A996FF;
+  --tier-fcps-bg: #0E3A33;
+  --tier-fcps: #4FE0C0;
+  --tier-adopted-bg: #4A1E1A;
+  --tier-adopted: #FF8A6B;
+  --tier-curriculum-bg: #26252C;
+  --tier-curriculum: #C9C6D6;
+  --link-missing: #FFC857;
+
   --font: "Plus Jakarta Sans", system-ui, sans-serif;
   --radius-card: 16px;
   --radius-input: 10px;
@@ -53,6 +65,17 @@
   --ink: var(--glow);
   --panel: var(--surface);
   --panel-2: var(--raised);
+  /* Pedagogy tiers: dark tile, bright icon, dots and level text */
+  --tile-department: var(--tier-department-bg);
+  --tone-department: var(--tier-department);
+  --tile-fcps: var(--tier-fcps-bg);
+  --tone-fcps: var(--tier-fcps);
+  --tile-adopted: var(--tier-adopted-bg);
+  --tone-adopted: var(--tier-adopted);
+  --tile-curriculum: var(--tier-curriculum-bg);
+  --tone-curriculum: var(--tier-curriculum);
+  --missing-text: var(--link-missing);
+  --missing-fill: transparent;
 }
 
 :root[data-theme="light"] {
@@ -71,4 +94,17 @@
   --ink: var(--void);
   --panel: var(--white);
   --panel-2: var(--glow);
+  /* Pedagogy tiers on white: a pale tint of the bright colour as the tile,
+     and the bright colour darkened for icon, dots and text so the four
+     tiers stay easy to tell apart. */
+  --tile-department: color-mix(in srgb, var(--tier-department) 30%, var(--white));
+  --tone-department: color-mix(in srgb, var(--tier-department) 55%, var(--void));
+  --tile-fcps: color-mix(in srgb, var(--tier-fcps) 30%, var(--white));
+  --tone-fcps: color-mix(in srgb, var(--tier-fcps) 55%, var(--void));
+  --tile-adopted: color-mix(in srgb, var(--tier-adopted) 30%, var(--white));
+  --tone-adopted: color-mix(in srgb, var(--tier-adopted) 55%, var(--void));
+  --tile-curriculum: color-mix(in srgb, var(--tier-curriculum) 45%, var(--white));
+  --tone-curriculum: color-mix(in srgb, var(--tier-curriculum) 55%, var(--void));
+  --missing-text: var(--void);
+  --missing-fill: color-mix(in srgb, var(--link-missing) 45%, var(--white));
 }

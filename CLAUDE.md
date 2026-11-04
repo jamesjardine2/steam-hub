@@ -117,6 +117,10 @@ lisc:
 curriculum: [VC2S2U05]
 vtlm: [Focus the learning, Scaffold practice]
 citw: [CICs, Worked examples]
+pedagogy:                  # optional: tag id from src/_data/lenses.json: focus or present
+  vtlm.explicit.scaffold: focus
+  citw.interest_cues: focus
+  pcms.6: present
 sequence:                  # "Lesson at a glance"
   - phase: Hook
     time: 5 min
@@ -135,6 +139,8 @@ The body is the full lesson plan in Markdown.
 
 Allowed `vtlm` values: Focus the learning; Explicit explanation and modelling; Scaffold practice; Monitor progress.
 Allowed `citw` values: CICs; Vocabulary; Frayer model; Strategy instruction and modelling; Worked examples.
+
+`pedagogy` tags (added November 2026, see `HANDOVER.md` in `steam-hub-handover/pedagogy/`): every key must be a node id in `src/_data/lenses.json` and every value `focus` (what the lesson deliberately targets, usually 1 to 3) or `present` (it happens but is not the target). The build warns about anything else. Routine nodes (`"routine": true`, such as the values acknowledgement) are not tagged; the unit page lists them once as "Built into every lesson". The lesson page shows the tags in a "Pedagogy and sources" accordion (icon, label, level, path, source link) and the unit page shows "Pedagogy at a glance", a grid of tags by lesson. A tag without its own link uses the nearest parent's; with none up the chain it shows an amber "add link". Once a lesson has tags they replace its VTLM and CITW chips. Teacher pages only: never on artefacts or CRT plans. Tier colours are `--tier-*` in `tokens.css`; icons are the Tabler outline webfont, loaded only on pages with tags. `npm run check-links` (`scripts/check-links.mjs`, once a term) checks every source link that needs no login, lists unverified nodes, and with `-- --write` updates the `checked` dates.
 The build prints a warning for anything else.
 
 ### LISC format
@@ -198,6 +204,8 @@ CLAUDE.md
 eleventy.config.js        # Eleventy setup, path prefix, copies unit files
 lib/vc2.js                # links Victorian Curriculum 2.0 codes to the VCAA site
 src/_data/site.js         # loads content/, computes everything
+src/_data/lenses.json     # pedagogy tag vocabulary
+scripts/check-links.mjs   # checks the pedagogy source links (npm run check-links)
 src/_includes/            # base layout and macros
 src/index.njk             # Overview
 src/units.njk             # all units

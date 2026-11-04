@@ -17,6 +17,12 @@ vtlm:
   - Monitor progress
 citw:
   - CICs
+pedagogy:
+  citw.interest_cues: focus
+  vtlm.explicit.explain: focus
+  vtlm.explicit.scaffold: present
+  pcms.6: present
+  vc.dt: focus
 sequence:
   - phase: Hook (CIC)
     time: 5 min

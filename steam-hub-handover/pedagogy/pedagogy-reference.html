@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedagogy accordion reference</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+:root{--bg:#0C0C0F;--panel:#15141B;--line:#2A2735;--text:#ECEAF6;--muted:#9C97B5;--violet:#5329E7;
+--t-dept-bg:#2A1F6E;--t-dept:#A996FF;--t-fcps-bg:#0E3A33;--t-fcps:#4FE0C0;--t-adopted-bg:#4A1E1A;--t-adopted:#FF8A6B;--t-curr-bg:#26252C;--t-curr:#C9C6D6;--missing:#FFC857}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px}
+main{max-width:720px;margin:0 auto;padding:20px 14px 60px}
+.note{font-size:12px;color:var(--muted);border:1px dashed var(--line);border-radius:8px;padding:8px 10px;margin-bottom:18px}
+.eyebrow{font-size:12px;color:var(--muted)}
+h1{font-size:18px;font-weight:500;margin:4px 0 0}
+.ac{border:1px solid var(--line);border-radius:10px;margin-top:12px;overflow:hidden}
+.ah{display:flex;align-items:center;gap:8px;padding:11px 12px;background:var(--panel);cursor:pointer;font-weight:500;user-select:none}
+.ah .cnt{margin-left:auto;font-size:12px;color:var(--muted);font-weight:400}
+.ah .cv{transition:transform .15s}
+.ac.closed .ab{display:none}.ac.closed .cv{transform:rotate(-90deg)}
+.ab{padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.row{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border-radius:8px;padding:9px 10px}
+.tile{width:32px;height:32px;flex:none;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.top{display:flex;justify-content:space-between;gap:8px}.lbl{font-weight:500}.lvl{font-size:11px;white-space:nowrap}
+.path{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5}
+.lk{font-size:12px;color:var(--t-dept);text-decoration:none;display:inline-flex;gap:4px;align-items:center;margin-top:3px}
+.lk.missing{color:var(--missing)}
+table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:12px}
+th{font-weight:400;color:var(--muted);padding-bottom:4px}th.cur{color:var(--t-dept)}
+td{padding:6px 0;text-align:center}td.rl{text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+tr.r{border-top:1px solid var(--line)}td.cur{background:#1B1830}
+tr.tier td{padding:10px 0 2px;text-align:left;font-size:11px;color:var(--muted)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;box-sizing:border-box}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:var(--muted);margin-top:6px}
+.routine{font-size:12px;color:var(--muted);margin-top:6px}
+</style>
+</head>
+<body>
+<main>
+<div class="note">Visual reference only. In the hub, take fonts, spacing and base colours from the existing stylesheet. Data here is sample data for the Foundation houses unit.</div>
+
+<div class="eyebrow">Lesson page · Foundation · Houses · Lesson 3</div>
+<h1>To explore how houses are built from different materials.</h1>
+<div class="ac"><div class="ah"><i class="ti ti-chevron-down cv"></i>Pedagogy and sources<span class="cnt" id="lc"></span></div><div class="ab" id="lesson"></div></div>
+
+<div style="height:28px"></div>
+<div class="eyebrow">Unit page</div>
+<h1>Foundation · Houses</h1>
+<div class="ac"><div class="ah"><i class="ti ti-chevron-down cv"></i>Pedagogy at a glance</div><div class="ab"><table id="grid"></table><div class="routine" id="routine"></div><div class="legend" id="legend"></div></div></div>
+</main>
+<script>
+const N={
+"vtlm":{label:"VTLM 2.0",tier:"department",parent:null,source_url:"https://content.sdp.education.vic.gov.au/media/victorian-teaching-and-learning-model-2-0-2816",source_label:"VTLM 2.0 overview (PDF)"},
+"vtlm.explicit":{label:"Explicit teaching",tier:"department",parent:"vtlm",source_url:"https://arc.educationapps.vic.gov.au/63240.rsf",source_label:"VTLM 2.0 Guide Pack (Arc)"},
+"vtlm.explicit.focus":{label:"Focus the learning",tier:"department",parent:"vtlm.explicit",icon:"ti-target",path:["VTLM 2.0","Explicit teaching","Focus the learning"],source_url:null},
+"vtlm.explicit.explain":{label:"Explicit explanation and modelling",tier:"department",parent:"vtlm.explicit",icon:"ti-chalkboard",path:["VTLM 2.0","Explicit teaching","Explicit explanation and modelling"],source_url:null},
+"vtlm.explicit.scaffold":{label:"Scaffold practice",tier:"department",parent:"vtlm.explicit",icon:"ti-stairs-up",path:["VTLM 2.0","Explicit teaching","Scaffold practice"],source_url:"https://arc.educationapps.vic.gov.au/49150.rsf",source_label:"VTLM 2.0 guide: Scaffold practice (Arc)"},
+"vtlm.explicit.monitor":{label:"Monitor progress",tier:"department",parent:"vtlm.explicit",icon:"ti-eye",path:["VTLM 2.0","Explicit teaching","Monitor progress"],source_url:null},
+"pcms.6":{label:"Opportunities to respond",tier:"department",parent:null,icon:"ti-message-circle-question",path:["VTLM 2.0","Enabling learning","PCMS","Practice 6: Opportunities to respond"],source_url:"https://www.education.vic.gov.au/Documents/school/PCMS/SWPBS_PCMS_Placemats_Strategy_6.pdf",source_label:"PCMS placemat: Practice 6"},
+"citw":{label:"CITW",tier:"adopted",parent:null,source_url:"https://www.ascd.org/books/the-new-classroom-instruction-that-works",source_label:"ASCD book page"},
+"citw.interest_cues":{label:"Cognitive interest cues",tier:"adopted",parent:"citw",icon:"ti-bulb",path:["CITW","Becoming interested","Cognitive interest cues"],source_url:null},
+"citw.vocab":{label:"Vocabulary instruction",tier:"adopted",parent:"citw",icon:"ti-vocabulary",path:["CITW","Focusing on new learning","Vocabulary instruction"],source_url:null},
+"fcps.values":{label:"Values acknowledgement",tier:"fcps",parent:null,icon:"ti-award",path:["SWPBS","FCPS values matrix","Acknowledgement routine"],source_url:null,source_label:"FCPS values matrix (Drive)",requires_login:true,routine:true},
+"fcps.place":{label:"Place and Country",tier:"fcps",parent:null,icon:"ti-map-pin",path:["FCPS","Local context","Place and Country"],source_url:null},
+"vc.dt":{label:"Design and Technologies",tier:"curriculum",parent:null,icon:"ti-hammer",path:["VC 2.0","Technologies","Design and Technologies"],source_url:"https://f10.vcaa.vic.edu.au/learning-areas/technologies/design-and-technologies/curriculum",source_label:"VCAA: D&T curriculum"}};
+const LESSONS=[
+{"vtlm.explicit.focus":"focus","citw.interest_cues":"focus","citw.vocab":"focus","vc.dt":"focus","pcms.6":"present"},
+{"vtlm.explicit.explain":"focus","citw.vocab":"present","vc.dt":"focus","pcms.6":"present"},
+{"vtlm.explicit.focus":"focus","vtlm.explicit.scaffold":"focus","citw.interest_cues":"focus","pcms.6":"present","vc.dt":"focus","fcps.place":"present"},
+{"vtlm.explicit.scaffold":"focus","vtlm.explicit.monitor":"focus","pcms.6":"present","vc.dt":"focus"},
+{"vtlm.explicit.explain":"focus","vtlm.explicit.scaffold":"present","pcms.6":"present","vc.dt":"focus"},
+{"vtlm.explicit.scaffold":"focus","pcms.6":"present","vc.dt":"focus","fcps.place":"focus"},
+{"vtlm.explicit.monitor":"focus","vtlm.explicit.focus":"present","pcms.6":"present","vc.dt":"focus"}];
+const CUR=2,TIERS=["department","adopted","fcps","curriculum"],TN={department:"Department",adopted:"School-adopted",fcps:"FCPS",curriculum:"Curriculum"};
+const TV={department:["--t-dept-bg","--t-dept"],fcps:["--t-fcps-bg","--t-fcps"],adopted:["--t-adopted-bg","--t-adopted"],curriculum:["--t-curr-bg","--t-curr"]};
+function resolve(id){let n=N[id],own=n;while(n){if(n.source_url)return{url:n.source_url,label:n.source_label,login:n.requires_login||own.requires_login};n=N[n.parent]}return{url:null,label:own.source_label||"Source",login:false}}
+function link(id){const r=resolve(id);return r.url?`<a class="lk" href="${r.url}" target="_blank" rel="noopener"><i class="ti ${r.login?'ti-lock':'ti-external-link'}"></i>${r.label}</a>`:`<span class="lk missing"><i class="ti ti-link-off"></i>${r.label}: add link</span>`}
+const L=LESSONS[CUR],ids=Object.keys(L).filter(i=>!N[i].routine).sort((a,b)=>(L[a]==="focus"?0:1)-(L[b]==="focus"?0:1)||TIERS.indexOf(N[a].tier)-TIERS.indexOf(N[b].tier));
+document.getElementById('lc').textContent=ids.length+' tags';
+document.getElementById('lesson').innerHTML=ids.map(id=>{const n=N[id],[bg,fg]=TV[n.tier];return `<div class="row"><div class="tile" style="background:var(${bg});color:var(${fg})"><i class="ti ${n.icon}"></i></div><div style="flex:1;min-width:0"><div class="top"><span class="lbl">${n.label}</span><span class="lvl" style="color:var(${fg})">${L[id]==="focus"?"Focus":"Present"}</span></div><div class="path">${n.path.join(' › ')}</div>${link(id)}</div></div>`}).join('');
+const used=[...new Set(LESSONS.flatMap(l=>Object.keys(l)))].filter(i=>!N[i].routine);
+let h='<tr><th style="width:45%"></th>'+LESSONS.map((_,i)=>`<th class="${i===CUR?'cur':''}">L${i+1}</th>`).join('')+'</tr>';
+TIERS.forEach(t=>{const rows=used.filter(i=>N[i].tier===t);if(!rows.length)return;h+=`<tr class="tier"><td colspan="${LESSONS.length+1}">${TN[t]}</td></tr>`;
+rows.forEach(id=>{const n=N[id],fg=TV[t][1];h+=`<tr class="r"><td class="rl" title="${n.path.join(' › ')}" onclick="const r=resolve('${id}');if(r.url)window.open(r.url,'_blank')"><i class="ti ${n.icon}" style="color:var(${fg});margin-right:5px"></i>${n.label}</td>`+LESSONS.map((l,i)=>`<td class="${i===CUR?'cur':''}">${l[id]==="focus"?`<span class="dot" style="background:var(${fg})"></span>`:l[id]==="present"?`<span class="dot" style="border:1.5px solid var(${fg})"></span>`:''}</td>`).join('')+'</tr>'})});
+document.getElementById('grid').innerHTML=h;
+document.getElementById('routine').innerHTML='<i class="ti ti-repeat"></i> Built into every lesson: '+Object.keys(N).filter(i=>N[i].routine).map(i=>N[i].label).join(', ');
+document.getElementById('legend').innerHTML='<span><span class="dot" style="background:var(--t-curr)"></span> Focus</span><span><span class="dot" style="border:1.5px solid var(--t-curr)"></span> Present</span>'+TIERS.map(t=>`<span style="color:var(${TV[t][1]})">● ${TN[t]}</span>`).join('');
+document.querySelectorAll('.ah').forEach(a=>a.addEventListener('click',()=>a.parentNode.classList.toggle('closed')));
+</script>
+</body>
+</html>

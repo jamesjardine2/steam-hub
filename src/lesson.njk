@@ -89,12 +89,23 @@ eleventyComputed:
         {% endif %}
       {% endcall %}
 
-      {% call m.accordion("Curriculum and approach") %}
+      {% if lesson.pedagogy.length %}
+      {% call m.accordion("Pedagogy and sources", (lesson.pedagogy | length) + (" tag" if lesson.pedagogy.length == 1 else " tags"), true) %}
+        <div class="lens-list">
+          {% for row in lesson.pedagogy %}{{ m.lensRow(row) }}{% endfor %}
+        </div>
+      {% endcall %}
+      {% endif %}
+
+      {% call m.accordion("Curriculum" if lesson.pedagogy.length else "Curriculum and approach") %}
         <div class="stack-tight">
           {% if lesson.curriculum.length %}{{ m.codes(lesson.curriculum) }}{% else %}<p class="small muted">Unit codes:</p>{{ m.codes(unit.curriculum) }}{% endif %}
+          {# Once a lesson has pedagogy tags they replace the VTLM and CITW chips. #}
+          {% if not lesson.pedagogy.length %}
           {% if lesson.vtlm.length %}<p class="small strong">VTLM 2.0</p>{{ m.chips(lesson.vtlm) }}{% endif %}
           {% if lesson.citw.length %}<p class="small strong">CITW</p>{{ m.chips(lesson.citw) }}{% endif %}
           {% if not lesson.vtlm.length and not lesson.citw.length %}<p class="ph small">[VTLM and CITW elements to add]</p>{% endif %}
+          {% endif %}
         </div>
       {% endcall %}
 
