@@ -15,6 +15,9 @@ export default function (eleventyConfig) {
 
   // Link for a Victorian Curriculum 2.0 code (see lib/vc2.js).
   eleventyConfig.addFilter("vc2Url", vc2Url);
+  // A code's short summary from src/_data/curriculum.json, for chip tooltips.
+  const curriculum = JSON.parse(fs.readFileSync("src/_data/curriculum.json", "utf8")).codes;
+  eleventyConfig.addFilter("vc2Summary", (code) => (curriculum[code] ? curriculum[code].summary : ""));
 
   // Text in square brackets is a placeholder for content still to come.
   eleventyConfig.addFilter("isPlaceholder", (value) =>

@@ -34,7 +34,10 @@ The original brief and the five design mockups are in `steam-hub-handover/`. The
 - **"Next lesson in Claude"** opens the unit's pinned chat (`claude_chat`).
 - **"Make a CRT plan with Claude"** on a lesson page starts the `crt-plan` workflow: Claude Code follows `.github/crt-plan.md`, writes `content/units/<unit>/crt/NN-crt.html` (no screens, everyday resources, every step scripted, same LISC), Chrome prints it to `NN-crt.pdf`, and the lesson page offers the PDF to download. James can add notes and make a new one at any time. CRT plans are made on request, never for every lesson. `crt/04-crt.html` in Paper Makers is the layout to copy.
 - **Current term** is the newest file in `content/terms/`.
-- **Curriculum codes link to the VCAA site** (`lib/vc2.js`): chips and any code in lesson text open the code on f10.vcaa.vic.edu.au (the learning area's curriculum page with `#CODE`, or the VCAA search for areas not mapped yet). Write codes in full (VC2TDE2C04) so they link.
+- **Curriculum codes link to the VCAA site** (`lib/vc2.js`): chips and any code in lesson text open the code on f10.vcaa.vic.edu.au (the learning area's curriculum page with `#CODE` for every learning area, or the VCAA search for languages and capabilities). Write codes in full (VC2TDE2C04) so they link.
+- **Curriculum data** (`src/_data/curriculum.json`, November 2026): every Science, Design and Technologies and Digital Technologies code from Foundation to Level 6, with its strand, sub-strand and a short summary in our own words (the VCAA owns the official wording and the site is public, so it stays on the VCAA site). Code chips show the summary on hover. The build warns about any Science or Technologies code up to Level 6 in a unit or lesson that is not in the file.
+- **Connections** (`connections:` on a unit or lesson): codes from other learning areas the work links to (Health, Music, Maths, English, ...). They show as dashed chips labelled with the learning area, under the curriculum codes.
+- **Resources** (`src/_data/resources.json`): what the STEAM room owns (`owned: true`, with counts, year bands, learning areas and what each needs) and ideas to buy (`owned: false`). Items with `confirm: true` have a count James still needs to check. Planning (see `PLANNING.md`) builds on owned items only.
 - **Go live and Archive** are hidden from the navigation until Phases 3 and 2.
 
 ## Saving from the site (added November 2026)
@@ -89,6 +92,7 @@ lisc:
   criteria:
     - ...
 curriculum: [VC2S2U05, VC2TDE2C04]
+connections: [VC2HP2P01]   # optional: codes from other learning areas
 claude_chat: https://claude.ai/chat/...   # pinned chat for this cohort and term
 links:                     # optional extra files and links
   - label: ...
@@ -115,6 +119,7 @@ lisc:
   criteria:
     - ...
 curriculum: [VC2S2U05]
+connections: [VC2AMU2E01]  # optional: codes from other learning areas
 vtlm: [Focus the learning, Scaffold practice]
 citw: [CICs, Worked examples]
 pedagogy:                  # optional: tag ids from src/_data/lenses.json
@@ -205,6 +210,8 @@ eleventy.config.js        # Eleventy setup, path prefix, copies unit files
 lib/vc2.js                # links Victorian Curriculum 2.0 codes to the VCAA site
 src/_data/site.js         # loads content/, computes everything
 src/_data/lenses.json     # pedagogy tag vocabulary
+src/_data/curriculum.json # Science and Technologies codes F to 6, with summaries
+src/_data/resources.json  # STEAM room inventory and ideas to buy
 scripts/check-links.mjs   # checks the pedagogy source links (npm run check-links)
 src/_includes/            # base layout and macros
 src/index.njk             # Overview

@@ -16,7 +16,8 @@ When I ask for the hub file for a lesson, output a single Markdown file with YAM
 - `status`: `planned`, or `draft` if the plan is not finished.
 - `duration`: minutes, usually 45.
 - `lisc`: `intention` (starts with "To") and `criteria` (a list, each finishing the sentence "I can ...", without the words "I can").
-- `curriculum`: Victorian Curriculum 2.0 codes for this lesson, for example VC2S2U05.
+- `curriculum`: Victorian Curriculum 2.0 Science or Technologies codes for this lesson, for example VC2S2U05.
+- `connections` (optional): codes from other learning areas the lesson links to, for example Health (VC2HP...), Music (VC2AMU...) or Mathematics (VC2M...).
 - `vtlm`: the VTLM 2.0 elements used. Only these values: Focus the learning; Explicit explanation and modelling; Scaffold practice; Monitor progress.
 - `citw`: the CITW strategies used. Only these values: CICs; Vocabulary; Frayer model; Strategy instruction and modelling; Worked examples.
 - Key words for the Frayer word wall: three words that carry the lesson's concept and that students would not already use well (property, material, variable), not everyday words most of the class can already explain (mix, sticky, strong).

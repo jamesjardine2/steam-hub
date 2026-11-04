@@ -12,6 +12,7 @@ lisc:
     - ...
 curriculum:
   - VC2S2U05
+connections: []          # optional: codes from other learning areas (Health, Music, Maths, ...)
 vtlm:                    # any of: Focus the learning; Explicit explanation and modelling; Scaffold practice; Monitor progress
   - Focus the learning
 citw:                    # any of: CICs; Vocabulary; Frayer model; Strategy instruction and modelling; Worked examples

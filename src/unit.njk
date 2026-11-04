@@ -76,6 +76,7 @@ eleventyComputed:
     <div class="card">
       <h2 class="card-title">Curriculum</h2>
       {% if unit.curriculum.length %}{{ m.codes(unit.curriculum) }}{% else %}<p class="ph">[Curriculum codes to add]</p>{% endif %}
+      {{ m.connections(unit.connections) }}
     </div>
     <div class="card stack-tight">
       <h2 class="card-title">Files and links</h2>

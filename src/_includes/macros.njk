@@ -24,7 +24,15 @@
 
 {# Curriculum codes as chips that open the code on the VCAA site. #}
 {% macro codes(list) %}
-<div class="chips">{% for c in list %}<a class="chip" href="{{ c | vc2Url }}" target="_blank" rel="noopener" title="Open {{ c }} in the Victorian Curriculum">{{ c }}</a>{% endfor %}</div>
+<div class="chips">{% for c in list %}{% set sum = c | vc2Summary %}<a class="chip" href="{{ c | vc2Url }}" target="_blank" rel="noopener" title="{{ c }}: {{ sum + ' ' if sum }}(opens the Victorian Curriculum)">{{ c }}</a>{% endfor %}</div>
+{% endmacro %}
+
+{# Links to other learning areas (Music, Health, Maths, ...), in a second colour. #}
+{% macro connections(list) %}
+{% if list.length %}
+<p class="small strong connections-label">Connections</p>
+<div class="chips">{% for c in list %}<a class="chip chip-link" href="{{ c.code | vc2Url }}" target="_blank" rel="noopener" title="Open {{ c.code }} in the Victorian Curriculum"><span class="chip-area">{{ c.area }}</span> {{ c.code }}</a>{% endfor %}</div>
+{% endif %}
 {% endmacro %}
 
 {% macro reflection(r, where="") %}

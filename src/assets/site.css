@@ -78,6 +78,12 @@ h2 .ph, h3 .ph, h1 .ph { font-style: normal; }
 .chip { background: var(--hover); color: var(--text); border: 1px solid var(--border); font-size: 13px; font-weight: 500; padding: 6px 12px; border-radius: var(--radius-pill); }
 a.chip { text-decoration: none; }
 a.chip:hover { border-color: var(--text-violet); color: var(--text); }
+/* Connections to other learning areas: a dashed chip, so the hub keeps
+   one partner accent (orange) */
+.chip-link { border-style: dashed; border-color: var(--text-violet); }
+a.chip-link:hover { background: var(--hover); }
+.chip-area { color: var(--text-muted); font-weight: 700; }
+.connections-label { margin: 12px 0 6px; }
 a.vc2 { font-weight: 700; }
 
 /* Buttons */

@@ -1,0 +1,873 @@
+{
+  "_meta": {
+    "description": "Victorian Curriculum 2.0 content descriptions for Science, Design and Technologies and Digital Technologies, Foundation to Level 6, for choosing curriculum targets when planning.",
+    "source": "Codes, strands and sub-strands from f10.vcaa.vic.edu.au, read on 2026-11-04.",
+    "wording": "Each summary is a short paraphrase in our own words. The official wording is owned by the VCAA and stays on its site: every code links there.",
+    "updated": "2026-11-04"
+  },
+  "areas": {
+    "VC2TDE": {
+      "label": "Design and Technologies"
+    },
+    "VC2TDI": {
+      "label": "Digital Technologies"
+    },
+    "VC2S": {
+      "label": "Science"
+    }
+  },
+  "bands": {
+    "2": "Foundation to Level 2",
+    "4": "Levels 3 and 4",
+    "6": "Levels 5 and 6"
+  },
+  "codes": {
+    "VC2TDE2S01": {
+      "area": "VC2TDE",
+      "band": "2",
+      "strand": "Technologies and Society",
+      "sub": null,
+      "summary": "How people design and make familiar products, services and places to meet local needs, including sustainability."
+    },
+    "VC2TDE2C01": {
+      "area": "VC2TDE",
+      "band": "2",
+      "strand": "Technologies Contexts",
+      "sub": "Engineering principles and systems",
+      "summary": "How technologies make things move in products and systems."
+    },
+    "VC2TDE2C02": {
+      "area": "VC2TDE",
+      "band": "2",
+      "strand": "Technologies Contexts",
+      "sub": "Food and fibre production",
+      "summary": "How plants and animals are grown for food, clothing and shelter."
+    },
+    "VC2TDE2C03": {
+      "area": "VC2TDE",
+      "band": "2",
+      "strand": "Technologies Contexts",
+      "sub": "Food specialisations",
+      "summary": "Choosing and preparing food for healthy eating."
+    },
+    "VC2TDE2C04": {
+      "area": "VC2TDE",
+      "band": "2",
+      "strand": "Technologies Contexts",
+      "sub": "Materials and technologies specialisations",
+      "summary": "The characteristics and properties of materials and components used in designs."
+    },
+    "VC2TDE2D01": {
+      "area": "VC2TDE",
+      "band": "2",
+      "strand": "Creating Designed Solutions",
+      "sub": "Investigating and defining",
+      "summary": "Explore a need, and the materials, tools and processes to design for it."
+    },
+    "VC2TDE2D02": {
+      "area": "VC2TDE",
+      "band": "2",
+      "strand": "Creating Designed Solutions",
+      "sub": "Generating and designing",
+      "summary": "Come up with and share design ideas by describing, drawing or modelling, with hand and digital tools."
+    },
+    "VC2TDE2D03": {
+      "area": "VC2TDE",
+      "band": "2",
+      "strand": "Creating Designed Solutions",
+      "sub": "Producing and implementing",
+      "summary": "Use materials, tools and techniques to make designs safely."
+    },
+    "VC2TDE2D04": {
+      "area": "VC2TDE",
+      "band": "2",
+      "strand": "Creating Designed Solutions",
+      "sub": "Evaluating",
+      "summary": "Describe and choose design ideas by personal preference, including sustainability."
+    },
+    "VC2TDE2D05": {
+      "area": "VC2TDE",
+      "band": "2",
+      "strand": "Creating Designed Solutions",
+      "sub": "Planning and managing",
+      "summary": "Put the steps for making a design in order, working together."
+    },
+    "VC2TDE4S01": {
+      "area": "VC2TDE",
+      "band": "4",
+      "strand": "Technologies and Society",
+      "sub": null,
+      "summary": "People in design jobs, and what (including sustainability) shapes designs for community needs."
+    },
+    "VC2TDE4C01": {
+      "area": "VC2TDE",
+      "band": "4",
+      "strand": "Technologies Contexts",
+      "sub": "Engineering principles and systems",
+      "summary": "How forces affect the way a product or system works."
+    },
+    "VC2TDE4C02": {
+      "area": "VC2TDE",
+      "band": "4",
+      "strand": "Technologies Contexts",
+      "sub": "Food and fibre production",
+      "summary": "Ways food and fibre are produced."
+    },
+    "VC2TDE4C03": {
+      "area": "VC2TDE",
+      "band": "4",
+      "strand": "Technologies Contexts",
+      "sub": "Food specialisations",
+      "summary": "Ways to choose and prepare food for healthy eating."
+    },
+    "VC2TDE4C04": {
+      "area": "VC2TDE",
+      "band": "4",
+      "strand": "Technologies Contexts",
+      "sub": "Materials and technologies specialisations",
+      "summary": "How material properties affect the way a product or system works."
+    },
+    "VC2TDE4D01": {
+      "area": "VC2TDE",
+      "band": "4",
+      "strand": "Creating Designed Solutions",
+      "sub": "Investigating and defining",
+      "summary": "Explore a need, and design and test the materials, tools and processes for it."
+    },
+    "VC2TDE4D02": {
+      "area": "VC2TDE",
+      "band": "4",
+      "strand": "Creating Designed Solutions",
+      "sub": "Generating and designing",
+      "summary": "Develop and share design ideas with technical words and drawings, by hand or digitally."
+    },
+    "VC2TDE4D03": {
+      "area": "VC2TDE",
+      "band": "4",
+      "strand": "Creating Designed Solutions",
+      "sub": "Producing and implementing",
+      "summary": "Choose and use materials, tools and techniques to make designs safely."
+    },
+    "VC2TDE4D04": {
+      "area": "VC2TDE",
+      "band": "4",
+      "strand": "Creating Designed Solutions",
+      "sub": "Evaluating",
+      "summary": "Judge design ideas and solutions against given criteria, including sustainability."
+    },
+    "VC2TDE4D05": {
+      "area": "VC2TDE",
+      "band": "4",
+      "strand": "Creating Designed Solutions",
+      "sub": "Planning and managing",
+      "summary": "Plan the steps to make a design, alone and in a team."
+    },
+    "VC2TDE6S01": {
+      "area": "VC2TDE",
+      "band": "6",
+      "strand": "Technologies and Society",
+      "sub": null,
+      "summary": "How designers weigh up competing ethical factors, including sustainability, in products, services and places."
+    },
+    "VC2TDE6C01": {
+      "area": "VC2TDE",
+      "band": "6",
+      "strand": "Technologies Contexts",
+      "sub": "Engineering principles and systems",
+      "summary": "How electrical energy becomes movement, sound or light in a product or system."
+    },
+    "VC2TDE6C02": {
+      "area": "VC2TDE",
+      "band": "6",
+      "strand": "Technologies Contexts",
+      "sub": "Food and fibre production",
+      "summary": "How and why food and fibre are produced in managed environments."
+    },
+    "VC2TDE6C03": {
+      "area": "VC2TDE",
+      "band": "6",
+      "strand": "Technologies Contexts",
+      "sub": "Food specialisations",
+      "summary": "How the properties of foods affect choosing and preparing them for healthy eating."
+    },
+    "VC2TDE6C04": {
+      "area": "VC2TDE",
+      "band": "6",
+      "strand": "Technologies Contexts",
+      "sub": "Materials and technologies specialisations",
+      "summary": "How the properties of materials, systems, components and tools affect how they are used to make designs."
+    },
+    "VC2TDE6D01": {
+      "area": "VC2TDE",
+      "band": "6",
+      "strand": "Creating Designed Solutions",
+      "sub": "Investigating and defining",
+      "summary": "Investigate a need, and the materials, tools and processes to design for it."
+    },
+    "VC2TDE6D02": {
+      "area": "VC2TDE",
+      "band": "6",
+      "strand": "Creating Designed Solutions",
+      "sub": "Generating and designing",
+      "summary": "Develop, improve and share design ideas with technical words and drawings, by hand or digitally."
+    },
+    "VC2TDE6D03": {
+      "area": "VC2TDE",
+      "band": "6",
+      "strand": "Creating Designed Solutions",
+      "sub": "Producing and implementing",
+      "summary": "Choose, explain and use suitable materials, tools and techniques to make designs safely."
+    },
+    "VC2TDE6D04": {
+      "area": "VC2TDE",
+      "band": "6",
+      "strand": "Creating Designed Solutions",
+      "sub": "Evaluating",
+      "summary": "Agree on design criteria, including ethics and sustainability, and use them to evaluate."
+    },
+    "VC2TDE6D05": {
+      "area": "VC2TDE",
+      "band": "6",
+      "strand": "Creating Designed Solutions",
+      "sub": "Planning and managing",
+      "summary": "Write project plans that account for resources, alone and in a team."
+    },
+    "VC2TDI2S01": {
+      "area": "VC2TDI",
+      "band": "2",
+      "strand": "Digital Systems and Security",
+      "sub": null,
+      "summary": "Explore digital systems and their hardware and software parts."
+    },
+    "VC2TDI2S02": {
+      "area": "VC2TDI",
+      "band": "2",
+      "strand": "Digital Systems and Security",
+      "sub": null,
+      "summary": "Know some data is personal, and log in to a school account."
+    },
+    "VC2TDI2D01": {
+      "area": "VC2TDI",
+      "band": "2",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Find patterns in data and show data as objects, pictures, symbols, numbers and words."
+    },
+    "VC2TDI2D02": {
+      "area": "VC2TDI",
+      "band": "2",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Use basic features of digital tools to make, find and share content for an audience."
+    },
+    "VC2TDI2D03": {
+      "area": "VC2TDI",
+      "band": "2",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Use digital tools to share and work together safely, with a trusted adult."
+    },
+    "VC2TDI2D04": {
+      "area": "VC2TDI",
+      "band": "2",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Talk about how some websites and apps keep personal data online."
+    },
+    "VC2TDI2C01": {
+      "area": "VC2TDI",
+      "band": "2",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Look at simple problems that a digital system could solve for someone."
+    },
+    "VC2TDI2C02": {
+      "area": "VC2TDI",
+      "band": "2",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Follow, describe and show algorithms with steps, decisions (branching) and repeats."
+    },
+    "VC2TDI2C03": {
+      "area": "VC2TDI",
+      "band": "2",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Talk about how digital systems meet people's needs."
+    },
+    "VC2TDI4S01": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Digital Systems and Security",
+      "sub": null,
+      "summary": "Describe different digital systems and the devices connected to them."
+    },
+    "VC2TDI4S02": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Digital Systems and Security",
+      "sub": null,
+      "summary": "Explore sending different kinds of data between digital systems."
+    },
+    "VC2TDI4S03": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Digital Systems and Security",
+      "sub": null,
+      "summary": "Use a memorised password and explain what makes a good one."
+    },
+    "VC2TDI4D01": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Recognise types of data and how the same data can be shown in different ways."
+    },
+    "VC2TDI4D02": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Collect, organise and present data with software to solve problems."
+    },
+    "VC2TDI4D03": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Use core features of digital tools to make, find and share content for an audience."
+    },
+    "VC2TDI4D04": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Use digital tools to share, plan and work together safely."
+    },
+    "VC2TDI4D05": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Know what personal data online accounts hold and talk about the risks."
+    },
+    "VC2TDI4C01": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Define simple problems from requirements the teacher gives."
+    },
+    "VC2TDI4C02": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Follow, describe and show algorithms with sequence, comparisons (branching) and repeats."
+    },
+    "VC2TDI4C03": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Design a simple user interface, then share and compare designs."
+    },
+    "VC2TDI4C04": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Build simple algorithms as visual programs with control structures and input."
+    },
+    "VC2TDI4C05": {
+      "area": "VC2TDI",
+      "band": "4",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Talk about how existing and their own solutions meet the requirements."
+    },
+    "VC2TDI6S01": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Digital Systems and Security",
+      "sub": null,
+      "summary": "Investigate the main parts inside digital systems and what they do."
+    },
+    "VC2TDI6S02": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Digital Systems and Security",
+      "sub": null,
+      "summary": "Examine how digital systems connect in networks to send data."
+    },
+    "VC2TDI6S03": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Digital Systems and Security",
+      "sub": null,
+      "summary": "Use different passphrases for different accounts and explain the risk of reusing them."
+    },
+    "VC2TDI6D01": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Explain that digital systems store data as numbers, and explore binary."
+    },
+    "VC2TDI6D02": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Gather and change data from different sources with software, including spreadsheets."
+    },
+    "VC2TDI6D03": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Analyse and graph data with software, including spreadsheets, to solve problems."
+    },
+    "VC2TDI6D04": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Choose and use digital tools well to make, find and share content for an audience."
+    },
+    "VC2TDI6D05": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Choose and use digital tools to share online, plan and collaborate on projects safely."
+    },
+    "VC2TDI6D06": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Data, Information and Privacy",
+      "sub": null,
+      "summary": "Explain their digital footprint and think about privacy when collecting personal data."
+    },
+    "VC2TDI6C01": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Define problems from requirements the teacher gives or the class writes together."
+    },
+    "VC2TDI6C02": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Design and show algorithms with several options (branching) and repeats."
+    },
+    "VC2TDI6C03": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Design and change a user interface, then share and evaluate the designs."
+    },
+    "VC2TDI6C04": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Build algorithms as visual programs with control structures, variables and input."
+    },
+    "VC2TDI6C05": {
+      "area": "VC2TDI",
+      "band": "6",
+      "strand": "Creating Digital Solutions",
+      "sub": null,
+      "summary": "Evaluate existing and their own solutions against requirements and their effect on the community."
+    },
+    "VC2S2H01": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science as a Human Endeavour",
+      "sub": "Nature and development of science",
+      "summary": "Science knowledge comes from observing the world with the senses and with tools."
+    },
+    "VC2S2H02": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science as a Human Endeavour",
+      "sub": "Use and influence of science",
+      "summary": "People use science every day, asking questions and using patterns to predict."
+    },
+    "VC2S2U01": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Biological sciences",
+      "summary": "Plants and animals have features we can see and use to group them."
+    },
+    "VC2S2U02": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Biological sciences",
+      "summary": "Living things need air, water, food and shelter, and their homes meet those needs."
+    },
+    "VC2S2U03": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Biological sciences",
+      "summary": "Parts of plants and animals have jobs that help them survive."
+    },
+    "VC2S2U04": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Chemical sciences",
+      "summary": "Objects are made of one or more materials, and materials have properties we can observe."
+    },
+    "VC2S2U05": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Chemical sciences",
+      "summary": "Materials can be combined for a purpose, and the result can have different properties from what it was made of."
+    },
+    "VC2S2U06": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Chemical sciences",
+      "summary": "Bending, twisting, stretching, squashing or breaking changes a material's shape but not what it is made of."
+    },
+    "VC2S2U07": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Earth and space sciences",
+      "summary": "Daily and seasonal changes in weather affect everyday choices."
+    },
+    "VC2S2U08": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Earth and space sciences",
+      "summary": "Earth is one of 8 planets, and the Sun, Moon, planets and stars move in patterns across the sky."
+    },
+    "VC2S2U09": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Earth and space sciences",
+      "summary": "Caring for Earth's water, land and air by reducing, re-using and recycling."
+    },
+    "VC2S2U10": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Physical sciences",
+      "summary": "How an object moves depends on things like its size, shape and material."
+    },
+    "VC2S2U11": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Physical sciences",
+      "summary": "Pushes and pulls are forces that change how things move or their shape."
+    },
+    "VC2S2U12": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Understanding",
+      "sub": "Physical sciences",
+      "summary": "Sound makes materials vibrate and vibrations make sound, with different pitch and volume."
+    },
+    "VC2S2I01": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Inquiry",
+      "sub": "Questioning and predicting",
+      "summary": "Ask questions and make predictions from what they have noticed."
+    },
+    "VC2S2I02": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Inquiry",
+      "sub": "Planning and conducting",
+      "summary": "Investigate questions safely by following steps in order."
+    },
+    "VC2S2I03": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Inquiry",
+      "sub": "Planning and conducting",
+      "summary": "Observe with the senses and record, including informal measuring, with digital tools if useful."
+    },
+    "VC2S2I04": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Inquiry",
+      "sub": "Processing, modelling and analysing",
+      "summary": "Sort and order information with tables, organisers and models to show patterns."
+    },
+    "VC2S2I05": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Inquiry",
+      "sub": "Evaluating",
+      "summary": "Compare what happened with predictions and with others, leading to new questions."
+    },
+    "VC2S2I06": {
+      "area": "VC2S",
+      "band": "2",
+      "strand": "Science Inquiry",
+      "sub": "Communicating",
+      "summary": "Share observations and ideas with everyday and some science words."
+    },
+    "VC2S4H01": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science as a Human Endeavour",
+      "sub": "Nature and development of science",
+      "summary": "Data from investigations is used to explain natural events."
+    },
+    "VC2S4H02": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science as a Human Endeavour",
+      "sub": "Use and influence of science",
+      "summary": "People use science knowledge, skills and data to meet needs and solve problems."
+    },
+    "VC2S4U01": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Understanding",
+      "sub": "Biological sciences",
+      "summary": "How living things differ from non-living things and once-living things, including fossils."
+    },
+    "VC2S4U02": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Understanding",
+      "sub": "Biological sciences",
+      "summary": "Plants and animals have life cycles, and offspring are like but not the same as their parents."
+    },
+    "VC2S4U03": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Understanding",
+      "sub": "Biological sciences",
+      "summary": "Consumers, producers and decomposers in a habitat, and food chains."
+    },
+    "VC2S4U04": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Understanding",
+      "sub": "Chemical sciences",
+      "summary": "Properties of solids, liquids and gases, and how heating or cooling changes state."
+    },
+    "VC2S4U05": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Understanding",
+      "sub": "Chemical sciences",
+      "summary": "The properties of natural and made materials affect how they are used and re-used."
+    },
+    "VC2S4U06": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Understanding",
+      "sub": "Earth and space sciences",
+      "summary": "Rocks, minerals and soils are resources with properties that make them useful."
+    },
+    "VC2S4U07": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Understanding",
+      "sub": "Earth and space sciences",
+      "summary": "Where water comes from and how it moves through the water cycle."
+    },
+    "VC2S4U08": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Understanding",
+      "sub": "Earth and space sciences",
+      "summary": "Weather and climate affect land, air, water and living things, and people affect climate."
+    },
+    "VC2S4U09": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Understanding",
+      "sub": "Physical sciences",
+      "summary": "Sources of heat, and how heat moves from one object to another."
+    },
+    "VC2S4U10": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Understanding",
+      "sub": "Physical sciences",
+      "summary": "Friction, gravity, static and magnetic forces act by touch or at a distance and change speed and direction."
+    },
+    "VC2S4I01": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Inquiry",
+      "sub": "Questioning and predicting",
+      "summary": "Pose questions and predict outcomes from patterns they observe."
+    },
+    "VC2S4I02": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Inquiry",
+      "sub": "Planning and conducting",
+      "summary": "Plan and carry out investigations with scaffolds, including fair tests and safety."
+    },
+    "VC2S4I03": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Inquiry",
+      "sub": "Planning and conducting",
+      "summary": "Measure and record with familiar instruments and digital tools."
+    },
+    "VC2S4I04": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Inquiry",
+      "sub": "Processing, modelling and analysing",
+      "summary": "Show patterns in data with tables, graphs and models."
+    },
+    "VC2S4I05": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Inquiry",
+      "sub": "Evaluating",
+      "summary": "Compare findings with others, including whether a test was fair, to draw conclusions."
+    },
+    "VC2S4I06": {
+      "area": "VC2S",
+      "band": "4",
+      "strand": "Science Inquiry",
+      "sub": "Communicating",
+      "summary": "Share findings with science words and digital tools for a purpose and audience."
+    },
+    "VC2S6H01": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science as a Human Endeavour",
+      "sub": "Nature and development of science",
+      "summary": "Science changes over time as scientists collaborate and build on each other's work."
+    },
+    "VC2S6H02": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science as a Human Endeavour",
+      "sub": "Use and influence of science",
+      "summary": "Communities use science to identify problems and make decisions."
+    },
+    "VC2S6U01": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Understanding",
+      "sub": "Biological sciences",
+      "summary": "Habitats and their physical conditions, and how changes, including by people, affect living things."
+    },
+    "VC2S6U02": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Understanding",
+      "sub": "Biological sciences",
+      "summary": "Living things have evolved, and their features and behaviours help them thrive."
+    },
+    "VC2S6U03": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Understanding",
+      "sub": "Chemical sciences",
+      "summary": "Particle models explain solids, liquids and gases, and mixing substances makes mixtures and solutions."
+    },
+    "VC2S6U04": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Understanding",
+      "sub": "Chemical sciences",
+      "summary": "Reversible changes (melting, dissolving) and irreversible changes that make new substances (cooking, rusting)."
+    },
+    "VC2S6U05": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Understanding",
+      "sub": "Earth and space sciences",
+      "summary": "Weathering, erosion and deposition change Earth's surface slowly or quickly."
+    },
+    "VC2S6U06": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Understanding",
+      "sub": "Earth and space sciences",
+      "summary": "Natural hazards like earthquakes, eruptions, bushfires and floods, and how people reduce their impact."
+    },
+    "VC2S6U07": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Understanding",
+      "sub": "Earth and space sciences",
+      "summary": "Gravity keeps planets orbiting the Sun, and Earth's tilt and spin explain day, night and seasons."
+    },
+    "VC2S6U08": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Understanding",
+      "sub": "Physical sciences",
+      "summary": "Light travels in straight lines, makes shadows, and can be absorbed, reflected or refracted."
+    },
+    "VC2S6U09": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Understanding",
+      "sub": "Physical sciences",
+      "summary": "Conductors and insulators, and how energy moves through the parts of an electrical circuit."
+    },
+    "VC2S6I01": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Inquiry",
+      "sub": "Questioning and predicting",
+      "summary": "Use testable questions and reasoned predictions to guide investigations."
+    },
+    "VC2S6I02": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Inquiry",
+      "sub": "Planning and conducting",
+      "summary": "Plan and carry out repeatable fair tests, choosing variables and planning for safety and ethics."
+    },
+    "VC2S6I03": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Inquiry",
+      "sub": "Planning and conducting",
+      "summary": "Use equipment to measure and record data accurately, with digital tools if useful."
+    },
+    "VC2S6I04": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Inquiry",
+      "sub": "Processing, modelling and analysing",
+      "summary": "Show patterns, trends and relationships with tables, graphs and models."
+    },
+    "VC2S6I05": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Inquiry",
+      "sub": "Evaluating",
+      "summary": "Compare methods and findings to spot errors and back up conclusions."
+    },
+    "VC2S6I06": {
+      "area": "VC2S",
+      "band": "6",
+      "strand": "Science Inquiry",
+      "sub": "Communicating",
+      "summary": "Communicate science ideas and findings for a purpose and audience in different formats."
+    }
+  }
+}

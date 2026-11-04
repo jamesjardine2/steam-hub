@@ -1,0 +1,508 @@
+{
+  "_meta": {
+    "description": "What the STEAM room has (owned: true) and ideas to buy (owned: false). Planning only builds on owned items and marks the rest as suggested purchases.",
+    "fields": {
+      "kind": "kit, device, app, web app, game, material, space or partner",
+      "count": "how many, or null for a class supply",
+      "levels": "curriculum bands it suits: 2 (Foundation to Level 2), 4 (Levels 3 and 4), 6 (Levels 5 and 6)",
+      "areas": "learning area code prefixes it fits (see lib/vc2.js)",
+      "needs": "what else it takes",
+      "confirm": "true when James still needs to check the count"
+    },
+    "updated": "2026-11-04"
+  },
+  "resources": {
+    "microbit": {
+      "name": "BBC micro:bit",
+      "kind": "kit",
+      "count": 30,
+      "levels": [
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDI",
+        "VC2TDE",
+        "VC2S"
+      ],
+      "needs": [
+        "iPads with the micro:bit app or a computer",
+        "batteries"
+      ],
+      "owned": true
+    },
+    "jacdac": {
+      "name": "KittenBot Jacdac Kit A",
+      "kind": "kit",
+      "count": 15,
+      "levels": [
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDI",
+        "VC2TDE"
+      ],
+      "needs": [
+        "micro:bits",
+        "iPads with the MakeCode extension"
+      ],
+      "owned": true
+    },
+    "lego-science-k2": {
+      "name": "LEGO Education Science K to 2",
+      "kind": "kit",
+      "count": 7,
+      "levels": [
+        "2"
+      ],
+      "areas": [
+        "VC2S",
+        "VC2TDE"
+      ],
+      "needs": [],
+      "owned": true
+    },
+    "lego-science-35": {
+      "name": "LEGO Education Science 3 to 5",
+      "kind": "kit",
+      "count": 7,
+      "levels": [
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2S",
+        "VC2TDE"
+      ],
+      "needs": [],
+      "owned": true
+    },
+    "makey-makey": {
+      "name": "Makey Makey",
+      "kind": "kit",
+      "count": 12,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDI",
+        "VC2S",
+        "VC2AMU"
+      ],
+      "needs": [
+        "a laptop or computer with USB"
+      ],
+      "owned": true,
+      "confirm": true,
+      "notes": "About 12: count to confirm. Check which devices they plug into, as iPads may need an adapter."
+    },
+    "sphero": {
+      "name": "Sphero robots",
+      "kind": "kit",
+      "count": 15,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDI",
+        "VC2M"
+      ],
+      "needs": [
+        "iPads with the Sphero Edu app",
+        "charging"
+      ],
+      "owned": true,
+      "confirm": true,
+      "notes": "Class set, about 15: count to confirm."
+    },
+    "lego-bricks": {
+      "name": "LEGO bricks and base plates",
+      "kind": "material",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDE",
+        "VC2S"
+      ],
+      "needs": [],
+      "owned": true,
+      "notes": "Big class set: a tub per pair with plenty spare, a range of base plates and mixed pieces."
+    },
+    "ipads": {
+      "name": "iPads",
+      "kind": "device",
+      "count": 30,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDI"
+      ],
+      "needs": [],
+      "owned": true
+    },
+    "styluses": {
+      "name": "Styluses for iPad (Kmart)",
+      "kind": "device",
+      "count": 28,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDI",
+        "VC2AVA"
+      ],
+      "needs": [
+        "iPads"
+      ],
+      "owned": true
+    },
+    "book-creator": {
+      "name": "Book Creator (paid)",
+      "kind": "app",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDI",
+        "VC2E"
+      ],
+      "needs": [
+        "iPads"
+      ],
+      "owned": true,
+      "notes": "Good for evidence: every class can build a book of photos, drawings and voice."
+    },
+    "minecraft-education": {
+      "name": "Minecraft Education",
+      "kind": "game",
+      "count": null,
+      "levels": [
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDI",
+        "VC2TDE"
+      ],
+      "needs": [
+        "iPads"
+      ],
+      "owned": true
+    },
+    "procreate": {
+      "name": "Procreate",
+      "kind": "app",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2AVA",
+        "VC2TDE"
+      ],
+      "needs": [
+        "iPads",
+        "styluses"
+      ],
+      "owned": true
+    },
+    "google-apps": {
+      "name": "Google apps",
+      "kind": "app",
+      "count": null,
+      "levels": [
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDI"
+      ],
+      "needs": [
+        "iPads",
+        "school accounts"
+      ],
+      "owned": true
+    },
+    "web-apps": {
+      "name": "Web apps (for example Scratch, Tinkercad)",
+      "kind": "web app",
+      "count": null,
+      "levels": [
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDI",
+        "VC2TDE"
+      ],
+      "needs": [
+        "internet",
+        "accounts for some"
+      ],
+      "owned": true
+    },
+    "simple-machines": {
+      "name": "Simple machine demonstration models",
+      "kind": "kit",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2S",
+        "VC2TDE"
+      ],
+      "needs": [],
+      "owned": true
+    },
+    "kitchen-chemistry": {
+      "name": "Kitchen chemistry: oil, flour, vinegar, bicarb soda, cream of tartar, food dye",
+      "kind": "material",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2S"
+      ],
+      "needs": [],
+      "owned": true
+    },
+    "clay": {
+      "name": "Air dry clay and plasticine",
+      "kind": "material",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDE",
+        "VC2AVA"
+      ],
+      "needs": [],
+      "owned": true
+    },
+    "craft": {
+      "name": "Craft materials: icy pole sticks, straws, paper plates, pipe cleaners, matchsticks, skewers, paper, card",
+      "kind": "material",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDE"
+      ],
+      "needs": [],
+      "owned": true
+    },
+    "natural": {
+      "name": "Pebbles and shells",
+      "kind": "material",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDE",
+        "VC2S"
+      ],
+      "needs": [],
+      "owned": true
+    },
+    "magnets-balloons": {
+      "name": "Magnets and balloons",
+      "kind": "material",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2S"
+      ],
+      "needs": [],
+      "owned": true
+    },
+    "foil-paper": {
+      "name": "Foil and baking paper",
+      "kind": "material",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDE",
+        "VC2S"
+      ],
+      "needs": [],
+      "owned": true
+    },
+    "art": {
+      "name": "Paint sticks and markers",
+      "kind": "material",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2AVA",
+        "VC2TDE"
+      ],
+      "needs": [],
+      "owned": true
+    },
+    "garden": {
+      "name": "Garden",
+      "kind": "space",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDE",
+        "VC2S"
+      ],
+      "needs": [
+        "gardening tools"
+      ],
+      "owned": true,
+      "notes": "The class set of gardening tools is worn and needs replacing."
+    },
+    "bee-bot": {
+      "name": "Bee-Bot or Blue-Bot floor robots",
+      "kind": "kit",
+      "count": null,
+      "levels": [
+        "2"
+      ],
+      "areas": [
+        "VC2TDI",
+        "VC2M"
+      ],
+      "needs": [],
+      "owned": false,
+      "notes": "Idea to buy: coding for Foundation to Year 2, where micro:bits are too much."
+    },
+    "cardboard-tools": {
+      "name": "Cardboard construction tools (for example Makedo)",
+      "kind": "kit",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDE"
+      ],
+      "needs": [],
+      "owned": false,
+      "notes": "Idea to buy: turns recycled boxes into a building material for every year level."
+    },
+    "microscopes": {
+      "name": "Digital microscopes or clip-on iPad lenses",
+      "kind": "kit",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2S"
+      ],
+      "needs": [
+        "iPads"
+      ],
+      "owned": false,
+      "notes": "Idea to buy: close observation that ends in a photo for Book Creator."
+    },
+    "garden-tools": {
+      "name": "New class set of gardening tools and seed trays",
+      "kind": "kit",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDE",
+        "VC2S"
+      ],
+      "needs": [],
+      "owned": false,
+      "notes": "Idea to buy: replaces the worn set."
+    },
+    "food-tech": {
+      "name": "Basic food technology kit: chopping boards, safe knives, bowls",
+      "kind": "kit",
+      "count": null,
+      "levels": [
+        "2",
+        "4",
+        "6"
+      ],
+      "areas": [
+        "VC2TDE",
+        "VC2HP"
+      ],
+      "needs": [],
+      "owned": false,
+      "notes": "Idea to buy: opens up the food sub-strand and the link with Health."
+    },
+    "servos-sensors": {
+      "name": "Servo motors and extra sensors for micro:bit",
+      "kind": "kit",
+      "count": null,
+      "levels": [
+        "6"
+      ],
+      "areas": [
+        "VC2TDI",
+        "VC2TDE"
+      ],
+      "needs": [
+        "micro:bits"
+      ],
+      "owned": false,
+      "notes": "Idea to buy: moving builds with the kits already owned."
+    }
+  }
+}

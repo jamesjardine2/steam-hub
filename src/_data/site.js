@@ -7,7 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import markdownIt from "markdown-it";
-import { linkVc2 } from "../../lib/vc2.js";
+import { linkVc2, vc2Area, VC2_CODE } from "../../lib/vc2.js";
 
 const REPO = "jamesjardine2/steam-hub";
 const BRANCH = "main";
@@ -48,6 +48,36 @@ const LENSES = (() => {
   }
 })();
 const LEVELS = ["focus", "present"];
+
+// Science and Technologies codes (src/_data/curriculum.json), used to check
+// the codes in unit and lesson files and to show each code's summary.
+const CURRICULUM = (() => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(process.cwd(), "src", "_data", "curriculum.json"), "utf8")).codes || {};
+  } catch (e) {
+    console.warn(`[steam-hub] src/_data/curriculum.json: could not be read: ${e.message}`);
+    return {};
+  }
+})();
+const PLANNED_AREAS = /^VC2(TDE|TDI|S)\d/;
+
+// `curriculum` holds the Science and Technologies codes a unit or lesson
+// targets; `connections` holds codes from other learning areas it links to
+// (Health, Music, Maths, ...). Both are checked and get a label.
+function loadCodes(file, raw, field) {
+  return asList(raw).map((value) => {
+    const code = String(value).trim();
+    if (!new RegExp(`^${VC2_CODE.source}$`).test(code)) warn(file, `${field} "${code}" is not a Victorian Curriculum 2.0 code`);
+    else if (PLANNED_AREAS.test(code) && Number(code.match(/\d+/g)[1]) <= 6 && !CURRICULUM[code]) {
+      warn(file, `${field} "${code}" is not in src/_data/curriculum.json`);
+    }
+    return code;
+  });
+}
+
+function connectionChips(codes) {
+  return codes.map((code) => ({ code, area: vc2Area(code) || "Other" }));
+}
 const TIERS = [
   { id: "department", label: "Department" },
   { id: "adopted", label: "School-adopted" },
@@ -326,7 +356,8 @@ function loadLesson(file, unit) {
     status: data.status === "draft" ? "draft" : "planned",
     duration: data.duration || DEFAULT_DURATION,
     lisc: liscFrom(data.lisc),
-    curriculum: asList(data.curriculum),
+    curriculum: loadCodes(file, data.curriculum, "curriculum"),
+    connections: connectionChips(loadCodes(file, data.connections, "connections")),
     vtlm,
     citw,
     pedagogyTags,
@@ -373,7 +404,8 @@ function loadUnit(slug, classes, progress) {
     blurb: data.blurb || "",
     descriptionHtml: renderMd(content),
     lisc: liscFrom(data.lisc),
-    curriculum: asList(data.curriculum),
+    curriculum: loadCodes(file, data.curriculum, "curriculum"),
+    connections: connectionChips(loadCodes(file, data.connections, "connections")),
     claudeChat: data.claude_chat || "",
     links: asList(data.links),
     nextTaught: data.next_taught || termLabel(year + 2, term),

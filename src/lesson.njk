@@ -58,11 +58,11 @@ eleventyComputed:
       {% endcall %}
 
       {% if lesson.pedagogy.length %}
-      {% call m.accordion("Pedagogy and sources", (lesson.pedagogy | length) + (" tag" if lesson.pedagogy.length == 1 else " tags"), true) %}
+      {% call m.accordion("Pedagogy and sources", (lesson.pedagogy | length) + (" tag" if lesson.pedagogy.length == 1 else " tags")) %}
         <div class="lens-list">
           {% for row in lesson.pedagogy %}{{ m.lensRow(row) }}{% endfor %}
         </div>
-        <div class="lens-codes">{{ m.codes(lesson.curriculum if lesson.curriculum.length else unit.curriculum) }}</div>
+        <div class="lens-codes">{{ m.codes(lesson.curriculum if lesson.curriculum.length else unit.curriculum) }}{{ m.connections(lesson.connections) }}</div>
       {% endcall %}
       {% endif %}
 
@@ -102,6 +102,7 @@ eleventyComputed:
       {% call m.accordion("Curriculum and approach") %}
         <div class="stack-tight">
           {% if lesson.curriculum.length %}{{ m.codes(lesson.curriculum) }}{% else %}<p class="small muted">Unit codes:</p>{{ m.codes(unit.curriculum) }}{% endif %}
+          {{ m.connections(lesson.connections) }}
           {% if lesson.vtlm.length %}<p class="small strong">VTLM 2.0</p>{{ m.chips(lesson.vtlm) }}{% endif %}
           {% if lesson.citw.length %}<p class="small strong">CITW</p>{{ m.chips(lesson.citw) }}{% endif %}
           {% if not lesson.vtlm.length and not lesson.citw.length %}<p class="ph small">[VTLM and CITW elements to add]</p>{% endif %}

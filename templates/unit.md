@@ -12,6 +12,7 @@ lisc:
     - ...
 curriculum:
   - VC2...
+connections: []          # optional: codes from other learning areas (Health, Music, Maths, ...)
 claude_chat: ""          # link to the pinned chat for this cohort and term
 links: []                # extra links, each with label: and url:
 outline:                 # lessons not written yet (optional)
