@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>How to build and test a boat · Year 3/4 Tin-foil Boats</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+</head>
+<body>
+<div class="stage howto" id="stage">
+  <header>
+    <span class="t">Year 3/4 · Tin-foil Boats</span>
+    <span class="u">How to build and test a boat</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/04-tin-foil-boats/">Exit</a>
+  </header>
+
+  <div class="body">
+    <svg viewBox="0 0 480 470" id="scene" role="img" aria-labelledby="title"></svg>
+    <div class="text" aria-live="polite">
+      <span class="num" id="num">1</span>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="words" id="words"></div>
+    </div>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" id="again">Play again</button>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
+const FOIL = T("mist"), WATER = T("ion-cyan"), INK = T("text-violet");
+const seg = (p, a, b) => Math.min(1, Math.max(0, (p - a) / (b - a)));
+const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const backdrop = `<rect x="10" y="10" width="460" height="450" rx="22" fill="var(--panel)"/>`;
+const label = (x, y, text, size = 26, colour = INK) => `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="700" fill="${colour}">${text}</text>`;
+const WATERLINE = 330;
+const water = (wobble = 0) => `<path d="M10 ${WATERLINE} Q 70 ${WATERLINE - 10 - wobble} 130 ${WATERLINE} T 250 ${WATERLINE} T 370 ${WATERLINE} T 470 ${WATERLINE} V438 Q470 460 448 460 H32 Q10 460 10 438 Z" fill="${WATER}" opacity="0.55"/>`;
+const pebble = (x, y) => `<circle cx="${x}" cy="${y}" r="11" fill="var(--paper)" stroke="${INK}" stroke-width="3"/>`;
+
+// A foil boat seen side on: base at y, walls of height h (0 = flat sheet).
+function boat(cx, y, h, tilt = 0) {
+  const half = 120, lean = 30 * Math.min(1, h / 70);
+  return `<g transform="rotate(${tilt} ${cx} ${y})"><path d="M${cx - half + lean - 30} ${y - h} L${cx + half - lean + 30} ${y - h} L${cx + half - lean} ${y} L${cx - half + lean} ${y} Z" fill="${FOIL}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M${cx - half + lean - 22} ${y - h + 10} L${cx + half - lean + 22} ${y - h + 10}" stroke="var(--paper)" stroke-width="3" opacity="${h > 10 ? 0.7 : 0}"/></g>`;
+}
+// Pebbles sit in rows on the base, filling from the middle out.
+function pebbleSpot(i, cx, y) {
+  const row = Math.floor(i / 5), col = [0, -1, 1, -2, 2][i % 5];
+  return [cx + col * 24 + (row % 2) * 12, y - 12 - row * 20];
+}
+
+// One scene per step: each takes progress p (0 to 1) and returns SVG.
+const SCENES = [
+  // 1. One square of foil, and nothing else.
+  (p) => {
+    const t = ease(seg(p, 0, 0.4));
+    let s = backdrop + `<g transform="translate(240 230) scale(${0.4 + 0.6 * t}) rotate(${(1 - t) * -25})"><rect x="-110" y="-110" width="220" height="220" fill="${FOIL}" stroke="${INK}" stroke-width="5"/><path d="M-90 -60 L60 -100 M-80 20 L90 -40" stroke="var(--paper)" stroke-width="4" opacity="0.6"/></g>`;
+    const show = seg(p, 0.55, 0.7);
+    s += `<g opacity="${show}"><rect x="352" y="58" width="80" height="44" rx="10" fill="var(--panel-2)" stroke="${INK}" stroke-width="3"/>${label(392, 88, "tape", 20)}<path d="M346 52 L438 108 M438 52 L346 108" stroke="${T("plasma-pink")}" stroke-width="7" stroke-linecap="round"/></g>`;
+    return s + label(240, 420, "1 square of foil", 30);
+  },
+  // 2. Fold up the sides to make a base and walls.
+  (p) => {
+    const h = 70 * ease(seg(p, 0.1, 0.8));
+    return backdrop + boat(240, 300, h) + label(240, 150, h < 70 ? "Fold..." : "A base and sides!", 30);
+  },
+  // 3. Write the prediction on the Challenge Card before testing.
+  (p) => {
+    const n = p < 0.5 ? "" : "12";
+    const pen = seg(p, 0.45, 0.65);
+    let s = backdrop + `<rect x="70" y="70" width="340" height="330" rx="14" fill="var(--paper)" stroke="${INK}" stroke-width="5"/>`;
+    s += `<text x="100" y="125" font-size="26" font-weight="800" fill="${T("void")}">Challenge Card</text>`;
+    s += `<text x="100" y="195" font-size="24" font-weight="700" fill="${T("void")}">Prediction:</text><text x="250" y="195" font-size="34" font-weight="800" fill="${T("violet")}">${n}</text><line x1="245" y1="205" x2="370" y2="205" stroke="${T("line")}" stroke-width="3"/>`;
+    s += `<text x="100" y="265" font-size="24" font-weight="700" fill="${T("void")}">Result:</text><line x1="245" y1="275" x2="370" y2="275" stroke="${T("line")}" stroke-width="3"/>`;
+    s += `<text x="100" y="335" font-size="24" font-weight="700" fill="${T("void")}">One change:</text><line x1="245" y1="345" x2="370" y2="345" stroke="${T("line")}" stroke-width="3"/>`;
+    s += `<g transform="translate(${250 + 60 * pen} ${150 - 10 * Math.sin(pen * 12)}) rotate(35)"><rect x="-8" y="-60" width="16" height="70" rx="3" fill="${T("solar-orange")}"/><path d="M-8 10 L0 26 L8 10 Z" fill="${T("void")}"/></g>`;
+    return s;
+  },
+  // 4. Put the boat on the water gently.
+  (p) => {
+    const t = ease(seg(p, 0, 0.6));
+    const y = 120 + (WATERLINE + 12 - 120) * t;
+    const bob = t >= 1 ? Math.sin(p * 18) * 3 : 0;
+    return backdrop + boat(240, y + bob, 70) + water(bob) + label(240, 80, t < 1 ? "Gently..." : "It floats!", 30);
+  },
+  // 5. Add pebbles one at a time in the middle, counting aloud.
+  (p) => {
+    const total = 9;
+    const count = Math.min(total, Math.floor(p * (total + 1.2)));
+    const y = WATERLINE + 12 + count * 2.5;
+    let s = backdrop + boat(240, y, 70);
+    for (let i = 0; i < count; i++) { const [x, py] = pebbleSpot(i, 240, y); s += pebble(x, py); }
+    const f = (p * (total + 1.2)) % 1;
+    if (count < total) { const [x, py] = pebbleSpot(count, 240, y); s += pebble(x, 60 + (py - 60) * ease(f)); }
+    return s + water() + label(400, 110, `${count}`, 64);
+  },
+  // 6. Water comes in: stop. The score is the last pebble before it sank.
+  (p) => {
+    const t = ease(seg(p, 0.1, 0.6));
+    const y = WATERLINE + 35 + 45 * t;
+    let s = backdrop + boat(240, y, 70, 8 * t);
+    for (let i = 0; i < 10; i++) { const [x, py] = pebbleSpot(i, 240, y); s += pebble(x, py); }
+    s += water();
+    if (t > 0.2) s += `<path d="M330 ${WATERLINE - 4} q 10 20 0 40" stroke="${WATER}" stroke-width="10" fill="none" stroke-linecap="round" opacity="${t}"/>`;
+    const show = seg(p, 0.65, 0.8);
+    return s + `<g opacity="${show}"><rect x="110" y="40" width="260" height="70" rx="14" fill="var(--panel-2)" stroke="${INK}" stroke-width="3"/>${label(240, 86, "Score: 9 pebbles", 30)}</g>`;
+  },
+];
+
+const STEPS = [
+  { title: "One square of foil.", sub: "That is all you get. No tape!", dur: 4500, words: ["1 square", "no tape", "6 minutes"] },
+  { title: "Fold up the sides.", sub: "Make a base and walls.", dur: 4500, words: ["base", "sides"] },
+  { title: "Write your prediction first.", sub: "How many pebbles will it hold?", dur: 4500, words: ["prediction"], wordsFrom: 0.6 },
+  { title: "Put it on the water gently.", sub: "The builder places the boat.", dur: 4500, words: [] },
+  { title: "Add pebbles one at a time, in the middle.", sub: "Count out loud!", dur: 9000, words: [["same pebbles", "yes"], ["one at a time", "yes"], ["in the middle", "yes"]] },
+  { title: "Water comes in? Stop.", sub: "Your score is the last pebble before it sank. Compare it with your prediction.", dur: 5000, words: ["result", "one change"], wordsFrom: 0.7 },
+];
+
+const $ = (id) => document.getElementById(id);
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let current = 0, start = 0, frame = 0;
+
+function renderWords(step, p) {
+  const n = step.words.length;
+  $("words").innerHTML = step.words.map((w, i) => {
+    const [text, kind] = Array.isArray(w) ? w : [w, ""];
+    const at = step.wordsAt ? step.wordsAt[i] : (step.wordsFrom ?? 0.1) + (i / n) * (1 - (step.wordsFrom ?? 0.1)) * 0.8;
+    return `<span class="word ${kind}${p >= at ? " done" : ""}">${text}</span>`;
+  }).join("");
+}
+
+function tick(now) {
+  const step = STEPS[current];
+  const p = reduceMotion ? 1 : Math.min(1, (now - start) / step.dur);
+  $("scene").innerHTML = SCENES[current](p);
+  renderWords(step, p);
+  if (p < 1) frame = requestAnimationFrame(tick);
+}
+
+function go(i) {
+  current = Math.max(0, Math.min(STEPS.length - 1, i));
+  const step = STEPS[current];
+  $("num").textContent = current + 1;
+  $("title").textContent = step.title;
+  $("sub").textContent = step.sub;
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("back").disabled = current === 0;
+  $("next").disabled = current === STEPS.length - 1;
+  cancelAnimationFrame(frame);
+  start = performance.now();
+  frame = requestAnimationFrame(tick);
+}
+
+STEPS.forEach((_, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Step ${j + 1}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+$("again").addEventListener("click", () => go(current));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(current + 1); }
+  if (e.key === "ArrowLeft") go(current - 1);
+});
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go(0);
+</script>
+</body>
+</html>

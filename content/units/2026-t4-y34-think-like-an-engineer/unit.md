@@ -31,27 +31,9 @@ assessment:
     when: Lesson 8
 claude_chat: https://claude.ai/chat/0382bbe4-29d4-4b53-bf18-053500b1bd6e
 links:
-  - label: "LEGO Education: Truck Rally"
-    url: https://teach.legoeducation.com/en-us/science/lesson/truck-rally
-  - label: "LEGO Education: Legs for Fetch"
-    url: https://teach.legoeducation.com/en-us/science/lesson/legs-for-fetch
-  - label: "LEGO Education: Grabber Arm"
-    url: https://teach.legoeducation.com/en-us/science/lesson/grabber-arm
   - label: "Minecraft Education: Design an Animal"
     url: https://education.minecraft.net/en-us/challenges/design-an-animal
 outline:
-  - number: 1
-    title: Truck Rally
-    summary: "LEGO Education Science engineering design challenge (see Files and links)."
-  - number: 2
-    title: Legs for Fetch
-    summary: "LEGO Education Science engineering design challenge (see Files and links)."
-  - number: 3
-    title: Grabber Arm
-    summary: "LEGO Education Science engineering design challenge (see Files and links)."
-  - number: 4
-    title: Tin-foil Boats
-    summary: "Build a foil boat that holds the most marbles or pebbles. Habit: predict, then test. Worked example of a fair test with think-aloud, and the Frayer model for constraint. Links back to the paper bridge."
   - number: 5
     title: Helicopters or Towers
     summary: "Paper helicopters, or index-card towers that hold a book. Habit: change one thing at a time, a first look at fair testing."

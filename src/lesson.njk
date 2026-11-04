@@ -53,6 +53,10 @@ eleventyComputed:
     {% if lesson.introHtml %}<div class="prose note">{{ lesson.introHtml | safe }}</div>{% endif %}
 
     <div class="accs">
+      {# A lesson that only points to an outside plan (for example a LEGO
+         Education lesson) has no LISC, sequence or sections: skip those. #}
+      {% set linkOnly = not lesson.lisc and not lesson.sequence.length and not lesson.sections.length %}
+      {% if not linkOnly %}
       {% call m.accordion("LISC", "Learning Intention and Success Criteria") %}
         {{ m.lisc(lesson.lisc) }}
       {% endcall %}
@@ -89,6 +93,7 @@ eleventyComputed:
       {% else %}
         {% call m.accordion("Full plan") %}<p class="ph">[Full plan to add]</p>{% endcall %}
       {% endfor %}
+      {% endif %}
 
       {% call m.accordion("Resources", (lesson.resources | length) + " items" if lesson.resources.length else "") %}
         {% if lesson.resources.length %}
@@ -98,7 +103,7 @@ eleventyComputed:
         {% endif %}
       {% endcall %}
 
-      {% if not lesson.pedagogy.length %}
+      {% if not lesson.pedagogy.length and not linkOnly %}
       {% call m.accordion("Curriculum and approach") %}
         <div class="stack-tight">
           {% if lesson.curriculum.length %}{{ m.codes(lesson.curriculum) }}{% else %}<p class="small muted">Unit codes:</p>{{ m.codes(unit.curriculum) }}{% endif %}
