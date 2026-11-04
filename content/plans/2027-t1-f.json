@@ -9,11 +9,13 @@
   "created": "2026-11-04",
   "updated": "2026-11-04",
   "answers": {
-    "targets": [],
+    "targets": [
+      "VC2S2U11"
+    ],
     "report_subject": "Digital Technologies",
     "must_use": [],
     "cant_use": [],
-    "open_to_buying": false,
+    "open_to_buying": true,
     "checking": "",
     "dates": "",
     "links": "",
