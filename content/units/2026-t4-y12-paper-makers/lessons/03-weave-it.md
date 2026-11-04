@@ -21,7 +21,7 @@ pedagogy:
     how: "Loose strips drop the pebbles, then the hook shows sleeve threads and Wurundjeri baskets woven from grass fibres."
   citw.vocab:
     level: focus
-    how: "Weave, loom and strong are taught with the Frayer word wall."
+    how: "Weave, loom and combine are taught with the Frayer word wall: combining strips into one mat is the unit's big idea, with loose strips side by side as the non-example."
   vtlm.explicit.explain:
     level: present
     how: "The teacher models making the loom (5 slits, stopping a finger-width from the edge), tearing strips and weaving over, under."
@@ -77,7 +77,7 @@ live:
     file: 03-weaving.html
   - kind: HTML
     title: "Word wall: Frayer model"
-    note: weave, loom and strong
+    note: weave, loom and combine
     file: 03-frayer.html
 crt_notes: This plan is written for a CRT. No preparation and no screens, so the hook uses sleeve threads instead of basket images. Scissors are new this week; watch for slits cut right to the edge.
 ---
@@ -90,7 +90,7 @@ No preparation needed. Everything is collected with student helpers during the l
 - **Weave:** push the first strip **over, under, over, under** through the slits. Push the next strip **under, over, under, over** (the opposite). Slide each strip up close to the last one. 4 or 5 strips fill the loom.
 - **Carry test:** first lay 4 **loose** strips side by side and put pebbles in the middle. Lift by two edges. The strips slide apart and the pebbles fall. Then do the same with the **woven mat**: lift it by two edges like a hammock, just above the table, adding 1 pebble at a time. Count how many it carries.
 
-**Key words:** weave, over, under, strip, loom, pattern, strong, carry
+**Key words:** weave, over, under, strip, loom, combine, pattern, strong, carry
 
 ## Lesson sequence
 
