@@ -43,36 +43,114 @@
         ]
       },
       "assessment": [
-        { "title": "Book Creator page", "how": "Each pair adds a photo of their toy and says push or pull into the page; check against the success criteria.", "when": "Lesson 8" },
-        { "title": "Observation checklist", "how": "Tick the class list as students show a push and a pull with their toy.", "when": "Lessons 5 to 7" },
-        { "title": "Toy showcase", "how": "Pairs demonstrate to another pair; listen for push and pull words.", "when": "Lesson 8" }
+        {
+          "title": "Book Creator page",
+          "how": "Each pair adds a photo of their toy and says push or pull into the page; check against the success criteria.",
+          "when": "Lesson 8"
+        },
+        {
+          "title": "Observation checklist",
+          "how": "Tick the class list as students show a push and a pull with their toy.",
+          "when": "Lessons 5 to 7"
+        },
+        {
+          "title": "Toy showcase",
+          "how": "Pairs demonstrate to another pair; listen for push and pull words.",
+          "when": "Lesson 8"
+        }
       ],
       "arc": [
-        { "number": 1, "title": "Push or Pull?", "summary": "Move our bodies and classroom objects, and sort actions into pushes and pulls." },
-        { "number": 2, "title": "Push and Pull Detectives", "summary": "Spot pushes and pulls around the playground and photograph them on the iPad." },
-        { "number": 3, "title": "Big Push, Small Push", "summary": "Use LEGO and a ramp to see that a bigger push moves things further." },
-        { "number": 4, "title": "Which Way?", "summary": "Predict and test which way a toy moves when pushed or pulled." },
-        { "number": 5, "title": "Plan a Mover", "summary": "Draw and label a plan for a toy that moves with a push or a pull." },
-        { "number": 6, "title": "Build a Mover", "summary": "Build the toy from LEGO and craft materials." },
-        { "number": 7, "title": "Test and Improve", "summary": "Test the toy, record a short video on the iPad and change one thing." },
-        { "number": 8, "title": "Playground Showcase", "summary": "Share toys and add a photo and voice recording to a Book Creator page." }
+        {
+          "number": 1,
+          "title": "Push or Pull?",
+          "summary": "Move our bodies and classroom objects, and sort actions into pushes and pulls."
+        },
+        {
+          "number": 2,
+          "title": "Push and Pull Detectives",
+          "summary": "Spot pushes and pulls around the playground and photograph them on the iPad."
+        },
+        {
+          "number": 3,
+          "title": "Big Push, Small Push",
+          "summary": "Use LEGO and a ramp to see that a bigger push moves things further."
+        },
+        {
+          "number": 4,
+          "title": "Which Way?",
+          "summary": "Predict and test which way a toy moves when pushed or pulled."
+        },
+        {
+          "number": 5,
+          "title": "Plan a Mover",
+          "summary": "Draw and label a plan for a toy that moves with a push or a pull."
+        },
+        {
+          "number": 6,
+          "title": "Build a Mover",
+          "summary": "Build the toy from LEGO and craft materials."
+        },
+        {
+          "number": 7,
+          "title": "Test and Improve",
+          "summary": "Test the toy, record a short video on the iPad and change one thing."
+        },
+        {
+          "number": 8,
+          "title": "Playground Showcase",
+          "summary": "Share toys and add a photo and voice recording to a Book Creator page."
+        }
       ],
       "resources": [
-        { "id": "lego-bricks", "why": "Building the moving toys and ramps." },
-        { "id": "craft", "why": "Wheels, axles, strings and ramps." },
-        { "id": "ipads", "why": "Photos, short videos and voice recordings." },
-        { "id": "book-creator", "why": "One page per pair to show the toy and say push or pull." }
+        {
+          "id": "lego-bricks",
+          "why": "Building the moving toys and ramps."
+        },
+        {
+          "id": "craft",
+          "why": "Wheels, axles, strings and ramps."
+        },
+        {
+          "id": "ipads",
+          "why": "Photos, short videos and voice recordings."
+        },
+        {
+          "id": "book-creator",
+          "why": "One page per pair to show the toy and say push or pull."
+        }
       ],
       "purchases": [],
       "connections": [
-        { "code": "VC2HP2P01", "how": "Pushing, pulling and moving in play links to the physical activity and movement the class already does." },
-        { "code": "VC2AMU2E01", "how": "Students listen to and describe sounds and movement, for example a fast push and a slow pull, as a short sound or rhythm." }
+        {
+          "code": "VC2HP2P01",
+          "how": "Pushing, pulling and moving in play links to the physical activity and movement the class already does."
+        },
+        {
+          "code": "VC2AMU2E01",
+          "how": "Students listen to and describe sounds and movement, for example a fast push and a slow pull, as a short sound or rhythm."
+        }
       ],
       "pedagogy": [
-        { "id": "citw.problem_solving", "level": "focus", "how": "Students plan, build, test and improve a toy to meet a moving goal." },
-        { "id": "citw.vocab", "level": "focus", "how": "Push, pull, faster and slower are taught and used in every lesson." },
-        { "id": "citw.visuals", "level": "present", "how": "Photos and drawings carry the ideas, with few words." },
-        { "id": "citw.guided_application", "level": "present", "how": "Lessons 5 and 6 model one plan and one build before pairs start." }
+        {
+          "id": "citw.problem_solving",
+          "level": "focus",
+          "how": "Students plan, build, test and improve a toy to meet a moving goal."
+        },
+        {
+          "id": "citw.vocab",
+          "level": "focus",
+          "how": "Push, pull, faster and slower are taught and used in every lesson."
+        },
+        {
+          "id": "citw.visuals",
+          "level": "present",
+          "how": "Photos and drawings carry the ideas, with few words."
+        },
+        {
+          "id": "citw.guided_application",
+          "level": "present",
+          "how": "Lessons 5 and 6 model one plan and one build before pairs start."
+        }
       ],
       "backbone": [
         "Move from the body to objects to a built toy, concrete before abstract.",
@@ -100,36 +178,114 @@
         ]
       },
       "assessment": [
-        { "title": "Journal page", "how": "One drawn or photographed test per student in a Book Creator page; check for push or pull and what changed.", "when": "Lesson 6" },
-        { "title": "Observation checklist", "how": "Tick the class list as students predict, test and say what happened.", "when": "Lessons 3 to 7" },
-        { "title": "Show what we found", "how": "Pairs tell the class one finding using the sentence starter \"When I pushed...\".", "when": "Lesson 8" }
+        {
+          "title": "Journal page",
+          "how": "One drawn or photographed test per student in a Book Creator page; check for push or pull and what changed.",
+          "when": "Lesson 6"
+        },
+        {
+          "title": "Observation checklist",
+          "how": "Tick the class list as students predict, test and say what happened.",
+          "when": "Lessons 3 to 7"
+        },
+        {
+          "title": "Show what we found",
+          "how": "Pairs tell the class one finding using the sentence starter \"When I pushed...\".",
+          "when": "Lesson 8"
+        }
       ],
       "arc": [
-        { "number": 1, "title": "What Is a Force?", "summary": "Feel pushes and pulls with ropes, balls and doors, and name them." },
-        { "number": 2, "title": "Push and Pull Tests", "summary": "Use simple fair tests: push a toy car, pull it with string." },
-        { "number": 3, "title": "Magnets Pull", "summary": "Explore magnets as a pull we cannot see." },
-        { "number": 4, "title": "Balloon Power", "summary": "Test balloons: what a push of air does to a toy." },
-        { "number": 5, "title": "Ramps and Cars", "summary": "Change the size of a push and measure how far a LEGO car goes." },
-        { "number": 6, "title": "Record It", "summary": "Photograph and film tests on the iPad and sort the results." },
-        { "number": 7, "title": "Make a Prediction", "summary": "Use what we know to predict a new test, then check." },
-        { "number": 8, "title": "Force Findings", "summary": "Share findings in a class Book Creator book." }
+        {
+          "number": 1,
+          "title": "What Is a Force?",
+          "summary": "Feel pushes and pulls with ropes, balls and doors, and name them."
+        },
+        {
+          "number": 2,
+          "title": "Push and Pull Tests",
+          "summary": "Use simple fair tests: push a toy car, pull it with string."
+        },
+        {
+          "number": 3,
+          "title": "Magnets Pull",
+          "summary": "Explore magnets as a pull we cannot see."
+        },
+        {
+          "number": 4,
+          "title": "Balloon Power",
+          "summary": "Test balloons: what a push of air does to a toy."
+        },
+        {
+          "number": 5,
+          "title": "Ramps and Cars",
+          "summary": "Change the size of a push and measure how far a LEGO car goes."
+        },
+        {
+          "number": 6,
+          "title": "Record It",
+          "summary": "Photograph and film tests on the iPad and sort the results."
+        },
+        {
+          "number": 7,
+          "title": "Make a Prediction",
+          "summary": "Use what we know to predict a new test, then check."
+        },
+        {
+          "number": 8,
+          "title": "Force Findings",
+          "summary": "Share findings in a class Book Creator book."
+        }
       ],
       "resources": [
-        { "id": "lego-science-k2", "why": "Ready-made cars, ramps and push and pull investigations for Foundation to Level 2." },
-        { "id": "magnets-balloons", "why": "Pulls we cannot see and pushes of air." },
-        { "id": "ipads", "why": "Photos and slow-motion video of tests." },
-        { "id": "book-creator", "why": "A class book of findings." }
+        {
+          "id": "lego-science-k2",
+          "why": "Ready-made cars, ramps and push and pull investigations for Foundation to Level 2."
+        },
+        {
+          "id": "magnets-balloons",
+          "why": "Pulls we cannot see and pushes of air."
+        },
+        {
+          "id": "ipads",
+          "why": "Photos and slow-motion video of tests."
+        },
+        {
+          "id": "book-creator",
+          "why": "A class book of findings."
+        }
       ],
       "purchases": [],
       "connections": [
-        { "code": "VC2HP2P01", "how": "Pushing, pulling and moving in play links to the physical activity and movement the class already does." },
-        { "code": "VC2AMU2E01", "how": "Students listen to and describe sounds and movement, for example a fast push and a slow pull, as a short sound or rhythm." }
+        {
+          "code": "VC2HP2P01",
+          "how": "Pushing, pulling and moving in play links to the physical activity and movement the class already does."
+        },
+        {
+          "code": "VC2AMU2E01",
+          "how": "Students listen to and describe sounds and movement, for example a fast push and a slow pull, as a short sound or rhythm."
+        }
       ],
       "pedagogy": [
-        { "id": "citw.guided_investigations", "level": "focus", "how": "Every lesson is a guided test with a question, a prediction and a result." },
-        { "id": "citw.questions", "level": "focus", "how": "Predict and check questions open each test." },
-        { "id": "citw.retrieval", "level": "present", "how": "Each lesson starts by recalling the last finding." },
-        { "id": "citw.vocab", "level": "present", "how": "Force, push, pull and magnet are taught explicitly." }
+        {
+          "id": "citw.guided_investigations",
+          "level": "focus",
+          "how": "Every lesson is a guided test with a question, a prediction and a result."
+        },
+        {
+          "id": "citw.questions",
+          "level": "focus",
+          "how": "Predict and check questions open each test."
+        },
+        {
+          "id": "citw.retrieval",
+          "level": "present",
+          "how": "Each lesson starts by recalling the last finding."
+        },
+        {
+          "id": "citw.vocab",
+          "level": "present",
+          "how": "Force, push, pull and magnet are taught explicitly."
+        }
       ],
       "backbone": [
         "Explicit teaching of fair testing with one worked example before pairs try.",
@@ -157,38 +313,119 @@
         ]
       },
       "assessment": [
-        { "title": "Challenge photos", "how": "Photograph each pair's finished robot challenge; check the steps against the success criteria.", "when": "Lessons 6 and 7" },
-        { "title": "Observation checklist", "how": "Tick the class list as students give steps in order and fix a mistake.", "when": "Lessons 4 to 7" },
-        { "title": "Robot show", "how": "Pairs run their challenge for another pair and explain it.", "when": "Lesson 8" }
+        {
+          "title": "Challenge photos",
+          "how": "Photograph each pair's finished robot challenge; check the steps against the success criteria.",
+          "when": "Lessons 6 and 7"
+        },
+        {
+          "title": "Observation checklist",
+          "how": "Tick the class list as students give steps in order and fix a mistake.",
+          "when": "Lessons 4 to 7"
+        },
+        {
+          "title": "Robot show",
+          "how": "Pairs run their challenge for another pair and explain it.",
+          "when": "Lesson 8"
+        }
       ],
       "arc": [
-        { "number": 1, "title": "Robots Follow Steps", "summary": "Be a robot: follow a friend's steps across the floor." },
-        { "number": 2, "title": "Push or Pull?", "summary": "Name pushes and pulls in play and see a robot push a block." },
-        { "number": 3, "title": "Meet the Robot", "summary": "Drive a Sphero with the iPad and notice how it pushes things." },
-        { "number": 4, "title": "Steps in Order", "summary": "Plan steps with arrow cards, then try them with the robot." },
-        { "number": 5, "title": "Push the Block", "summary": "Make the robot push a block to a target." },
-        { "number": 6, "title": "Fix It", "summary": "Find and fix a mistake in the steps." },
-        { "number": 7, "title": "Challenge Course", "summary": "Build a course with LEGO and push objects through it." },
-        { "number": 8, "title": "Robot Show", "summary": "Share the challenge and add a video to Book Creator." }
+        {
+          "number": 1,
+          "title": "Robots Follow Steps",
+          "summary": "Be a robot: follow a friend's steps across the floor."
+        },
+        {
+          "number": 2,
+          "title": "Push or Pull?",
+          "summary": "Name pushes and pulls in play and see a robot push a block."
+        },
+        {
+          "number": 3,
+          "title": "Meet the Robot",
+          "summary": "Drive a Sphero with the iPad and notice how it pushes things."
+        },
+        {
+          "number": 4,
+          "title": "Steps in Order",
+          "summary": "Plan steps with arrow cards, then try them with the robot."
+        },
+        {
+          "number": 5,
+          "title": "Push the Block",
+          "summary": "Make the robot push a block to a target."
+        },
+        {
+          "number": 6,
+          "title": "Fix It",
+          "summary": "Find and fix a mistake in the steps."
+        },
+        {
+          "number": 7,
+          "title": "Challenge Course",
+          "summary": "Build a course with LEGO and push objects through it."
+        },
+        {
+          "number": 8,
+          "title": "Robot Show",
+          "summary": "Share the challenge and add a video to Book Creator."
+        }
       ],
       "resources": [
-        { "id": "sphero", "why": "Robots that push objects and follow steps." },
-        { "id": "ipads", "why": "Drive the robots and record video." },
-        { "id": "lego-bricks", "why": "Courses and blocks to push." },
-        { "id": "book-creator", "why": "Show the challenge with a video." }
+        {
+          "id": "sphero",
+          "why": "Robots that push objects and follow steps."
+        },
+        {
+          "id": "ipads",
+          "why": "Drive the robots and record video."
+        },
+        {
+          "id": "lego-bricks",
+          "why": "Courses and blocks to push."
+        },
+        {
+          "id": "book-creator",
+          "why": "Show the challenge with a video."
+        }
       ],
       "purchases": [
-        { "name": "Bee-Bot or Blue-Bot floor robots", "why": "Simpler button-programmed robots may suit Foundation better than Sphero, and give each group a robot." }
+        {
+          "name": "Bee-Bot or Blue-Bot floor robots",
+          "why": "Simpler button-programmed robots may suit Foundation better than Sphero, and give each group a robot."
+        }
       ],
       "connections": [
-        { "code": "VC2HP2P01", "how": "Pushing, pulling and moving in play links to the physical activity and movement the class already does." },
-        { "code": "VC2AMU2E01", "how": "Students listen to and describe sounds and movement, for example a fast push and a slow pull, as a short sound or rhythm." }
+        {
+          "code": "VC2HP2P01",
+          "how": "Pushing, pulling and moving in play links to the physical activity and movement the class already does."
+        },
+        {
+          "code": "VC2AMU2E01",
+          "how": "Students listen to and describe sounds and movement, for example a fast push and a slow pull, as a short sound or rhythm."
+        }
       ],
       "pedagogy": [
-        { "id": "vc.digitech", "level": "focus", "how": "Students give a digital system ordered steps and fix mistakes." },
-        { "id": "citw.strategy_modelling", "level": "focus", "how": "James models stepping out an algorithm before pairs try." },
-        { "id": "citw.guided_application", "level": "present", "how": "Short guided turns with the robot before open challenges." },
-        { "id": "citw.vocab", "level": "present", "how": "Steps, push, pull and fix are taught explicitly." }
+        {
+          "id": "vc.digitech",
+          "level": "focus",
+          "how": "Students give a digital system ordered steps and fix mistakes."
+        },
+        {
+          "id": "citw.strategy_modelling",
+          "level": "focus",
+          "how": "James models stepping out an algorithm before pairs try."
+        },
+        {
+          "id": "citw.guided_application",
+          "level": "present",
+          "how": "Short guided turns with the robot before open challenges."
+        },
+        {
+          "id": "citw.vocab",
+          "level": "present",
+          "how": "Steps, push, pull and fix are taught explicitly."
+        }
       ],
       "backbone": [
         "Unplugged first: students act as robots before using devices.",
@@ -203,6 +440,28 @@
       ]
     }
   ],
-  "choices": {},
+  "choices": {
+    "notes": "Being term 1, i need to embed PCMS/SWPBS in the lessons (Prep has a focus of \"I show you and we practise together.\") Here is the content that I need to touch on in age appropriate ways:  \n\nPCMS / SWPBS Focus\nWeek 2\nClassroom Expectations\n\nLI: To behave safely and kindly in our specialist room.\n\n\nPurpose from PCMS: When students know exactly what behaviour is expected of them, they are more likely to demonstrate these behaviours in the classroom. Teachers establish clear, consistent guidelines for conduct, which helps create a structured and positive learning environment.\n\nExpectations to be taught:\nMini lesson / Task / Pack up\nToilet / drink\nOut of bounds areas\nWeek 3\nClassroom Procedures & Routines\n\nLI: To follow routines so everyone can learn safely and calmly\n\nLesson starts off, do roll then practice transition to the basketball court during the first 10 mins of the lesson\n\nCut off class 10 mins early and heavy focus on transitions.\n\nPurpose from PCMS: Procedures are the process for how things are done. When taught to fluency, they help students to form routines to efficiently and smoothly accomplish tasks. Teachers should implement these procedures because they minimise confusion and maximise instructional time.\n\nRoutines to be taught:\nIn-class transitions\nArriving & departing\nSwapping over with other Specialists\nWorkbook expectations\nPlacement of personal belongings \nWeek 4\nEncouraging Expected Behaviour\n\nTrial in term 1 working towards a Stamp Target\n\nLI: To show behaviours that help everyone learn safely and happily in our specialist room.\n\nPurpose from PCMS: To effectively recognise and encourage students when they display expected behaviours and to create a positive school environment where learning flourishes.\n\nExpected behaviours to be taught/acknowledged:\nRevise expectations from first week\nShowing Kindness, Resilience and Responsibility\nClassroom acknowledgement system (e.g. stamps for positive behaviours)\nGive feedback at a 4:1 positive to corrective ratio (9:1 positive to corrective for students who may have experienced trauma)\nWeek 5\nDiscouraging Inappropriate Behaviour\n\nDevelop a pack for each Specialist class (Senior to Junior School) for students to reflect when removed.\n\nLI: To respond calmly and respectfully when things go wrong in our Specialist room.\n\nPurpose from PCMS: Specific corrective feedback is a necessary component of the learning process as students need to know when they have made an error and be redirected to the expected behaviour. Additionally, timely and constructive feedback prevents the escalation of negative behaviours, maintaining a conducive learning environment for all students.\n\nSchool-wide sequence for minor behaviours:\nRemind: A discreet reminder of the expected behaviour (1:1)\nRedirect: Offer specific support or options to help the student re-engage (no more than two strategies)\nRelocate: Move to a different seat or different class in PLT if behaviour continues, with follow-up reflection and communication as required",
+    "big_idea": {
+      "from": "A",
+      "own": ""
+    },
+    "assessment": {
+      "from": "A",
+      "own": ""
+    },
+    "arc": {
+      "from": "A",
+      "own": ""
+    },
+    "resources": {
+      "from": "A",
+      "own": ""
+    },
+    "connections": {
+      "from": "A",
+      "own": ""
+    }
+  },
   "unit": null
 }
