@@ -97,7 +97,7 @@ crt_notes: Works for a CRT if the strips are cut beforehand and the drop height 
 
 **Focus:** engineers change one thing at a time so they know what caused the difference. The habit this week is **change one thing at a time**.
 
-**Links:** in Lesson 4 students ran a fair test with foil boats. This lesson adds a name for the thing you change (the variable) and repeats each test three times. Students use the same Challenge Card.
+**Links:** in Lesson 4 students ran a fair test with foil boats. This lesson adds a name for the thing you change (the variable) and repeats each test three times. It also starts the Challenge Card, which every lesson to Lesson 7 uses (Lesson 4 had no writing).
 
 ## How the challenge works
 
@@ -116,7 +116,7 @@ crt_notes: Works for a CRT if the strips are cut beforehand and the drop height 
 |---|---|---|
 | 0 to 3 min | Settle and recall | Students sit facing you. Ask: "In the boat test, what did we keep the same?" (The foil, the pebbles, the way we added them.) Read the Learning Intention and Success Criteria aloud. |
 | 3 to 8 min | Hook (CIC) | Hold up two paper helicopters that are the same except for their wings, one long and one short. Drop them together from the marked height. Ask: "Which one landed last? What made the difference?" Take two or three answers. Do not explain yet. |
-| 8 to 16 min | Explain and model | Show the word wall: **variable** (the one thing you change in a test), **trial** (one go at the test; we do three) and **control** (what you keep the same). Play the how-to animation. Then think aloud: "My variable is wing length. I keep the paper, the paperclip and the drop height the same. I drop it three times and write each time down, because one go could be a fluke." Fill in a Challenge Card with your example. |
+| 8 to 16 min | Explain and model | Show the word wall: **variable** (the one thing you change in a test), **trial** (one go at the test; we do three) and **control** (what you keep the same). Play the how-to animation. Then think aloud: "My variable is wing length. I keep the paper, the paperclip and the drop height the same. I drop it three times and write each time down, because one go could be a fluke." This is the first Challenge Card, so show the class each part as you fill it in with your example: the challenge, the constraints, the sketch, the three numbered lines for prediction and result, and one change. |
 | 16 to 25 min | Plan and build | Groups choose one variable and write a prediction on their Challenge Card. Then they build a standard helicopter and a second one that changes only the variable. Check each group can say, "Our variable is ___." |
 | 25 to 40 min | Test and improve | Groups drop each helicopter three times from the marked height, time every fall and record it. Roam with the questions below. Groups that finish choose the best change and test it again, or test a second variable. |
 | 40 to 45 min | Share and pack up | Pack up first: strips into the recycling and scissors back to the tubs. Then 3 or 4 groups share their variable, their times and the best change, using the sentence stem. Say the key idea together. Challenge Cards glued into STEAM journals. |
