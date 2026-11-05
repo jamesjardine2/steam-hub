@@ -46,6 +46,6 @@ outline:
     title: Reflection and Showcase
     summary: "Which habit helped me most? Students reflect in their journals and show their best design. Habit: thinking about how we think."
 ---
-Every lesson is a hands-on design challenge that is built, tested and packed away in one lesson. What changes is the materials; what stays the same is the thinking. Students repeat one design cycle every week (ask, imagine, plan, create, test, improve) and, from Lesson 5, record it on the same Challenge Card (Lesson 4 is all spoken and signalled responses), and each lesson focuses on one engineering habit, so the series builds into a progression.
+Every lesson is a hands-on design challenge that is built, tested and packed away in one lesson. What changes is the materials; what stays the same is the thinking. Students repeat one design cycle every week (ask, imagine, plan, create, test, improve), and each lesson focuses on one engineering habit, so the series builds into a progression. From Lesson 5 they record each challenge on the same Challenge Card; in Lesson 4 every answer is spoken or signalled.
 
 Lessons 1 to 3 were LEGO Education Science challenges. Students also designed an animal in Minecraft Education and built paper bridges to hold pebbles. Vocabulary builds across the unit: constraint (Lesson 4), prototype (Lesson 6) and iterate.
