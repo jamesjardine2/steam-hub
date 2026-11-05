@@ -25,7 +25,7 @@ curriculum:
 assessment:
   - title: Challenge Card
     how: "The same one-page stick-in every lesson: the problem, the constraints, a sketch, the result and one change. It is the evidence trail for Design and Technologies reports."
-    when: Lessons 4 to 7
+    when: Lessons 5 to 7
   - title: "Reflection: which habit helped me most?"
     how: Each student writes in their journal which engineering habit helped them most and shows a build or Challenge Card as evidence.
     when: Lesson 8
@@ -46,6 +46,6 @@ outline:
     title: Reflection and Showcase
     summary: "Which habit helped me most? Students reflect in their journals and show their best design. Habit: thinking about how we think."
 ---
-Every lesson is a hands-on design challenge that is built, tested and packed away in one lesson. What changes is the materials; what stays the same is the thinking. Students repeat one design cycle every week (ask, imagine, plan, create, test, improve) on the same Challenge Card, and each lesson focuses on one engineering habit, so the series builds into a progression.
+Every lesson is a hands-on design challenge that is built, tested and packed away in one lesson. What changes is the materials; what stays the same is the thinking. Students repeat one design cycle every week (ask, imagine, plan, create, test, improve) and, from Lesson 5, record it on the same Challenge Card (Lesson 4 is all spoken and signalled responses), and each lesson focuses on one engineering habit, so the series builds into a progression.
 
 Lessons 1 to 3 were LEGO Education Science challenges. Students also designed an animal in Minecraft Education and built paper bridges to hold pebbles. Vocabulary builds across the unit: constraint (Lesson 4), prototype (Lesson 6) and iterate.
