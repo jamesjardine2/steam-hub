@@ -82,16 +82,13 @@ const SCENES = [
     const h = 70 * ease(seg(p, 0.1, 0.8));
     return backdrop + boat(240, 300, h) + label(240, 150, h < 70 ? "Fold..." : "A base and sides!", 30);
   },
-  // 3. Write the prediction on the Challenge Card before testing.
+  // 3. The group agrees on a prediction and says it aloud before testing.
   (p) => {
-    const n = p < 0.5 ? "" : "12";
-    const pen = seg(p, 0.45, 0.65);
-    let s = backdrop + `<rect x="70" y="70" width="340" height="330" rx="14" fill="var(--paper)" stroke="${INK}" stroke-width="5"/>`;
-    s += `<text x="100" y="125" font-size="26" font-weight="800" fill="${T("void")}">Challenge Card</text>`;
-    s += `<text x="100" y="195" font-size="24" font-weight="700" fill="${T("void")}">Prediction:</text><text x="250" y="195" font-size="34" font-weight="800" fill="${T("violet")}">${n}</text><line x1="245" y1="205" x2="370" y2="205" stroke="${T("line")}" stroke-width="3"/>`;
-    s += `<text x="100" y="265" font-size="24" font-weight="700" fill="${T("void")}">Result:</text><line x1="245" y1="275" x2="370" y2="275" stroke="${T("line")}" stroke-width="3"/>`;
-    s += `<text x="100" y="335" font-size="24" font-weight="700" fill="${T("void")}">One change:</text><line x1="245" y1="345" x2="370" y2="345" stroke="${T("line")}" stroke-width="3"/>`;
-    s += `<g transform="translate(${250 + 60 * pen} ${150 - 10 * Math.sin(pen * 12)}) rotate(35)"><rect x="-8" y="-60" width="16" height="70" rx="3" fill="${T("solar-orange")}"/><path d="M-8 10 L0 26 L8 10 Z" fill="${T("void")}"/></g>`;
+    const head = (x, y) => `<circle cx="${x}" cy="${y}" r="34" fill="var(--paper)" stroke="${INK}" stroke-width="5"/><path d="M${x - 50} ${y + 100} Q${x} ${y + 30} ${x + 50} ${y + 100}" fill="var(--panel-2)" stroke="${INK}" stroke-width="5"/>`;
+    let s = backdrop + head(130, 300) + head(240, 290) + head(350, 300);
+    const pop = ease(seg(p, 0.3, 0.5));
+    s += `<g transform="translate(240 150) scale(${pop})"><path d="M-110 -70 H110 Q130 -70 130 -50 V40 Q130 60 110 60 H20 L0 95 L-10 60 H-110 Q-130 60 -130 40 V-50 Q-130 -70 -110 -70 Z" fill="var(--panel-2)" stroke="${INK}" stroke-width="5"/>`;
+    s += `<text x="0" y="22" text-anchor="middle" font-size="76" font-weight="800" fill="${T("solar-orange")}">12!</text></g>`;
     return s;
   },
   // 4. Put the boat on the water gently.
@@ -128,7 +125,7 @@ const SCENES = [
 const STEPS = [
   { title: "One square of foil.", sub: "That is all you get. No tape!", dur: 4500, words: ["1 square", "no tape"] },
   { title: "Fold up the sides.", sub: "Make a base and walls.", dur: 4500, words: ["base", "sides"] },
-  { title: "Write your prediction first.", sub: "How many pebbles will it hold?", dur: 4500, words: ["prediction"], wordsFrom: 0.6 },
+  { title: "Say your prediction first.", sub: "How many pebbles will it hold? Agree as a group.", dur: 4000, words: [] },
   { title: "Put it on the water gently.", sub: "The builder places the boat.", dur: 4500, words: [] },
   { title: "Add pebbles one at a time, in the middle.", sub: "Count out loud!", dur: 9000, words: [["same pebbles", "yes"], ["one at a time", "yes"], ["in the middle", "yes"]] },
   { title: "Water comes in? Stop.", sub: "Your score is the last pebble before it sank. Compare it with your prediction.", dur: 5000, words: ["result", "one change"], wordsFrom: 0.7 },
