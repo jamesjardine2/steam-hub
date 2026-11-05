@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Plan and build timer · Year 3/4 Think Like an Engineer</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+</head>
+<body>
+<!-- One timer for every design round in the unit. Options in the address:
+     ?round=2 (shows "Round 2 of 3"), &of=3, &plan=1 and &build=4 (minutes).
+     Right arrow (or Next in the slides) starts it; a tap pauses it. -->
+<div class="stage timer" id="stage">
+  <header>
+    <span class="t">Year 3/4 · Think Like an Engineer</span>
+    <span class="u">Plan and build timer</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../">Exit</a>
+  </header>
+
+  <div class="body" id="face">
+    <svg viewBox="0 0 440 440" id="ring" aria-hidden="true"></svg>
+    <div class="text" aria-live="polite">
+      <p class="kicker" id="round"></p>
+      <h1 id="phase"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="parts" id="parts"></div>
+    </div>
+  </div>
+
+  <footer>
+    <button type="button" id="reset">Reset</button>
+    <button type="button" class="primary spacer" id="go">Start</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+const q = new URLSearchParams(location.search);
+if (q.has("embed")) document.documentElement.classList.add("embed");
+
+const PLAN = (Number(q.get("plan")) || 1) * 60, BUILD = (Number(q.get("build")) || 4) * 60, TOTAL = PLAN + BUILD;
+const ROUND = q.get("round"), OF = q.get("of") || 3;
+
+const $ = (id) => document.getElementById(id);
+const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+// state: ready, running, paused or done; used is seconds gone.
+let state = "ready", used = 0, last = 0, frame = 0;
+
+// The ring: the planning part is orange (think about it), building violet.
+// The part already used fades to the track colour as time runs.
+const R = 180, C = 2 * Math.PI * R;
+function arc(from, to, colour, width) {
+  const len = Math.max(0, to - from) / TOTAL * C;
+  return `<circle cx="220" cy="220" r="${R}" fill="none" stroke="${colour}" stroke-width="${width}" stroke-dasharray="${len} ${C}" stroke-dashoffset="${-from / TOTAL * C}" transform="rotate(-90 220 220)"/>`;
+}
+function draw() {
+  const left = TOTAL - used;
+  const planning = used < PLAN;
+  let s = `<circle cx="220" cy="220" r="${R}" fill="none" stroke="var(--hover)" stroke-width="34"/>`;
+  s += arc(Math.max(used, 0), PLAN, T("solar-orange"), 34);
+  s += arc(Math.max(used, PLAN), TOTAL, T("violet"), 34);
+  const shown = state === "done" ? 0 : planning && state !== "ready" ? PLAN - used : left;
+  s += `<text x="220" y="246" text-anchor="middle" font-size="96" font-weight="800" fill="var(--text)">${mmss(Math.ceil(shown))}</text>`;
+  if (state !== "ready" && state !== "done") s += `<text x="220" y="300" text-anchor="middle" font-size="26" font-weight="700" fill="var(--text-muted)">${planning ? "to plan" : "to build"}</text>`;
+  if (state === "paused") s += `<text x="220" y="160" text-anchor="middle" font-size="28" font-weight="800" fill="var(--text)">Paused</text>`;
+  $("ring").innerHTML = s;
+
+  const text = state === "ready" ? ["Get ready.", `${PLAN / 60} minute to plan, then ${BUILD / 60} to build.`]
+    : state === "done" ? ["Stop! Hands off.", "Time to test."]
+    : planning ? ["Plan: talk only.", "Agree on your design and your prediction. Hands off the materials."]
+    : ["Build!", "Stick to the constraints."];
+  $("phase").textContent = text[0];
+  $("sub").textContent = text[1];
+  $("stage").dataset.phase = state === "ready" || state === "done" ? state : planning ? "plan" : "build";
+  const dim = (on) => (state === "ready" || on ? "" : " dim");
+  $("parts").innerHTML = `<span class="part plan${dim(planning && state !== "done")}">${PLAN / 60} min plan</span><span class="part build${dim(!planning && state !== "done")}">${BUILD / 60} min build</span>`;
+  $("go").textContent = state === "running" ? "Pause" : state === "paused" ? "Carry on" : "Start";
+}
+
+// A short chime when planning ends and when time is up (if the browser allows sound).
+let audio;
+function chime(notes) {
+  try {
+    audio = audio || new AudioContext();
+    audio.resume();
+    notes.forEach((f, i) => {
+      const o = audio.createOscillator(), g = audio.createGain(), t = audio.currentTime + i * 0.22;
+      o.frequency.value = f;
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.25, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.6);
+      o.connect(g).connect(audio.destination);
+      o.start(t);
+      o.stop(t + 0.65);
+    });
+  } catch {}
+}
+
+function tick(now) {
+  if (state !== "running") return;
+  const before = used;
+  used = Math.min(TOTAL, used + (now - last) / 1000);
+  last = now;
+  if (before < PLAN && used >= PLAN) chime([660, 880]);
+  if (used >= TOTAL) { state = "done"; chime([880, 660, 880]); }
+  draw();
+  if (state === "running") frame = requestAnimationFrame(tick);
+}
+// Starting a round's timer silences any earlier round left running in the slides.
+window.liveTimerStop = () => { if (state === "running" || state === "paused") reset(); };
+function stopOthers() {
+  try { parent.document.querySelectorAll("iframe").forEach((f) => { if (f.contentWindow !== window && f.contentWindow.liveTimerStop) f.contentWindow.liveTimerStop(); }); } catch {}
+}
+function start() {
+  if (state === "ready") stopOthers();
+  if (state === "done") used = 0;
+  try { (audio = audio || new AudioContext()).resume(); } catch {}
+  state = "running";
+  last = performance.now();
+  cancelAnimationFrame(frame);
+  frame = requestAnimationFrame(tick);
+  draw();
+}
+function pause() { state = "paused"; cancelAnimationFrame(frame); draw(); }
+function reset() { state = "ready"; used = 0; cancelAnimationFrame(frame); draw(); }
+const toggle = () => (state === "running" ? pause() : start());
+
+$("go").addEventListener("click", toggle);
+$("reset").addEventListener("click", reset);
+$("face").addEventListener("click", () => { if (state !== "ready") toggle(); });
+document.addEventListener("keydown", (e) => {
+  if (e.key === " " || e.key === "ArrowRight") { e.preventDefault(); if (state === "ready") start(); else toggle(); }
+  if (e.key === "ArrowLeft") reset();
+});
+
+// Inside the lesson slides, Right starts the timer and the next Right
+// moves on (live.js); coming back to a running timer leaves it running.
+function go(i) { if (i === 0) reset(); else if (state === "ready") start(); }
+window.liveSteps = { kind: "steps", count: 2, at: () => (state === "ready" ? 0 : 1), go };
+
+$("round").textContent = ROUND ? `Round ${ROUND} of ${OF}` : "Plan and build";
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+draw();
+</script>
+</body>
+</html>

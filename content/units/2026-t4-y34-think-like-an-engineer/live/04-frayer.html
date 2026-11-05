@@ -47,7 +47,7 @@ const tray = `<path d="M8 30 H56 L50 48 H14 Z" fill="var(--mist)" stroke="var(--
 const cross = `<path d="M8 8 L56 56 M56 8 L8 56" stroke="var(--plasma-pink)" stroke-width="5" stroke-linecap="round"/>`;
 const P = {
   oneSquare: () => foilSq(12, 12, 40) + `<text x="32" y="38" text-anchor="middle" font-size="16" font-weight="800" fill="var(--void)">1</text>`,
-  timer: () => `<circle cx="32" cy="34" r="22" fill="var(--panel-2)" stroke="var(--text-violet)" stroke-width="3"/><rect x="28" y="6" width="8" height="6" fill="var(--text-violet)"/><path d="M32 34 L32 18 A16 16 0 0 1 46 40 Z" fill="var(--solar-orange)"/><text x="32" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ink)">6 min</text>`,
+  timer: () => `<circle cx="32" cy="34" r="22" fill="var(--panel-2)" stroke="var(--text-violet)" stroke-width="3"/><rect x="28" y="6" width="8" height="6" fill="var(--text-violet)"/><path d="M32 34 L32 18 A16 16 0 0 1 46 40 Z" fill="var(--solar-orange)"/><text x="32" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ink)">4 min</text>`,
   noTape: () => `<circle cx="32" cy="32" r="16" fill="var(--panel-2)" stroke="var(--solar-orange)" stroke-width="4"/><circle cx="32" cy="32" r="7" fill="var(--paper)"/>` + cross,
   boat: () => tray + `<path d="M8 50 Q20 44 32 50 T56 50" stroke="var(--ion-cyan)" stroke-width="3" fill="none"/>`,
   pebbles: () => peb(20, 46) + peb(34, 46) + peb(48, 46) + peb(27, 34) + peb(41, 34) + peb(34, 22) + `<text x="54" y="18" font-size="12" font-weight="800" fill="var(--ink)" text-anchor="middle">9</text>`,
@@ -71,7 +71,7 @@ const WORDS = [
     word: "constraint",
     def: "A rule or limit that a design must follow.",
     traits: ["it is set before you start", "every group has the same ones", "your design must fit inside it"],
-    yes: [["oneSquare", "only one square of foil"], ["timer", "6 minutes to build"], ["noTape", "no tape"]],
+    yes: [["oneSquare", "only one square of foil"], ["timer", "4 minutes to build"], ["noTape", "no tape"]],
     no: [["boat", "the shape you choose"], ["pebbles", "the score (a result)"], ["idea", "a good idea to try"]],
   },
   {

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Which boat holds the most? · Year 3/4 Tin-foil Boats</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+</head>
+<body>
+<div class="stage howto" id="stage">
+  <header>
+    <span class="t">Year 3/4 · Tin-foil Boats</span>
+    <span class="u">Which boat holds the most?</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/04-tin-foil-boats/">Exit</a>
+  </header>
+
+  <div class="body">
+    <svg viewBox="0 0 480 470" id="scene" role="img" aria-labelledby="title"></svg>
+    <div class="text" aria-live="polite">
+      <span class="num" id="num">1</span>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="words" id="words"></div>
+    </div>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" id="again">Play again</button>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
+const FOIL = T("mist"), WATER = T("ion-cyan"), INK = T("text-violet");
+const seg = (p, a, b) => Math.min(1, Math.max(0, (p - a) / (b - a)));
+const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const backdrop = `<rect x="10" y="10" width="460" height="450" rx="22" fill="var(--panel)"/>`;
+const label = (x, y, text, size = 26, colour = INK) => `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="700" fill="${colour}">${text}</text>`;
+const WATERLINE = 300;
+const water = () => `<path d="M10 ${WATERLINE} Q 70 ${WATERLINE - 10} 130 ${WATERLINE} T 250 ${WATERLINE} T 370 ${WATERLINE} T 470 ${WATERLINE} V438 Q470 460 448 460 H32 Q10 460 10 438 Z" fill="${WATER}" opacity="0.55"/>`;
+const pebble = (x, y) => `<circle cx="${x}" cy="${y}" r="11" fill="var(--paper)" stroke="${INK}" stroke-width="3"/>`;
+
+// Three boat shapes, side on, drawn around the middle of the bottom (0, 0).
+// rim: height of the lowest edge; perRow: pebbles that fit across the
+// bottom; score: the last pebble before water comes in (the next one sinks
+// it); tip: after this many pebbles the boat starts to lean; splash: where
+// the water comes in.
+const SHAPES = {
+  ship: { rim: 34, perRow: 3, score: 4, splash: 0,
+    path: "M-130 -115 Q-105 -12 -34 0 L34 0 Q105 -12 130 -115 Q70 -40 0 -34 Q-70 -40 -130 -115 Z" },
+  folded: { rim: 62, perRow: 5, score: 6, tip: 4, splash: 70, double: true,
+    path: "M-72 -62 L72 -62 L60 0 L-60 0 Z" },
+  punt: { rim: 40, perRow: 11, score: 20, splash: 150,
+    path: "M-160 -40 L160 -40 L140 0 L-140 0 Z" },
+};
+function hull(sh) {
+  let s = `<path d="${sh.path}" fill="${FOIL}" stroke="${INK}" stroke-width="${sh.double ? 10 : 5}" stroke-linejoin="round"/>`;
+  // Folded in half: two layers of foil, so the walls are thick.
+  if (sh.double) s += `<path d="M-64 -54 L-54 -7 L54 -7 L64 -54" fill="none" stroke="var(--paper)" stroke-width="3"/>`;
+  return s;
+}
+// Pebbles sit in rows on the bottom, filling from the middle out.
+function spot(sh, i) {
+  const row = Math.floor(i / sh.perRow), k = i % sh.perRow;
+  const col = k === 0 ? 0 : (k % 2 ? -1 : 1) * Math.ceil(k / 2);
+  return [col * 24 + (row % 2 && sh.perRow > 1 ? 12 : 0), -12 - row * 20];
+}
+const draft = (sh, n) => 8 + (sh.rim - 8) * n / (sh.score + 1);
+const tiltFor = (sh, n) => (sh.tip && n > sh.tip ? (n - sh.tip) * 5 : 0);
+
+// A fair test of one shape: pebbles one at a time until water comes in.
+function test(key, p) {
+  const sh = SHAPES[key], drops = sh.score + 1;
+  const t = seg(p, 0, 0.78) * drops;
+  const n = Math.min(drops, Math.floor(t)), f = t - Math.floor(t);
+  const sink = ease(seg(p, 0.8, 0.95));
+  const y = WATERLINE + draft(sh, n) + sink * 30;
+  const tilt = tiltFor(sh, n) + sink * 10;
+  let s = backdrop + `<g transform="translate(240 ${y}) rotate(${tilt})">` + hull(sh);
+  for (let i = 0; i < n; i++) { const [x, py] = spot(sh, i); s += pebble(x, py); }
+  if (n < drops) { const [x, py] = spot(sh, n); s += pebble(x, -250 + (py + 250) * ease(f)); }
+  if (sink > 0) s += `<path d="M${sh.splash + 26} ${-sh.rim - 16} q -10 6 -24 30" stroke="${WATER}" stroke-width="12" fill="none" stroke-linecap="round" opacity="${sink}"/>`;
+  s += `</g>` + water() + label(410, 90, `${Math.min(n, sh.score)}`, 64);
+  const show = seg(p, 0.92, 1);
+  return s + `<g opacity="${show}"><rect x="110" y="40" width="260" height="70" rx="14" fill="var(--panel-2)" stroke="${INK}" stroke-width="3"/>${label(240, 86, `Score: ${sh.score}`, 30)}</g>`;
+}
+// A boat at a size and place, with some pebbles, floating.
+function small(key, x, scale, n = 0) {
+  const sh = SHAPES[key];
+  let s = `<g transform="translate(${x} ${WATERLINE + draft(sh, n) * scale}) scale(${scale})">` + hull(sh);
+  for (let i = 0; i < n; i++) { const [px, py] = spot(sh, i); s += pebble(px, py); }
+  return s + `</g>`;
+}
+const upArrow = (x, y, o) => `<path d="M${x} ${y} v-46 m-12 14 l12 -14 l12 14" stroke="${INK}" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="${o}"/>`;
+
+// One scene per step: each takes progress p (0 to 1) and returns SVG.
+const SCENES = [
+  // 1. Three shapes from the same square of foil. Which holds the most?
+  (p) => {
+    let s = backdrop;
+    [["ship", 104, "A"], ["folded", 250, "B"], ["punt", 384, "C"]].forEach(([key, x, letter], i) => {
+      const o = seg(p, i * 0.2, i * 0.2 + 0.3);
+      s += `<g opacity="${o}">${small(key, x, 0.5)}${label(x, 210, letter, 48)}</g>`;
+    });
+    return s + water();
+  },
+  // 2. The tall ship: narrow base, low middle.
+  (p) => test("ship", p),
+  // 3. Folded in half: strong, but small, so the pile tips it.
+  (p) => test("folded", p),
+  // 4. Wide and flat: the pebbles spread out and it sinks slowly.
+  (p) => test("punt", p),
+  // 5. Why: a wide base pushes more water out of the way, so the water pushes up more.
+  (p) => {
+    let s = backdrop + small("ship", 128, 0.5, 4) + small("punt", 350, 0.5, 4) + water();
+    s += upArrow(128, 420, seg(p, 0.2, 0.4));
+    [290, 320, 350, 380, 410].forEach((x, i) => { s += upArrow(x, 420, seg(p, 0.4 + i * 0.08, 0.55 + i * 0.08)); });
+    return s + label(128, 120, "A", 44) + label(350, 120, "C", 44);
+  },
+  // 6. Plan round 3: wide flat base, short sides, tight corners.
+  (p) => {
+    let s = backdrop + small("punt", 240, 1, 12) + water();
+    const o = (i) => seg(p, 0.15 + i * 0.25, 0.35 + i * 0.25);
+    s += `<g opacity="${o(0)}"><path d="M240 360 V398" stroke="${INK}" stroke-width="4"/>${label(240, 425, "wide, flat base", 26, "var(--ink)")}</g>`;
+    s += `<g opacity="${o(1)}"><path d="M86 220 L86 250" stroke="${INK}" stroke-width="4"/>${label(110, 205, "short sides", 26)}</g>`;
+    s += `<g opacity="${o(2)}"><path d="M396 230 L396 254" stroke="${INK}" stroke-width="4"/>${label(370, 215, "tight corners", 26)}</g>`;
+    return s;
+  },
+];
+
+const STEPS = [
+  { title: "Which boat will hold the most pebbles?", sub: "Talk with your group. Why do you think so?", dur: 3000, words: [] },
+  { title: "The tall ship.", sub: "It sits deep. Water comes in over the low middle.", dur: 7000, words: [["narrow base", "no"], ["low middle", "no"]], wordsFrom: 0.5 },
+  { title: "Folded in half.", sub: "Strong, but small. The pebbles pile up and it tips.", dur: 8000, words: [["strong", "yes"], ["small base", "no"], ["tips over", "no"]], wordsFrom: 0.3 },
+  { title: "Wide and flat.", sub: "The pebbles spread out, so it sinks slowly.", dur: 12000, words: [["wide base", "yes"], ["short sides", "yes"]], wordsFrom: 0.4 },
+  { title: "A boat floats by pushing water out of the way.", sub: "A wide base pushes away more water, so the water pushes up more.", dur: 4500, words: [] },
+  { title: "Plan round 3.", sub: "Short sides leave more foil for the base. What will your group change?", dur: 4000, words: ["wide, flat base", "short sides", "tight corners"], wordsFrom: 0.15 },
+];
+
+const $ = (id) => document.getElementById(id);
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let current = 0, start = 0, frame = 0;
+
+function renderWords(step, p) {
+  const n = step.words.length;
+  $("words").innerHTML = step.words.map((w, i) => {
+    const [text, kind] = Array.isArray(w) ? w : [w, ""];
+    const at = step.wordsAt ? step.wordsAt[i] : (step.wordsFrom ?? 0.1) + (i / n) * (1 - (step.wordsFrom ?? 0.1)) * 0.8;
+    return `<span class="word ${kind}${p >= at ? " done" : ""}">${text}</span>`;
+  }).join("");
+}
+
+function tick(now) {
+  const step = STEPS[current];
+  const p = reduceMotion ? 1 : Math.min(1, (now - start) / step.dur);
+  $("scene").innerHTML = SCENES[current](p);
+  renderWords(step, p);
+  if (p < 1) frame = requestAnimationFrame(tick);
+}
+
+function go(i) {
+  current = Math.max(0, Math.min(STEPS.length - 1, i));
+  const step = STEPS[current];
+  $("num").textContent = current + 1;
+  $("title").textContent = step.title;
+  $("sub").textContent = step.sub;
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("back").disabled = current === 0;
+  $("next").disabled = current === STEPS.length - 1;
+  cancelAnimationFrame(frame);
+  start = performance.now();
+  frame = requestAnimationFrame(tick);
+}
+
+STEPS.forEach((_, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Step ${j + 1}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+$("again").addEventListener("click", () => go(current));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(current + 1); }
+  if (e.key === "ArrowLeft") go(current - 1);
+});
+
+// Inside the lesson slides, the arrows go through these steps first (live.js).
+window.liveSteps = { kind: "steps", count: STEPS.length, at: () => current, go };
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The design process · Year 3/4 Think Like an Engineer</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+</head>
+<body>
+<!-- The engineering design process, the same six stages as the Challenge
+     Card. Used by every lesson in the unit. Options in the address:
+     ?steps=test,improve,plan (the stages to step through, in order; all six
+     by default) and &round=2 (shows "Before round 2"). -->
+<div class="stage cycle" id="stage">
+  <header>
+    <span class="t">Year 3/4 · Think Like an Engineer</span>
+    <span class="u">The design process</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../">Exit</a>
+  </header>
+
+  <div class="body">
+    <svg viewBox="0 0 520 520" id="ring" role="img" aria-label="The design process: ask, imagine, plan, create, test, improve, then around again"></svg>
+    <div class="text" aria-live="polite">
+      <p class="kicker" id="kicker"></p>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <p class="stem" id="stem" hidden></p>
+    </div>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+const q = new URLSearchParams(location.search);
+if (q.has("embed")) document.documentElement.classList.add("embed");
+
+const STAGES = {
+  ask: { title: "Ask", sub: "What is the problem? What are the constraints?" },
+  imagine: { title: "Imagine", sub: "Think of lots of ideas." },
+  plan: { title: "Plan", sub: "Choose one idea. Predict how it will go." },
+  create: { title: "Create", sub: "Build it. Stick to the constraints." },
+  test: { title: "Test", sub: "Test it fairly. Record the result." },
+  improve: { title: "Improve", sub: "What happened? What will you change?", stem: "We will change ___ because ___." },
+};
+const ORDER = Object.keys(STAGES);
+const STEPS = (q.get("steps") || ORDER.join(",")).split(",").filter((s) => STAGES[s]);
+const ROUND = q.get("round");
+
+const $ = (id) => document.getElementById(id);
+let current = 0;
+
+// Six stages around a circle, arrows between them, the current one filled.
+function draw(at) {
+  const cx = 260, cy = 260, r = 190;
+  const pos = (i) => { const a = -Math.PI / 2 + (i * 2 * Math.PI) / ORDER.length; return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; };
+  let s = `<defs><marker id="tip" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="${T("mist")}"/></marker></defs>`;
+  ORDER.forEach((_, i) => {
+    // An arc from this stage to the next, kept clear of the pills.
+    const a1 = -Math.PI / 2 + ((i + 0.3) * 2 * Math.PI) / ORDER.length, a2 = -Math.PI / 2 + ((i + 0.7) * 2 * Math.PI) / ORDER.length;
+    s += `<path d="M${cx + r * Math.cos(a1)} ${cy + r * Math.sin(a1)} A${r} ${r} 0 0 1 ${cx + r * Math.cos(a2)} ${cy + r * Math.sin(a2)}" fill="none" stroke="${T("mist")}" stroke-width="6" stroke-linecap="round" marker-end="url(#tip)"/>`;
+  });
+  ORDER.forEach((key, i) => {
+    const [x, y] = pos(i), on = key === at;
+    s += `<g><rect x="${x - 82}" y="${y - 34}" width="164" height="68" rx="34" fill="${on ? T("violet") : "var(--card)"}" stroke="${on ? T("violet") : "var(--text-violet)"}" stroke-width="4"/>`;
+    s += `<text x="${x}" y="${y + 11}" text-anchor="middle" font-size="30" font-weight="800" fill="${on ? T("white") : "var(--text)"}">${STAGES[key].title}</text></g>`;
+  });
+  $("ring").innerHTML = s;
+}
+
+function go(i) {
+  current = Math.max(0, Math.min(STEPS.length - 1, i));
+  const key = STEPS[current], st = STAGES[key];
+  draw(key);
+  $("title").textContent = st.title;
+  $("sub").textContent = st.sub;
+  $("stem").hidden = !st.stem;
+  $("stem").textContent = st.stem || "";
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("back").disabled = current === 0;
+  $("next").disabled = current === STEPS.length - 1;
+}
+
+$("kicker").textContent = ROUND ? `Before round ${ROUND}` : "The design process";
+STEPS.forEach((key, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", STAGES[key].title);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(current + 1); }
+  if (e.key === "ArrowLeft") go(current - 1);
+});
+
+// Inside the lesson slides, the arrows go through these steps first (live.js).
+window.liveSteps = { kind: "steps", count: STEPS.length, at: () => current, go };
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go(0);
+</script>
+</body>
+</html>
