@@ -2,7 +2,7 @@
 number: 5
 title: A House for Teddy
 summary: "Students draw and label a plan for Teddy's house, choosing a roof material from the water test and including a door that opens."
-status: draft
+status: planned
 duration: 45
 lisc:
   intention: To plan a house for Teddy by drawing and labelling it.
