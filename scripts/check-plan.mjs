@@ -26,18 +26,42 @@ const lenses = readJson("src/_data/lenses.json").nodes;
 const CODE = /^VC2[A-Z0-9]{4,}$/;
 const text = (v) => typeof v === "string" && v.trim().length > 0;
 
-// James picks the Science Understanding focus and Design and Technologies
-// codes; Claude may add only Science Inquiry, Science as a Human Endeavour
-// and (when digital_tech is on) Digital Technologies codes, at the cohort's level.
+// Content codes (Science Understanding and Design and Technologies
+// contexts) come only from James's focus and their pairing partners. Claude
+// builds in the other Science and Design and Technologies strands, and
+// Digital Technologies only when James switched it on, all at the cohort's level.
 const BAND = { f: "2", y12: "2", y34: "4", y56: "6" }[plan.cohort];
 const answers = plan.answers || {};
-function builtInProblem(code) {
+const focus = answers.focus || answers.targets || [];
+const isContent = (c) => c.strand === "Science Understanding" || c.strand === "Technologies Contexts";
+function levelProblem(code) {
   const c = codes[code];
   if (!c) return "is not in curriculum.json";
   if (c.band !== BAND) return "is not at this cohort's level";
+  return "";
+}
+function builtInProblem(code) {
+  const level = levelProblem(code);
+  if (level) return level;
+  const c = codes[code];
   if (c.area === "VC2TDI") return answers.digital_tech ? "" : "is Digital Technologies, which James did not switch on";
-  if (c.area === "VC2S" && c.strand !== "Science Understanding") return "";
-  return "is not Science Inquiry, Science as a Human Endeavour or Digital Technologies";
+  if (isContent(c)) return "is a content code: it belongs in the pairing";
+  return "";
+}
+function pairingProblems(at, pairing) {
+  if (!Array.isArray(pairing) || !pairing.length) return focus.length ? [`${at}: needs a STEAM pairing`] : [];
+  const out = [];
+  const inPairing = new Set();
+  for (const p of pairing) {
+    if (!text(p.how)) out.push(`${at}: a pairing needs a how`);
+    for (const code of p.codes || []) {
+      inPairing.add(code);
+      const why = levelProblem(code) || (isContent(codes[code]) ? "" : "is not Science Understanding or a Design and Technologies context");
+      if (why) out.push(`${at}: pairing ${code} ${why}`);
+    }
+  }
+  for (const f of focus) if (!inPairing.has(f)) out.push(`${at}: focus ${f} is missing from the pairing`);
+  return out;
 }
 
 if (round === "directions") {
@@ -50,6 +74,7 @@ if (round === "directions") {
     for (const f of ["title", "type", "big_idea"]) if (!text(d[f])) fail(`${at}: ${f} is missing`);
     if (!d.lisc || !text(d.lisc.intention) || !/^To /.test(d.lisc.intention)) fail(`${at}: the Learning Intention should start "To"`);
     if (!d.lisc || !Array.isArray(d.lisc.criteria) || d.lisc.criteria.length < 2) fail(`${at}: needs Success Criteria`);
+    pairingProblems(at, d.pairing).forEach(fail);
     for (const b of d.built_in || []) {
       const why = builtInProblem(b.code);
       if (why) fail(`${at}: built_in ${b.code} ${why}`);
@@ -82,9 +107,11 @@ if (round === "directions") {
     if (Number(u.lesson_count) !== Number(plan.lesson_count)) fail(`unit.md lesson_count should be ${plan.lesson_count}`);
     for (const c of plan.answers.targets || []) if (!(u.curriculum || []).includes(c)) fail(`unit.md is missing target ${c}`);
     for (const c of u.curriculum || []) if (/^VC2(TDE|TDI|S)[246][A-Z]/.test(c) && !codes[c]) fail(`unit.md has unknown code ${c}`);
+    const paired = new Set((plan.directions || []).flatMap((d) => (d.pairing || []).flatMap((p) => p.codes || [])));
     for (const c of u.curriculum || []) {
       const k = codes[c];
-      if (!k || (plan.answers.targets || []).includes(c) || k.area === "VC2TDE") continue;
+      if (!k || focus.includes(c)) continue;
+      if (isContent(k)) { if (!paired.has(c)) fail(`unit.md code ${c} is a content code that is neither a focus code nor in a direction's pairing`); continue; }
       const why = builtInProblem(c);
       if (why) fail(`unit.md code ${c} ${why}`);
     }

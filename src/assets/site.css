@@ -356,3 +356,7 @@ span.lens-missing { background: var(--missing-fill); }
 
 /* Anything with the hidden attribute stays hidden, whatever its display. */
 [hidden] { display: none !important; }
+/* STEAM pairing: the Science and Design and Technologies codes that carry a
+   unit together (Planning page and direction cards). */
+.plan-pairing:not(:empty), .direction-pairing { border-left: 4px solid var(--violet); padding: 4px 0 4px 14px; }
+.plan-pairing .list li + li { margin-top: 8px; }

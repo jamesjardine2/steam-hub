@@ -12,6 +12,7 @@
   const read = (id) => JSON.parse(document.getElementById(id).textContent);
   const DATA = read("planning-data");
   const CODES = read("curriculum-data");
+  const PAIRS = read("pairs-data");
   const RESOURCES = read("resources-data");
   const LENSES = read("lenses-data");
   const PLANS_URL = document.getElementById("plans-url").href;
@@ -70,7 +71,7 @@
       id, kind: "unit", cohort, year, term, lesson_count: lessons,
       status: "survey", created: today(), updated: today(),
       answers: {
-        targets: [], science_focus: "", report_subject: DATA.reportSubjects[term] || "",
+        targets: [], focus: [], report_subject: DATA.reportSubjects[term] || "",
         digital_tech: DATA.reportSubjects[term] === "Digital Technologies",
         must_use: [], cant_use: [], open_to_buying: false,
         checking: "", dates: "", links: "", notes: "",
@@ -111,11 +112,24 @@
   }
 
   // Plans started before November 2026 ticked any code as a target. Take
-  // the Science focus and the Digital Technologies switch from those ticks.
+  // the focus codes and the Digital Technologies switch from those ticks.
   function upgrade(a) {
     a.targets = a.targets || [];
-    if (a.science_focus === undefined) a.science_focus = a.targets.find((c) => CODES[c] && CODES[c].strand === "Science Understanding") || "";
+    if (a.focus === undefined) a.focus = a.targets.filter(isFocus);
+    delete a.science_focus;
     if (a.digital_tech === undefined) a.digital_tech = a.report_subject === "Digital Technologies" || a.targets.some((c) => CODES[c] && CODES[c].area === "VC2TDI");
+  }
+
+  // Focus codes carry a unit's content: Science Understanding, and the
+  // Design and Technologies contexts (James, November 2026).
+  function isFocus(code) {
+    const c = CODES[code];
+    return !!c && (c.strand === "Science Understanding" || c.strand === "Technologies Contexts");
+  }
+  // The other area's codes that genuinely connect to a focus code.
+  function partners(code) {
+    return PAIRS.filter((p) => p.science === code || p.design === code)
+      .map((p) => ({ code: p.science === code ? p.design : p.science, how: p.how }));
   }
 
   // ---- What the hub already knows
@@ -200,50 +214,66 @@
     wire(readOnly);
   }
 
-  // Curriculum (James, November 2026): one Science Understanding code as
-  // the focus, any Design and Technologies codes James wants, and a switch
-  // for Digital Technologies. Science Inquiry, Science as a Human Endeavour
-  // and the Digital Technologies codes are Claude's: built in where they fit
+  // Curriculum (James, November 2026): focus codes from Science
+  // Understanding and the Design and Technologies contexts carry the unit's
+  // content, and each is paired with the other area so the unit is one
+  // STEAM unit, not two subjects side by side. Science Inquiry, Science as
+  // a Human Endeavour, the other Design and Technologies strands and (when
+  // switched on) Digital Technologies are Claude's: built in where they fit
   // naturally, left out where they don't.
   function curriculumHtml(ctx) {
     const a = plan.answers;
     const level = band(plan.cohort);
-    const codesIn = (area, strand) => Object.entries(CODES).filter(([, c]) => c.area === area && c.band === level && (!strand || c.strand === strand));
-    const line = (code, c, input) => `<label class="plan-code">${input}
-      <span><a class="plan-code-id" href="${vcaa(code, c.area)}" target="_blank" rel="noopener">${code}</a> ${esc(c.summary)}
-      ${ctx.covered[code] ? `<span class="small muted">Covered: ${esc(ctx.covered[code].join(", "))}</span>` : `<span class="tag-suggest">Not covered this cycle</span>`}</span>
-    </label>`;
-
-    const su = codesIn("VC2S", "Science Understanding");
-    const subs = [...new Set(su.map(([, c]) => c.sub))];
-    const focus = a.science_focus;
-    const science = `<details class="plan-area"${focus ? " open" : ""}>
-      <summary><span class="strong">Science Understanding focus</span> <span class="small muted" data-focus-label>${focus ? esc(focus) : ""}</span></summary>
-      <label class="plan-code"><input type="radio" name="science-focus" value="" data-focus${focus ? "" : " checked"}><span>No Science focus this unit</span></label>
-      ${subs.map((sub) => `<p class="plan-strand">${esc(sub)}</p>` + su.filter(([, c]) => c.sub === sub)
-        .map(([code, c]) => line(code, c, `<input type="radio" name="science-focus" value="${code}" data-focus${focus === code ? " checked" : ""}>`)).join("")).join("")}
-    </details>`;
-
-    const chosen = new Set(a.targets);
-    const de = codesIn("VC2TDE");
-    const picked = de.filter(([code]) => chosen.has(code)).length;
-    const design = `<details class="plan-area"${picked ? " open" : ""}>
-      <summary><span class="strong">Design and Technologies</span> <span class="small muted" data-count>${picked ? `${picked} chosen` : ""}</span></summary>
-      ${[...new Set(de.map(([, c]) => c.strand))].map((st) => `<p class="plan-strand">${esc(st)}</p>` + de.filter(([, c]) => c.strand === st)
-        .map(([code, c]) => line(code, c, `<input type="checkbox" value="${code}" data-target${chosen.has(code) ? " checked" : ""}>`)).join("")).join("")}
-    </details>`;
-
+    const chosen = new Set(a.focus);
+    const group = (area, strand, label) => {
+      const codes = Object.entries(CODES).filter(([, c]) => c.area === area && c.band === level && c.strand === strand);
+      const subs = [...new Set(codes.map(([, c]) => c.sub))];
+      const picked = codes.filter(([code]) => chosen.has(code)).length;
+      return `<details class="plan-area"${picked ? " open" : ""}>
+        <summary><span class="strong">${label}</span> <span class="small muted" data-count>${picked ? `${picked} chosen` : ""}</span></summary>
+        ${subs.map((sub) => `<p class="plan-strand">${esc(sub)}</p>` + codes.filter(([, c]) => c.sub === sub).map(([code, c]) => {
+          const links = partners(code);
+          return `<label class="plan-code">
+            <input type="checkbox" value="${code}" data-focus${chosen.has(code) ? " checked" : ""}>
+            <span><a class="plan-code-id" href="${vcaa(code, c.area)}" target="_blank" rel="noopener">${code}</a> ${esc(c.summary)}
+            ${ctx.covered[code] ? `<span class="small muted">Covered: ${esc(ctx.covered[code].join(", "))}</span>` : `<span class="tag-suggest">Not covered this cycle</span>`}
+            ${links.length ? `<span class="small muted">Pairs with ${links.map((l) => esc(l.code)).join(", ")}</span>` : ""}</span>
+          </label>`;
+        }).join("")).join("")}
+      </details>`;
+    };
     return `<div class="plan-q">
-      <div class="plan-q-head"><h3>Curriculum</h3>${lean("evidence")}</div>
-      <p class="small">Choose one Science Understanding code as the focus. Science Inquiry and Science as a Human Endeavour are not chosen here: Claude builds them in wherever they fit naturally and leaves them out where they don't. Codes this cohort has not covered in the last two years are marked.</p>
-      ${science}
+      <div class="plan-q-head"><h3>Curriculum focus</h3>${lean("evidence")}</div>
+      <p class="small">Choose the content the unit is about: Science Understanding, Design and Technologies contexts, or one of each. Claude pairs each focus code with the other area, so the Science is what students use to design and the design is why they need the Science. Science Inquiry, Science as a Human Endeavour and the other Design and Technologies strands are built in wherever they fit naturally. Codes this cohort has not covered in the last two years are marked.</p>
+      ${group("VC2S", "Science Understanding", "Science Understanding")}
+      ${group("VC2TDE", "Technologies Contexts", "Design and Technologies contexts")}
+      <div class="plan-pairing" data-pairing>${pairingHtml(a.focus)}</div>
       <div>
         <label class="plan-toggle"><input type="checkbox" data-field="digital_tech"${a.digital_tech ? " checked" : ""}> <strong>Complement with Digital Technologies</strong></label>
-        <p class="small muted">Claude includes the Digital Technologies codes that fit the Science naturally, and none that don't.</p>
+        <p class="small muted">Claude includes the Digital Technologies codes that fit naturally, and none that don't.</p>
       </div>
-      ${design}
       <p class="small muted">Claude also suggests links to other learning areas.</p>
     </div>`;
+  }
+
+  // The STEAM pairing for the chosen focus codes: pairs James has made
+  // himself, and the partners Claude will start from for the rest.
+  function pairingHtml(focus) {
+    if (!focus.length) return "";
+    const chosen = new Set(focus);
+    const rows = focus.map((code) => {
+      const links = partners(code);
+      const mine = links.filter((l) => chosen.has(l.code));
+      const name = (c) => `<strong>${esc(c)}</strong> <span class="muted">${esc(CODES[c] ? CODES[c].summary : "")}</span>`;
+      if (mine.length) return mine.filter((l) => code < l.code).map((l) => `<li>${name(code)} with ${name(l.code)}<br><span class="small">Your pair: ${esc(l.how)}</span></li>`).join("");
+      // James chose codes in both areas that have no ready-made pair: Claude links them.
+      const other = focus.filter((c) => CODES[c] && CODES[code] && CODES[c].area !== CODES[code].area);
+      if (other.length) return CODES[code].area === "VC2S" ? `<li>${name(code)} with ${other.map(name).join(" and ")}<br><span class="small">Your pair: Claude makes the link between them.</span></li>` : "";
+      if (links.length === 1) return `<li>${name(code)}<br><span class="small">Claude will start from <strong>${esc(links[0].code)}</strong>: ${esc(links[0].how)}</span></li>`;
+      if (links.length) return `<li>${name(code)}<br><span class="small">Claude will choose the best fit from:</span><ul class="list small">${links.map((l) => `<li><strong>${esc(l.code)}</strong>: ${esc(l.how)}</li>`).join("")}</ul></li>`;
+      return `<li>${name(code)}<br><span class="small">No ready-made pair. Claude looks for a genuine link, and says so if there isn't one.</span></li>`;
+    }).join("");
+    return `<p class="small strong">STEAM pairing</p><ul class="list">${rows}</ul>`;
   }
 
   // Resources: must use, don't use, or leave it to Claude.
@@ -284,6 +314,7 @@
       <h3 class="direction-title">${esc(d.title)}</h3>
       <p><strong>Big idea:</strong> ${esc(d.big_idea)}</p>
       ${d.lisc ? `<div class="direction-lisc"><p class="small strong">Learning Intention</p><p>${esc(d.lisc.intention)}</p><p class="small strong">Success Criteria: I can</p>${list(d.lisc.criteria, (c) => `<li>${esc(c)}</li>`)}</div>` : ""}
+      ${d.pairing && d.pairing.length ? `<div class="direction-pairing"><p class="small strong">STEAM pairing</p>${list(d.pairing, (x) => `<li><strong>${(x.codes || []).map(esc).join(" with ")}</strong>: ${esc(x.how)}</li>`)}</div>` : ""}
       ${d.built_in ? `<p class="small strong">Built in where it fits</p>${list(d.built_in, (c) => `<li>${CODES[c.code] ? `<a href="${vcaa(c.code, CODES[c.code].area)}" target="_blank" rel="noopener">${esc(c.code)}</a>` : esc(c.code)}: ${esc(c.how)}</li>`)}` : ""}
       <p class="small strong">Assessment</p>${list(d.assessment, (x) => `<li><strong>${esc(x.title)}</strong>${x.when ? ` <span class="muted">(${esc(x.when)})</span>` : ""}. ${esc(x.how)}</li>`)}
       <p class="small strong">Lesson arc</p><ol class="list">${(d.arc || []).map((l) => `<li><strong>${esc(l.title)}</strong>: ${esc(l.summary)}</li>`).join("")}</ol>
@@ -331,10 +362,9 @@
   function collect() {
     const a = plan.answers;
     const survey = $("[data-survey]", view);
-    const focus = $("[data-focus]:checked", survey);
-    a.science_focus = focus ? focus.value : "";
-    // Must-cover codes: the Science focus and any Design and Technologies codes.
-    a.targets = [a.science_focus, ...$$("[data-target]:checked", survey).map((el) => el.value)].filter(Boolean);
+    // The focus codes are the codes the unit must cover.
+    a.focus = $$("[data-focus]:checked", survey).map((el) => el.value);
+    a.targets = [...a.focus];
     $$("[data-field]", view).forEach((el) => {
       const f = el.dataset.field;
       if (f === "lesson_count") plan.lesson_count = Number(el.value) || plan.lesson_count;
@@ -373,10 +403,9 @@
     const status = $("[data-status]", survey);
     $("[data-field=spark_on]", view).addEventListener("change", (e) => { $("[data-spark]", view).hidden = !e.target.checked; });
     $$(".plan-area", view).forEach((d) => d.addEventListener("change", () => {
-      const count = $("[data-count]", d);
-      if (count) { const n = $$("[data-target]:checked", d).length; count.textContent = n ? `${n} chosen` : ""; }
-      const label = $("[data-focus-label]", d);
-      if (label) { const f = $("[data-focus]:checked", d); label.textContent = f ? f.value : ""; }
+      const n = $$("[data-focus]:checked", d).length;
+      $("[data-count]", d).textContent = n ? `${n} chosen` : "";
+      $("[data-pairing]", view).innerHTML = pairingHtml($$("[data-focus]:checked", view).map((el) => el.value));
     }));
     $$("[data-choose] input[type=radio]", view).forEach((r) => r.addEventListener("change", () => {
       const part = r.name.replace("pick-", "");

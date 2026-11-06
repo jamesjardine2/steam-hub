@@ -3,7 +3,8 @@
     "description": "Victorian Curriculum 2.0 content descriptions for Science, Design and Technologies and Digital Technologies, Foundation to Level 6, for choosing curriculum targets when planning.",
     "source": "Codes, strands and sub-strands from f10.vcaa.vic.edu.au, read on 2026-11-04.",
     "wording": "Each summary is a short paraphrase in our own words. The official wording is owned by the VCAA and stays on its site: every code links there.",
-    "updated": "2026-11-04"
+    "updated": "2026-11-04",
+    "pairs": "Science Understanding and Design and Technologies (Technologies Contexts) codes that genuinely connect: the knowledge in one is what students use in the other. Written by Claude for James (November 2026) as a starting point for planning; Claude judges the fit for each unit."
   },
   "areas": {
     "VC2TDE": {
@@ -869,5 +870,177 @@
       "sub": "Communicating",
       "summary": "Communicate science ideas and findings for a purpose and audience in different formats."
     }
-  }
+  },
+  "pairs": [
+    {
+      "science": "VC2S2U02",
+      "design": "VC2TDE2C02",
+      "how": "What living things need is what farmers and gardeners must give the plants and animals they grow."
+    },
+    {
+      "science": "VC2S2U03",
+      "design": "VC2TDE2C02",
+      "how": "The parts of plants and animals we eat or use (seeds, leaves, fruit, wool) each have a job for the living thing first."
+    },
+    {
+      "science": "VC2S2U01",
+      "design": "VC2TDE2C02",
+      "how": "Sorting plants and animals by their features leads into which ones people grow for food, clothing and shelter."
+    },
+    {
+      "science": "VC2S2U04",
+      "design": "VC2TDE2C04",
+      "how": "Students test the properties of materials, then choose the right material for each part of a design."
+    },
+    {
+      "science": "VC2S2U05",
+      "design": "VC2TDE2C04",
+      "how": "Combining materials (paper and glue, straw and clay) makes something with new properties a design can use."
+    },
+    {
+      "science": "VC2S2U05",
+      "design": "VC2TDE2C03",
+      "how": "Combining ingredients changes them, which is how simple healthy food is made."
+    },
+    {
+      "science": "VC2S2U06",
+      "design": "VC2TDE2C04",
+      "how": "Folding, rolling or twisting a material changes its shape and how strong it is, so designers shape materials on purpose."
+    },
+    {
+      "science": "VC2S2U07",
+      "design": "VC2TDE2C04",
+      "how": "The weather sets the design brief: a shelter or outfit needs waterproof, warm or shady materials."
+    },
+    {
+      "science": "VC2S2U09",
+      "design": "VC2TDE2C04",
+      "how": "Designing with re-used and recycled materials puts reduce, re-use and recycle into practice."
+    },
+    {
+      "science": "VC2S2U10",
+      "design": "VC2TDE2C01",
+      "how": "Changing an object's size, shape or material changes how it moves, which is how designers make a product move the way they want."
+    },
+    {
+      "science": "VC2S2U11",
+      "design": "VC2TDE2C01",
+      "how": "Pushes and pulls are what make a moving product or toy work."
+    },
+    {
+      "science": "VC2S2U12",
+      "design": "VC2TDE2C04",
+      "how": "Different materials vibrate differently, so the materials chosen decide how a home-made instrument sounds."
+    },
+    {
+      "science": "VC2S4U02",
+      "design": "VC2TDE4C02",
+      "how": "Growing food follows life cycles: seed to harvest, egg to hen, and farmers plan around them."
+    },
+    {
+      "science": "VC2S4U03",
+      "design": "VC2TDE4C02",
+      "how": "A farm or garden is a habitat: producers, consumers and decomposers (compost, worms, pests) all affect what it produces."
+    },
+    {
+      "science": "VC2S4U04",
+      "design": "VC2TDE4C03",
+      "how": "Heating and cooling change food's state (melting, freezing, setting), which is how many foods are prepared."
+    },
+    {
+      "science": "VC2S4U05",
+      "design": "VC2TDE4C04",
+      "how": "The properties of natural and made materials decide which material suits each part of a product."
+    },
+    {
+      "science": "VC2S4U06",
+      "design": "VC2TDE4C02",
+      "how": "Soil is the resource food grows in, and its properties affect what grows well."
+    },
+    {
+      "science": "VC2S4U06",
+      "design": "VC2TDE4C04",
+      "how": "Rocks, clay and soil are materials whose properties make them useful for building and making."
+    },
+    {
+      "science": "VC2S4U07",
+      "design": "VC2TDE4C02",
+      "how": "Food production depends on water: collecting rainwater, irrigation and keeping soil moist."
+    },
+    {
+      "science": "VC2S4U08",
+      "design": "VC2TDE4C02",
+      "how": "Weather and climate decide what can be grown where, and how farmers protect crops and animals."
+    },
+    {
+      "science": "VC2S4U09",
+      "design": "VC2TDE4C04",
+      "how": "How heat moves explains which materials insulate, so students can design something that keeps things hot or cold."
+    },
+    {
+      "science": "VC2S4U09",
+      "design": "VC2TDE4C03",
+      "how": "Heat moving into food is what cooks it, so heat transfer explains food preparation."
+    },
+    {
+      "science": "VC2S4U10",
+      "design": "VC2TDE4C01",
+      "how": "Friction, gravity and magnetic forces decide how a product moves, grips, slides or holds together."
+    },
+    {
+      "science": "VC2S6U01",
+      "design": "VC2TDE6C02",
+      "how": "Managed environments (farms, plantations, fisheries) change habitats, and producers design ways to reduce the harm."
+    },
+    {
+      "science": "VC2S6U02",
+      "design": "VC2TDE6C02",
+      "how": "Farmers choose and breed plants and animals for features that help them thrive in managed environments."
+    },
+    {
+      "science": "VC2S6U02",
+      "design": "VC2TDE6C04",
+      "how": "Animal and plant adaptations inspire designs (biomimicry), using materials that copy those features."
+    },
+    {
+      "science": "VC2S6U03",
+      "design": "VC2TDE6C03",
+      "how": "Many foods are mixtures and solutions, and their particle behaviour explains how they are prepared."
+    },
+    {
+      "science": "VC2S6U04",
+      "design": "VC2TDE6C03",
+      "how": "Cooking is an irreversible change, and choosing how to prepare food depends on which changes we want."
+    },
+    {
+      "science": "VC2S6U05",
+      "design": "VC2TDE6C04",
+      "how": "Knowing how weathering and erosion work lets students design and test structures and materials that slow them down."
+    },
+    {
+      "science": "VC2S6U06",
+      "design": "VC2TDE6C04",
+      "how": "Designing for natural hazards (fire, flood, earthquake) depends on the properties of materials and structures."
+    },
+    {
+      "science": "VC2S6U07",
+      "design": "VC2TDE6C02",
+      "how": "Seasons, caused by Earth's tilt, set the calendar for growing and producing food and fibre."
+    },
+    {
+      "science": "VC2S6U08",
+      "design": "VC2TDE6C04",
+      "how": "Whether a material lets light through, reflects or absorbs it decides how it is used in a design (shades, reflectors, windows)."
+    },
+    {
+      "science": "VC2S6U08",
+      "design": "VC2TDE6C01",
+      "how": "Electrical energy turned into light is how torches and signals work, and how light travels decides where the light goes."
+    },
+    {
+      "science": "VC2S6U09",
+      "design": "VC2TDE6C01",
+      "how": "A circuit's conductors, insulators and components are what turn electrical energy into movement, sound or light in a product."
+    }
+  ]
 }
