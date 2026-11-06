@@ -1,0 +1,32 @@
+{
+  "id": "2027-t1-y12",
+  "kind": "unit",
+  "cohort": "y12",
+  "year": 2027,
+  "term": 1,
+  "lesson_count": 8,
+  "status": "survey",
+  "created": "2026-11-06",
+  "updated": "2026-11-06",
+  "answers": {
+    "targets": [],
+    "report_subject": "Digital Technologies",
+    "must_use": [],
+    "cant_use": [],
+    "open_to_buying": false,
+    "checking": "",
+    "dates": "",
+    "links": "",
+    "notes": "",
+    "spark_on": false,
+    "spark": {
+      "excites": "",
+      "story": "",
+      "local": "",
+      "loves": ""
+    }
+  },
+  "directions": [],
+  "choices": {},
+  "unit": null
+}
