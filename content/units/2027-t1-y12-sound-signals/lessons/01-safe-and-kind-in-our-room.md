@@ -1,7 +1,7 @@
 ---
 number: 1
 title: Safe and Kind in Our Room
-status: draft
+status: planned
 summary: A mystery sound starts the lesson, then the class learns what the room's signal sound means and finds the out of bounds areas and the toilet and drink rule on a short tour.
 duration: 45
 lisc:
