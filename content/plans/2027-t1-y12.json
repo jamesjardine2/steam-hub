@@ -5,7 +5,7 @@
   "year": 2027,
   "term": 1,
   "lesson_count": 8,
-  "status": "survey",
+  "status": "directions",
   "created": "2026-11-06",
   "updated": "2026-11-06",
   "answers": {
@@ -30,7 +30,224 @@
     "science_focus": "VC2S2U12",
     "digital_tech": true
   },
-  "directions": [],
+  "directions": [
+    {
+      "id": "A",
+      "title": "Sound Makers",
+      "type": "design challenge",
+      "big_idea": "The material you choose changes the sound your instrument makes.",
+      "lisc": {
+        "intention": "To design and make a sound maker, using what we know about vibrations, pitch and volume.",
+        "criteria": [
+          "explain that sound is made when something vibrates",
+          "change a sound to be higher or lower, louder or softer",
+          "choose a material for my sound maker and say why it suits the sound"
+        ]
+      },
+      "pairing": [
+        {
+          "codes": ["VC2S2U12", "VC2TDE2C04"],
+          "how": "Students need to know that sound comes from vibrations, and that pitch and volume can change, to choose materials for a sound maker. The materials they choose (card, foil, paper plate, straws, sticks) decide how it vibrates and sounds, so the design cannot be done without the Science. A step card showing how to play it brings in a small algorithm."
+        }
+      ],
+      "built_in": [
+        { "code": "VC2S2I01", "how": "Students predict whether a change will make the sound higher or lower before testing." },
+        { "code": "VC2TDE2D03", "how": "Students make their sound maker safely with the craft materials." },
+        { "code": "VC2TDE2D04", "how": "Students choose the sound maker they prefer and say why." },
+        { "code": "VC2TDI2C02", "how": "Students order cards to show the steps, with a repeat, for playing their sound maker and for a classroom routine." },
+        { "code": "VC2TDI2D02", "how": "Students record their sound maker on an iPad and add it to a Book Creator page." }
+      ],
+      "assessment": [
+        { "title": "Observation checklist", "how": "Tick the class list against the three success criteria while students test their sound makers.", "when": "Lesson 7" },
+        { "title": "Book Creator page", "how": "One page per pair with a photo, a voice recording of the sound and one sentence about the material.", "when": "Lesson 8" },
+        { "title": "Sound maker showcase", "how": "Pairs play and explain their sound maker to another pair while James listens in.", "when": "Lesson 8" }
+      ],
+      "arc": [
+        { "number": 1, "title": "Safe and Kind in Our Room", "summary": "PCMS Classroom Expectations: mini lesson, task and pack up, toilet and drink, out of bounds areas. Practise the pack up cue as a listening game." },
+        { "number": 2, "title": "Routines We Can Follow", "summary": "PCMS Procedures and Routines: roll, then practise the move to the basketball court, arriving and departing, swapping with other Specialists. Class finishes 10 minutes early. A sound cue starts each transition." },
+        { "number": 3, "title": "Kind, Resilient, Responsible", "summary": "PCMS Encouraging Expected Behaviour: revise expectations, name kindness, resilience and responsibility, and start the stamp target trial." },
+        { "number": 4, "title": "Try Again Calmly", "summary": "PCMS Discouraging Inappropriate Behaviour: what Remind, Redirect and Relocate look and sound like, ordered on cards, and a calm response." },
+        { "number": 5, "title": "Sound Is Shaking", "summary": "Feel, see and hear vibrations with sticks, foil and plates. Sound needs something that shakes." },
+        { "number": 6, "title": "High, Low, Loud, Soft", "summary": "Change pitch and volume by changing length, size and force, and predict the result first." },
+        { "number": 7, "title": "Build a Sound Maker", "summary": "Choose materials, build, test and improve a sound maker for a chosen sound." },
+        { "number": 8, "title": "Sound Maker Showcase", "summary": "Play, record and share the sound maker, with a step card for how to play it." }
+      ],
+      "resources": [
+        { "id": "craft", "why": "Straws, sticks, plates, card and skewers become the sound makers." },
+        { "id": "foil-paper", "why": "Foil and baking paper as vibrating surfaces to compare." },
+        { "id": "natural", "why": "Pebbles and shells as shakers and beaters." },
+        { "id": "ipads", "why": "Record and replay the sounds." },
+        { "id": "book-creator", "why": "Each pair shows and explains their sound maker." }
+      ],
+      "purchases": [],
+      "connections": [
+        { "code": "VC2AMU2E01", "how": "Students listen to and describe sounds, such as loud and soft or high and low, and link them to rhythm and music." },
+        { "code": "VC2HP2P01", "how": "The first four lessons build the safe, kind habits of a shared room, and moving and listening together link to the wellbeing and movement students already practise." }
+      ],
+      "pedagogy": [
+        { "id": "vtlm.enabling.pcms", "level": "focus", "how": "Lessons 1 to 4 teach expectations, routines, encouragement and calm responses, with a sound cue starting each routine." },
+        { "id": "citw.problem_solving", "level": "focus", "how": "Students plan, build, test and improve a sound maker for a chosen sound." },
+        { "id": "citw.vocab", "level": "present", "how": "Vibrate, pitch and volume are taught and used each lesson." },
+        { "id": "citw.interest_cues", "level": "present", "how": "Asking what an athlete or musician does after a mistake opens the calm response lesson, and a mystery sound opens Lesson 5." }
+      ],
+      "backbone": [
+        "Teach vibrate, pitch and volume explicitly with a worked example before students build.",
+        "Retrieve the PCMS routines at the start of each science lesson so the habits stay fresh.",
+        "Predict, test, then compare, so students check ideas against what they hear.",
+        "Give feedback against the three success criteria while students test their builds."
+      ],
+      "flair": [
+        "Open the unit with a mystery sound behind a screen.",
+        "Let each pair name their sound maker.",
+        "End with a quiet, careful listening parade around the room.",
+        "Use a sound to start and stop each transition so the room itself becomes the lesson."
+      ]
+    },
+    {
+      "id": "B",
+      "title": "Sound Detectives",
+      "type": "scientific investigation",
+      "big_idea": "Different materials carry or block sound, and we can find out which with a fair test.",
+      "lisc": {
+        "intention": "To investigate how sound travels and how different materials change what we hear.",
+        "criteria": [
+          "explain that sound is made when something vibrates",
+          "predict which material will make a sound quieter, then test it fairly",
+          "use our results to say which material suits a quiet space"
+        ]
+      },
+      "pairing": [
+        {
+          "codes": ["VC2S2U12", "VC2TDE2C04"],
+          "how": "The design question is which material makes the best quiet reading corner, and answering it means testing how materials change volume. Students use what they know about vibrations and volume to read the test, and the properties of each material (soft, hard, thick, thin) become the evidence for the choice."
+        }
+      ],
+      "built_in": [
+        { "code": "VC2S2I01", "how": "Students predict which material will make the sound quietest." },
+        { "code": "VC2S2I02", "how": "Groups follow the same steps in order for every test." },
+        { "code": "VC2S2I04", "how": "Students sort results into a table of pictures and find the pattern." },
+        { "code": "VC2S2I05", "how": "Students compare results with their prediction and ask a new question." },
+        { "code": "VC2TDI2D01", "how": "Students show test results as pictures and numbers and look for a pattern." },
+        { "code": "VC2TDI2C02", "how": "The test method is written as ordered steps with a repeat for each material, the same way the PCMS routines are shown." }
+      ],
+      "assessment": [
+        { "title": "Quick prediction check", "how": "Hands up or dots on a class chart before and after the test.", "when": "Lesson 6" },
+        { "title": "Results page", "how": "Each group's table of pictures, checked against the success criteria.", "when": "Lesson 7" },
+        { "title": "Book Creator recommendation", "how": "One page per pair with a photo and a recorded sentence saying which material they recommend and why.", "when": "Lesson 8" }
+      ],
+      "arc": [
+        { "number": 1, "title": "Safe and Kind in Our Room", "summary": "PCMS Classroom Expectations: mini lesson, task and pack up, toilet and drink, out of bounds areas. Practise the pack up cue as a listening game." },
+        { "number": 2, "title": "Routines We Can Follow", "summary": "PCMS Procedures and Routines: roll, then practise the move to the basketball court, arriving and departing, swapping with other Specialists. Class finishes 10 minutes early. Routine steps are ordered on cards." },
+        { "number": 3, "title": "Kind, Resilient, Responsible", "summary": "PCMS Encouraging Expected Behaviour: revise expectations, name kindness, resilience and responsibility, and start the stamp target trial." },
+        { "number": 4, "title": "Try Again Calmly", "summary": "PCMS Discouraging Inappropriate Behaviour: what Remind, Redirect and Relocate look and sound like, with calm kind phrases practised." },
+        { "number": 5, "title": "Sound Is Shaking", "summary": "Find out what makes sound by feeling and watching things vibrate." },
+        { "number": 6, "title": "Quiet or Loud?", "summary": "Predict which materials make a sound quieter, then test the same sound behind each one." },
+        { "number": 7, "title": "Fair Test Results", "summary": "Record results as pictures, sort them, find the pattern and compare with predictions." },
+        { "number": 8, "title": "Quiet Corner Recommendation", "summary": "Use the evidence to recommend a material, and record it in Book Creator." }
+      ],
+      "resources": [
+        { "id": "natural", "why": "Pebbles in a tub give the same sound for every test." },
+        { "id": "craft", "why": "Card, paper and plates as test materials." },
+        { "id": "foil-paper", "why": "Foil and baking paper as test materials." },
+        { "id": "clay", "why": "Plasticine as a soft test material." },
+        { "id": "ipads", "why": "Photos and recordings of results." },
+        { "id": "book-creator", "why": "Recommendation pages." }
+      ],
+      "purchases": [],
+      "connections": [
+        { "code": "VC2AMU2E01", "how": "Students listen closely to loud and soft sounds and describe them." },
+        { "code": "VC2HP2P01", "how": "Understanding that loud noise can bother others links to caring for a shared space." }
+      ],
+      "pedagogy": [
+        { "id": "vtlm.enabling.pcms", "level": "focus", "how": "Lessons 1 to 4 teach expectations, routines, encouragement and calm responses." },
+        { "id": "citw.guided_investigations", "level": "focus", "how": "Students follow a guided fair test with the same steps for every material." },
+        { "id": "citw.retrieval", "level": "present", "how": "Each science lesson opens by recalling vibrate, pitch and volume." },
+        { "id": "citw.visuals", "level": "present", "how": "Pictures of the tests and results keep the words to a minimum." }
+      ],
+      "backbone": [
+        "Model one complete fair test before groups run their own.",
+        "Keep the test method identical each time to limit what students juggle.",
+        "Retrieve the key words at the start of each lesson.",
+        "Check predictions before and after each test and tie feedback to the success criteria."
+      ],
+      "flair": [
+        "Give each group detective roles and a case file.",
+        "Hide a ticking sound in a tub and ask which material hides it best.",
+        "Let the class vote on the quiet corner they would most like to sit in."
+      ]
+    },
+    {
+      "id": "C",
+      "title": "Sound Signals",
+      "type": "digital build",
+      "big_idea": "A sound can be a signal, and a signal follows steps that a person or a computer can follow.",
+      "lisc": {
+        "intention": "To use what we know about sound to build a sound game that follows steps.",
+        "criteria": [
+          "explain that sound is made when something vibrates",
+          "choose a high or low, loud or soft sound that fits a job",
+          "put steps in order, with a repeat, so a game or routine works"
+        ]
+      },
+      "pairing": [
+        {
+          "codes": ["VC2S2U12", "VC2TDE2C04"],
+          "how": "Students record sounds made with different materials and must pick the right pitch and volume for each job in their sound game, such as a low loud sound for stop and a high soft sound for go. The material decides the sound, so the Science informs every choice in the build. Digital Technologies carries the making: ordered steps, repeats and a digital system that plays the sounds."
+        }
+      ],
+      "built_in": [
+        { "code": "VC2S2I01", "how": "Students predict which sound will best suit each job." },
+        { "code": "VC2TDE2D02", "how": "Students draw their sound game layout before building it." },
+        { "code": "VC2TDI2S01", "how": "Students use a Makey Makey, a computer and speakers as input and output." },
+        { "code": "VC2TDI2C01", "how": "Students decide what a sound signal should tell someone in the room." },
+        { "code": "VC2TDI2C02", "how": "Students order cards for the routines in Lessons 1 to 4, then plan a sound sequence with a repeat." }
+      ],
+      "assessment": [
+        { "title": "Step cards", "how": "Check each pair's ordered cards for the sound sequence with a repeat.", "when": "Lesson 7" },
+        { "title": "Game demonstration", "how": "Pairs play their game to another pair while James uses a checklist against the success criteria.", "when": "Lesson 8" },
+        { "title": "Book Creator page", "how": "One page per pair with a photo of the game and a recorded sentence about which sound they chose and why.", "when": "Lesson 8" }
+      ],
+      "arc": [
+        { "number": 1, "title": "Safe and Kind in Our Room", "summary": "PCMS Classroom Expectations: mini lesson, task and pack up, toilet and drink, out of bounds areas. Make and test a sound signal for pack up." },
+        { "number": 2, "title": "Routines We Can Follow", "summary": "PCMS Procedures and Routines: roll, then practise the move to the basketball court, arriving and departing, swapping with other Specialists. Class finishes 10 minutes early. The move is written as ordered step cards." },
+        { "number": 3, "title": "Kind, Resilient, Responsible", "summary": "PCMS Encouraging Expected Behaviour: revise expectations, name kindness, resilience and responsibility, and start the stamp target trial. Stamp routine steps ordered on cards." },
+        { "number": 4, "title": "Try Again Calmly", "summary": "PCMS Discouraging Inappropriate Behaviour: Remind, Redirect and Relocate ordered on cards, with a calm response practised." },
+        { "number": 5, "title": "Sound Is Shaking", "summary": "Feel and hear vibrations, then record sounds made with different materials." },
+        { "number": 6, "title": "Choose the Sound", "summary": "Compare pitch and volume and choose the best recorded sound for each job." },
+        { "number": 7, "title": "Build the Sound Game", "summary": "Plan the steps, make foil and card touch pads and connect them with Makey Makey." },
+        { "number": 8, "title": "Play and Share", "summary": "Test, improve and show the sound game, and record it in Book Creator." }
+      ],
+      "resources": [
+        { "id": "makey-makey", "why": "Touch pads trigger the recorded sounds." },
+        { "id": "ipads", "why": "Record the sounds and take photos." },
+        { "id": "book-creator", "why": "Pages to show and explain the game." },
+        { "id": "foil-paper", "why": "Foil touch pads and a vibrating surface for recordings." },
+        { "id": "craft", "why": "Card and sticks for the pads and sound makers." }
+      ],
+      "purchases": [],
+      "connections": [
+        { "code": "VC2AMU2E01", "how": "Students listen to, describe and choose sounds, and play them in a pattern like a rhythm." },
+        { "code": "VC2HP2P01", "how": "Following routines and signals together links to the safe, kind habits of a shared space." }
+      ],
+      "pedagogy": [
+        { "id": "vtlm.enabling.pcms", "level": "focus", "how": "Lessons 1 to 4 teach routines as ordered steps that students can follow and name." },
+        { "id": "citw.strategy_modelling", "level": "focus", "how": "James models ordering the steps of a routine and a sound sequence before students try." },
+        { "id": "citw.guided_application", "level": "present", "how": "Pairs build the game with prompts and checks along the way." },
+        { "id": "citw.visuals", "level": "present", "how": "Step cards and pictures replace long instructions." }
+      ],
+      "backbone": [
+        "Use the same step cards for routines and for the game so the idea of an ordered sequence transfers.",
+        "Model building one touch pad and one sound before pairs do their own.",
+        "Retrieve vibrate, pitch and volume at the start of each lesson.",
+        "Check understanding with the step cards before the build begins."
+      ],
+      "flair": [
+        "Let the class vote on the sound that means stop.",
+        "Run a freeze game where a pair's game controls the room.",
+        "Check the Makey Makey count and which devices they plug into before planning pairs."
+      ]
+    }
+  ],
   "choices": {},
   "unit": null
 }
