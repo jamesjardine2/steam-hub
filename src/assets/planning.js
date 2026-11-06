@@ -70,7 +70,8 @@
       id, kind: "unit", cohort, year, term, lesson_count: lessons,
       status: "survey", created: today(), updated: today(),
       answers: {
-        targets: [], report_subject: DATA.reportSubjects[term] || "",
+        targets: [], science_focus: "", report_subject: DATA.reportSubjects[term] || "",
+        digital_tech: DATA.reportSubjects[term] === "Digital Technologies",
         must_use: [], cant_use: [], open_to_buying: false,
         checking: "", dates: "", links: "", notes: "",
         spark_on: false, spark: { excites: "", story: "", local: "", loves: "" },
@@ -105,7 +106,16 @@
       return;
     }
     if (!plan) { view.innerHTML = `<p class="ph">There is no plan called ${esc(planId)}. <a href="./">Back to Planning</a></p>`; return; }
+    upgrade(plan.answers);
     render();
+  }
+
+  // Plans started before November 2026 ticked any code as a target. Take
+  // the Science focus and the Digital Technologies switch from those ticks.
+  function upgrade(a) {
+    a.targets = a.targets || [];
+    if (a.science_focus === undefined) a.science_focus = a.targets.find((c) => CODES[c] && CODES[c].strand === "Science Understanding") || "";
+    if (a.digital_tech === undefined) a.digital_tech = a.report_subject === "Digital Technologies" || a.targets.some((c) => CODES[c] && CODES[c].area === "VC2TDI");
   }
 
   // ---- What the hub already knows
@@ -145,7 +155,7 @@
 
       <section class="card stack" data-survey>
         <div><h2 class="card-title">Non-negotiables</h2><p class="small muted">What can't change. Everything else is open for Claude to suggest.</p></div>
-        ${targetsHtml(ctx)}
+        ${curriculumHtml(ctx)}
         <div class="plan-q">
           <div class="plan-q-head"><h3>Reports</h3>${lean("fixed")}</div>
           <select data-field="report_subject">
@@ -190,30 +200,49 @@
     wire(readOnly);
   }
 
-  // Curriculum targets: the cohort's band, grouped by learning area and strand.
-  function targetsHtml(ctx) {
-    const chosen = new Set(plan.answers.targets);
-    const areas = { VC2S: "Science", VC2TDE: "Design and Technologies", VC2TDI: "Digital Technologies" };
-    const groups = Object.entries(areas).map(([area, label]) => {
-      const codes = Object.entries(CODES).filter(([, c]) => c.area === area && c.band === band(plan.cohort));
-      const strands = [...new Set(codes.map(([, c]) => c.strand))];
-      const picked = codes.filter(([code]) => chosen.has(code)).length;
-      return `<details class="plan-area"${picked ? " open" : ""}>
-        <summary><span class="strong">${label}</span> <span class="small muted" data-count="${area}">${picked ? `${picked} chosen` : ""}</span></summary>
-        ${strands.map((s) => `<p class="plan-strand">${esc(s)}</p>` + codes.filter(([, c]) => c.strand === s).map(([code, c]) => {
-          const done = ctx.covered[code];
-          return `<label class="plan-code">
-            <input type="checkbox" value="${code}" data-target${chosen.has(code) ? " checked" : ""}>
-            <span><a class="plan-code-id" href="${vcaa(code, c.area)}" target="_blank" rel="noopener">${code}</a> ${esc(c.summary)}
-            ${done ? `<span class="small muted">Covered: ${esc(done.join(", "))}</span>` : `<span class="tag-suggest">Not covered this cycle</span>`}</span>
-          </label>`;
-        }).join("")).join("")}
-      </details>`;
-    }).join("");
+  // Curriculum (James, November 2026): one Science Understanding code as
+  // the focus, any Design and Technologies codes James wants, and a switch
+  // for Digital Technologies. Science Inquiry, Science as a Human Endeavour
+  // and the Digital Technologies codes are Claude's: built in where they fit
+  // naturally, left out where they don't.
+  function curriculumHtml(ctx) {
+    const a = plan.answers;
+    const level = band(plan.cohort);
+    const codesIn = (area, strand) => Object.entries(CODES).filter(([, c]) => c.area === area && c.band === level && (!strand || c.strand === strand));
+    const line = (code, c, input) => `<label class="plan-code">${input}
+      <span><a class="plan-code-id" href="${vcaa(code, c.area)}" target="_blank" rel="noopener">${code}</a> ${esc(c.summary)}
+      ${ctx.covered[code] ? `<span class="small muted">Covered: ${esc(ctx.covered[code].join(", "))}</span>` : `<span class="tag-suggest">Not covered this cycle</span>`}</span>
+    </label>`;
+
+    const su = codesIn("VC2S", "Science Understanding");
+    const subs = [...new Set(su.map(([, c]) => c.sub))];
+    const focus = a.science_focus;
+    const science = `<details class="plan-area"${focus ? " open" : ""}>
+      <summary><span class="strong">Science Understanding focus</span> <span class="small muted" data-focus-label>${focus ? esc(focus) : ""}</span></summary>
+      <label class="plan-code"><input type="radio" name="science-focus" value="" data-focus${focus ? "" : " checked"}><span>No Science focus this unit</span></label>
+      ${subs.map((sub) => `<p class="plan-strand">${esc(sub)}</p>` + su.filter(([, c]) => c.sub === sub)
+        .map(([code, c]) => line(code, c, `<input type="radio" name="science-focus" value="${code}" data-focus${focus === code ? " checked" : ""}>`)).join("")).join("")}
+    </details>`;
+
+    const chosen = new Set(a.targets);
+    const de = codesIn("VC2TDE");
+    const picked = de.filter(([code]) => chosen.has(code)).length;
+    const design = `<details class="plan-area"${picked ? " open" : ""}>
+      <summary><span class="strong">Design and Technologies</span> <span class="small muted" data-count>${picked ? `${picked} chosen` : ""}</span></summary>
+      ${[...new Set(de.map(([, c]) => c.strand))].map((st) => `<p class="plan-strand">${esc(st)}</p>` + de.filter(([, c]) => c.strand === st)
+        .map(([code, c]) => line(code, c, `<input type="checkbox" value="${code}" data-target${chosen.has(code) ? " checked" : ""}>`)).join("")).join("")}
+    </details>`;
+
     return `<div class="plan-q">
-      <div class="plan-q-head"><h3>Curriculum targets</h3>${lean("evidence")}</div>
-      <p class="small">Choose the codes this unit must cover. Codes this cohort has not covered in the last two years are marked. Claude suggests links to other learning areas.</p>
-      ${groups}
+      <div class="plan-q-head"><h3>Curriculum</h3>${lean("evidence")}</div>
+      <p class="small">Choose one Science Understanding code as the focus. Science Inquiry and Science as a Human Endeavour are not chosen here: Claude builds them in wherever they fit naturally and leaves them out where they don't. Codes this cohort has not covered in the last two years are marked.</p>
+      ${science}
+      <div>
+        <label class="plan-toggle"><input type="checkbox" data-field="digital_tech"${a.digital_tech ? " checked" : ""}> <strong>Complement with Digital Technologies</strong></label>
+        <p class="small muted">Claude includes the Digital Technologies codes that fit the Science naturally, and none that don't.</p>
+      </div>
+      ${design}
+      <p class="small muted">Claude also suggests links to other learning areas.</p>
     </div>`;
   }
 
@@ -255,6 +284,7 @@
       <h3 class="direction-title">${esc(d.title)}</h3>
       <p><strong>Big idea:</strong> ${esc(d.big_idea)}</p>
       ${d.lisc ? `<div class="direction-lisc"><p class="small strong">Learning Intention</p><p>${esc(d.lisc.intention)}</p><p class="small strong">Success Criteria: I can</p>${list(d.lisc.criteria, (c) => `<li>${esc(c)}</li>`)}</div>` : ""}
+      ${d.built_in ? `<p class="small strong">Built in where it fits</p>${list(d.built_in, (c) => `<li>${CODES[c.code] ? `<a href="${vcaa(c.code, CODES[c.code].area)}" target="_blank" rel="noopener">${esc(c.code)}</a>` : esc(c.code)}: ${esc(c.how)}</li>`)}` : ""}
       <p class="small strong">Assessment</p>${list(d.assessment, (x) => `<li><strong>${esc(x.title)}</strong>${x.when ? ` <span class="muted">(${esc(x.when)})</span>` : ""}. ${esc(x.how)}</li>`)}
       <p class="small strong">Lesson arc</p><ol class="list">${(d.arc || []).map((l) => `<li><strong>${esc(l.title)}</strong>: ${esc(l.summary)}</li>`).join("")}</ol>
       <p class="small strong">Resources</p>${list(d.resources, (r) => `<li>${esc(resName(r.id))}${r.why ? `: ${esc(r.why)}` : ""}</li>`)}
@@ -301,7 +331,10 @@
   function collect() {
     const a = plan.answers;
     const survey = $("[data-survey]", view);
-    a.targets = $$("[data-target]:checked", survey).map((el) => el.value);
+    const focus = $("[data-focus]:checked", survey);
+    a.science_focus = focus ? focus.value : "";
+    // Must-cover codes: the Science focus and any Design and Technologies codes.
+    a.targets = [a.science_focus, ...$$("[data-target]:checked", survey).map((el) => el.value)].filter(Boolean);
     $$("[data-field]", view).forEach((el) => {
       const f = el.dataset.field;
       if (f === "lesson_count") plan.lesson_count = Number(el.value) || plan.lesson_count;
@@ -340,8 +373,10 @@
     const status = $("[data-status]", survey);
     $("[data-field=spark_on]", view).addEventListener("change", (e) => { $("[data-spark]", view).hidden = !e.target.checked; });
     $$(".plan-area", view).forEach((d) => d.addEventListener("change", () => {
-      const n = $$("[data-target]:checked", d).length;
-      $("[data-count]", d).textContent = n ? `${n} chosen` : "";
+      const count = $("[data-count]", d);
+      if (count) { const n = $$("[data-target]:checked", d).length; count.textContent = n ? `${n} chosen` : ""; }
+      const label = $("[data-focus-label]", d);
+      if (label) { const f = $("[data-focus]:checked", d); label.textContent = f ? f.value : ""; }
     }));
     $$("[data-choose] input[type=radio]", view).forEach((r) => r.addEventListener("change", () => {
       const part = r.name.replace("pick-", "");

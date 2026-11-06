@@ -36,7 +36,7 @@ Shown, not asked: the cohort, the classes, `lesson_count`, last term's unit, the
 
 About five short screens, filled in from last time where possible:
 
-1. **Curriculum targets.** Tick codes from the Science and Technologies F to 6 list (both Design and Technologies and Digital Technologies), grouped by strand. Codes the cohort hasn't covered in this cycle are marked "suggested", but James chooses.
+1. **Curriculum.** (James, November 2026.) Pick one Science Understanding code as the focus (`science_focus`), grouped by sub-strand. Science Inquiry and Science as a Human Endeavour are not picked: Claude builds in the codes that fit the unit naturally and leaves out the rest. A switch, "Complement with Digital Technologies" (`digital_tech`, on by default when the report subject is Digital Technologies), lets Claude include the Digital Technologies codes that fit the Science naturally, and none that don't. Design and Technologies codes can still be ticked. Codes the cohort hasn't covered in this cycle are marked, but James chooses. `targets` holds the must-cover codes (the focus plus any Design and Technologies codes); each direction lists the codes it builds in (`built_in`, each with how), and `scripts/check-plan.mjs` rejects any other kind.
 2. **Learning area for reports.** Which reporting subject this unit feeds (now: Digital Technologies in Semester 1, Design and Technologies in Semester 2; a setting, since it may change).
 3. **Resources and spaces.** Tick must-use and can't-use from the resource library (section 4). "Open to buying something new" is a tick box: Claude can then suggest purchases.
 4. **Dates and events.** Lessons lost, excursions, visits, showcase dates.

@@ -26,6 +26,20 @@ const lenses = readJson("src/_data/lenses.json").nodes;
 const CODE = /^VC2[A-Z0-9]{4,}$/;
 const text = (v) => typeof v === "string" && v.trim().length > 0;
 
+// James picks the Science Understanding focus and Design and Technologies
+// codes; Claude may add only Science Inquiry, Science as a Human Endeavour
+// and (when digital_tech is on) Digital Technologies codes, at the cohort's level.
+const BAND = { f: "2", y12: "2", y34: "4", y56: "6" }[plan.cohort];
+const answers = plan.answers || {};
+function builtInProblem(code) {
+  const c = codes[code];
+  if (!c) return "is not in curriculum.json";
+  if (c.band !== BAND) return "is not at this cohort's level";
+  if (c.area === "VC2TDI") return answers.digital_tech ? "" : "is Digital Technologies, which James did not switch on";
+  if (c.area === "VC2S" && c.strand !== "Science Understanding") return "";
+  return "is not Science Inquiry, Science as a Human Endeavour or Digital Technologies";
+}
+
 if (round === "directions") {
   const dirs = plan.directions;
   if (plan.status !== "directions") fail(`status should be "directions", not "${plan.status}"`);
@@ -36,6 +50,11 @@ if (round === "directions") {
     for (const f of ["title", "type", "big_idea"]) if (!text(d[f])) fail(`${at}: ${f} is missing`);
     if (!d.lisc || !text(d.lisc.intention) || !/^To /.test(d.lisc.intention)) fail(`${at}: the Learning Intention should start "To"`);
     if (!d.lisc || !Array.isArray(d.lisc.criteria) || d.lisc.criteria.length < 2) fail(`${at}: needs Success Criteria`);
+    for (const b of d.built_in || []) {
+      const why = builtInProblem(b.code);
+      if (why) fail(`${at}: built_in ${b.code} ${why}`);
+      if (!text(b.how)) fail(`${at}: built_in ${b.code} needs a how`);
+    }
     if (!Array.isArray(d.assessment) || !d.assessment.length) fail(`${at}: needs assessment options`);
     if (!Array.isArray(d.arc) || d.arc.length !== plan.lesson_count) fail(`${at}: the arc should have ${plan.lesson_count} lessons`);
     (d.arc || []).forEach((l, i) => { if (l.number !== i + 1 || !text(l.title)) fail(`${at}: arc lesson ${i + 1} needs number ${i + 1} and a title`); });
@@ -63,6 +82,12 @@ if (round === "directions") {
     if (Number(u.lesson_count) !== Number(plan.lesson_count)) fail(`unit.md lesson_count should be ${plan.lesson_count}`);
     for (const c of plan.answers.targets || []) if (!(u.curriculum || []).includes(c)) fail(`unit.md is missing target ${c}`);
     for (const c of u.curriculum || []) if (/^VC2(TDE|TDI|S)[246][A-Z]/.test(c) && !codes[c]) fail(`unit.md has unknown code ${c}`);
+    for (const c of u.curriculum || []) {
+      const k = codes[c];
+      if (!k || (plan.answers.targets || []).includes(c) || k.area === "VC2TDE") continue;
+      const why = builtInProblem(c);
+      if (why) fail(`unit.md code ${c} ${why}`);
+    }
     const outline = u.outline || [];
     if (outline.length !== Number(plan.lesson_count)) fail(`unit.md outline should have ${plan.lesson_count} lessons`);
     if (!u.lisc || !u.lisc.intention) fail("unit.md needs a LISC");
