@@ -5,7 +5,7 @@
   "year": 2027,
   "term": 1,
   "lesson_count": 8,
-  "status": "directions",
+  "status": "draft",
   "created": "2026-11-06",
   "updated": "2026-11-06",
   "answers": {
@@ -576,5 +576,5 @@
       "own": ""
     }
   },
-  "unit": null
+  "unit": { "slug": "2027-t1-y12-sound-signals", "title": "Sound Signals" }
 }
