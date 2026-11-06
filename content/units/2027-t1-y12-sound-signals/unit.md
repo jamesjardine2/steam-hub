@@ -40,16 +40,16 @@ links: []
 outline:
   - number: 1
     title: Safe and Kind in Our Room
-    summary: "PCMS Classroom Expectations: mini lesson, task and pack up, toilet and drink, out of bounds areas. Students make and test a sound signal for pack up, so the expectation is something they build and notice."
+    summary: "PCMS Classroom Expectations through a mystery. A strange sound plays and the class hunts for what made it. Then a sound is the room's secret signal: students learn what it means (mini lesson, task, pack up), try it as a freeze and listen game, and find the out of bounds areas and the toilet and drink rule on a quick room tour led by sounds."
   - number: 2
     title: Routines We Can Follow
-    summary: "PCMS Procedures and Routines: roll, then practise the move to the basketball court, arriving and departing, swapping with other Specialists. Class finishes 10 minutes early. The move is written as ordered step cards that students put in order."
+    summary: "PCMS Procedures and Routines as a team challenge. After roll, the class tries to beat its own best time for the move to the basketball court, with a different sound cue for each step. Students watch a model, say the steps aloud, then rehearse arriving, departing, swapping with other Specialists, workbooks and belongings. Class finishes 10 minutes early."
   - number: 3
     title: Kind, Resilient, Responsible
-    summary: "PCMS Encouraging Expected Behaviour: revise expectations, name kindness, resilience and responsibility, and start the stamp target trial. The stamp routine steps are ordered on cards."
+    summary: "PCMS Encouraging Expected Behaviour as a spot-the-behaviour game. James and a student helper act out short scenes, and the class listens for a kind, resilient or responsible moment and rings the signal when they spot one. Students share a time they were kind, responsible or resilient this week. Start the stamp target trial."
   - number: 4
     title: Try Again Calmly
-    summary: "PCMS Discouraging Inappropriate Behaviour: Remind, Redirect and Relocate ordered on cards, with a calm response practised."
+    summary: "PCMS Discouraging Inappropriate Behaviour through a try again challenge. How do athletes and musicians react when they slip up? Students act out Remind, Redirect and Relocate with a quiet cue, a simple choice and a short reset, then order the three on cards. They practise kind phrases such as \"Okay, I'll try again\" in a game where a mistake is celebrated and fixed."
   - number: 5
     title: Sound Is Shaking
     summary: Feel and hear vibrations, then record sounds made with different materials.
@@ -65,4 +65,4 @@ outline:
 ---
 Students record sounds made with different materials and must pick the right pitch and volume for each job in their sound game, such as a low loud sound for stop and a high soft sound for go. The material decides the sound, so the Science informs every choice in the build. Digital Technologies carries the making: ordered steps, repeats and a digital system that plays the sounds.
 
-Big idea: a sound can be a signal, and a signal follows steps that a person or a computer can follow. Lessons 1 to 4 teach the PCMS expectations, routines, encouragement and calm responses, using the same step cards the students later use for their sound game.
+Big idea: a sound can be a signal, and a signal follows steps that a person or a computer can follow. Lessons 1 to 4 teach the PCMS expectations, routines, encouragement and calm responses. Each opens with a hook (a mystery sound, a beat-our-time challenge, a spot-the-behaviour game, a try again challenge), and the sounds and step cards students meet there are the ones they use later for their sound game.
