@@ -87,6 +87,10 @@ Then set the plan's `"status": "draft"` and `"unit": { "slug": "<folder name>", 
 
 The draft unit is `content/units/<plan.unit.slug>/`. Change `unit.md` following the notes from James. Keep `status: draft`. Change only what the notes ask for, plus anything that must change to stay consistent. If the change affects the plan's choices, leave the plan file alone.
 
+## How to save your work
+
+Change files only with the Write and Edit tools: write the whole plan file with Write, or change parts of it with Edit. You cannot run Python, Node scripts of your own, or any other shell command except the checks below (use the Grep tool for the dash search), so never write a script to generate a file. Run each check exactly as written, from the repository root, on its own (no `cd`, pipes or `&&`).
+
 ## Before you finish
 
 - Run `node scripts/check-plan.mjs <plan id> <round>` and fix anything it reports.

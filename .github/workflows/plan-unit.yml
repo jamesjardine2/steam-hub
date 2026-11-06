@@ -61,7 +61,7 @@ jobs:
         run: |
           claude -p "Read .github/plan-unit.md and follow it exactly. Plan: content/plans/$PLAN.json. Round: $ROUND. Notes from James: ${NOTES:-none}" \
             --permission-mode acceptEdits \
-            --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "Bash(npx @11ty/eleventy *)" "Bash(node scripts/check-plan.mjs *)" "Bash(grep *)"
+            --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "Bash(npx @11ty/eleventy:*)" "Bash(npx @11ty/eleventy *)" "Bash(node scripts/check-plan.mjs:*)" "Bash(node scripts/check-plan.mjs *)" "Bash(grep:*)" "Bash(grep *)"
 
       - name: Check the plan, the build and dashes
         env:
