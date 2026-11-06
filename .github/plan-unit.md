@@ -93,6 +93,7 @@ Change files only with the Write and Edit tools: write the whole plan file with 
 
 ## Before you finish
 
+- In YAML frontmatter, put any text that contains a colon (": ") in double quotes, for example a Success Criterion like "name the three parts of a lesson: mini lesson, task and pack up." Unquoted, it becomes a label and value and shows as [object Object]. The build warns about it.
 - Run `node scripts/check-plan.mjs <plan id> <round>` and fix anything it reports.
 - Run `npx @11ty/eleventy` and fix any warning about your files.
 - Search your files for en and em dashes and remove them. Ranges use "to".

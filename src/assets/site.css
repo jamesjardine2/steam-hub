@@ -240,8 +240,9 @@ button.btn:disabled { opacity: 0.5; cursor: default; outline: none; }
 .glance-col { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .glance-head { display: flex; align-items: center; gap: 8px; text-decoration: none; margin-bottom: 4px; min-width: 0; }
 .glance-unit { font-size: 13px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.glance-row { display: grid; grid-template-columns: 34px auto minmax(0, 1fr); align-items: center; gap: 10px; padding: 6px 8px; min-height: 36px; border-radius: var(--radius-input); text-decoration: none; color: var(--text); }
-.glance-row:hover { background: var(--hover); color: var(--text); }
+/* Scoped to the home page panel: lesson pages use .glance-row too. */
+.glance-col .glance-row { display: grid; grid-template-columns: 34px auto minmax(0, 1fr); align-items: center; gap: 10px; padding: 6px 8px; min-height: 36px; border-radius: var(--radius-input); text-decoration: none; color: var(--text); }
+.glance-col .glance-row:hover { background: var(--hover); color: var(--text); }
 .glance-class { font-weight: 800; }
 .glance-bar { display: flex; gap: 3px; }
 .glance-bar i { width: 9px; height: 14px; border-radius: 3px; background: var(--border); }

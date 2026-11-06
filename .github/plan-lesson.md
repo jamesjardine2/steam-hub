@@ -40,6 +40,7 @@ Styling is shared: every page loads `../../../assets/theme.js` (with `data-area=
 
 - **VTLM 2.0 first, especially Attention and Focus.** Strip everything that is not the core focus. Slides: one idea per slide, a short question or statement (aim for 10 words or fewer in the big line, one short supporting line at most), no answer under a question, no decoration. The Learning Intention and the Success Criteria go on two separate slides, worded exactly as in the lesson file. Word wall covers show only the box name.
 
+- In YAML frontmatter, put any text that contains a colon (": ") in double quotes, for example a Success Criterion like "name the three parts of a lesson: mini lesson, task and pack up." Unquoted, it becomes a label and value and shows as [object Object]. The build warns about it.
 - Never use em dashes, en dashes or a spaced hyphen as punctuation. Use "to" for ranges. Scan everything you wrote with `grep -rnP '[\x{2013}\x{2014}]' content/` before you finish.
 - Never include student names or anything that identifies a student.
 - Australian spelling. Slide text short and readable for Year 1 and 2.

@@ -166,9 +166,20 @@ function asList(value) {
   return Array.isArray(value) ? value : [value];
 }
 
-function liscFrom(raw) {
+// A line of text with an unquoted ": " in it ("name the parts: a, b") is read
+// from YAML as { key: value }. Put it back together and say which file to fix.
+function asLine(file, value) {
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    const [[k, v]] = Object.entries(value);
+    warn(file, `"${k}: ${v}" has a colon in it, so put it in quotes`);
+    return `${k}: ${v}`;
+  }
+  return value;
+}
+
+function liscFrom(file, raw) {
   if (!raw || !raw.intention) return null;
-  const criteria = asList(raw.criteria);
+  const criteria = asList(raw.criteria).map((c) => asLine(file, c));
   const text = [
     "Learning Intention:",
     raw.intention,
@@ -356,7 +367,7 @@ function loadLesson(file, unit) {
     summary: data.summary || "",
     status: data.status === "draft" ? "draft" : "planned",
     duration: data.duration || DEFAULT_DURATION,
-    lisc: liscFrom(data.lisc),
+    lisc: liscFrom(file, data.lisc),
     curriculum: loadCodes(file, data.curriculum, "curriculum"),
     connections: connectionChips(loadCodes(file, data.connections, "connections")),
     vtlm,
@@ -404,7 +415,7 @@ function loadUnit(slug, classes, progress) {
     focus: data.focus || "",
     blurb: data.blurb || "",
     descriptionHtml: renderMd(content),
-    lisc: liscFrom(data.lisc),
+    lisc: liscFrom(file, data.lisc),
     curriculum: loadCodes(file, data.curriculum, "curriculum"),
     connections: connectionChips(loadCodes(file, data.connections, "connections")),
     claudeChat: data.claude_chat || "",

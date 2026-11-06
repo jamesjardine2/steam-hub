@@ -8,7 +8,7 @@ lisc:
   intention: To behave safely and kindly in our specialist room.
   criteria:
     - freeze and listen when I hear the signal sound.
-    - name the three parts of a lesson: mini lesson, task and pack up.
+    - "name the three parts of a lesson: mini lesson, task and pack up."
     - show where we can and cannot go, and what to do for the toilet and a drink.
 curriculum:
   - VC2S2U12
