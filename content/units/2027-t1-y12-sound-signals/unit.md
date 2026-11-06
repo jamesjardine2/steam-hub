@@ -38,9 +38,6 @@ assessment:
     when: Lesson 8
 links: []
 outline:
-  - number: 1
-    title: Safe and Kind in Our Room
-    summary: "PCMS Classroom Expectations through a mystery. A strange sound plays and the class hunts for what made it. Then a sound is the room's secret signal: students learn what it means (mini lesson, task, pack up), try it as a freeze and listen game, and find the out of bounds areas and the toilet and drink rule on a quick room tour led by sounds."
   - number: 2
     title: Routines We Can Follow
     summary: "PCMS Procedures and Routines as a team challenge. After roll, the class tries to beat its own best time for the move to the basketball court, with a different sound cue for each step. Students watch a model, say the steps aloud, then rehearse arriving, departing, swapping with other Specialists, workbooks and belongings. Class finishes 10 minutes early."

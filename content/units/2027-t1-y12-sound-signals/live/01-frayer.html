@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Word wall · Year 1/2 Safe and Kind in Our Room</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+</head>
+<body>
+<div class="stage frayer" id="stage">
+  <header>
+    <span class="t">Year 1/2 · Safe and Kind in Our Room</span>
+    <span class="u">Word wall: Frayer model</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/01-safe-and-kind-in-our-room/">Exit</a>
+  </header>
+
+  <div class="body">
+    <div class="grid" id="grid"></div>
+    <div class="word" id="word" aria-live="polite"></div>
+  </div>
+
+  <footer>
+    <span class="hint">Word:</span>
+    <div id="words" style="display: flex; gap: 10px"></div>
+    <button type="button" class="btn spacer" id="showAll">Show all</button>
+    <button type="button" class="btn" id="hideAll">Hide all</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+// Small pictures, drawn in a 64x64 box.
+const P = {
+  ear: () => `<path d="M20 30 C20 12 44 12 44 30 C44 40 36 42 36 50 C36 58 24 58 24 50" fill="none" stroke="var(--text-violet)" stroke-width="4" stroke-linecap="round"/><path d="M28 30 C28 24 36 24 36 30" fill="none" stroke="var(--solar-orange)" stroke-width="3"/>`,
+  feet: () => `<ellipse cx="22" cy="36" rx="9" ry="16" fill="var(--violet)"/><ellipse cx="44" cy="30" rx="9" ry="16" fill="var(--violet)"/>`,
+  hand: () => `<rect x="18" y="8" width="8" height="30" rx="4" fill="var(--solar-orange)"/><rect x="28" y="4" width="8" height="34" rx="4" fill="var(--solar-orange)"/><rect x="38" y="8" width="8" height="30" rx="4" fill="var(--solar-orange)"/><rect x="16" y="32" width="32" height="24" rx="10" fill="var(--solar-orange)"/>`,
+  runner: () => `<circle cx="36" cy="12" r="7" fill="var(--solar-orange)"/><path d="M34 20 L28 38 L16 46 M28 38 L40 46 L48 58 M34 24 L50 28 M34 24 L18 22" fill="none" stroke="var(--text-violet)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 28 H12 M2 38 H10" stroke="var(--mist)" stroke-width="3" stroke-linecap="round"/>`,
+  shout: () => `<path d="M8 26 H22 L46 12 V52 L22 38 H8 Z" fill="var(--solar-orange)"/><path d="M52 24 L60 20 M52 32 H62 M52 40 L60 44" stroke="var(--text-violet)" stroke-width="3" stroke-linecap="round"/>`,
+  bell: () => `<path d="M16 44 C16 20 22 10 32 10 C42 10 48 20 48 44 Z" fill="var(--solar-orange)"/><rect x="12" y="44" width="40" height="6" rx="3" fill="var(--solar-orange)"/><circle cx="32" cy="56" r="4" fill="var(--solar-orange)"/>`,
+  light: () => `<rect x="20" y="4" width="24" height="56" rx="8" fill="var(--panel-2)" stroke="var(--text-violet)" stroke-width="3"/><circle cx="32" cy="16" r="6" fill="var(--plasma-pink)"/><circle cx="32" cy="32" r="6" fill="var(--panel)" stroke="var(--mist)" stroke-width="2"/><circle cx="32" cy="48" r="6" fill="var(--panel)" stroke="var(--mist)" stroke-width="2"/>`,
+  whistle: () => `<circle cx="24" cy="38" r="14" fill="var(--violet)"/><rect x="30" y="22" width="26" height="12" rx="4" fill="var(--violet)"/><circle cx="24" cy="38" r="5" fill="var(--paper)"/>`,
+  drop: () => `<rect x="14" y="30" width="36" height="26" rx="3" fill="var(--panel-2)" stroke="var(--text-violet)" stroke-width="3" transform="rotate(-18 32 43)"/><path d="M10 14 L16 20 M32 6 V14 M54 14 L48 20" stroke="var(--mist)" stroke-width="3" stroke-linecap="round"/>`,
+  quiet: () => `<path d="M8 26 H22 L42 12 V52 L22 38 H8 Z" fill="var(--mist)"/><path d="M48 24 L60 40 M60 24 L48 40" stroke="var(--text-violet)" stroke-width="3" stroke-linecap="round"/>`,
+  line: () => `<path d="M6 40 H58" stroke="var(--solar-orange)" stroke-width="6" stroke-dasharray="10 6"/><circle cx="32" cy="16" r="6" fill="var(--violet)"/><path d="M32 22 V32" stroke="var(--violet)" stroke-width="4" stroke-linecap="round"/>`,
+  fence: () => `<path d="M6 20 H58 M6 40 H58" stroke="var(--text-violet)" stroke-width="4"/><path d="M14 10 V58 M32 10 V58 M50 10 V58" stroke="var(--text-violet)" stroke-width="6" stroke-linecap="round"/>`,
+  cone: () => `<path d="M32 6 L48 52 H16 Z" fill="var(--solar-orange)"/><rect x="10" y="52" width="44" height="6" rx="2" fill="var(--solar-orange)"/><path d="M25 30 H39" stroke="var(--paper)" stroke-width="5"/>`,
+  path: () => `<path d="M26 58 L22 6 H42 L38 58 Z" fill="var(--panel-2)" stroke="var(--mist)" stroke-width="3"/><path d="M32 52 V44 M32 36 V28 M32 20 V14" stroke="var(--paper)" stroke-width="3"/>`,
+  door: () => `<rect x="14" y="6" width="36" height="52" rx="3" fill="var(--panel-2)" stroke="var(--text-violet)" stroke-width="3"/><circle cx="42" cy="34" r="3" fill="var(--solar-orange)"/>`,
+  mat: () => `<rect x="8" y="30" width="48" height="16" rx="3" fill="var(--violet)"/>`,
+};
+
+// Frayer models for the lesson's key words.
+const WORDS = [
+  {
+    word: "expectation",
+    def: "What we agree everyone will do.",
+    traits: ["we all know it", "it helps everyone learn", "it keeps us safe and kind"],
+    yes: [["ear", "listening"], ["feet", "walking inside"], ["hand", "putting a hand up"]],
+    no: [["runner", "running inside"], ["shout", "shouting out"], ["drop", "dropping things"]],
+  },
+  {
+    word: "signal",
+    def: "A sound or sign that tells us what to do.",
+    traits: ["we hear it or see it", "it has a meaning", "it is always the same"],
+    yes: [["bell", "a bell"], ["light", "a traffic light"], ["whistle", "a whistle"]],
+    no: [["drop", "a book falling"], ["quiet", "silence"], ["door", "a plain door"]],
+  },
+  {
+    word: "boundary",
+    def: "A line or edge that shows where we can and cannot go.",
+    traits: ["it marks a space", "we stay on the right side", "it keeps us safe"],
+    yes: [["line", "a line on the floor"], ["fence", "a fence"], ["cone", "a cone"]],
+    no: [["path", "an open path"], ["door", "an open door"], ["mat", "a floor mat"]],
+  },
+];
+
+const BOXES = [
+  { key: "def", label: "What does it mean?", cls: "top left" },
+  { key: "traits", label: "What is it like?", cls: "top right" },
+  { key: "yes", label: "Examples", cls: "left" },
+  { key: "no", label: "Non-examples", cls: "right no" },
+];
+
+const $ = (id) => document.getElementById(id);
+const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pic = (name, mark) => `<span class="pic"><svg viewBox="0 0 64 64" aria-hidden="true">${P[name]()}</svg><span class="mark">${mark}</span></span>`;
+
+function content(w, key) {
+  if (key === "def") return `<p class="def">${esc(w.def)}</p>`;
+  if (key === "traits") return `<ul class="traits">${w.traits.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+  const mark = key === "yes" ? "✓" : "✗";
+  return `<div class="items">${w[key].map(([p, t]) => `<div class="item">${pic(p, mark)}<span>${esc(t)}</span></div>`).join("")}</div>`;
+}
+
+let current = 0;
+
+function show(i) {
+  current = i;
+  const w = WORDS[i];
+  $("word").textContent = w.word;
+  $("grid").innerHTML = BOXES.map((b, n) => `
+    <section class="box ${b.cls}" aria-label="${b.label}">
+      <p class="label">${b.label}</p>
+      ${content(w, b.key)}
+      <button type="button" class="cover" data-box="${n}"><strong>${b.label}</strong><span>Think first, then tap to show</span></button>
+    </section>`).join("");
+  [...$("words").children].forEach((btn, j) => btn.setAttribute("aria-pressed", String(j === i)));
+}
+
+function reveal(n) {
+  const cover = document.querySelector(`.cover[data-box="${n}"]`);
+  if (cover) cover.hidden = true;
+}
+
+WORDS.forEach((w, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "btn";
+  b.textContent = w.word;
+  b.addEventListener("click", () => show(j));
+  $("words").appendChild(b);
+});
+$("grid").addEventListener("click", (e) => {
+  const cover = e.target.closest(".cover");
+  if (cover) cover.hidden = true;
+});
+$("showAll").addEventListener("click", () => BOXES.forEach((_, n) => reveal(n)));
+$("hideAll").addEventListener("click", () => show(current));
+document.addEventListener("keydown", (e) => {
+  if (["1", "2", "3", "4"].includes(e.key)) reveal(Number(e.key) - 1);
+  if (e.key === "ArrowRight") show((current + 1) % WORDS.length);
+  if (e.key === "ArrowLeft") show((current + WORDS.length - 1) % WORDS.length);
+});
+
+// Inside the lesson slides, the arrows uncover each box, then move to the next word (live.js).
+window.liveSteps = { kind: "words", count: WORDS.length, at: () => current, show };
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+show(0);
+</script>
+</body>
+</html>
