@@ -22,9 +22,6 @@ curriculum:
 claude_chat: https://claude.ai/chat/e8d61706-1e6b-4e1d-85c3-825e8bda0ff9
 links: []
 outline:
-  - number: 5
-    title: A House for Teddy
-    summary: Draw and label a plan for Teddy's house, choosing a roof material from the water test and including a door that opens.
   - number: 6
     title: Build Teddy's House
     summary: Build Teddy's house from the plan, using the roof material chosen in Lesson 4.

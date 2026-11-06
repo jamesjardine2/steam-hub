@@ -26,7 +26,12 @@ const PIC = (() => {
     }
     return s;
   };
-  return {
+  // A sheet of paper with a small drawing of something on it: a plan.
+  const sketch = (name) => `<rect x="12" y="8" width="96" height="104" fill="var(--paper)" ${O}/><g transform="translate(24 26) scale(0.64)" opacity="0.85">${PIC_BASE[name]()}</g><path d="M22 100 L98 100" stroke="var(--mist)" stroke-width="3" stroke-linecap="round"/>`;
+  // A picture with a pointer line to a box holding its word.
+  const tagged = (name, word) => `<g transform="translate(0 -10) scale(0.8)">${PIC_BASE[name]()}</g><path d="M60 50 L60 82" ${O}/><rect x="22" y="82" width="76" height="28" rx="6" fill="var(--paper)" ${O}/><text x="60" y="103" text-anchor="middle" font-size="19" font-weight="800" fill="var(--ink)">${word}</text>`;
+  const PIC_BASE = {};
+  const pics = {
     // Lesson 1: homes and not-homes
     house: () => `<rect x="26" y="56" width="68" height="50" fill="var(--paper)" ${O}/><path d="M18 58 L60 20 L102 58 Z" fill="var(--solar-orange)" ${O}/><rect x="52" y="78" width="16" height="28" fill="var(--violet)" ${O}/>${win(34, 66)}${win(72, 66)}`,
     apartment: () => {
@@ -85,7 +90,19 @@ const PIC = (() => {
     plastic: () => `<rect x="20" y="24" width="80" height="72" rx="8" fill="var(--panel-2)" ${O}/><path d="M34 42 L58 42 M34 54 L46 54" stroke="var(--paper)" stroke-width="5" stroke-linecap="round"/>`,
     cloth: () => `<rect x="20" y="24" width="80" height="72" fill="var(--plasma-pink)" ${O}/>${[40, 60, 80].map((p) => `<path d="M${p} 24 L${p} 96 M20 ${p + 4} L100 ${p + 4}" stroke="var(--paper)" stroke-width="3" stroke-dasharray="6 6" opacity="0.7"/>`).join("")}`,
     dropper: () => `<path d="M52 18 Q60 6 68 18 L68 44 L52 44 Z" fill="var(--plasma-pink)" ${O}/><rect x="48" y="44" width="24" height="10" fill="var(--paper)" ${O}/><path d="M54 54 L54 84 L60 98 L66 84 L66 54 Z" fill="var(--paper)" ${O}/><path d="M60 102 q-8 10 0 14 q8 -4 0 -14 Z" fill="var(--ion-cyan)" ${O}/>`,
+    // Lesson 5: plans, labels and hinges
+    planHouse: () => sketch("house"),
+    planTent: () => sketch("tent"),
+    planBus: () => sketch("bus"),
+    tagRoof: () => tagged("roof", "roof"),
+    tagDoor: () => tagged("door", "door"),
+    tagWindow: () => tagged("window", "window"),
+    hinge: () => `<rect x="14" y="30" width="26" height="60" fill="var(--mist)" ${O}/><rect x="80" y="30" width="26" height="60" fill="var(--mist)" ${O}/><rect x="40" y="30" width="40" height="60" fill="var(--solar-orange)" ${O}/><circle cx="60" cy="42" r="5" fill="var(--ink)"/><circle cx="60" cy="78" r="5" fill="var(--ink)"/>`,
+    doorOpen: () => `<rect x="30" y="10" width="60" height="100" fill="var(--ink)" ${O}/><path d="M30 10 L66 20 L66 100 L30 110 Z" fill="var(--violet)" ${O}/><circle cx="58" cy="60" r="3" fill="var(--paper)"/>`,
+    lid: () => `<rect x="20" y="62" width="80" height="46" fill="var(--volt-blue)" ${O}/><path d="M20 62 L30 22 L110 22 L100 62 Z" fill="var(--plasma-pink)" ${O}/>`,
   };
+  Object.assign(PIC_BASE, pics);
+  return pics;
 })();
 
 const picSvg = (name, cls = "") => `<svg class="${cls}" viewBox="0 0 120 120" aria-hidden="true">${PIC[name]()}</svg>`;
