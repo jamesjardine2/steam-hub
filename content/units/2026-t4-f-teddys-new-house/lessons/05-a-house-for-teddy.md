@@ -27,10 +27,10 @@ citw:
 pedagogy:
   citw.interest_cues:
     level: focus
-    how: "Teddy is ready to build and the class is asked what to do first and what parts his house needs, before the Learning Intention is shared."
+    how: "An animation shows Teddy building his house in a rush and walking into the wall: he forgot the door. The class is asked what Teddy should have done first, before the Learning Intention is shared."
   citw.vocab:
     level: focus
-    how: "Plan, label and hinge are introduced with the Frayer word wall and used again as the how-to shows each step."
+    how: "Plan, label and hinge are introduced with the Frayer word wall, where each non-example is a near miss the class explains, and the words are used again as the how-to shows each step."
   citw.strategy_modelling:
     level: focus
     how: "The teacher models drawing a plan on the board, thinking aloud: walls, roof, a door that opens, a window, then labels."
@@ -46,7 +46,7 @@ pedagogy:
 sequence:
   - phase: Hook (CIC)
     time: 5 min
-    what: "Teddy is ready to build. Ask what we should do first and what parts his house needs. Share the Learning Intention and Success Criteria."
+    what: "Watch Teddy build in a rush and bump into a house with no door. Ask what Teddy should do first and what parts his house needs. Share the Learning Intention and Success Criteria."
   - phase: Word wall
     time: 5 min
     what: "Introduce plan, label and hinge with the Frayer word wall."
@@ -74,6 +74,10 @@ live:
     note: Recall, hook, Learning Intention, word wall, how to plan and record it
     file: 05-slides.html
   - kind: HTML
+    title: "Hook: Teddy forgot something"
+    note: "Teddy builds without a plan and walks into a house with no door. Click or Space to play, R restarts, M mutes"
+    file: 05-teddy-forgot.html
+  - kind: HTML
     title: How to plan a house
     note: Animated steps for the projector
     file: 05-plan-it.html
@@ -93,12 +97,20 @@ crt_notes: Needs only journals and pencils, so a CRT can run it as written. Ask 
 
 | Time | Step | What to do |
 |---|---|---|
-| 0 to 5 min | Hook (CIC) | Ask the recall question: "Which material kept Teddy dry?" Then: "Teddy is ready to build his house. What should we do first?" Take a few ideas. Ask: "What parts does his house need?" Students tell a partner. Read the Learning Intention and the Success Criteria. |
-| 5 to 10 min | Word wall | Use the word wall. A **plan** is a drawing of what you will build. A **label** is a word that names a part. A **hinge** lets a door swing open. Students think first, then the box is uncovered. |
+| 0 to 5 min | Hook (CIC) | Ask the recall question: "Which material kept Teddy dry?" Then play the animation (click or Space): Teddy builds his house in a rush, then walks into the wall because there is no door. It stops on a question mark. Ask: "What went wrong? What should Teddy do first?" Take a few ideas (draw a plan first). Ask: "What parts does his house need?" Students tell a partner. Read the Learning Intention and the Success Criteria. |
+| 5 to 10 min | Word wall | Use the word wall. A **plan** is a drawing of what you will build. A **label** is a word that names a part. A **hinge** joins two parts so one can swing. Students think first, then each box is uncovered. For each non-example, ask "Why is this not a ___?" and use the reasons below. |
 | 10 to 17 min | I do | Show the how-to slides, then draw a plan on the board and think aloud. "First the walls. Now the roof. I will colour it the best material from our test. Now a door. This door must open, so I draw which way it swings. A window, so Teddy has light. Now I label each part with a word." |
 | 17 to 32 min | You do | Students draw and label their own plan in their journal. Walk through the steps with the class, a part at a time: walls, roof, door, window, labels. Write labels for students who need it. [Add how many labels each student should aim for.] |
 | 32 to 40 min | Share | Students tell a partner what each part is for, using the starter: "This is the ___. It is for ___." Take a few plans to the mat. Say together: **"A plan shows what to build."** |
 | 40 to 45 min | Pack up | Pencils and journals back in the tub. Teaser: "Next week we build Teddy's house from our plans." |
+
+## Word wall: why each non-example is not the word
+
+Say these after students have had a go at explaining.
+
+- **Plan.** A built house: it is the real house, not a drawing. A drawing of Teddy: it is a drawing, but it does not show something to build. A pile of bricks: it is what we build with, not a drawing.
+- **Label.** A line with no word: it points to the part, but there is no word. A word with no line: it says door, but it does not point to the door. A title: "Teddy's house" names the whole house, not one part.
+- **Hinge.** A door handle: it helps you open the door, but it does not join the door to the wall. A taped door: the tape joins it, but the door cannot swing. A leaning door: it can move, but it is not joined to the wall.
 
 ## What to draw on the board
 

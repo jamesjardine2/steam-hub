@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<!-- Lesson 5 hook (CIC): Teddy rushes to build his house without a plan,
+     then walks into the wall: there is no door. Made from the Lesson 4 storm
+     animation (04-storm.html), same Teddy and the same engine. Click or press
+     the spacebar to start or pause, R restarts, M mutes. It ends on Teddy
+     with a question mark, so it can stay on the screen while you ask the
+     hook question. -->
+<title>Teddy Forgot Something</title>
+<style>
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+body{display:flex;align-items:center;justify-content:center}
+svg{display:block;width:100vw;height:100vh;cursor:pointer;user-select:none}
+</style>
+</head>
+<body>
+<svg id="stage" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5EB8F2"/><stop offset="1" stop-color="#CDEEFF"/></linearGradient>
+  <radialGradient id="btnG" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#9fd0ff"/><stop offset="1" stop-color="#1f56b0"/></radialGradient>
+  <linearGradient id="barG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe066"/><stop offset="1" stop-color="#e69500"/></linearGradient>
+  <style>
+    .ol{stroke:#2b1a0e;stroke-width:4;stroke-linejoin:round;stroke-linecap:round}
+    .fur{fill:#C68642}
+    .big{font-family:"Arial Black","Arial Rounded MT Bold",Impact,sans-serif;font-weight:900;paint-order:stroke;stroke:#2b1a0e;stroke-linejoin:round;text-anchor:middle}
+  </style>
+</defs>
+
+<g id="world">
+  <rect x="-20" y="-20" width="840" height="500" fill="url(#sky)"/>
+
+  <g id="sun">
+    <g id="sunRays"></g>
+    <circle r="34" fill="#FFD54F" class="ol"/>
+    <circle cx="-8" cy="-10" r="20" fill="#FFE68A"/>
+    <path d="M-14 -6 q4 -6 8 0 M6 -6 q4 -6 8 0" fill="none" class="ol" stroke-width="3"/>
+    <path d="M-12 8 q12 12 24 0" fill="none" class="ol" stroke-width="3"/>
+    <circle cx="-19" cy="6" r="5" fill="#FF8A65" opacity=".6"/><circle cx="19" cy="6" r="5" fill="#FF8A65" opacity=".6"/>
+  </g>
+
+  <g id="cloud1"></g>
+  <g id="cloud2"></g>
+  <g id="storm1"></g>
+  <g id="storm2"></g>
+  <g id="storm3"></g>
+
+  <path d="M-10 305 Q 120 230 260 300 T 560 292 T 820 270 L820 362 L-10 362 Z" fill="#9CCC65" class="ol"/>
+  <path d="M60 300 Q 120 262 190 290" fill="none" stroke="#B9DE85" stroke-width="8" stroke-linecap="round"/>
+  <rect x="-20" y="360" width="840" height="110" fill="#7CB342"/>
+  <line x1="-20" y1="360" x2="820" y2="360" class="ol"/>
+  <g id="puddles"></g>
+  <path d="M40 372 l4 -10 l4 10 l4 -13 l4 13 M640 380 l4 -10 l4 10 l4 -13 l4 13 M120 410 l4 -10 l4 10 l4 -13 l4 13 M720 425 l4 -10 l4 10 l4 -13 l4 13 M300 432 l4 -10 l4 10 l4 -13 l4 13" fill="none" stroke="#3E7A1F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- chimney (sits behind roof) -->
+  <g id="chimney">
+    <rect x="-13" y="-58" width="26" height="58" fill="#B83227" class="ol"/>
+    <rect x="-9" y="-50" width="7" height="44" fill="#D9604F" opacity=".7"/>
+    <rect x="-18" y="-66" width="36" height="10" rx="2" fill="#5D4037" class="ol"/>
+  </g>
+
+  <g id="slab">
+    <rect x="-120" y="-20" width="240" height="20" rx="3" fill="#9E9E9E" class="ol"/>
+    <rect x="-114" y="-16" width="228" height="5" fill="#C9C9C9"/>
+  </g>
+  <g id="rows"></g>
+
+  <g id="door">
+    <rect x="-24" y="-64" width="48" height="64" rx="4" fill="#6D4C41" class="ol"/>
+    <rect x="-16" y="-56" width="32" height="20" rx="2" fill="#8D6E63" stroke="#2b1a0e" stroke-width="2.5"/>
+    <rect x="-16" y="-30" width="32" height="22" rx="2" fill="#8D6E63" stroke="#2b1a0e" stroke-width="2.5"/>
+    <circle cx="14" cy="-32" r="4" fill="#FFD54F" stroke="#2b1a0e" stroke-width="2"/>
+  </g>
+  <g id="winL">
+    <rect x="-22" y="-22" width="44" height="44" rx="3" fill="#81D4FA" class="ol"/>
+    <path d="M-14 -6 L-4 -16 M-14 6 L6 -14" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+    <path d="M0 -22 V22 M-22 0 H22" class="ol" stroke-width="3.5"/>
+    <rect x="-27" y="20" width="54" height="8" rx="2" fill="#ECEFF1" class="ol" stroke-width="3"/>
+  </g>
+  <g id="winR">
+    <rect x="-22" y="-22" width="44" height="44" rx="3" fill="#81D4FA" class="ol"/>
+    <path d="M-14 -6 L-4 -16 M-14 6 L6 -14" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+    <path d="M0 -22 V22 M-22 0 H22" class="ol" stroke-width="3.5"/>
+    <rect x="-27" y="20" width="54" height="8" rx="2" fill="#ECEFF1" class="ol" stroke-width="3"/>
+  </g>
+
+  <g id="roof">
+    <polygon points="-138,0 138,0 0,-104" fill="#455A64" class="ol"/>
+    <path id="roofLines" fill="none" stroke="#2b1a0e" stroke-width="2.5" opacity=".55"/>
+    <polygon points="-100,-12 -6,-92 -2,-80 -84,-12" fill="#607D8B" opacity=".8"/>
+    <rect x="-142" y="-6" width="284" height="10" rx="3" fill="#37474F" class="ol" stroke-width="3.5"/>
+  </g>
+
+  <g id="smoke"></g>
+
+  <ellipse id="tShadow" cx="0" cy="0" rx="34" ry="7" fill="#000" opacity=".2"/>
+  <g id="teddy">
+    <g id="tLegL"><rect x="-11" y="-4" width="22" height="38" rx="10" class="fur ol"/></g>
+    <g id="tLegR"><rect x="-11" y="-4" width="22" height="38" rx="10" class="fur ol"/></g>
+    <g id="tUpper">
+      <g id="tArmL"><rect x="-9" y="-6" width="18" height="46" rx="9" class="fur ol"/></g>
+      <ellipse cx="0" cy="-66" rx="34" ry="38" fill="#A0652B"/>
+      <ellipse cx="-5" cy="-70" rx="28" ry="33" fill="#C98B4B"/>
+      <ellipse cx="0" cy="-66" rx="34" ry="38" fill="none" class="ol"/>
+      <ellipse cx="0" cy="-56" rx="19" ry="22" fill="#F2D3A2" stroke="#2b1a0e" stroke-width="2.5"/>
+      <g id="tHead">
+        <circle cx="-27" cy="-50" r="12" class="fur ol"/><circle cx="-27" cy="-50" r="6" fill="#F2D3A2"/>
+        <circle cx="27" cy="-50" r="12" class="fur ol"/><circle cx="27" cy="-50" r="6" fill="#F2D3A2"/>
+        <circle cx="0" cy="-28" r="32" fill="#A0652B"/>
+        <circle cx="-5" cy="-32" r="27" fill="#C98B4B"/>
+        <circle cx="0" cy="-28" r="32" fill="none" class="ol"/>
+        <circle cx="-20" cy="-16" r="5.5" fill="#FF8A80" opacity=".55"/><circle cx="20" cy="-16" r="5.5" fill="#FF8A80" opacity=".55"/>
+        <ellipse cx="0" cy="-15" rx="15" ry="11" fill="#F2D3A2" stroke="#2b1a0e" stroke-width="2.5"/>
+        <ellipse cx="0" cy="-20" rx="6" ry="4.5" fill="#2b1a0e"/>
+        <path id="tMouth" d="M-7 -11 Q0 -4 7 -11" fill="none" class="ol" stroke-width="3"/><path id="tMouthSad" d="M-7 -7 Q0 -13 7 -7" fill="none" class="ol" stroke-width="3" style="display:none"/>
+        <g id="tEyes">
+          <ellipse cx="-11" cy="0" rx="4.2" ry="5.6" fill="#2b1a0e"/><circle cx="-9.6" cy="-2" r="1.5" fill="#fff"/>
+          <ellipse cx="11" cy="0" rx="4.2" ry="5.6" fill="#2b1a0e"/><circle cx="12.4" cy="-2" r="1.5" fill="#fff"/>
+        </g>
+        <path d="M-26 -55 Q-26 -84 0 -84 Q26 -84 26 -55 Z" fill="#FFC107" class="ol"/>
+        <path d="M-14 -62 Q-14 -76 -4 -79" fill="none" stroke="#FFE082" stroke-width="4" stroke-linecap="round"/>
+        <path d="M0 -84 V-58" class="ol" stroke-width="3"/>
+        <rect x="-33" y="-60" width="66" height="8" rx="4" fill="#FFB300" class="ol" stroke-width="3.5"/>
+      </g>
+      <g id="tArmR">
+        <rect x="-4" y="30" width="8" height="44" rx="3" fill="#8D5A2B" class="ol" stroke-width="3"/>
+        <rect x="-19" y="66" width="38" height="17" rx="3" fill="#9E9E9E" class="ol" stroke-width="3.5"/>
+        <rect x="-15" y="69" width="30" height="4" fill="#E0E0E0"/>
+        <rect x="-9" y="-6" width="18" height="46" rx="9" class="fur ol"/>
+      </g>
+    </g>
+  </g>
+
+  <rect id="dark" x="-20" y="-20" width="840" height="500" fill="#1A2440" opacity="0"/>
+  <g id="splash"></g>
+  <g id="rain"></g>
+  <g id="qmark"><text class="big" y="38" font-size="120" fill="#FFD54F" stroke-width="8">?</text></g>
+  <g id="fx"></g>
+</g>
+
+</svg>
+
+<script>
+const $ = id => document.getElementById(id);
+const DUR = 27;
+
+/* ---------- build bits of scenery ---------- */
+function cloud(scale){
+  const c=[[0,0,26],[30,-14,32],[62,0,26],[32,8,26]];
+  let s='';
+  c.forEach(([x,y,r])=>s+=`<circle cx="${x*scale}" cy="${y*scale}" r="${r*scale}" fill="#2b1a0e" stroke="#2b1a0e" stroke-width="8"/>`);
+  c.forEach(([x,y,r])=>s+=`<circle cx="${x*scale}" cy="${y*scale}" r="${r*scale}" fill="#fff"/>`);
+  s+=`<ellipse cx="${18*scale}" cy="${-16*scale}" rx="${14*scale}" ry="${8*scale}" fill="#F3FBFF"/>`;
+  return s;
+}
+$('cloud1').innerHTML=cloud(1);
+$('cloud2').innerHTML=cloud(.75);
+function storm(sc){
+  const c=[[0,0,40],[45,-26,50],[100,-10,44],[140,8,36],[60,14,40],[-30,12,30]];
+  let s='';
+  c.forEach(([x,y,r])=>s+=`<circle cx="${x*sc}" cy="${y*sc}" r="${r*sc}" fill="#2b1a0e" stroke="#2b1a0e" stroke-width="8"/>`);
+  c.forEach(([x,y,r])=>s+=`<circle cx="${x*sc}" cy="${y*sc}" r="${r*sc}" fill="#78909C"/>`);
+  s+=`<ellipse cx="${40*sc}" cy="${-34*sc}" rx="${30*sc}" ry="${12*sc}" fill="#90A4AE"/>`;
+  s+=`<ellipse cx="${60*sc}" cy="${26*sc}" rx="${70*sc}" ry="${10*sc}" fill="#607D8B"/>`;
+  return s;
+}
+$('storm1').innerHTML=storm(1.3); $('storm2').innerHTML=storm(1.2); $('storm3').innerHTML=storm(1.1);
+
+let rays='';
+for(let i=0;i<12;i++){rays+=`<polygon points="-7,-44 7,-44 0,-62" fill="#FFB300" class="ol" stroke-width="3" transform="rotate(${i*30})"/>`;}
+$('sunRays').innerHTML=rays;
+
+let rl='';
+for(let j=1;j<=4;j++){const h=j*20, hw=138*(1-h/104); rl+=`M${-hw+4} ${-h} H${hw-4} `;}
+$('roofLines').setAttribute('d',rl);
+
+let rowsSVG='';
+for(let i=0;i<6;i++){
+  const bricks = i%2===0 ? [[-110,44],[-66,44],[-22,44],[22,44],[66,44]] : [[-110,22],[-88,44],[-44,44],[0,44],[44,44],[88,22]];
+  rowsSVG+=`<g id="row${i}">`;
+  bricks.forEach(([bx,w],k)=>{
+    const c=['#C0392B','#B83227','#CD4433'][(i+k)%3];
+    rowsSVG+=`<rect x="${bx}" y="-20" width="${w}" height="20" fill="${c}" stroke="#5B1A10" stroke-width="2.5"/>`;
+    rowsSVG+=`<rect x="${bx+4}" y="-16" width="${w-10}" height="4" rx="2" fill="#E8806F" opacity=".65"/>`;
+  });
+  rowsSVG+=`<rect x="-110" y="-20" width="220" height="20" fill="none" class="ol"/></g>`;
+}
+$('rows').innerHTML=rowsSVG;
+
+/* ---------- tween engine ---------- */
+const E={
+  lin:u=>u,
+  io:u=>u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2,
+  out:u=>1-Math.pow(1-u,3),
+  in:u=>u*u,
+  step:u=>0,
+  back:u=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(u-1,3)+c1*Math.pow(u-1,2)},
+  elastic:u=>u===0?0:u===1?1:Math.pow(2,-10*u)*Math.sin((u*10-.75)*(2*Math.PI)/3)+1
+};
+const S={}, tracks={}, events=[];
+function obj(id,base){S[id]={el:$(id),s:Object.assign({x:0,y:0,rot:0,sx:1,sy:1,op:1},base)};}
+function K(id,prop,t,v,e){(tracks[id+'|'+prop] ||= []).push([t,v,e]);}
+function at(t,fn){events.push({t,fn,fired:false});}
+function val(keys,t){
+  if(t<=keys[0][0]) return keys[0][1];
+  for(let i=1;i<keys.length;i++){
+    const k=keys[i];
+    if(t<k[0]){const p=keys[i-1];const u=(t-p[0])/(k[0]-p[0]);return p[1]+(k[1]-p[1])*E[k[2]||'io'](u);}
+  }
+  return keys[keys.length-1][1];
+}
+
+/* ---------- sound (made on the fly, no files) ---------- */
+let AC=null, muted=false, noiseBuf=null;
+function initAudio(){
+  try{
+    if(!AC){AC=new (window.AudioContext||window.webkitAudioContext)();
+      const len=AC.sampleRate*.5; noiseBuf=AC.createBuffer(1,len,AC.sampleRate);
+      const d=noiseBuf.getChannelData(0); for(let i=0;i<len;i++) d[i]=Math.random()*2-1;}
+    AC.resume();
+  }catch(e){AC=null;}
+}
+function tone(type,f0,f1,dur,vol,delay=0){
+  if(!AC||muted) return;
+  const t=AC.currentTime+delay, o=AC.createOscillator(), g=AC.createGain();
+  o.type=type; o.frequency.setValueAtTime(f0,t); o.frequency.exponentialRampToValueAtTime(f1,t+dur);
+  g.gain.setValueAtTime(vol,t); g.gain.exponentialRampToValueAtTime(.001,t+dur);
+  o.connect(g).connect(AC.destination); o.start(t); o.stop(t+dur+.05);
+}
+function noise(dur,vol,freq){
+  if(!AC||muted) return;
+  const t=AC.currentTime, s=AC.createBufferSource(), f=AC.createBiquadFilter(), g=AC.createGain();
+  s.buffer=noiseBuf; f.type='lowpass'; f.frequency.value=freq;
+  g.gain.setValueAtTime(vol,t); g.gain.exponentialRampToValueAtTime(.001,t+dur);
+  s.connect(f).connect(g).connect(AC.destination); s.start(t); s.stop(t+dur+.05);
+}
+const sfx={
+  bang(){noise(.12,.5,3000);tone('square',260,70,.1,.18);},
+  clunk(){noise(.15,.4,900);tone('sine',180,60,.15,.4);},
+  thud(){noise(.35,.7,500);tone('sine',110,35,.4,.7);},
+  pop(){tone('sine',420,1300,.12,.3);},
+  boing(){tone('triangle',180,520,.18,.25);tone('triangle',520,260,.2,.2,.18);},
+  whoosh(){noise(.35,.25,1500);},
+  thunder(){noise(1.8,.55,170);tone('sine',70,35,1.4,.35);noise(.6,.25,400);},
+  tada(){[523,659,784,1047].forEach((f,i)=>tone('square',f,f*1.001,.28,.1,i*.11));}
+};
+
+let rainSrc=null, rainGain=null;
+function rainOn(){
+  if(!AC||rainSrc) return;
+  rainSrc=AC.createBufferSource(); rainSrc.buffer=noiseBuf; rainSrc.loop=true;
+  const f=AC.createBiquadFilter(); f.type='bandpass'; f.frequency.value=1800; f.Q.value=.5;
+  rainGain=AC.createGain(); rainGain.gain.setValueAtTime(0,AC.currentTime);
+  rainGain.gain.linearRampToValueAtTime(muted?0:.3,AC.currentTime+1.5);
+  rainSrc.connect(f).connect(rainGain).connect(AC.destination); rainSrc.start();
+}
+function rainOff(){ if(rainSrc){try{rainSrc.stop();}catch(e){} rainSrc=null;} }
+
+/* ---------- effects (bangs, dust, sparkles, confetti) ---------- */
+let fx=[], shakeT=-9;
+function rnd(i){const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);}
+function star(R,r,n){let p=[];for(let i=0;i<n*2;i++){const a=Math.PI*i/n-Math.PI/2,rr=i%2?r:R;p.push((Math.cos(a)*rr).toFixed(1)+','+(Math.sin(a)*rr).toFixed(1));}return p.join(' ');}
+const STAR10=star(48,26,10), STAR5=star(9,4,5);
+function fxSVG(f,t){
+  const a=t-f.t0; if(a<0) return '';
+  if(f.type==='word'){
+    if(a>.65) return '';
+    const sc=a<.1?a/.1*1.25:Math.max(1,1.25-(a-.1)*2.5), op=a<.45?1:1-(a-.45)/.2;
+    return `<g transform="translate(${f.x},${f.y}) rotate(${f.rot}) scale(${sc*f.size})" opacity="${op}"><polygon points="${STAR10}" fill="${f.col}" class="ol"/><polygon points="${STAR10}" fill="#fff" opacity=".7" transform="scale(.45)"/></g>`;
+  }
+  if(f.type==='dust'){
+    if(a>.8) return '';
+    let s='', op=1-a/.8, u=E.out(a/.8);
+    for(let i=0;i<6;i++){const dir=i<3?-1:1, k=i%3;
+      s+=`<circle cx="${f.x+dir*(18+k*26)*u*f.spread}" cy="${f.y-8-a*(14+k*10)}" r="${(9+k*4+a*12)*f.size}" fill="#E8DCC8" stroke="#2b1a0e" stroke-width="3" opacity="${op}"/>`;}
+    return s;
+  }
+  if(f.type==='spark'){
+    if(a>.7) return '';
+    let s='', op=1-a/.7;
+    for(let i=0;i<8;i++){const ang=i*Math.PI/4+.3, d=12+E.out(a/.7)*58;
+      s+=`<polygon points="${STAR5}" transform="translate(${f.x+Math.cos(ang)*d},${f.y+Math.sin(ang)*d}) rotate(${a*400}) scale(1.4)" fill="#FFF176" stroke="#2b1a0e" stroke-width="1.5" opacity="${op}"/>`;}
+    return s;
+  }
+  if(f.type==='dizzy'){
+    if(a>2.4) return '';
+    const op=a>2?1-(a-2)/.4:1;
+    let s='';
+    for(let i=0;i<3;i++){const ang=a*5+i*2.09;
+      s+=`<polygon points="${STAR5}" transform="translate(${f.x+Math.cos(ang)*38},${f.y+Math.sin(ang)*9}) scale(1.6)" fill="#FFF176" stroke="#2b1a0e" stroke-width="1.5" opacity="${op}"/>`;}
+    return s;
+  }
+  if(f.type==='confetti'){
+    if(a>3.4) return '';
+    const cols=['#FF5252','#FFEB3B','#40C4FF','#69F0AE','#E040FB','#FF9100'];
+    let s='';
+    for(let i=0;i<46;i++){
+      const x=rnd(i)*800+Math.sin(a*3+i)*18, y=-20+a*(110+rnd(i+50)*120)+a*a*20;
+      if(y>470) continue;
+      s+=`<rect x="-5" y="-3" width="10" height="6" fill="${cols[i%6]}" transform="translate(${x},${y}) rotate(${a*(200+rnd(i+9)*300)}) scale(1,${Math.cos(a*8+i).toFixed(2)})"/>`;
+    }
+    return s;
+  }
+  return '';
+}
+
+/* ---------- scene objects ---------- */
+['slab','chimney','door','winL','winR','roof','sun','storm1','storm2','storm3','row0','row1','row2','row3','row4','row5','qmark'].forEach(id=>obj(id));
+S.chimney.s.x=552; S.door.s.x=470; S.door.s.y=340; S.winL.s.x=405; S.winL.s.y=278; S.winR.s.x=535; S.winR.s.y=278;
+S.sun.s.x=95; S.storm1.s.y=75; S.storm2.s.y=60; S.storm3.s.x=330;
+S.wx={s:{}};
+S.ted={s:{}};
+
+function drop(id,t,x,y,dur){
+  K(id,'x',0,x); K(id,'y',0,y-560); K(id,'y',t,y-560,'step'); K(id,'y',t+dur,y,'in');
+  K(id,'sx',0,1); K(id,'sy',0,1); K(id,'sx',t+dur*.6,.9); K(id,'sy',t+dur*.6,1.12);
+  K(id,'sx',t+dur,1.12,'out'); K(id,'sy',t+dur,.8,'out');
+  K(id,'sx',t+dur+.45,1,'elastic'); K(id,'sy',t+dur+.45,1,'elastic');
+}
+function pop(id,t){
+  K(id,'sx',0,0); K(id,'sy',0,0); K(id,'sx',t,0,'step'); K(id,'sy',t,0,'step');
+  K(id,'sx',t+.7,1,'elastic'); K(id,'sy',t+.7,1,'elastic');
+  at(t,tt=>{sfx.pop(); const s=S[id].s; fx.push({type:'spark',t0:tt,x:s.x,y:s.y-(id==='door'?32:0)});});
+}
+function word(tt,x,y,w,col,size=1){fx.push({type:'word',t0:tt,x,y,word:w,col,size,rot:(rnd(tt*7)-.5)*30});}
+
+/* opening title + sun */
+K('sun','y',0,240); K('sun','y',.2,240,'step'); K('sun','y',1.7,85,'out');
+
+
+/* teddy defaults */
+K('ted','x',0,-110); K('ted','y',0,0); K('ted','sx',0,1); K('ted','sy',0,1);
+K('ted','walk',0,0); K('ted','armR',0,-15); K('ted','armL',0,15); K('ted','tilt',0,0);
+
+function hop(t0,h){
+  K('ted','sx',t0,1); K('ted','sy',t0,1);
+  K('ted','sx',t0+.12,1.18,'out'); K('ted','sy',t0+.12,.82,'out');
+  K('ted','sx',t0+.24,.88,'out'); K('ted','sy',t0+.24,1.15,'out');
+  K('ted','sx',t0+.58,.92); K('ted','sy',t0+.58,1.08);
+  K('ted','sx',t0+.66,1.2,'out'); K('ted','sy',t0+.66,.8,'out');
+  K('ted','sx',t0+.98,1,'elastic'); K('ted','sy',t0+.98,1,'elastic');
+  K('ted','y',t0+.12,0); K('ted','y',t0+.38,-h,'out'); K('ted','y',t0+.64,0,'in');
+  at(t0+.14,()=>tone('sine',300,700,.15,.18));
+}
+
+/* walk in */
+K('ted','x',2.8,-110,'step'); K('ted','x',5.0,230,'lin');
+K('ted','walk',2.8,1,'step'); K('ted','walk',5.0,0,'step');
+K('ted','tilt',5.0,0); K('ted','tilt',5.15,-10,'out');
+hop(5.15,45);
+K('ted','tilt',6.0,-10); K('ted','tilt',6.3,10,'out'); K('ted','tilt',7.0,0);
+
+/* floor slab */
+drop('slab',5.95,470,360,.45);
+at(6.4,tt=>{sfx.clunk(); shakeT=tt; fx.push({type:'dust',t0:tt,x:470,y:360,spread:2.2,size:1});});
+
+/* step up to the wall */
+K('ted','x',6.6,230); K('ted','x',7.3,285,'lin');
+K('ted','walk',6.6,1,'step'); K('ted','walk',7.3,0,'step');
+
+/* six rows of bricks, each one hammered in */
+const words=['BANG!','BONK!','TAP!','WHACK!','BANG!','DONK!'];
+for(let i=0;i<6;i++){
+  const tr=7.6+i*1.35, strike=-55-i*8;
+  drop('row'+i,tr,470,340-i*20,.4);
+  at(tr+.4,()=>{sfx.clunk();});
+  K('ted','armR',tr+.5,-15);
+  K('ted','armR',tr+.7,-165,'out');
+  K('ted','armR',tr+.82,strike,'in');
+  K('ted','armR',tr+.97,-150,'out');
+  K('ted','armR',tr+1.08,strike,'in');
+  K('ted','armR',tr+1.3,-15);
+  const a=strike*Math.PI/180, hx=285+.8*(30-74*Math.sin(a)), hy=360+.8*(-84+74*Math.cos(a));
+  [tr+.82,tr+1.08].forEach((ts,j)=>at(ts,tt=>{sfx.bang(); shakeT=tt; word(tt,hx+10,hy-6,j?words[(i+3)%6]:words[i],j?'#FFD54F':'#FFEB3B',.8);}));
+}
+
+/* step back, roof lands */
+K('ted','x',15.8,285); K('ted','x',16.9,165,'lin');
+K('ted','walk',15.8,1,'step'); K('ted','walk',16.9,0,'step');
+drop('roof',17.0,470,224,.5);
+at(17.0,()=>sfx.whoosh());
+at(17.5,tt=>{sfx.thud(); shakeT=tt; word(tt,470,150,'','#FF8A65',1.1);
+  fx.push({type:'dust',t0:tt,x:340,y:236,spread:1,size:.9}); fx.push({type:'dust',t0:tt,x:600,y:236,spread:1,size:.9});});
+hop(17.5,28);
+K('ted','tilt',17.5,0); K('ted','tilt',17.65,-16,'out'); K('ted','tilt',18.4,-16); K('ted','tilt',18.7,0);
+
+/* chimney, but no door and no windows: Teddy did not plan them */
+K('chimney','op',0,0); K('chimney','op',18.1,1,'step'); K('chimney','y',0,268); K('chimney','y',18.1,268,'step'); K('chimney','y',18.6,200,'back');
+at(18.1,()=>tone('triangle',200,600,.25,.2));
+['door','winL','winR'].forEach(id=>K(id,'op',0,0));
+['storm1','storm2','storm3'].forEach(id=>K(id,'op',0,0));
+K('wx','dark',0,0); K('wx','rain',0,0); K('wx','puddle',0,0);
+K('ted','sad',0,0); K('ted','shiver',0,0);
+
+/* celebrate */
+K('ted','armL',19.0,15); K('ted','armR',19.0,-15);
+K('ted','armL',19.25,155,'out'); K('ted','armR',19.25,-155,'out');
+hop(19.25,60); hop(20.15,50);
+K('ted','armL',21.1,155); K('ted','armR',21.1,-155);
+K('ted','armL',21.4,15); K('ted','armR',21.4,-15);
+at(19.25,tt=>{sfx.tada(); fx.push({type:'confetti',t0:tt});});
+
+/* time to go inside... */
+K('ted','x',21.5,165); K('ted','x',22.9,325,'lin');
+K('ted','walk',21.5,1,'step'); K('ted','walk',22.9,0,'step');
+
+/* BONK: there is no door */
+at(22.9,tt=>{sfx.thud(); sfx.bang(); shakeT=tt; word(tt,352,282,'','#FF8A65',1.1);});
+K('ted','x',22.9,325); K('ted','x',23.4,255,'out');
+K('ted','y',22.9,0); K('ted','y',23.12,-24,'out'); K('ted','y',23.4,0,'in');
+K('ted','tilt',22.9,0); K('ted','tilt',23.1,-22,'out');
+K('ted','sad',22.95,1,'step');
+K('ted','sx',23.4,1); K('ted','sy',23.4,1); K('ted','sx',23.55,1.15,'out'); K('ted','sy',23.55,.85,'out'); K('ted','sx',24.0,1,'elastic'); K('ted','sy',24.0,1,'elastic');
+at(23.4,tt=>{sfx.boing(); fx.push({type:'dizzy',t0:tt,x:255,y:236});});
+
+/* he looks at the wall, then at the class */
+K('ted','tilt',25.0,-22); K('ted','tilt',25.4,16,'out'); K('ted','tilt',25.9,16); K('ted','tilt',26.3,0,'out');
+
+/* the big question */
+K('qmark','x',0,255); K('qmark','y',0,140);
+K('qmark','sx',0,0); K('qmark','sy',0,0); K('qmark','sx',26.1,0,'step'); K('qmark','sy',26.1,0,'step');
+K('qmark','sx',26.8,1,'elastic'); K('qmark','sy',26.8,1,'elastic');
+at(26.1,()=>sfx.pop());
+
+events.sort((a,b)=>a.t-b.t);
+
+/* ---------- rendering ---------- */
+function apply(id){
+  const o=S[id], s=o.s;
+  o.el.setAttribute('transform',`translate(${s.x},${s.y}) rotate(${s.rot}) scale(${s.sx},${s.sy})`);
+  o.el.setAttribute('opacity',s.op);
+}
+const tEls={L:$('tLegL'),R:$('tLegR'),U:$('tUpper'),AL:$('tArmL'),AR:$('tArmR'),H:$('tHead'),E:$('tEyes'),T:$('teddy'),Sh:$('tShadow')};
+
+function render(t){
+  for(const key in tracks){const [id,prop]=key.split('|'); S[id].s[prop]=val(tracks[key],t);}
+  for(const id in S){ if(S[id].el) apply(id); }
+
+  if(t>=26.1) S.qmark.el.setAttribute('transform',`translate(${S.qmark.s.x},${S.qmark.s.y+Math.sin(rc*3)*5}) scale(${S.qmark.s.sx},${S.qmark.s.sy})`);
+
+  // teddy puppet
+  const s=S.ted.s, w=s.walk, ph=t*11, sw=Math.sin(ph);
+  tEls.L.setAttribute('transform',`translate(-14,-34) rotate(${sw*28*w})`);
+  tEls.R.setAttribute('transform',`translate(14,-34) rotate(${-sw*28*w})`);
+  tEls.U.setAttribute('transform',`translate(0,${-Math.abs(Math.cos(ph))*6*w})`);
+  tEls.AL.setAttribute('transform',`translate(-30,-84) rotate(${s.armL+sw*25*w})`);
+  tEls.AR.setAttribute('transform',`translate(30,-84) rotate(${s.armR-sw*25*w})`);
+  tEls.H.setAttribute('transform',`translate(0,-100) rotate(${s.tilt+Math.sin(t*2.2)*3})`);
+  const blink=(t%3.3)<.13?.12:1;
+  tEls.E.setAttribute('transform',`translate(0,-36) scale(1,${blink})`);
+  tEls.T.setAttribute('transform',`translate(${s.x+Math.sin(rc*70)*1.6*s.shiver},${360+s.y}) scale(${.8*s.sx},${.8*s.sy})`);
+  const lift=Math.min(1,-s.y/80);
+  $('tMouth').style.display=s.sad>.5?'none':''; $('tMouthSad').style.display=s.sad>.5?'':'none';
+  tEls.Sh.setAttribute('transform',`translate(${s.x},361) scale(${1-lift*.5},1)`);
+
+  // sky
+  $('sunRays').setAttribute('transform',`rotate(${t*25})`);
+  $('cloud1').setAttribute('transform',`translate(${(180+t*14)%960-90},70)`);
+  $('cloud2').setAttribute('transform',`translate(${(640+t*9)%960-90},120)`);
+
+  // storm, rain, splashes, puddles
+  const W=S.wx.s;
+  $('dark').setAttribute('opacity',W.dark);
+  const cOp=1-Math.min(1,W.dark/.3)*.85;
+  $('cloud1').setAttribute('opacity',cOp); $('cloud2').setAttribute('opacity',cOp);
+  let rn='', sp='';
+  if(W.rain>0){
+    const n=Math.floor(130*W.rain);
+    for(let i=0;i<n;i++){
+      const spd=520+rnd(i)*260, y=((rc*spd+rnd(i+3)*520)%520)-40, x=rnd(i+7)*920-40-y*.2;
+      rn+=`<line x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${(x-4).toFixed(1)}" y2="${(y+20).toFixed(1)}"/>`;
+    }
+    for(let i=0;i<34;i++){
+      const per=.45+rnd(i+20)*.4, ph=((rc+rnd(i+40)*per)%per)/per;
+      let x,y;
+      if(i<12){ x=345+rnd(i+60)*250; y=224-104*(1-Math.abs(x-470)/138)-2; }
+      else { x=rnd(i+80)*800; y=368+rnd(i+90)*75; }
+      sp+=`<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="${(2+ph*11).toFixed(1)}" ry="${(1+ph*3.5).toFixed(1)}" opacity="${((1-ph)*W.rain).toFixed(2)}"/>`;
+    }
+  }
+  $('rain').innerHTML=`<g stroke="#E3F2FD" stroke-width="2.5" stroke-linecap="round" opacity=".85">${rn}</g>`;
+  $('splash').innerHTML=`<g fill="none" stroke="#fff" stroke-width="2.5">${sp}</g>`;
+  let pd='';
+  if(W.puddle>0){
+    [[110,392,46],[650,400,56],[330,425,40],[540,438,34]].forEach(([x,y,r])=>{
+      const rr=r*W.puddle;
+      pd+=`<ellipse cx="${x}" cy="${y}" rx="${rr}" ry="${rr*.22}" fill="#64B5F6" stroke="#2b1a0e" stroke-width="3"/><ellipse cx="${x-rr*.3}" cy="${y-rr*.05}" rx="${rr*.3}" ry="${rr*.05}" fill="#BBDEFB"/>`;
+    });
+  }
+  $('puddles').innerHTML=pd;
+
+  // chimney smoke
+  let sm='';
+  if(t>18.8){
+    const st=t-18.8;
+    for(let i=0;i<4;i++){
+      const p=((st*.45)+i/4)%1; if(st*.45<i/4) continue;
+      const x=552+Math.sin(p*6+i)*9+p*30, y=128-p*95, r=7+p*16;
+      sm+=`<g opacity="${(1-p).toFixed(2)}"><circle cx="${x}" cy="${y}" r="${r}" fill="#ECEFF1" stroke="#2b1a0e" stroke-width="3"/><circle cx="${x-r*.3}" cy="${y-r*.3}" r="${r*.35}" fill="#fff"/></g>`;
+    }
+  }
+  $('smoke').innerHTML=sm;
+
+  // effects
+  let f='';
+  fx=fx.filter(e=>t-e.t0<3.6 && t>=e.t0);
+  fx.forEach(e=>f+=fxSVG(e,t));
+  $('fx').innerHTML=f;
+
+  // screen shake
+  const sa=t-shakeT;
+  const k=sa>=0&&sa<.28?(1-sa/.28)*6:0;
+  $('world').setAttribute('transform',`translate(${(Math.random()-.5)*k},${(Math.random()-.5)*k})`);
+
+
+}
+
+/* ---------- player: click anywhere to start or pause, R restarts, M mutes ---------- */
+let t=0, rc=0, playing=false, last=null, started=false;
+function fire(t0,t1){for(const ev of events){if(!ev.fired&&ev.t<=t1){ev.fired=true;ev.fn(ev.t);}}}
+function restart(){t=0; rc=0; fx=[]; shakeT=-9; events.forEach(ev=>ev.fired=false); rainOff();}
+function setPlaying(p){playing=p; if(AC){p?AC.resume():AC.suspend();}}
+function toggle(){
+  initAudio();
+  if(!started||t>=DUR){ restart(); started=true; setPlaying(true); return; }
+  setPlaying(!playing);
+}
+function frame(now){
+  if(last===null) last=now;
+  const dt=Math.min(.25,(now-last)/1000); last=now;   // keeps real time even if frames are slow
+  if(playing){
+    const nt=Math.min(DUR,t+dt); fire(t,nt); t=nt; rc+=dt;
+    if(t>=DUR) playing=false;          // timeline done, the question mark keeps bobbing
+  } else if(t>=DUR){ rc+=dt; }
+  render(t);
+  requestAnimationFrame(frame);
+}
+$('stage').addEventListener('click',toggle);
+document.addEventListener('keydown',e=>{
+  if(e.code==='Space'){e.preventDefault();toggle();}
+  if(e.key==='r'||e.key==='R'){initAudio(); restart(); started=true; setPlaying(true);}
+  // Inside the lesson deck, arrows and Page keys still move the slides.
+  if(parent!==window&&['ArrowRight','ArrowLeft','PageDown','PageUp'].includes(e.key)){parent.document.dispatchEvent(new KeyboardEvent('keydown',{key:e.key}));}
+  if(e.key==='m'||e.key==='M'){muted=!muted; if(rainGain) rainGain.gain.value=muted?0:.3;}
+});
+render(0);
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
