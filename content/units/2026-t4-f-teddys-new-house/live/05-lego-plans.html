@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Follow the plan · Foundation A house for Teddy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/handout.css">
+</head>
+<body>
+<!-- Lesson 5 "Follow the plan": pairs build a LEGO house from a plan card,
+     then check it matches. Pairs who finish plan something new: they draw
+     it on the card first, then build it. Two copies print on A4 landscape;
+     cut on the dashed line, one card per pair. -->
+<main class="sheet">
+  <section class="card" data-plan></section>
+  <section class="card" data-plan></section>
+</main>
+
+<script>
+// Bricks drawn front on: one stud is 40 wide, a brick is 48 high.
+const U = 40, H = 48;
+const C = { wall: "var(--plasma-pink)", roof: "var(--solar-orange)", chimney: "var(--volt-blue)" };
+const LINE = 'stroke="var(--void)" stroke-width="3" stroke-linejoin="round"';
+function brick(x, y, studs, colour) {
+  let s = `<rect x="${x}" y="${y}" width="${studs * U}" height="${H}" rx="3" fill="${colour}" ${LINE}/>`;
+  for (let i = 0; i < studs; i++) s += `<rect x="${x + i * U + 9}" y="${y - 9}" width="${U - 18}" height="9" rx="2" fill="${colour}" ${LINE}/>`;
+  return s;
+}
+function label(word, x1, y1, x2, y2) {
+  return `<path d="M${x1} ${y1} L${x2} ${y2}" stroke="var(--void)" stroke-width="2.5"/>
+    <rect x="${x2 - 52}" y="${y2 - 18}" width="104" height="34" rx="8" fill="var(--white)" ${LINE}/>
+    <text x="${x2}" y="${y2 + 7}" text-anchor="middle" font-size="21" font-weight="800" fill="var(--void)">${word}</text>`;
+}
+
+// The house, front on and bottom up: [first stud from the left, row from
+// the ground, studs wide, part]. Gaps are the door (studs 2 to 4, rows 1
+// and 2) and the window (studs 6 to 8, row 2).
+const BRICKS = [
+  [0, 1, 2, "wall"], [4, 1, 2, "wall"], [6, 1, 4, "wall"],
+  [0, 2, 2, "wall"], [4, 2, 2, "wall"], [8, 2, 2, "wall"],
+  [0, 3, 4, "wall"], [4, 3, 2, "wall"], [6, 3, 4, "wall"],
+  [-1, 4, 6, "roof"], [5, 4, 6, "roof"],
+  [1, 5, 8, "roof"],
+  [3, 6, 4, "roof"], [7, 6, 2, "chimney"],
+  [7, 7, 2, "chimney"],
+];
+const X = 160, GROUND = 420;
+const at = (col, row) => [X + col * U, GROUND - row * H];
+
+function house() {
+  let s = "";
+  BRICKS.forEach(([c, r, n, part]) => { const [x, y] = at(c, r); s += brick(x, y, n, C[part]); });
+  const [dx, dy] = at(3, 1), [wx, wy] = at(7, 2), [lx, ly] = at(0, 2), [rx, ry] = at(9, 5), [cx, cy] = at(9, 7);
+  s += label("door", dx, dy + 6, dx, GROUND + 50);
+  s += label("window", wx, wy + 24, wx + 250, wy + 24);
+  s += label("wall", lx + 20, ly + 24, lx - 80, ly + 24);
+  s += label("roof", rx - 10, ry + 24, rx + 170, ry + 24);
+  s += label("chimney", cx - 10, cy + 24, cx + 170, cy + 24);
+  return `<svg viewBox="0 50 760 450" class="plan-art" role="img" aria-label="A plan of a LEGO house with walls, a door, a window, a stepped roof and a chimney">${s}</svg>`;
+}
+
+// What to collect: each size and colour once, with how many.
+function needs() {
+  const count = {};
+  BRICKS.forEach(([, , n, part]) => { const k = `${n}|${part}`; count[k] = (count[k] || 0) + 1; });
+  return Object.entries(count).map(([k, total]) => {
+    const [n, part] = k.split("|");
+    return `<div class="need"><svg viewBox="0 0 ${n * U + 8} ${H + 16}">${brick(4, 12, Number(n), C[part])}</svg><strong>${total}</strong></div>`;
+  }).join("");
+}
+
+document.querySelectorAll("[data-plan]").forEach((card) => {
+  card.innerHTML = `
+    <header class="card-head"><h1>Teddy's house plan</h1><span>Build what the plan shows.</span></header>
+    <div class="field"><span class="field-label">You need</span><div class="needs">${needs()}</div></div>
+    <div class="box plan-box">${house()}</div>
+    <p class="field-label">Finished? Plan something new for Teddy. Draw it on the plan, then build it.</p>`;
+});
+</script>
+</body>
+</html>
