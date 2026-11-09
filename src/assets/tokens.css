@@ -108,3 +108,9 @@
   --missing-text: var(--void);
   --missing-fill: color-mix(in srgb, var(--link-missing) 45%, var(--white));
 }
+
+/* Printing (handouts, CRT plans and their PDFs) is always light, so the
+   page margins print white instead of taking the dark default. */
+@media print {
+  :root, :root[data-theme] { color-scheme: light; }
+}
