@@ -69,7 +69,8 @@ sequence:
     what: "Doors into the class tray for Lesson 7, bricks back in the tubs."
 resources:
   - LEGO tubs and base plates (one tub and one base plate per pair)
-  - "Card doors cut to size, two per pair [size to check: for a doorway 4 studs wide and 4 bricks high, about 4.5 cm wide and 5 cm tall]"
+  - text: "Card doors (PDF): 18 doors per A4 sheet, each 4.5 cm by 5 cm to cover a doorway 4 studs wide and 4 bricks high. Print on card at actual size and cut along the lines; two per pair"
+    file: 06-card-doors.pdf
   - "Masking tape, torn into short strips and stuck along the edge of each table [about 5 cm each]"
   - "A teacher doorway for the hook: one door taped all the way round and one door with no tape"
   - A class tray for the finished card doors (they go on the houses in Lesson 7)
@@ -88,7 +89,7 @@ live:
     file: 06-frayer.html
 crt_notes: Works for a CRT if the card doors are cut and the tape is torn into strips before the lesson. The test is simple and needs no water.
 ---
-**Setup:** Cut the card doors (two per pair) and stick short strips of masking tape along the edge of each table. Build the teacher doorway for the hook: two towers of LEGO bricks on a base plate with one brick across the top, and two card doors, one taped all the way round and one with no tape.
+**Setup:** Print the card doors sheet on card at actual size and cut them out (two per pair) and stick short strips of masking tape along the edge of each table. Build the teacher doorway for the hook: two towers of LEGO bricks on a base plate with one brick across the top, and two card doors, one taped all the way round and one with no tape.
 
 **Focus:** A hinge joins a door to its frame and lets it swing. Tape works as a hinge because it is flexible: it bends but does not break. The habit this week is **test it, then fix it**.
 

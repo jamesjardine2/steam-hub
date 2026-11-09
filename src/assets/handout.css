@@ -38,3 +38,12 @@ html, body { margin: 0; background: var(--white); color: var(--void); font-famil
 .needs { flex-wrap: wrap; }
 .plan-box { display: flex; align-items: center; justify-content: center; }
 .plan-art { width: 100%; height: 100%; max-height: 120mm; }
+
+/* Card door cut sheet (Teddy's New House 06-card-doors.html): doors 4.5 cm
+   by 5 cm in a grid that shares cutting lines, with a 10 cm check line. */
+.door-sheet { width: 281mm; height: 194mm; display: flex; flex-direction: column; gap: 5mm; }
+.door-head, .door-foot { display: flex; align-items: center; gap: 6mm; }
+.door-grid { display: grid; grid-template-columns: repeat(6, 45mm); grid-auto-rows: 50mm; border-top: 0.4mm solid var(--void); border-left: 0.4mm solid var(--void); width: max-content; }
+.card-door { border-right: 0.4mm solid var(--void); border-bottom: 0.4mm solid var(--void); position: relative; }
+.card-door .knob { position: absolute; right: 5mm; top: 50%; width: 3mm; height: 3mm; border-radius: 50%; border: 0.4mm solid var(--mist); }
+.door-ruler { display: block; width: 100mm; height: 3mm; border: 0.4mm solid var(--void); border-top: 0; }

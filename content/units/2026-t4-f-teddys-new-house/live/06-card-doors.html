@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Card doors · Foundation Doors That Open</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/handout.css">
+</head>
+<body>
+<!-- Lesson 6 card doors: 18 doors per A4 sheet, each 4.5 cm wide and 5 cm
+     tall, to cover a LEGO doorway 4 studs wide (3.2 cm) and 4 bricks high
+     (3.8 cm) with room for the tape. Print on card at 100% (actual size)
+     and cut along the lines. Two doors per pair. -->
+<main class="door-sheet">
+  <header class="door-head">
+    <span class="field-label">Card doors · Lesson 6 Doors That Open</span>
+    <span class="field-hint">Print on card at actual size (100%). Two doors per pair.</span>
+  </header>
+  <div class="door-grid" id="doors"></div>
+  <footer class="door-foot">
+    <span class="field-hint">Check the size: this line should be 10 cm.</span>
+    <span class="door-ruler"></span>
+  </footer>
+</main>
+<script>
+document.getElementById("doors").innerHTML = '<div class="card-door"><span class="knob"></span></div>'.repeat(18);
+</script>
+</body>
+</html>
