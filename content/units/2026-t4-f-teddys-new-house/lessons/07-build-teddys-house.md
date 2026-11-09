@@ -71,7 +71,19 @@ resources:
   - "Clear plastic sheets for the roof, one per pair [size to check: about the size of half an A4 page, so it covers the walls when folded in half]"
   - "Masking tape strips along the edge of each table"
   - An iPad or camera for a photo of each house
-live: []
+live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: Recall, our plans, LISC, word wall, how-to, your turn and check the plan
+    file: 07-slides.html
+  - kind: HTML
+    title: How to build Teddy's house
+    note: "Animated steps: base, walls, doorway, door, plastic roof, check the plan"
+    file: 07-build-it.html
+  - kind: HTML
+    title: "Word wall: Frayer model"
+    note: base, material and structure
+    file: 07-frayer.html
 crt_notes: Works for a CRT if the plastic roofs are cut and the tape is torn before the lesson, and the card doors from Lesson 6 are set out. Photograph each house before it is pulled apart.
 ---
 **Setup:** Cut a plastic roof sheet for each pair and stick tape strips along the edge of each table. Set out the class tray of card doors from Lesson 6, with a few spares. Have the STEAM journals open at the plans from Lesson 5.

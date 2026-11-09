@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Word wall · Foundation Build Teddy's House</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<!-- Pictures shared by every artefact in this unit. -->
+<script src="pictures.js"></script>
+</head>
+<body>
+<div class="stage frayer" id="stage">
+  <header>
+    <span class="t">Foundation · Build Teddy's House</span>
+    <span class="u">Word wall: Frayer model</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/07-build-teddys-house/">Exit</a>
+  </header>
+
+  <div class="body">
+    <div class="grid" id="grid"></div>
+    <div class="word" id="word" aria-live="polite"></div>
+  </div>
+
+  <footer>
+    <span class="hint">Word:</span>
+    <div id="words" style="display: flex; gap: 10px"></div>
+    <button type="button" class="btn spacer" id="showAll">Show all</button>
+    <button type="button" class="btn" id="hideAll">Hide all</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
+// Frayer models for the lesson's key words.
+const WORDS = [
+  {
+    "word": "base",
+    "def": "The flat part a building sits on.",
+    "traits": [
+      "it is at the bottom",
+      "it is flat",
+      "the building sits on it"
+    ],
+    "yes": [
+      [
+        "basePlate",
+        "a base plate"
+      ],
+      [
+        "slab",
+        "a slab under a house"
+      ],
+      [
+        "trayModel",
+        "a tray under a model"
+      ]
+    ],
+    "no": [
+      [
+        "roof",
+        "a roof"
+      ],
+      [
+        "wallOverlap",
+        "a wall"
+      ],
+      [
+        "brickPile",
+        "a bumpy pile"
+      ]
+    ]
+  },
+  {
+    "word": "material",
+    "def": "What something is made of.",
+    "traits": [
+      "you can touch it",
+      "things are made from it",
+      "it can be bendy, hard or waterproof"
+    ],
+    "yes": [
+      [
+        "plastic",
+        "plastic"
+      ],
+      [
+        "cardSheet",
+        "card"
+      ],
+      [
+        "paper",
+        "paper"
+      ]
+    ],
+    "no": [
+      [
+        "paintRed",
+        "red"
+      ],
+      [
+        "shapeSquare",
+        "a square"
+      ],
+      [
+        "door",
+        "a door"
+      ]
+    ]
+  },
+  {
+    "word": "structure",
+    "def": "Something built from parts that holds together.",
+    "traits": [
+      "it has lots of parts",
+      "the parts are joined",
+      "it holds together"
+    ],
+    "yes": [
+      [
+        "brickHouse",
+        "a LEGO house"
+      ],
+      [
+        "legoBridge",
+        "a LEGO bridge"
+      ],
+      [
+        "cardHouse",
+        "a card house"
+      ]
+    ],
+    "no": [
+      [
+        "brickPile",
+        "a pile of bricks"
+      ],
+      [
+        "legoBrick",
+        "one brick"
+      ],
+      [
+        "planHouse",
+        "a house plan"
+      ]
+    ]
+  }
+];
+
+const BOXES = [
+  { key: "def", label: "What does it mean?", cls: "top left" },
+  { key: "traits", label: "What is it like?", cls: "top right" },
+  { key: "yes", label: "Examples", cls: "left" },
+  { key: "no", label: "Non-examples", cls: "right no" },
+];
+
+const $ = (id) => document.getElementById(id);
+const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pic = (name, mark) => `<span class="pic">${picSvg(name)}<span class="mark">${mark}</span></span>`;
+
+function content(w, key) {
+  if (key === "def") return `<p class="def">${esc(w.def)}</p>`;
+  if (key === "traits") return `<ul class="traits">${w.traits.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+  const mark = key === "yes" ? "✓" : "✗";
+  return `<div class="items">${w[key].map(([p, t]) => `<div class="item">${pic(p, mark)}<span>${esc(t)}</span></div>`).join("")}</div>`;
+}
+
+let current = 0;
+
+function show(i) {
+  current = i;
+  const w = WORDS[i];
+  $("word").textContent = w.word;
+  $("grid").innerHTML = BOXES.map((b, n) => `
+    <section class="box ${b.cls}" aria-label="${b.label}">
+      <p class="label">${b.label}</p>
+      ${content(w, b.key)}
+      <button type="button" class="cover" data-box="${n}"><strong>${b.label}</strong><span>Think first, then tap to show</span></button>
+    </section>`).join("");
+  [...$("words").children].forEach((btn, j) => btn.setAttribute("aria-pressed", String(j === i)));
+}
+
+function reveal(n) {
+  const cover = document.querySelector(`.cover[data-box="${n}"]`);
+  if (cover) cover.hidden = true;
+}
+
+WORDS.forEach((w, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "btn";
+  b.textContent = w.word;
+  b.addEventListener("click", () => show(j));
+  $("words").appendChild(b);
+});
+$("grid").addEventListener("click", (e) => {
+  const cover = e.target.closest(".cover");
+  if (cover) cover.hidden = true;
+});
+$("showAll").addEventListener("click", () => BOXES.forEach((_, n) => reveal(n)));
+$("hideAll").addEventListener("click", () => show(current));
+document.addEventListener("keydown", (e) => {
+  if (["1", "2", "3", "4"].includes(e.key)) reveal(Number(e.key) - 1);
+  if (e.key === "ArrowRight") show((current + 1) % WORDS.length);
+  if (e.key === "ArrowLeft") show((current + WORDS.length - 1) % WORDS.length);
+});
+
+// Inside the lesson slides, the arrows uncover each box, then move to the next word (live.js).
+window.liveSteps = { kind: "words", count: WORDS.length, at: () => current, show };
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+show(0);
+</script>
+</body>
+</html>

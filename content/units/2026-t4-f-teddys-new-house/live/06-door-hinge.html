@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>How to make a door that opens · Foundation Doors That Open</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<!-- Pictures shared by every artefact in this unit. -->
+<script src="pictures.js"></script>
+</head>
+<body>
+<div class="stage howto" id="stage">
+  <header>
+    <span class="t">Foundation · Doors That Open</span>
+    <span class="u">How to make a door that opens</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/06-doors-that-open/">Exit</a>
+  </header>
+
+  <div class="body">
+    <svg viewBox="0 0 480 470" id="scene" role="img" aria-labelledby="title"></svg>
+    <div class="text" aria-live="polite">
+      <span class="num" id="num">1</span>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="words" id="words"></div>
+    </div>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" id="again">Play again</button>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
+const seg = (p, a, b) => Math.min(1, Math.max(0, (p - a) / (b - a)));
+const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const backdrop = `<rect x="10" y="10" width="460" height="450" rx="22" fill="var(--panel)"/>`;
+const O = 'stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"';
+const label = (x, y, text, k = 1, size = 28) => k <= 0 ? "" : `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="800" fill="var(--ink)" opacity="${k}">${text}</text>`;
+// LEGO bricks front on: one brick is 52 wide (2 studs) and 30 high.
+const BW = 52, BH = 30, GROUND = 390, WALL = "var(--plasma-pink)";
+function brick(x, y, w, colour = WALL) {
+  let s = `<rect x="${x}" y="${y}" width="${w * BW}" height="${BH}" rx="3" fill="${colour}" ${O}/>`;
+  for (let i = 0; i < Math.round(w * 2); i++) s += `<rect x="${x + i * BW / 2 + 7}" y="${y - 7}" width="${BW / 2 - 14}" height="7" fill="${colour}" ${O}/>`;
+  return s;
+}
+const plate = (k = 1) => k <= 0 ? "" : `<rect x="60" y="${GROUND}" width="360" height="18" rx="3" fill="var(--volt-blue)" opacity="${k}" ${O}/>`;
+const rowY = (r) => GROUND - (r + 1) * BH;
+const drop = (svg, k) => k <= 0 ? "" : `<g transform="translate(0 ${-(1 - k) * 160})" opacity="${Math.min(1, k * 2)}">${svg}</g>`;
+
+// A doorway: two towers of bricks and one brick across the top.
+const TL = 150, TR = 278, TOP = rowY(4);
+const towers = (rows) => [0, 1, 2, 3].slice(0, rows).map((r) => brick(TL, rowY(r), 1) + brick(TR, rowY(r), 1)).join("");
+const lintel = brick(TL, TOP, (TR + BW - TL) / BW);
+const door = (open = 0, flap = 0) => {
+  let t = `translate(204 0) scale(${Math.cos(open * 1.25)} 1) translate(-204 0)`;
+  if (flap) t = `translate(0 ${TOP + BH}) scale(1 ${Math.cos(flap * 1.25)}) translate(0 ${-(TOP + BH)})`;
+  return `<g transform="${t}"><rect x="204" y="${TOP + BH + 2}" width="72" height="${GROUND - TOP - BH - 2}" fill="var(--paper)" ${O}/><circle cx="264" cy="${GROUND - 50}" r="4" fill="var(--ink)"/></g>`;
+};
+const sideTape = (k) => k <= 0 ? "" : `<rect x="192" y="${TOP + BH + 20}" width="24" height="70" fill="var(--mist)" opacity="${0.92 * k}" ${O}/>`;
+const topTape = (k) => k <= 0 ? "" : `<rect x="210" y="${TOP + BH - 10}" width="60" height="22" fill="var(--mist)" opacity="${0.92 * k}" ${O}/>`;
+
+const SCENES = [
+  // 1. Two towers on a base, with a gap for the door.
+  (p) => backdrop + plate() + towers(Math.min(4, Math.floor(seg(p, 0, 0.8) * 4.99))),
+  // 2. One brick across the top: now it is a frame.
+  (p) => backdrop + plate() + towers(4) + drop(lintel, ease(seg(p, 0.1, 0.6))) + label(240, 90, "frame", seg(p, 0.6, 0.8)),
+  // 3. Hold the card door in the gap.
+  (p) => backdrop + plate() + towers(4) + lintel + `<g transform="translate(${(1 - ease(seg(p, 0, 0.6))) * 200} 0)">${door()}</g>`,
+  // 4. Tape down one side: half on the card, half on the brick.
+  (p) => backdrop + plate() + towers(4) + lintel + door() + sideTape(ease(seg(p, 0.2, 0.6))),
+  // 5. Open and close it 5 times.
+  (p) => {
+    const swing = Math.max(0, Math.sin(p * Math.PI * 5));
+    const n = Math.min(5, Math.floor(p * 5) + (p >= 1 ? 0 : 1));
+    return backdrop + plate() + towers(4) + lintel + door(swing) + sideTape(1) + label(400, 90, n, 1, 60);
+  },
+  // 6. Tape on the top makes a flap.
+  (p) => backdrop + plate() + towers(4) + lintel + door(0, Math.max(0, Math.sin(seg(p, 0.3, 1) * Math.PI * 2)) * 0.8) + topTape(ease(seg(p, 0, 0.25))),
+];
+
+// Zoom in on the doorway so it is big enough to see on the projector.
+SCENES.forEach((scene, i) => {
+  SCENES[i] = (p) => {
+    const s = scene(p);
+    return backdrop + `<g transform="translate(240 300) scale(1.25) translate(-240 -300)">${s.slice(backdrop.length)}</g>`;
+  };
+});
+
+const STEPS = [
+  { title: "Build two towers.", sub: "Leave a gap for the door.", dur: 4500, words: [] },
+  { title: "Put a brick across the top.", sub: "Now it is a frame.", dur: 4000, words: [["frame", "yes"]], wordsFrom: 0.6 },
+  { title: "Hold the card door in the gap.", sub: "", dur: 3500, words: [] },
+  { title: "Tape down one side.", sub: "Half on the card, half on the brick.", dur: 4500, words: [["attach", "yes"], ["flexible", "yes"]], wordsFrom: 0.5 },
+  { title: "Open and close it 5 times.", sub: "Count with me!", dur: 7000, words: [["hinge", "yes"]], wordsFrom: 0.2 },
+  { title: "Try the tape on the top.", sub: "Now it is a flap.", dur: 5000, words: [] },
+];
+
+const $ = (id) => document.getElementById(id);
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let current = 0, start = 0, frame = 0;
+
+function renderWords(step, p) {
+  const n = step.words.length;
+  $("words").innerHTML = step.words.map((w, i) => {
+    const [text, kind] = Array.isArray(w) ? w : [w, ""];
+    const at = step.wordsAt ? step.wordsAt[i] : (step.wordsFrom ?? 0.1) + (i / n) * (1 - (step.wordsFrom ?? 0.1)) * 0.8;
+    return `<span class="word ${kind}${p >= at ? " done" : ""}">${text}</span>`;
+  }).join("");
+}
+
+function tick(now) {
+  const step = STEPS[current];
+  const p = reduceMotion ? 1 : Math.min(1, (now - start) / step.dur);
+  $("scene").innerHTML = SCENES[current](p);
+  renderWords(step, p);
+  if (p < 1) frame = requestAnimationFrame(tick);
+}
+
+function go(i) {
+  current = Math.max(0, Math.min(STEPS.length - 1, i));
+  const step = STEPS[current];
+  $("num").textContent = current + 1;
+  $("title").textContent = step.title;
+  $("sub").textContent = step.sub;
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("back").disabled = current === 0;
+  $("next").disabled = current === STEPS.length - 1;
+  cancelAnimationFrame(frame);
+  start = performance.now();
+  frame = requestAnimationFrame(tick);
+}
+
+STEPS.forEach((_, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Step ${j + 1}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+$("again").addEventListener("click", () => go(current));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(current + 1); }
+  if (e.key === "ArrowLeft") go(current - 1);
+});
+
+// Inside the lesson slides, the arrows go through these steps first (live.js).
+window.liveSteps = { kind: "steps", count: STEPS.length, at: () => current, go };
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go(0);
+</script>
+</body>
+</html>

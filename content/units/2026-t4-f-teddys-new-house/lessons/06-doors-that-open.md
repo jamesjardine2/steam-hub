@@ -57,7 +57,7 @@ sequence:
     what: Frame, attach and flexible with the Frayer word wall.
   - phase: I do
     time: 5 min
-    what: "Model the doorway (two towers of overlapping bricks, one brick across the top) and tape the card door along one side. Open and close it."
+    what: "Model the doorway (two towers of bricks, one brick across the top) and tape the card door along one side. Open and close it."
   - phase: You do
     time: 17 min
     what: "Pairs build a doorway, attach a door with tape on one side, then test it 5 times. Then try the tape on the top: a flap door."
@@ -73,7 +73,19 @@ resources:
   - "Masking tape, torn into short strips and stuck along the edge of each table [about 5 cm each]"
   - "A teacher doorway for the hook: one door taped all the way round and one door with no tape"
   - A class tray for the finished card doors (they go on the houses in Lesson 7)
-live: []
+live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: Recall, the door problem, LISC, word wall, how-to, your turn and share
+    file: 06-slides.html
+  - kind: HTML
+    title: How to make a door that opens
+    note: "Animated steps: towers, frame, door, tape hinge, open and close, flap"
+    file: 06-door-hinge.html
+  - kind: HTML
+    title: "Word wall: Frayer model"
+    note: frame, attach and flexible
+    file: 06-frayer.html
 crt_notes: Works for a CRT if the card doors are cut and the tape is torn into strips before the lesson. The test is simple and needs no water.
 ---
 **Setup:** Cut the card doors (two per pair) and stick short strips of masking tape along the edge of each table. Build the teacher doorway for the hook: two towers of LEGO bricks on a base plate with one brick across the top, and two card doors, one taped all the way round and one with no tape.
@@ -89,7 +101,7 @@ crt_notes: Works for a CRT if the card doors are cut and the tape is torn into s
 | 0 to 3 min | Recall | Students sit on the mat. Ask: "What does a hinge do?" Think time, then two or three answers. "What did Teddy forget on his house?" (A door.) Read the Learning Intention and Success Criteria. |
 | 3 to 8 min | Hook (CIC) | Show the teacher doorway with the door taped all the way round. Try to open it: it will not move. "Thumbs up if you think Teddy can get in." Then the door with no tape: it falls off. "Why won't Teddy's door work? Tell a partner." Take two or three ideas. "Today we find out where the tape needs to go." |
 | 8 to 13 min | Word wall | Use the word wall. A **frame** is the edges around a door or window. **Attach** means join one thing to another. **Flexible** means it can bend without breaking. Students think first, then each box is uncovered. For each non-example, ask "Why is this not a ___?" and use the reasons below. |
-| 13 to 18 min | I do | Think aloud as you build. "First two towers, with the bricks overlapping, like our strong walls. I leave a gap between them for the door. Now one brick across the top: that is the frame. Now I attach the door. I put the tape down one side only, half on the card and half on the brick. The tape is flexible, so it bends." Open and close the door five times while the class counts. |
+| 13 to 18 min | I do | Think aloud as you build. "First two towers of bricks, pressed down firmly. I leave a gap between them for the door. Now one brick across the top: that is the frame. Now I attach the door. I put the tape down one side only, half on the card and half on the brick. The tape is flexible, so it bends." Open and close the door five times while the class counts. |
 | 18 to 35 min | You do | Pairs build a doorway on a base plate and attach a door with tape on one side. They open and close it five times. If it sticks or falls off, they fix it. Pairs who finish try a second door with the tape along the top: a flap door, like a pet door. Roam with the questions below. |
 | 35 to 40 min | Share | Pairs hold up their doorway. "Point to your hinge." Then, for each tape place, thumbs up or down: one side (yes), the top (yes, a flap), all the way round (no, it cannot swing), no tape (no, it falls off). Say together: **"A hinge joins the door and lets it swing."** |
 | 40 to 45 min | Pack up | Each pair puts its best card door in the class tray for Lesson 7. Pull the doorways apart and put the bricks back in the tubs. |

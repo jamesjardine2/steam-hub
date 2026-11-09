@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>How to do the rain test · Foundation Rain Test and House Tour</title>
+<script src="../../../assets/theme.js" data-area="live"></script>
+<script src="../../../assets/live.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<!-- Colours and the student styles are shared by every artefact. -->
+<link rel="stylesheet" href="../../../assets/tokens.css">
+<link rel="stylesheet" href="../../../assets/live.css">
+<!-- Pictures shared by every artefact in this unit. -->
+<script src="pictures.js"></script>
+</head>
+<body>
+<div class="stage howto" id="stage">
+  <header>
+    <span class="t">Foundation · Rain Test and House Tour</span>
+    <span class="u">How to do the rain test</span>
+    <button type="button" class="theme" data-theme-toggle>Light mode</button>
+    <a href="../lessons/08-rain-test-and-house-tour/">Exit</a>
+  </header>
+
+  <div class="body">
+    <svg viewBox="0 0 480 470" id="scene" role="img" aria-labelledby="title"></svg>
+    <div class="text" aria-live="polite">
+      <span class="num" id="num">1</span>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="words" id="words"></div>
+    </div>
+  </div>
+
+  <footer>
+    <button type="button" id="back">Back</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" id="again">Play again</button>
+    <button type="button" class="primary" id="next">Next</button>
+  </footer>
+</div>
+
+<script>
+// Colours come from tokens.css; T("violet") gives a token's hex value.
+const T = (name) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+if (new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
+
+const seg = (p, a, b) => Math.min(1, Math.max(0, (p - a) / (b - a)));
+const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const backdrop = `<rect x="10" y="10" width="460" height="450" rx="22" fill="var(--panel)"/>`;
+const O = 'stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"';
+const label = (x, y, text, k = 1, size = 28) => k <= 0 ? "" : `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="800" fill="var(--ink)" opacity="${k}">${text}</text>`;
+// LEGO bricks front on: one brick is 52 wide (2 studs) and 30 high.
+const BW = 52, BH = 30, GROUND = 390, WALL = "var(--plasma-pink)";
+function brick(x, y, w, colour = WALL) {
+  let s = `<rect x="${x}" y="${y}" width="${w * BW}" height="${BH}" rx="3" fill="${colour}" ${O}/>`;
+  for (let i = 0; i < Math.round(w * 2); i++) s += `<rect x="${x + i * BW / 2 + 7}" y="${y - 7}" width="${BW / 2 - 14}" height="7" fill="${colour}" ${O}/>`;
+  return s;
+}
+const plate = (k = 1) => k <= 0 ? "" : `<rect x="60" y="${GROUND}" width="360" height="18" rx="3" fill="var(--volt-blue)" opacity="${k}" ${O}/>`;
+const rowY = (r) => GROUND - (r + 1) * BH;
+const drop = (svg, k) => k <= 0 ? "" : `<g transform="translate(0 ${-(1 - k) * 160})" opacity="${Math.min(1, k * 2)}">${svg}</g>`;
+// Teddy's house: walls 5 bricks wide with overlapping rows, a doorway in
+// the middle of the bottom two rows, a card door and a clear plastic roof.
+const L = 110;
+function row(r) {
+  if (r % 2 === 0) return [0, 1, 2, 3, 4].map((i) => brick(L + i * BW, rowY(r), 1)).join("");
+  return brick(L, rowY(r), 0.5) + [0, 1, 2, 3].map((i) => brick(L + BW / 2 + i * BW, rowY(r), 1)).join("") + brick(L + 4.5 * BW, rowY(r), 0.5);
+}
+const doorway = `<rect x="214" y="${rowY(1)}" width="52" height="${2 * BH}" fill="var(--panel)" stroke="var(--ink)" stroke-width="4"/>`;
+const cardDoor = (open = 0) => `<g transform="translate(216 0) scale(${Math.cos(open * 1.2)} 1) translate(-216 0)"><rect x="216" y="${rowY(1) + 3}" width="48" height="${2 * BH - 3}" fill="var(--paper)" ${O}/><circle cx="256" cy="${GROUND - 30}" r="3" fill="var(--ink)"/></g>`;
+const tape = (k = 1) => k <= 0 ? "" : `<rect x="206" y="${rowY(1) + 8}" width="16" height="${2 * BH - 16}" fill="var(--mist)" opacity="${0.9 * k}" ${O}/>`;
+const ROOFY = rowY(3);
+function roof(fold = 1, lift = 0) {
+  const side = Math.hypot(150, 110);
+  const half = side * (1 - fold) + 150 * fold, apex = ROOFY - 110 * fold - lift;
+  return `<path d="M${240 - half} ${ROOFY - lift} L240 ${apex} L${240 + half} ${ROOFY - lift} Z" fill="var(--ion-cyan)" fill-opacity="0.45" ${O}/>`;
+}
+const windowGap = `<rect x="302" y="${rowY(2)}" width="48" height="${BH}" fill="var(--ion-cyan)" stroke="var(--ink)" stroke-width="4"/>`;
+const walls = (rows) => [0, 1, 2, 3].slice(0, rows).map(row).join("") + (rows >= 2 ? doorway : "") + (rows >= 3 ? windowGap : "");
+
+// Teddy's bed is a paper towel square, seen through the doorway.
+const bed = (x = 222) => `<rect x="${x}" y="${GROUND - 14}" width="36" height="12" fill="var(--paper)" ${O}/>`;
+const dropper = (x, y) => `<g transform="translate(${x} ${y})"><path d="M-10 -40 Q0 -54 10 -40 L10 -14 L-10 -14 Z" fill="var(--plasma-pink)" ${O}/><path d="M-6 -14 L-6 6 L0 16 L6 6 L6 -14 Z" fill="var(--paper)" ${O}/></g>`;
+
+const SCENES = [
+  // 1. Teddy's bed goes inside.
+  (p) => backdrop + plate() + walls(4) + bed(222 - (1 - ease(seg(p, 0, 0.7))) * 220) + label(240, 446, "bed", seg(p, 0.6, 0.8)),
+  // 2. The roof goes on.
+  (p) => backdrop + plate() + walls(4) + bed() + drop(roof(), ease(seg(p, 0, 0.6))),
+  // 3. Drip 10 drops on the roof, counting.
+  (p) => {
+    const n = Math.min(10, Math.floor(p * 10.5));
+    const f = (p * 10.5) % 1, x = 170 + (n % 5) * 35;
+    let s = backdrop + plate() + walls(4) + bed() + roof() + dropper(x, 90);
+    if (n < 10) s += `<path d="M${x} ${110 + f * 60} q-6 8 0 11 q6 -3 0 -11 Z" fill="var(--ion-cyan)" ${O}/>`;
+    return s + label(410, 90, n, 1, 60);
+  },
+  // 4. Lift the roof and look at the bed.
+  (p) => backdrop + plate() + walls(4) + bed() + roof(1, 90 * ease(seg(p, 0, 0.5))) + `<g opacity="${ease(seg(p, 0.5, 0.8))}" transform="translate(330 30) scale(0.9)">${PIC.bedDry()}</g>`,
+  // 5. Dry: Teddy is happy. Wet: find the leak and fix it.
+  (p) => {
+    let s = backdrop + `<path d="M240 40 L240 430" stroke="var(--border)" stroke-width="4"/>`;
+    s += `<g opacity="${ease(seg(p, 0, 0.3))}"><g transform="translate(55 60) scale(1.1)">${PIC.bedDry()}</g><g transform="translate(60 210) scale(1.1)">${PIC.teddyHappy()}</g>${label(125, 420, "dry", 1, 32)}</g>`;
+    s += `<g opacity="${ease(seg(p, 0.4, 0.7))}"><g transform="translate(295 60) scale(1.1)">${PIC.bedWet()}</g><g transform="translate(295 210) scale(1.1)">${PIC.tapeFix()}</g>${label(360, 420, "wet? fix it", 1, 32)}</g>`;
+    return s;
+  },
+];
+
+const STEPS = [
+  { title: "Put Teddy's bed inside.", sub: "A paper towel square.", dur: 3500, words: [] },
+  { title: "Put the roof on.", sub: "", dur: 3000, words: [] },
+  { title: "Drip 10 drops on the roof.", sub: "Count with me!", dur: 8000, words: [["test", "yes"]], wordsFrom: 0.2 },
+  { title: "Lift the roof. Look at the bed.", sub: "Is it dry?", dur: 4000, words: [] },
+  { title: "Dry? Teddy is happy.", sub: "Wet? Find the leak, fix it and test again.", dur: 5000, words: [["improve", "yes"]], wordsFrom: 0.6 },
+];
+
+const $ = (id) => document.getElementById(id);
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let current = 0, start = 0, frame = 0;
+
+function renderWords(step, p) {
+  const n = step.words.length;
+  $("words").innerHTML = step.words.map((w, i) => {
+    const [text, kind] = Array.isArray(w) ? w : [w, ""];
+    const at = step.wordsAt ? step.wordsAt[i] : (step.wordsFrom ?? 0.1) + (i / n) * (1 - (step.wordsFrom ?? 0.1)) * 0.8;
+    return `<span class="word ${kind}${p >= at ? " done" : ""}">${text}</span>`;
+  }).join("");
+}
+
+function tick(now) {
+  const step = STEPS[current];
+  const p = reduceMotion ? 1 : Math.min(1, (now - start) / step.dur);
+  $("scene").innerHTML = SCENES[current](p);
+  renderWords(step, p);
+  if (p < 1) frame = requestAnimationFrame(tick);
+}
+
+function go(i) {
+  current = Math.max(0, Math.min(STEPS.length - 1, i));
+  const step = STEPS[current];
+  $("num").textContent = current + 1;
+  $("title").textContent = step.title;
+  $("sub").textContent = step.sub;
+  [...$("dots").children].forEach((d, j) => d.setAttribute("aria-current", j === current ? "step" : "false"));
+  $("back").disabled = current === 0;
+  $("next").disabled = current === STEPS.length - 1;
+  cancelAnimationFrame(frame);
+  start = performance.now();
+  frame = requestAnimationFrame(tick);
+}
+
+STEPS.forEach((_, j) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "dot";
+  b.textContent = j + 1;
+  b.setAttribute("aria-label", `Step ${j + 1}`);
+  b.addEventListener("click", () => go(j));
+  $("dots").appendChild(b);
+});
+$("back").addEventListener("click", () => go(current - 1));
+$("next").addEventListener("click", () => go(current + 1));
+$("again").addEventListener("click", () => go(current));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(current + 1); }
+  if (e.key === "ArrowLeft") go(current - 1);
+});
+
+// Inside the lesson slides, the arrows go through these steps first (live.js).
+window.liveSteps = { kind: "steps", count: STEPS.length, at: () => current, go };
+
+function fit() {
+  const scale = Math.min(innerWidth / 1280, innerHeight / $("stage").offsetHeight);
+  $("stage").style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+addEventListener("resize", fit);
+fit();
+go(0);
+</script>
+</body>
+</html>

@@ -74,7 +74,19 @@ resources:
   - "Masking tape strips for fixing leaks"
   - "Smiley face cards for the house tour, one per pair [to make: a card with a smiley face on one side]"
   - The photos of each house from Lesson 7
-live: []
+live:
+  - kind: SLIDE
+    title: Lesson slides
+    note: The hook, LISC, word wall, rebuild, rain test, improve, house tour and key idea
+    file: 08-slides.html
+  - kind: HTML
+    title: How to do the rain test
+    note: "Animated steps: bed inside, roof on, 10 drops, lift and look, dry or fix"
+    file: 08-rain-test.html
+  - kind: HTML
+    title: "Word wall: Frayer model"
+    note: test, improve and feedback
+    file: 08-frayer.html
 crt_notes: Works for a CRT with the Lesson 4 trays, cups and droppers set out, paper towel squares cut, and the plans, doors and roofs from the class tray on the tables. If houses were kept from Lesson 7, skip the rebuild and spend the time on the test and tour.
 ---
 **Setup:** Set out the trays, cups of water and droppers from Lesson 4, with paper towel squares. Put the plans, card doors and plastic roofs from the class tray on the tables, with spares and tape strips. Have the photos from Lesson 7 ready in case a pair cannot read its plan.

@@ -30,6 +30,15 @@ const PIC = (() => {
   const sketch = (name) => `<rect x="12" y="8" width="96" height="104" fill="var(--paper)" ${O}/><g transform="translate(24 26) scale(0.64)" opacity="0.85">${PIC_BASE[name]()}</g><path d="M22 100 L98 100" stroke="var(--mist)" stroke-width="3" stroke-linecap="round"/>`;
   // A picture with a pointer line to a box holding its word.
   const tagged = (name, word) => `<g transform="translate(0 -10) scale(0.8)">${PIC_BASE[name]()}</g><path d="M60 50 L60 82" ${O}/><rect x="22" y="82" width="76" height="28" rx="6" fill="var(--paper)" ${O}/><text x="60" y="103" text-anchor="middle" font-size="19" font-weight="800" fill="var(--ink)">${word}</text>`;
+  // A LEGO brick seen front on: x, y of its top left, studs wide, height in studs (1 = flat row).
+  const lego = (x, y, studs, rows, colour, w = 12) => {
+    const h = rows * 14;
+    let s = `<rect x="${x}" y="${y}" width="${studs * w}" height="${h}" rx="1.5" fill="${colour}" ${O}/>`;
+    for (let i = 0; i < studs; i++) s += `<rect x="${x + i * w + w * 0.2}" y="${y - 4}" width="${w * 0.6}" height="4" fill="${colour}" ${O}/>`;
+    return s;
+  };
+  // A speech bubble with a small picture inside.
+  const bubble = (inner) => `<path d="M14 24 Q14 12 26 12 L94 12 Q106 12 106 24 L106 78 Q106 90 94 90 L44 90 L26 108 L30 90 L26 90 Q14 90 14 78 Z" fill="var(--paper)" ${O}/>${inner}`;
   const PIC_BASE = {};
   const pics = {
     // Lesson 1: homes and not-homes
@@ -114,6 +123,46 @@ const PIC = (() => {
     doorHandle: () => `<rect x="34" y="10" width="52" height="100" fill="var(--violet)" ${O}/><rect x="66" y="50" width="12" height="26" rx="4" fill="var(--mist)" ${O}/><rect x="50" y="56" width="26" height="8" rx="4" fill="var(--paper)" ${O}/>`,
     doorTaped: () => `<rect x="22" y="10" width="84" height="100" fill="var(--panel-2)" ${O}/><rect x="40" y="18" width="50" height="92" fill="var(--violet)" ${O}/>${[30, 62, 94].map((y) => `<rect x="30" y="${y}" width="22" height="10" fill="var(--paper)" opacity="0.9" transform="rotate(-12 41 ${y + 5})" ${O}/>`).join("")}`,
     doorLeaning: () => `<rect x="14" y="16" width="56" height="94" fill="var(--panel-2)" ${O}/><g transform="rotate(14 96 110)"><rect x="70" y="16" width="34" height="94" fill="var(--violet)" ${O}/></g>`,
+    // Lessons 6 to 8: doors, building and testing
+    legoBrick: () => lego(26, 52, 4, 2, "var(--plasma-pink)"),
+    legoDoorway: () => `<rect x="10" y="100" width="100" height="10" rx="2" fill="var(--volt-blue)" ${O}/>` + [0, 1, 2, 3].map((r) => lego(18, 86 - r * 14, 2, 1, "var(--plasma-pink)", 15) + lego(72, 86 - r * 14, 2, 1, "var(--plasma-pink)", 15)).join("") + lego(18, 30, 6, 1, "var(--plasma-pink)", 14),
+    gapNoTop: () => `<rect x="10" y="100" width="100" height="10" rx="2" fill="var(--volt-blue)" ${O}/>` + [0, 1, 2, 3].map((r) => lego(18, 86 - r * 14, 2, 1, "var(--plasma-pink)", 15) + lego(72, 86 - r * 14, 2, 1, "var(--plasma-pink)", 15)).join(""),
+    doorFrame: () => `<rect x="30" y="10" width="60" height="100" fill="var(--panel-2)" ${O}/><path d="M30 110 L30 10 L90 10 L90 110" fill="none" stroke="var(--solar-orange)" stroke-width="10" stroke-linejoin="round"/><path d="M30 110 L30 10 L90 10 L90 110" fill="none" ${O}/>`,
+    windowFrame: () => `<rect x="20" y="20" width="80" height="80" fill="var(--ion-cyan)" opacity="0.5"/><rect x="20" y="20" width="80" height="80" fill="none" stroke="var(--solar-orange)" stroke-width="12"/><rect x="14" y="14" width="92" height="92" fill="none" ${O}/>`,
+    tapedDoor: () => PIC_BASE.legoDoorway() + `<rect x="47" y="44" width="26" height="56" fill="var(--paper)" ${O}/><rect x="42" y="50" width="10" height="40" fill="var(--mist)" opacity="0.9" ${O}/>`,
+    bricksClicked: () => lego(30, 70, 4, 2, "var(--volt-blue)") + lego(30, 46, 4, 2, "var(--plasma-pink)"),
+    bricksApart: () => lego(8, 70, 3, 2, "var(--volt-blue)") + lego(68, 70, 3, 2, "var(--plasma-pink)"),
+    stickerBook: () => `<rect x="24" y="14" width="72" height="92" rx="4" fill="var(--volt-blue)" ${O}/><path d="M60 40 L66 54 L82 54 L69 63 L74 78 L60 69 L46 78 L51 63 L38 54 L54 54 Z" fill="var(--solar-orange)" ${O}/>`,
+    tapeRoll: () => `<circle cx="60" cy="60" r="38" fill="var(--mist)" ${O}/><circle cx="60" cy="60" r="20" fill="var(--panel)" ${O}/>`,
+    tapeBent: () => `<path d="M14 90 Q60 10 106 90" fill="none" stroke="var(--ink)" stroke-width="22" stroke-linecap="round"/><path d="M14 90 Q60 10 106 90" fill="none" stroke="var(--mist)" stroke-width="16" stroke-linecap="round"/>`,
+    pipeCleaner: () => `<path d="M12 80 C30 20 46 100 62 50 S96 20 108 70" fill="none" stroke="var(--ink)" stroke-width="16" stroke-linecap="round"/><path d="M12 80 C30 20 46 100 62 50 S96 20 108 70" fill="none" stroke="var(--plasma-pink)" stroke-width="10" stroke-linecap="round" stroke-dasharray="3 3"/>`,
+    cardFolded: () => `<path d="M14 96 L60 30 L106 96" fill="none" stroke="var(--ink)" stroke-width="16" stroke-linejoin="round"/><path d="M14 96 L60 30 L106 96" fill="none" stroke="var(--paper)" stroke-width="10" stroke-linejoin="round"/>`,
+    stickSnap: () => `<rect x="10" y="52" width="46" height="16" rx="8" fill="var(--solar-orange)" transform="rotate(-14 56 60)" ${O}/><rect x="64" y="52" width="46" height="16" rx="8" fill="var(--solar-orange)" transform="rotate(14 64 60)" ${O}/><path d="M58 40 L62 50 M60 80 L58 70 M48 36 L54 46" ${O}/>`,
+    woodBlock: () => `<path d="M24 46 L60 30 L96 46 L96 92 L60 108 L24 92 Z" fill="var(--solar-orange)" ${O}/><path d="M24 46 L60 62 L96 46 M60 62 L60 108" fill="none" ${O}/>`,
+    slab: () => `<g transform="translate(16 0) scale(0.74)">${PIC_BASE.house()}</g><rect x="6" y="88" width="108" height="20" rx="3" fill="var(--mist)" ${O}/>`,
+    trayModel: () => `<path d="M8 84 L112 84 L102 104 L18 104 Z" fill="var(--volt-blue)" ${O}/><g transform="translate(30 18) scale(0.5)">${PIC_BASE.brickHouse()}</g>`,
+    cardSheet: () => `<rect x="26" y="28" width="80" height="72" fill="var(--mist)" ${O}/><rect x="16" y="18" width="80" height="72" fill="var(--paper)" ${O}/>`,
+    paintRed: () => `<path d="M30 40 Q44 14 70 26 Q100 20 96 52 Q112 78 82 90 Q60 108 40 90 Q14 84 22 62 Q16 48 30 40 Z" fill="var(--plasma-pink)" ${O}/>`,
+    shapeSquare: () => `<rect x="24" y="24" width="72" height="72" fill="none" stroke="var(--ink)" stroke-width="5" stroke-dasharray="10 7"/>`,
+    legoBridge: () => [0, 1, 2].map((r) => lego(10, 92 - r * 14, 2, 1, "var(--plasma-pink)", 15) + lego(86, 92 - r * 14, 2, 1, "var(--plasma-pink)", 15)).join("") + lego(10, 50, 8, 1, "var(--solar-orange)", 13),
+    dripTest: () => `<g transform="translate(14 44) scale(0.76)">${PIC_BASE.house()}</g><path d="M52 4 Q60 -6 68 4 L68 22 L52 22 Z" fill="var(--plasma-pink)" ${O}/><path d="M56 22 L56 32 L60 38 L64 32 L64 22 Z" fill="var(--paper)" ${O}/>${[0, 1].map((i) => `<path d="M60 ${44 + i * 10} q-4 5 0 7 q4 -2 0 -7 Z" fill="var(--ion-cyan)" ${O}/>`).join("")}`,
+    wobbleTest: () => `<g transform="translate(6 18) scale(0.72)">${PIC_BASE.wallOverlap()}</g><path d="M96 40 q10 6 0 12 M104 34 q14 12 0 24" fill="none" ${O}/><circle cx="96" cy="88" r="12" fill="var(--solar-orange)" ${O}/>`,
+    doorTest: () => `${PIC_BASE.doorOpen()}<path d="M94 30 A40 40 0 0 1 94 90" fill="none" ${O}/><path d="M88 86 L94 92 L100 84" fill="none" ${O}/>`,
+    thinkBubble: () => `<path d="M24 66 Q10 46 30 34 Q34 12 60 18 Q86 10 94 32 Q114 42 100 64 Q96 84 66 80 Q40 88 24 66 Z" fill="var(--paper)" ${O}/><circle cx="30" cy="92" r="6" fill="var(--paper)" ${O}/><circle cx="20" cy="106" r="4" fill="var(--paper)" ${O}/><text x="62" y="64" text-anchor="middle" font-size="40" font-weight="800" fill="var(--violet)">?</text>`,
+    eyeLook: () => `<path d="M10 60 Q60 14 110 60 Q60 106 10 60 Z" fill="var(--paper)" ${O}/><circle cx="60" cy="60" r="20" fill="var(--volt-blue)" ${O}/><circle cx="60" cy="60" r="8" fill="var(--ink)"/>`,
+    halfBuilt: () => `<rect x="8" y="100" width="104" height="10" rx="2" fill="var(--volt-blue)" ${O}/>` + lego(14, 86, 6, 1, "var(--plasma-pink)", 15) + lego(14, 72, 3, 1, "var(--plasma-pink)", 15) + lego(60, 30, 2, 1, "var(--plasma-pink)", 15) + `<path d="M76 50 L76 64" ${O}/><path d="M70 58 L76 66 L82 58" fill="none" ${O}/>`,
+    tapeFix: () => `${PIC_BASE.roof()}<rect x="62" y="44" width="30" height="14" fill="var(--mist)" opacity="0.95" transform="rotate(-20 77 51)" ${O}/>`,
+    bigRoof: () => `<rect x="34" y="62" width="52" height="44" fill="var(--paper)" ${O}/><path d="M6 66 L60 18 L114 66 Z" fill="var(--ion-cyan)" opacity="0.8" ${O}/><rect x="52" y="80" width="16" height="26" fill="var(--violet)" ${O}/>`,
+    knockedDown: () => PIC_BASE.brickPile() + `<path d="M60 8 L64 22 L78 18 L70 30 L84 38 L68 40 L70 54 L60 44 L50 54 L52 40 L36 38 L50 30 L42 18 L56 22 Z" fill="var(--solar-orange)" ${O}/>`,
+    sameHouse: () => `<g transform="translate(0 30) scale(0.46)">${PIC_BASE.house()}</g><g transform="translate(64 30) scale(0.46)">${PIC_BASE.house()}</g><path d="M54 52 L66 52 M54 62 L66 62" ${O}/>`,
+    speechLike: () => bubble(`<path d="M50 52 C42 40 30 50 40 60 L50 70 L60 60 C70 50 58 40 50 52 Z" fill="var(--plasma-pink)" ${O}/><rect x="70" y="38" width="20" height="34" fill="var(--violet)" ${O}/>`),
+    speechDry: () => bubble(`<path d="M28 62 L50 36 L72 62 Z" fill="var(--ion-cyan)" ${O}/><path d="M78 50 L86 60 L100 40" fill="none" stroke="var(--ink)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`),
+    smileyCard: () => `<rect x="20" y="14" width="80" height="92" rx="8" fill="var(--paper)" ${O}/><circle cx="60" cy="58" r="28" fill="var(--solar-orange)" ${O}/><circle cx="50" cy="52" r="4" fill="var(--ink)"/><circle cx="70" cy="52" r="4" fill="var(--ink)"/><path d="M46 66 Q60 78 74 66" fill="none" ${O}/>`,
+    speechShoes: () => bubble(`<path d="M34 50 L52 50 L56 58 L84 62 Q90 64 88 72 L34 72 Z" fill="var(--volt-blue)" ${O}/>`),
+    speechBad: () => bubble(`<circle cx="60" cy="54" r="20" fill="var(--plasma-pink)" ${O}/><circle cx="53" cy="49" r="3" fill="var(--ink)"/><circle cx="67" cy="49" r="3" fill="var(--ink)"/><path d="M52 64 Q60 56 68 64" fill="none" ${O}/>`),
+    speechOwn: () => bubble(`<text x="60" y="52" text-anchor="middle" font-size="18" font-weight="800" fill="var(--ink)">MY</text><path d="M42 74 L60 58 L78 74 Z" fill="var(--solar-orange)" ${O}/>`),
+    bedDry: () => `<rect x="20" y="40" width="80" height="50" fill="var(--paper)" ${O}/><path d="M30 52 L90 52 M30 64 L90 64 M30 76 L90 76" stroke="var(--mist)" stroke-width="3"/>`,
+    bedWet: () => PIC_BASE.bedDry() + `<ellipse cx="46" cy="60" rx="14" ry="9" fill="var(--ion-cyan)" opacity="0.8"/><ellipse cx="74" cy="72" rx="10" ry="7" fill="var(--ion-cyan)" opacity="0.8"/>`,
   };
   Object.assign(PIC_BASE, pics);
   return pics;
