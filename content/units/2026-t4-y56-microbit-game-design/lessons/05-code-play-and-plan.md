@@ -94,7 +94,7 @@ Lessons 5 and 6 turn the unit into a design task. Students design, build and tes
 | Time | Step | What to do and say |
 |---|---|---|
 | 0 to 5 min | Hook | Hold up a Jacdac kit and explain the Reaction Game: press one button to start, wait for green, hit the other button as fast as you can. Introduce the design brief and the choice of game. Keep it brief: students discover the design problems themselves once they play. |
-| 5 to 17 min | Get the game running | Reaction Game pairs build or load the code (below). Button Smash pairs reopen their project and add a second Jacdac button if they want one. Students press each button while watching the simulator to find out which is button1 and which is button2. |
+| 5 to 17 min | Get the game running | Reaction Game pairs build or load the code (below). Button Smash pairs reopen their project and add a second Jacdac button if they want one. Students press each button while watching the simulator to find out which is button7 and which is button8. |
 | 17 to 24 min | Play and notice | Pairs play, then ask: "Would a Prep student know how to play this?" They list in their journal every moment they were confused or made a mistake. Point out that the two buttons look identical: that confusion is the design problem. Prompt: "Where did your eyes go? Could you read the score?" |
 | 24 to 29 min | Build criteria together | Pairs share problems. Turn them into 3 or 4 class design criteria and record them on the board. Keep them about the player, not about looks. |
 | 29 to 40 min | Sketch two layouts | In the journal, annotated with why each part sits where it does. Fast finishers pick up a level up card and think about how it would change their layout. |
@@ -125,30 +125,25 @@ Paste into the JavaScript view in MakeCode, then switch to Blocks. Add the Jacda
 
 ```
 let startTime = 0
-let reactionTime = 0
-let canPress = false
 
 // Press the start button to begin
-modules.button2.onEvent(jacdac.ButtonEvent.Down, function () {
+modules.button8.onEvent(jacdac.ButtonEvent.Down, function () {
+    modules.led4.setAll(0xff0000)
+    startTime = 0
     basic.clearScreen()
-    modules.led1.setAll(0x000000)
     basic.pause(randint(1000, 5000))
-    modules.led1.setAll(0x00ff00)
     startTime = input.runningTime()
-    canPress = true
+    modules.led4.setAll(0x00ff00)
 })
 
 // Press the reaction button when the ring turns green
-modules.button1.onEvent(jacdac.ButtonEvent.Down, function () {
-    if (canPress) {
-        canPress = false
-        reactionTime = input.runningTime() - startTime
-        basic.showNumber(reactionTime)
-    }
+modules.button7.onEvent(jacdac.ButtonEvent.Down, function () {
+    modules.led4.setAll(0xff0000)
+    basic.showNumber(input.runningTime() - startTime)
 })
 ```
 
-The random pause stops players guessing when the light will change, and **canPress** works like the playing flag in Button Smash: presses only count at the right time.
+The random pause stops players guessing when the light will change. **startTime** remembers the moment the ring turned green, so the hit button shows the running time minus startTime: the reaction time in milliseconds.
 
 ## Level up challenges
 

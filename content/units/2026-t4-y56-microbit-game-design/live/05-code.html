@@ -82,29 +82,29 @@ function ringSvg(x, y, size, colours) {
   return `<circle cx="${x + size / 2}" cy="${y + size / 2}" r="${size * 0.32}" fill="none" stroke="var(--ink)" stroke-width="${size * 0.16}"/>` + s;
 }
 
-const START = [["modules", "on button2 down", 0], ["basic", "clear screen", 1], ["modules", "set led all to black", 1], ["basic", "pause random 1000 to 5000", 1], ["modules", "set led all to green", 1], ["variables", "set startTime to running time", 1], ["variables", "set canPress to true", 1]];
-const HIT = [["modules", "on button1 down", 0], ["logic", "if canPress then", 1], ["variables", "set canPress to false", 2], ["variables", "set reactionTime to ...", 2], ["basic", "show number reactionTime", 2]];
+const START = [["modules", "on button8 down", 0], ["modules", "set led 4 all to red", 1], ["variables", "set startTime to 0", 1], ["basic", "clear screen", 1], ["basic", "pause (ms) pick random 1000 to 5000", 1], ["variables", "set startTime to running time (ms)", 1], ["modules", "set led 4 all to green", 1]];
+const HIT = [["modules", "on button7 down", 0], ["modules", "set led 4 all to red", 1], ["basic", "show number running time (ms) - startTime", 1]];
 const SCENES = [
-  (p) => backdrop + `<g transform="translate(0 ${p > 0.3 && p < 0.4 ? 6 : 0})">${pic("buttonBlue", 60, 60, 150)}</g>` + ringSvg(260, 50, 170, []) + label(135, 250, "start", 26) + label(345, 250, "ring off", 26),
+  (p) => backdrop + `<g transform="translate(0 ${p > 0.3 && p < 0.4 ? 6 : 0})">${pic("buttonBlue", 60, 60, 150)}</g>` + ringSvg(260, 50, 170, p > 0.35 ? Array(8).fill(T("plasma-pink")) : []) + label(135, 250, "start", 26) + label(345, 250, p > 0.35 ? "ring red" : "", 26),
   (p) => {
     const dots = ".".repeat(1 + Math.floor((p * 6) % 3));
-    return backdrop + ringSvg(150, 30, 180, []) + label(240, 270, "Wait" + dots, 36) + label(240, 330, "1 to 5 seconds, at random", 22);
+    return backdrop + ringSvg(150, 30, 180, Array(8).fill(T("plasma-pink"))) + label(240, 270, "Wait" + dots, 36) + label(240, 330, "1 to 5 seconds, at random", 22);
   },
   (p) => backdrop + ringSvg(60, 40, 170, Array(8).fill(T("ion-cyan"))) + pic("stopwatch", 280, 60, 140) + label(240, 290, "Green! The timer starts.", 28),
   (p) => {
     const t = p > 0.3;
-    return backdrop + `<g transform="translate(0 ${t && p < 0.4 ? 6 : 0})">${pic("button", 50, 50, 140)}</g>` + (t ? sim([], false, false, 230, 40, 1.4) + label(320, 270, "312", 44) : "") + label(240, 360, t ? "Your time in milliseconds" : "Hit it!", 26);
+    return backdrop + `<g transform="translate(0 ${t && p < 0.4 ? 6 : 0})">${pic("button", 50, 50, 140)}</g>` + (t ? ringSvg(30, 200, 110, Array(8).fill(T("plasma-pink"))) + sim([], false, false, 230, 40, 1.4) + label(320, 270, "312", 44) : "") + label(240, 360, t ? "Your time in milliseconds" : "Hit it!", 26);
   },
-  (p) => backdrop + code(START, p, 0.05, 0.85, 60, 1.15),
-  (p) => backdrop + code(HIT, p, 0.05, 0.75, 100, 1.2),
+  (p) => backdrop + code(START, p, 0.05, 0.85, 60, 1.0),
+  (p) => backdrop + code(HIT, p, 0.05, 0.75, 150, 0.85),
 ];
 const STEPS = [
-  { title: "Press start.", sub: "button2 starts a round.", dur: 3000, words: [] },
+  { title: "Press start.", sub: "button8 starts a round. The ring goes red.", dur: 3000, words: [] },
   { title: "Wait a random time.", sub: "So nobody can guess.", dur: 4000, words: [] },
   { title: "Green: start the timer.", sub: "startTime remembers when.", dur: 3500, words: [["variable", "yes"]], wordsFrom: 0.5 },
-  { title: "Hit it! Show the time.", sub: "Now minus startTime.", dur: 4000, words: [] },
-  { title: "Code the start button.", sub: "Wait, go green, start the timer.", dur: 6000, words: [] },
-  { title: "Code the hit button.", sub: "canPress works like playing in Button Smash.", dur: 5000, words: [["flag", "yes"]], wordsFrom: 0.8 },
+  { title: "Hit it! Show the time.", sub: "Running time minus startTime.", dur: 4000, words: [] },
+  { title: "Code the start button.", sub: "Red, wait, start the timer, go green.", dur: 6000, words: [] },
+  { title: "Code the hit button.", sub: "Red again, then show the time.", dur: 5000, words: [["variable", "yes"]], wordsFrom: 0.8 },
 ];
 
 const $ = (id) => document.getElementById(id);
