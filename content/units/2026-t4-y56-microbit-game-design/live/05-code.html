@@ -61,6 +61,18 @@ function code(rows, p, a = 0, b = 0.9, y = 240, scale = 0.82) {
   const n = Math.min(rows.length, Math.floor(seg(p, a, b) * rows.length + (p >= b ? 1 : 0.0001) * 0) + (p > a ? 1 : 0));
   return `<g transform="translate(20 ${y}) scale(${scale})">${blockStack(rows, 0, 0, Math.min(rows.length, n), n - 1)}</g>`;
 }
+// Code with a note under each block saying what it does. Rows (and their
+// notes) appear one by one as p goes from a to b; the newest is outlined.
+function explained(rows, notes, p, a, b, y, scale = 1) {
+  const n = Math.min(rows.length, Math.floor(seg(p, a, b) * rows.length) + (p > a ? 1 : 0));
+  const H = 34, IND = 26, PITCH = 63;
+  let s = n > 1 ? `<rect x="0" y="${H - 2}" width="${IND - 4}" height="${(n - 1) * PITCH + 2}" fill="${DRAWER[rows[0][0]][0]}"/>` : "";
+  rows.slice(0, n).forEach((row, i) => {
+    s += `<g transform="translate(0 ${i * PITCH})">${blockStack([row], 0, 0, 1, i === n - 1 ? 0 : -1)}</g>`;
+    s += `<text x="${Math.max(row[2] * IND + 14, IND + 6)}" y="${i * PITCH + H + 16}" font-size="15" font-weight="700" fill="var(--text-violet)">${notes[i]}</text>`;
+  });
+  return `<g transform="translate(20 ${y}) scale(${scale})">${s}</g>`;
+}
 function ipad(inner) {
   return `<rect x="70" y="16" width="340" height="250" rx="18" fill="var(--ink)"/><rect x="82" y="28" width="316" height="226" rx="6" fill="var(--panel-2)"/>${inner}`;
 }
@@ -84,6 +96,8 @@ function ringSvg(x, y, size, colours) {
 
 const START = [["modules", "on button8 down", 0], ["modules", "set led 4 all to red", 1], ["variables", "set startTime to 0", 1], ["basic", "clear screen", 1], ["basic", "pause (ms) pick random 1000 to 5000", 1], ["variables", "set startTime to running time (ms)", 1], ["modules", "set led 4 all to green", 1]];
 const HIT = [["modules", "on button7 down", 0], ["modules", "set led 4 all to red", 1], ["basic", "show number running time (ms) - startTime", 1]];
+const START_NOTES = ["When the start button is pressed:", "The ring turns red. Get ready.", "Reset the timer.", "Wipe the last score off the screen.", "Wait 1 to 5 seconds, so nobody can guess.", "Remember the time right now.", "The ring turns green. Hit it!"];
+const HIT_NOTES = ["When the hit button is pressed:", "The ring turns red. Round over.", "Time now minus startTime: your reaction time."];
 const SCENES = [
   (p) => backdrop + `<g transform="translate(0 ${p > 0.3 && p < 0.4 ? 6 : 0})">${pic("buttonBlue", 60, 60, 150)}</g>` + ringSvg(260, 50, 170, p > 0.35 ? Array(8).fill(T("plasma-pink")) : []) + label(135, 250, "start", 26) + label(345, 250, p > 0.35 ? "ring red" : "", 26),
   (p) => {
@@ -95,16 +109,16 @@ const SCENES = [
     const t = p > 0.3;
     return backdrop + `<g transform="translate(0 ${t && p < 0.4 ? 6 : 0})">${pic("button", 50, 50, 140)}</g>` + (t ? ringSvg(30, 200, 110, Array(8).fill(T("plasma-pink"))) + sim([], false, false, 230, 40, 1.4) + label(320, 270, "312", 44) : "") + label(240, 360, t ? "Your time in milliseconds" : "Hit it!", 26);
   },
-  (p) => backdrop + code(START, p, 0.05, 0.85, 60, 1.0),
-  (p) => backdrop + code(HIT, p, 0.05, 0.75, 150, 0.85),
+  (p) => backdrop + explained(START, START_NOTES, p, 0.05, 0.85, 24, 1.0),
+  (p) => backdrop + explained(HIT, HIT_NOTES, p, 0.05, 0.75, 130, 0.9),
 ];
 const STEPS = [
   { title: "Press start.", sub: "button8 starts a round. The ring goes red.", dur: 3000, words: [] },
   { title: "Wait a random time.", sub: "So nobody can guess.", dur: 4000, words: [] },
   { title: "Green: start the timer.", sub: "startTime remembers when.", dur: 3500, words: [["variable", "yes"]], wordsFrom: 0.5 },
   { title: "Hit it! Show the time.", sub: "Running time minus startTime.", dur: 4000, words: [] },
-  { title: "Code the start button.", sub: "Red, wait, start the timer, go green.", dur: 6000, words: [] },
-  { title: "Code the hit button.", sub: "Red again, then show the time.", dur: 5000, words: [["variable", "yes"]], wordsFrom: 0.8 },
+  { title: "Code the start button.", sub: "Red, wait, start the timer, go green.", dur: 11000, words: [] },
+  { title: "Code the hit button.", sub: "Red again, then show the time.", dur: 7000, words: [["variable", "yes"]], wordsFrom: 0.8 },
 ];
 
 const $ = (id) => document.getElementById(id);
