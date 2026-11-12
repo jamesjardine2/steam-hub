@@ -91,7 +91,7 @@ live:
     file: 05-slides.html
   - kind: HTML
     title: "Hook: Teddy forgot something"
-    note: "Teddy builds without a plan and walks into a house with no door. Click or Space to play, R restarts, M mutes"
+    note: "A truck tips out the bricks, Teddy races to build without a plan, walks into a house with no door, knocks round the side and shrugs. Click or Space to play, R restarts, M mutes"
     file: 05-teddy-forgot.html
   - kind: HTML
     title: How to plan a house
@@ -113,7 +113,7 @@ crt_notes: Needs the printed plan cards, LEGO tubs, journals and pencils, so a C
 
 | Time | Step | What to do |
 |---|---|---|
-| 0 to 5 min | Hook (CIC) | Ask the recall question: "Which material kept Teddy dry?" Then play the animation (click or Space): Teddy builds his house in a rush, then walks into the wall because there is no door. It stops on a question mark. Ask: "What went wrong? What should Teddy do first?" Take a few ideas (draw a plan first). Ask: "What parts does his house need?" Students tell a partner. Read the Learning Intention and the Success Criteria. |
+| 0 to 5 min | Hook (CIC) | Ask the recall question: "Which material kept Teddy dry?" Then play the animation (click or Space): a truck tips out a pile of bricks and Teddy races to build his house without a plan. He walks into the wall because there is no door, runs round the side to knock, and shrugs. It stops on a question mark. Ask: "What went wrong? What should Teddy do first?" Take a few ideas (draw a plan first). Ask: "What parts does his house need?" Students tell a partner. Read the Learning Intention and the Success Criteria. |
 | 5 to 10 min | Word wall | Use the word wall. A **plan** is a drawing of what you will build. A **label** is a word that names a part. A **hinge** joins two parts so one can swing. Students think first, then each box is uncovered. For each non-example, ask "Why is this not a ___?" and use the reasons below. |
 | 10 to 17 min | Follow the plan | Pairs build the LEGO house on their plan card: collect the bricks in the "You need" box, then build what the plan shows. When they finish, they hold the house beside the card and check each labelled part: "Does it match?" Pairs who finish early plan something new for Teddy: draw it on the card first, then build it. Then pull the houses apart and move the tubs to the side of the table. Ask: "How did the plan help you?" |
 | 17 to 21 min | I do | Show the how-to slides, then draw a plan on the board and think aloud. "First the walls. They will be LEGO, so I draw the bricks overlapping. Now the roof. It will be plastic, because plastic kept the water out in our test. Now a door. It will be card, and it must open, so I draw which way it swings. A window, so Teddy has light. Now I label each part, and I say what it is made of: roof, plastic." |

@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<!-- Lesson 5 hook (CIC): Teddy rushes to build his house without a plan,
-     then walks into the wall: there is no door. Made from the Lesson 4 storm
-     animation (04-storm.html), same Teddy and the same engine. Click or press
+<!-- Lesson 5 hook (CIC): a truck tips a pile of bricks, Teddy races back
+     and forth building his house in a rush without a plan, then walks into
+     the wall: there is no door. He runs round to look for one, knocks, and
+     shrugs. Same Teddy and engine as the Lesson 4 storm (04-storm.html), but
+     a different story so it does not feel like a repeat. Click or press
      the spacebar to start or pause, R restarts, M mutes. It ends on Teddy
      with a question mark, so it can stay on the screen while you ask the
      hook question. -->
@@ -62,6 +64,27 @@ svg{display:block;width:100vw;height:100vh;cursor:pointer;user-select:none}
     <rect x="-18" y="-66" width="36" height="10" rx="2" fill="#5D4037" class="ol"/>
   </g>
 
+  <g id="truck">
+    <g id="bed">
+      <g id="bedLoad">
+        <rect x="-14" y="-66" width="24" height="12" fill="#C0392B" stroke="#5B1A10" stroke-width="2.5"/>
+        <rect x="12" y="-66" width="24" height="12" fill="#CD4433" stroke="#5B1A10" stroke-width="2.5"/>
+        <rect x="38" y="-66" width="24" height="12" fill="#B83227" stroke="#5B1A10" stroke-width="2.5"/>
+        <rect x="0" y="-76" width="24" height="12" fill="#B83227" stroke="#5B1A10" stroke-width="2.5"/>
+        <rect x="26" y="-76" width="24" height="12" fill="#C0392B" stroke="#5B1A10" stroke-width="2.5"/>
+      </g>
+      <rect x="-22" y="-56" width="92" height="38" rx="3" fill="#FFB300" class="ol"/>
+      <path d="M-10 -46 H58 M-10 -32 H58" stroke="#E69500" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <rect x="-80" y="-26" width="160" height="12" rx="3" fill="#455A64" class="ol"/>
+    <path d="M-80 -26 V-64 Q-80 -72 -72 -72 H-30 V-26 Z" fill="#E53935" class="ol"/>
+    <rect x="-71" y="-64" width="32" height="20" rx="3" fill="#81D4FA" class="ol" stroke-width="3"/>
+    <circle cx="-77" cy="-34" r="4.5" fill="#FFF176" stroke="#2b1a0e" stroke-width="2"/>
+    <g id="wh1"><circle r="15" fill="#37474F" class="ol"/><circle r="6" fill="#B0BEC5"/><path d="M0 -11 V11 M-11 0 H11" stroke="#B0BEC5" stroke-width="3"/></g>
+    <g id="wh2"><circle r="15" fill="#37474F" class="ol"/><circle r="6" fill="#B0BEC5"/><path d="M0 -11 V11 M-11 0 H11" stroke="#B0BEC5" stroke-width="3"/></g>
+  </g>
+  <g id="pile"></g>
+
   <g id="slab">
     <rect x="-120" y="-20" width="240" height="20" rx="3" fill="#9E9E9E" class="ol"/>
     <rect x="-114" y="-16" width="228" height="5" fill="#C9C9C9"/>
@@ -96,6 +119,7 @@ svg{display:block;width:100vw;height:100vh;cursor:pointer;user-select:none}
 
   <g id="smoke"></g>
 
+  <g id="speed"></g>
   <ellipse id="tShadow" cx="0" cy="0" rx="34" ry="7" fill="#000" opacity=".2"/>
   <g id="teddy">
     <g id="tLegL"><rect x="-11" y="-4" width="22" height="38" rx="10" class="fur ol"/></g>
@@ -145,7 +169,7 @@ svg{display:block;width:100vw;height:100vh;cursor:pointer;user-select:none}
 
 <script>
 const $ = id => document.getElementById(id);
-const DUR = 27;
+const DUR = 26.5;
 
 /* ---------- build bits of scenery ---------- */
 function cloud(scale){
@@ -189,6 +213,15 @@ for(let i=0;i<6;i++){
   rowsSVG+=`<rect x="-110" y="-20" width="220" height="20" fill="none" class="ol"/></g>`;
 }
 $('rows').innerHTML=rowsSVG;
+
+let pileSVG='';
+[[4,0],[3,1],[2,2],[1,3]].forEach(([n,r])=>{
+  for(let k=0;k<n;k++){
+    const bx=-n*12+k*24, c=['#C0392B','#B83227','#CD4433'][(k+r)%3];
+    pileSVG+=`<rect x="${bx}" y="${-13-r*13}" width="24" height="13" fill="${c}" stroke="#5B1A10" stroke-width="2.5"/>`;
+  }
+});
+$('pile').innerHTML=pileSVG;
 
 /* ---------- tween engine ---------- */
 const E={
@@ -308,7 +341,7 @@ function fxSVG(f,t){
 }
 
 /* ---------- scene objects ---------- */
-['slab','chimney','door','winL','winR','roof','sun','storm1','storm2','storm3','row0','row1','row2','row3','row4','row5','qmark'].forEach(id=>obj(id));
+['slab','chimney','door','winL','winR','roof','sun','storm1','storm2','storm3','row0','row1','row2','row3','row4','row5','qmark','truck','pile','bedLoad'].forEach(id=>obj(id));
 S.chimney.s.x=552; S.door.s.x=470; S.door.s.y=340; S.winL.s.x=405; S.winL.s.y=278; S.winR.s.x=535; S.winR.s.y=278;
 S.sun.s.x=95; S.storm1.s.y=75; S.storm2.s.y=60; S.storm3.s.x=330;
 S.wx={s:{}};
@@ -330,9 +363,8 @@ function word(tt,x,y,w,col,size=1){fx.push({type:'word',t0:tt,x,y,word:w,col,siz
 /* opening title + sun */
 K('sun','y',0,240); K('sun','y',.2,240,'step'); K('sun','y',1.7,85,'out');
 
-
 /* teddy defaults */
-K('ted','x',0,-110); K('ted','y',0,0); K('ted','sx',0,1); K('ted','sy',0,1);
+K('ted','x',0,-110); K('ted','y',0,0); K('ted','sx',0,1); K('ted','sy',0,1); K('ted','face',0,1); K('ted','zoom',0,0);
 K('ted','walk',0,0); K('ted','armR',0,-15); K('ted','armL',0,15); K('ted','tilt',0,0);
 
 function hop(t0,h){
@@ -345,85 +377,112 @@ function hop(t0,h){
   K('ted','y',t0+.12,0); K('ted','y',t0+.38,-h,'out'); K('ted','y',t0+.64,0,'in');
   at(t0+.14,()=>tone('sine',300,700,.15,.18));
 }
+function face(t,f){K('ted','face',t,f,'step');}
 
-/* walk in */
-K('ted','x',2.8,-110,'step'); K('ted','x',5.0,230,'lin');
-K('ted','walk',2.8,1,'step'); K('ted','walk',5.0,0,'step');
-K('ted','tilt',5.0,0); K('ted','tilt',5.15,-10,'out');
-hop(5.15,45);
-K('ted','tilt',6.0,-10); K('ted','tilt',6.3,10,'out'); K('ted','tilt',7.0,0);
+/* a truck drives in, tips out a pile of bricks, and backs away */
+K('truck','y',0,360); K('truck','x',0,980); K('truck','x',1.6,980,'step'); K('truck','x',3.4,640,'out');
+K('truck','tip',0,0); K('truck','tip',3.7,0); K('truck','tip',4.2,28,'out'); K('truck','tip',4.9,28); K('truck','tip',5.3,0);
+K('bedLoad','op',0,1); K('bedLoad','op',4.15,0,'step');
+K('truck','x',5.5,640); K('truck','x',7.2,1000,'in');
+at(1.8,()=>{tone('square',660,660,.12,.12);tone('square',660,660,.12,.12,.2);});
+at(3.9,()=>sfx.whoosh());
+[5.5,5.9,6.3,6.7].forEach(b=>at(b,()=>tone('square',990,990,.14,.08)));
+K('pile','x',0,745); K('pile','y',0,360);
+K('pile','sx',0,0); K('pile','sy',0,0); K('pile','sx',4.15,0,'step'); K('pile','sy',4.15,0,'step');
+K('pile','sx',4.75,1,'elastic'); K('pile','sy',4.75,1,'elastic');
+at(4.15,tt=>{sfx.thud(); sfx.clunk(); shakeT=tt; fx.push({type:'dust',t0:tt,x:745,y:360,spread:1.4,size:1}); word(tt,745,300,'','#FFD54F',.9);});
+
+/* Teddy runs in and sees the bricks */
+K('ted','x',4.3,-110,'step'); K('ted','x',5.6,230,'lin');
+K('ted','walk',4.3,1,'step'); K('ted','walk',5.6,0,'step');
+hop(6.0,55);
+K('ted','tilt',5.6,0); K('ted','tilt',5.9,-12,'out'); K('ted','tilt',6.9,-12); K('ted','tilt',7.1,0);
 
 /* floor slab */
-drop('slab',5.95,470,360,.45);
-at(6.4,tt=>{sfx.clunk(); shakeT=tt; fx.push({type:'dust',t0:tt,x:470,y:360,spread:2.2,size:1});});
+drop('slab',6.6,470,360,.45);
+at(7.05,tt=>{sfx.clunk(); shakeT=tt; fx.push({type:'dust',t0:tt,x:470,y:360,spread:2.2,size:1});});
 
-/* step up to the wall */
-K('ted','x',6.6,230); K('ted','x',7.3,285,'lin');
-K('ted','walk',6.6,1,'step'); K('ted','walk',7.3,0,'step');
-
-/* six rows of bricks, each one hammered in */
+/* no plan, just rush: six trips to the pile, one row of bricks each time */
 const words=['BANG!','BONK!','TAP!','WHACK!','BANG!','DONK!'];
+K('ted','x',7.4,230); K('ted','walk',7.4,1,'step'); K('ted','zoom',7.4,1,'step');
+K('ted','x',7.9,700,'lin'); at(7.4,()=>noise(.2,.18,2200));
 for(let i=0;i<6;i++){
-  const tr=7.6+i*1.35, strike=-55-i*8;
-  drop('row'+i,tr,470,340-i*20,.4);
-  at(tr+.4,()=>{sfx.clunk();});
-  K('ted','armR',tr+.5,-15);
-  K('ted','armR',tr+.7,-165,'out');
-  K('ted','armR',tr+.82,strike,'in');
-  K('ted','armR',tr+.97,-150,'out');
-  K('ted','armR',tr+1.08,strike,'in');
-  K('ted','armR',tr+1.3,-15);
-  const a=strike*Math.PI/180, hx=285+.8*(30-74*Math.sin(a)), hy=360+.8*(-84+74*Math.cos(a));
-  [tr+.82,tr+1.08].forEach((ts,j)=>at(ts,tt=>{sfx.bang(); shakeT=tt; word(tt,hx+10,hy-6,j?words[(i+3)%6]:words[i],j?'#FFD54F':'#FFEB3B',.8);}));
+  const tg=7.9+i*.9, land=tg+.45;
+  face(tg,-1); K('ted','x',land,300,'lin'); at(tg,()=>noise(.2,.18,2200));
+  const ps=1-(i+1)/6*.85;
+  K('pile','sx',tg,i?1-i/6*.85:1); K('pile','sy',tg,i?1-i/6*.85:1);
+  K('pile','sx',tg+.15,ps,'out'); K('pile','sy',tg+.15,ps,'out');
+  at(tg,()=>tone('sine',500,900,.08,.15));
+  drop('row'+i,land-.25,470,340-i*20,.25);
+  at(land,tt=>{sfx.clunk(); sfx.bang(); shakeT=tt; word(tt,350,322-i*20,words[i],i%2?'#FFD54F':'#FFEB3B',.7);});
+  if(i<5){ face(land,1); K('ted','x',land+.45,700,'lin'); at(land,()=>noise(.2,.18,2200)); }
 }
+K('pile','op',0,1); K('pile','op',12.6,0,'step');
+K('ted','x',13.2,230,'out'); K('ted','walk',13.2,0,'step'); K('ted','zoom',13.0,0,'step');
+at(13.0,tt=>fx.push({type:'dust',t0:tt,x:250,y:360,spread:.8,size:.8}));
+face(13.25,1);
+K('ted','tilt',13.2,0); K('ted','tilt',13.4,-14,'out'); K('ted','tilt',13.9,0);
 
-/* step back, roof lands */
-K('ted','x',15.8,285); K('ted','x',16.9,165,'lin');
-K('ted','walk',15.8,1,'step'); K('ted','walk',16.9,0,'step');
-drop('roof',17.0,470,224,.5);
-at(17.0,()=>sfx.whoosh());
-at(17.5,tt=>{sfx.thud(); shakeT=tt; word(tt,470,150,'','#FF8A65',1.1);
+/* the roof lands */
+drop('roof',13.6,470,224,.5);
+at(13.6,()=>sfx.whoosh());
+at(14.1,tt=>{sfx.thud(); shakeT=tt; word(tt,470,150,'','#FF8A65',1.1);
   fx.push({type:'dust',t0:tt,x:340,y:236,spread:1,size:.9}); fx.push({type:'dust',t0:tt,x:600,y:236,spread:1,size:.9});});
-hop(17.5,28);
-K('ted','tilt',17.5,0); K('ted','tilt',17.65,-16,'out'); K('ted','tilt',18.4,-16); K('ted','tilt',18.7,0);
+hop(14.1,28);
+K('ted','tilt',14.1,0); K('ted','tilt',14.25,-16,'out'); K('ted','tilt',14.8,-16); K('ted','tilt',15.1,0);
 
 /* chimney, but no door and no windows: Teddy did not plan them */
-K('chimney','op',0,0); K('chimney','op',18.1,1,'step'); K('chimney','y',0,268); K('chimney','y',18.1,268,'step'); K('chimney','y',18.6,200,'back');
-at(18.1,()=>tone('triangle',200,600,.25,.2));
+K('chimney','op',0,0); K('chimney','op',14.7,1,'step'); K('chimney','y',0,268); K('chimney','y',14.7,268,'step'); K('chimney','y',15.2,200,'back');
+at(14.7,()=>tone('triangle',200,600,.25,.2));
 ['door','winL','winR'].forEach(id=>K(id,'op',0,0));
 ['storm1','storm2','storm3'].forEach(id=>K(id,'op',0,0));
 K('wx','dark',0,0); K('wx','rain',0,0); K('wx','puddle',0,0);
 K('ted','sad',0,0); K('ted','shiver',0,0);
 
 /* celebrate */
-K('ted','armL',19.0,15); K('ted','armR',19.0,-15);
-K('ted','armL',19.25,155,'out'); K('ted','armR',19.25,-155,'out');
-hop(19.25,60); hop(20.15,50);
-K('ted','armL',21.1,155); K('ted','armR',21.1,-155);
-K('ted','armL',21.4,15); K('ted','armR',21.4,-15);
-at(19.25,tt=>{sfx.tada(); fx.push({type:'confetti',t0:tt});});
+K('ted','armL',15.5,15); K('ted','armR',15.5,-15);
+K('ted','armL',15.75,155,'out'); K('ted','armR',15.75,-155,'out');
+hop(15.75,60); hop(16.65,50);
+K('ted','armL',17.6,155); K('ted','armR',17.6,-155);
+K('ted','armL',17.9,15); K('ted','armR',17.9,-15);
+at(15.75,tt=>{sfx.tada(); fx.push({type:'confetti',t0:tt});});
 
-/* time to go inside... */
-K('ted','x',21.5,165); K('ted','x',22.9,325,'lin');
-K('ted','walk',21.5,1,'step'); K('ted','walk',22.9,0,'step');
+/* time to go inside... BONK: there is no door */
+K('ted','x',18.0,230); K('ted','x',18.9,325,'lin');
+K('ted','walk',18.0,1,'step'); K('ted','walk',18.9,0,'step');
+at(18.9,tt=>{sfx.thud(); sfx.bang(); shakeT=tt; word(tt,352,282,'','#FF8A65',1.1);});
+K('ted','x',18.9,325); K('ted','x',19.4,255,'out');
+K('ted','y',18.9,0); K('ted','y',19.12,-24,'out'); K('ted','y',19.4,0,'in');
+K('ted','tilt',18.9,0); K('ted','tilt',19.1,-22,'out');
+K('ted','sad',18.95,1,'step');
+K('ted','sx',19.4,1); K('ted','sy',19.4,1); K('ted','sx',19.55,1.15,'out'); K('ted','sy',19.55,.85,'out'); K('ted','sx',20.0,1,'elastic'); K('ted','sy',20.0,1,'elastic');
+at(19.4,tt=>{sfx.boing(); fx.push({type:'dizzy',t0:tt,x:255,y:236});});
+K('ted','tilt',20.4,-22); K('ted','tilt',20.7,0,'out');
 
-/* BONK: there is no door */
-at(22.9,tt=>{sfx.thud(); sfx.bang(); shakeT=tt; word(tt,352,282,'','#FF8A65',1.1);});
-K('ted','x',22.9,325); K('ted','x',23.4,255,'out');
-K('ted','y',22.9,0); K('ted','y',23.12,-24,'out'); K('ted','y',23.4,0,'in');
-K('ted','tilt',22.9,0); K('ted','tilt',23.1,-22,'out');
-K('ted','sad',22.95,1,'step');
-K('ted','sx',23.4,1); K('ted','sy',23.4,1); K('ted','sx',23.55,1.15,'out'); K('ted','sy',23.55,.85,'out'); K('ted','sx',24.0,1,'elastic'); K('ted','sy',24.0,1,'elastic');
-at(23.4,tt=>{sfx.boing(); fx.push({type:'dizzy',t0:tt,x:255,y:236});});
+/* maybe the door is round the other side? He runs over and knocks */
+K('ted','x',20.8,255); K('ted','walk',20.8,1,'step'); K('ted','x',21.8,640,'lin'); K('ted','walk',21.8,0,'step');
+face(21.8,-1);
+K('ted','armR',21.9,-15);
+[22.0,22.45].forEach(k=>{
+  K('ted','armR',k+.12,-110,'out'); K('ted','armR',k+.22,-60,'in'); K('ted','armR',k+.4,-110,'out');
+  at(k+.22,tt=>{tone('sine',160,90,.12,.45); noise(.08,.3,700); word(tt,600,250,'','#FFEB3B',.45);});
+});
+K('ted','armR',22.9,-15);
+K('ted','tilt',22.9,0); K('ted','tilt',23.2,14,'out');
 
-/* he looks at the wall, then at the class */
-K('ted','tilt',25.0,-22); K('ted','tilt',25.4,16,'out'); K('ted','tilt',25.9,16); K('ted','tilt',26.3,0,'out');
+/* nothing: back to the front, and a shrug at the class */
+K('ted','x',23.4,640); K('ted','walk',23.4,1,'step'); K('ted','x',24.3,255,'lin'); K('ted','walk',24.3,0,'step');
+face(24.35,1);
+K('ted','armL',24.4,15); K('ted','armR',24.4,-15);
+K('ted','armL',24.7,105,'out'); K('ted','armR',24.7,-105,'out');
+K('ted','tilt',24.4,0); K('ted','tilt',24.7,16,'out');
+at(24.7,()=>tone('triangle',400,260,.35,.18));
 
 /* the big question */
 K('qmark','x',0,255); K('qmark','y',0,140);
-K('qmark','sx',0,0); K('qmark','sy',0,0); K('qmark','sx',26.1,0,'step'); K('qmark','sy',26.1,0,'step');
-K('qmark','sx',26.8,1,'elastic'); K('qmark','sy',26.8,1,'elastic');
-at(26.1,()=>sfx.pop());
+K('qmark','sx',0,0); K('qmark','sy',0,0); K('qmark','sx',25.1,0,'step'); K('qmark','sy',25.1,0,'step');
+K('qmark','sx',25.8,1,'elastic'); K('qmark','sy',25.8,1,'elastic');
+at(25.1,()=>sfx.pop());
 
 events.sort((a,b)=>a.t-b.t);
 
@@ -439,7 +498,7 @@ function render(t){
   for(const key in tracks){const [id,prop]=key.split('|'); S[id].s[prop]=val(tracks[key],t);}
   for(const id in S){ if(S[id].el) apply(id); }
 
-  if(t>=26.1) S.qmark.el.setAttribute('transform',`translate(${S.qmark.s.x},${S.qmark.s.y+Math.sin(rc*3)*5}) scale(${S.qmark.s.sx},${S.qmark.s.sy})`);
+  if(t>=25.1) S.qmark.el.setAttribute('transform',`translate(${S.qmark.s.x},${S.qmark.s.y+Math.sin(rc*3)*5}) scale(${S.qmark.s.sx},${S.qmark.s.sy})`);
 
   // teddy puppet
   const s=S.ted.s, w=s.walk, ph=t*11, sw=Math.sin(ph);
@@ -451,10 +510,25 @@ function render(t){
   tEls.H.setAttribute('transform',`translate(0,-100) rotate(${s.tilt+Math.sin(t*2.2)*3})`);
   const blink=(t%3.3)<.13?.12:1;
   tEls.E.setAttribute('transform',`translate(0,-36) scale(1,${blink})`);
-  tEls.T.setAttribute('transform',`translate(${s.x+Math.sin(rc*70)*1.6*s.shiver},${360+s.y}) scale(${.8*s.sx},${.8*s.sy})`);
+  tEls.T.setAttribute('transform',`translate(${s.x+Math.sin(rc*70)*1.6*s.shiver},${360+s.y}) scale(${.8*s.sx*s.face},${.8*s.sy})`);
   const lift=Math.min(1,-s.y/80);
   $('tMouth').style.display=s.sad>.5?'none':''; $('tMouthSad').style.display=s.sad>.5?'':'none';
   tEls.Sh.setAttribute('transform',`translate(${s.x},361) scale(${1-lift*.5},1)`);
+
+  // speed lines behind Teddy while he rushes
+  let sl='';
+  if(s.zoom>.5){
+    for(let k=0;k<3;k++){
+      const x0=s.x-s.face*(38+k*10), y0=360-38-k*36, len=34+((t*40+k*13)%18);
+      sl+=`<line x1="${x0}" y1="${y0}" x2="${x0-s.face*len}" y2="${y0}"/>`;
+    }
+  }
+  $('speed').innerHTML=`<g stroke="#2b1a0e" stroke-width="4" stroke-linecap="round" opacity=".55">${sl}</g>`;
+
+  // truck: wheels roll with the truck, the bed tips from its back hinge
+  $('wh1').setAttribute('transform',`translate(-48,-12) rotate(${S.truck.s.x*57.3/15})`);
+  $('wh2').setAttribute('transform',`translate(48,-12) rotate(${S.truck.s.x*57.3/15})`);
+  $('bed').setAttribute('transform',`rotate(${S.truck.s.tip||0},70,-18)`);
 
   // sky
   $('sunRays').setAttribute('transform',`rotate(${t*25})`);
@@ -494,8 +568,8 @@ function render(t){
 
   // chimney smoke
   let sm='';
-  if(t>18.8){
-    const st=t-18.8;
+  if(t>15.2){
+    const st=t-15.2;
     for(let i=0;i<4;i++){
       const p=((st*.45)+i/4)%1; if(st*.45<i/4) continue;
       const x=552+Math.sin(p*6+i)*9+p*30, y=128-p*95, r=7+p*16;
