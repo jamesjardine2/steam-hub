@@ -61,6 +61,17 @@ const CURRICULUM = (() => {
 })();
 const PLANNED_AREAS = /^VC2(TDE|TDI|S)\d/;
 
+// Curriculum fact sheets (CD objects, content/cd/): the codes that have one,
+// with the sheet's short title. index.json is written by npm run check-cd.
+const FACT_SHEETS = (() => {
+  try {
+    const index = JSON.parse(fs.readFileSync(path.join(CONTENT, "cd", "index.json"), "utf8"));
+    return new Map((index.objects || []).map((o) => [o.code, o.title]));
+  } catch {
+    return new Map();
+  }
+})();
+
 // `curriculum` holds the Science and Technologies codes a unit or lesson
 // targets; `connections` holds codes from other learning areas it links to
 // (Health, Music, Maths, ...). Both are checked and get a label.
@@ -418,6 +429,11 @@ function loadUnit(slug, classes, progress) {
     lisc: liscFrom(file, data.lisc),
     curriculum: loadCodes(file, data.curriculum, "curriculum"),
     connections: connectionChips(loadCodes(file, data.connections, "connections")),
+    // Codes in this unit that have a curriculum fact sheet.
+    factSheets: asList(data.curriculum)
+      .map((value) => String(value).trim())
+      .filter((code) => FACT_SHEETS.has(code))
+      .map((code) => ({ code, title: FACT_SHEETS.get(code), url: `/cd/?code=${code}` })),
     claudeChat: data.claude_chat || "",
     links: asList(data.links),
     // A unit written from the Planning page starts as a draft: it is not on
@@ -619,7 +635,21 @@ export default function () {
     group.units.push(u);
   }
 
+  // For each fact sheet, the units that list its code, so the sheet can
+  // link back. Published as /cd/units.json (src/cd-units.njk).
+  const factSheetUnits = {};
+  for (const u of units) {
+    for (const sheet of u.factSheets) {
+      (factSheetUnits[sheet.code] ||= []).push({
+        title: u.title,
+        url: u.url.replace(/^\//, ""),
+        where: `${u.cohortLabel} · ${u.termLabel}${u.status === "draft" ? " · draft" : ""}`,
+      });
+    }
+  }
+
   return {
+    factSheetUnits,
     planning: loadPlanning(units, classes, terms, currentTerm),
     repo: REPO,
     branch: BRANCH,

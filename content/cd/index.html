@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Curriculum fact sheets · FCPS STEAM</title>
+<!-- A plain HTML page: no build step. It reads the CD objects in objects/
+     and draws them with cd.js. Colours and fonts come from the hub's shared
+     stylesheets, so it follows light and dark mode like every other page. -->
+<script src="../assets/theme.js" data-area="hub"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="cd.css">
+</head>
+<body>
+<header class="topbar">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="../">FCPS STEAM</a>
+    <a href="../">Overview</a>
+    <a href="../units/">Units</a>
+    <a href="../planning/">Planning</a>
+    <a href="../settings/">Settings</a>
+    <button type="button" class="theme-toggle" data-theme-toggle>Light mode</button>
+  </nav>
+</header>
+<main class="wrap page" id="cd-root">
+  <p class="muted">Loading the fact sheet.</p>
+</main>
+<script src="cd.js"></script>
+</body>
+</html>

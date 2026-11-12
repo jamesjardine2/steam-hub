@@ -13,6 +13,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "content/progress.json": "progress.json" });
   // Plans in progress, so the Planning page can show them without a key.
   eleventyConfig.addPassthroughCopy({ "content/plans": "plans" });
+  // Curriculum fact sheets (CD objects): a plain HTML page plus its JSON
+  // files, copied as they are. See content/cd/README.md.
+  eleventyConfig.addPassthroughCopy({ "content/cd": "cd" });
   eleventyConfig.addWatchTarget("content/");
 
   // Link for a Victorian Curriculum 2.0 code (see lib/vc2.js).

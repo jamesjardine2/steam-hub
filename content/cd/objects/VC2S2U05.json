@@ -1,0 +1,824 @@
+{
+  "schema_version": 1,
+  "code": "VC2S2U05",
+  "title": "Combining materials",
+  "learning_area": "Science",
+  "band": "Foundation to Level 2",
+  "strand": "Science Understanding",
+  "sub_strand": "Chemical sciences",
+  "updated": "2026-11-11",
+  "sources": [
+    {
+      "id": "vcaa-science",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science curriculum page (content descriptions, elaborations and achievement standards).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "vcaa-copyright",
+      "citation": "Victorian Curriculum and Assessment Authority. Copyright statement for the Victorian Curriculum site (CC BY-NC 3.0 Australia licence and the attribution it asks for).",
+      "url": "https://f10.vcaa.vic.edu.au/copyright-statement",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "vcaa-dt",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Design and Technologies curriculum page (content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/technologies/design-and-technologies/curriculum",
+      "accessed": "2026-11-11",
+      "read": true
+    },
+    {
+      "id": "vcaa-digital",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Digital Technologies curriculum page (content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/technologies/digital-technologies/curriculum",
+      "accessed": "2026-11-11",
+      "read": true
+    },
+    {
+      "id": "r2p-booklet",
+      "citation": "Abrahams, I., Backhouse, A., Bloom, K., Griffin-James, H. and Mat Noor, S. (2021). Research-2-Practice: Supporting Primary School Teachers to Engage with Science Education Research. University of Lincoln. Research summary: Uses of everyday materials (Key Stage 1, ages 5 to 7).",
+      "url": "https://ray.yorksj.ac.uk/5961/1/R2P%20Primary%20Booklet.pdf",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "malkopoulou-2015",
+      "citation": "Malkopoulou, E., Papageorgiou, G. and Dimitriou, A. (2015). Investigating the way 5-years old children distinguish the concepts 'object' and 'material'. International Journal of Learning, Teaching and Educational Research, 14 (1). Abstract only.",
+      "url": "https://ijlter.org/index.php/ijlter/article/view/477",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "harden-waller-2025",
+      "citation": "Harden, H. and Waller, N. (2025). Diagnostic assessment: The BEST way to discover what children are really thinking about materials. Journal of Emergent Science, 29 (November 2025). Association for Science Education.",
+      "url": "https://www.ase.org.uk/system/files/JES29%20Harden%20%26%20Waller.pdf",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "bouma-1990",
+      "citation": "Bouma, H., Brandt, I. and Sutton, C. (1990). Words as tools in science lessons. University of Amsterdam.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "driver-2015",
+      "citation": "Driver, R., Rushworth, P., Squires, A. and Wood-Robinson, V. (2015). Making sense of secondary science: Research into children's ideas (2nd ed.). Routledge.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "jones-1989",
+      "citation": "Jones, B. L., Lynch, P. P. and Reesink, C. (1989). Children's understanding of the notions of solid and liquid in relation to some common substances. International Journal of Science Education, 11 (4), pages 417 to 427.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "krnel-2003",
+      "citation": "Krnel, D., Glažar, S. S. and Watson, R. (2003). The development of the concept of 'matter': A cross-age study of how children classify materials. Science Education, 87 (5), pages 621 to 639.",
+      "read": false,
+      "via": "r2p-booklet"
+    }
+  ],
+  "descriptor": {
+    "status": "verified",
+    "sources": [
+      "vcaa-science",
+      "vcaa-copyright"
+    ],
+    "note": "Copied by a script from the data inside the VCAA Science curriculum page on 10 November 2026, not typed from memory. This is the only Science code in the Paper Makers unit file.",
+    "stem": "Students learn that:",
+    "text": "materials can be combined in a variety of ways for particular purposes; the properties of objects and mixtures can differ from the properties of the materials from which they are made",
+    "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S2U05",
+    "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
+  },
+  "paraphrase": {
+    "status": "draft",
+    "sources": [
+      "vcaa-science"
+    ],
+    "note": "My reading of the description and its achievement standard. The achievement standard wording was checked on the VCAA page: students give examples of objects and mixtures made from a combination of materials, and tell the properties of the object or mixture apart from the properties of the materials it is made from.",
+    "text": "People put materials together on purpose, and the thing they make can behave differently from what went into it. Students need to notice two things: that there are different ways to combine materials (joining, layering, weaving, mixing), each chosen for a job, and that the result can be stronger, stiffer, stickier or more waterproof than its ingredients. The assessable skill is the comparison: what are the materials like on their own, and what is the combined thing like?",
+    "asks_for": [
+      "Materials can be combined in different ways: joined, layered, woven or twisted together, or mixed.",
+      "People combine materials for a purpose, choosing them for what they need the object to do.",
+      "The combined object or mixture can have different properties from the materials it is made of."
+    ],
+    "not_asking": [
+      "Whether a change can be undone. Reversible and irreversible changes are Levels 5 and 6 (VC2S6U04).",
+      "Solutions, dissolving or particles. Those are Levels 5 and 6 (VC2S6U03).",
+      "Separating mixtures. That is Levels 7 and 8 (VC2S8U06).",
+      "Changing one material by folding, bending or twisting it. That is the next description, VC2S2U06."
+    ]
+  },
+  "key_questions": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-science",
+        "r2p-booklet"
+      ],
+      "note": "This question belongs to VC2S2U04 but has to be secure first. The Research-2-Practice summary names telling a material from an object as the first thing pupils must understand.",
+      "question": "What is it made of?",
+      "know": [
+        "An object is a thing. A material is what the thing is made of.",
+        "Paper, card, wood, plastic, metal, glass, fabric and glue are all materials.",
+        "Many objects are made of more than one material."
+      ],
+      "understand": [
+        "The same material can make many different objects, and the same kind of object can be made from different materials."
+      ],
+      "do": [
+        "Name the materials in a familiar object, and sort objects into one material or more than one."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "The toys and clothes example follows a VCAA elaboration.",
+      "question": "Why do people combine materials?",
+      "know": [
+        "Each material has properties: strong, bendy, soft, hard, waterproof, see-through, sticky.",
+        "People choose materials for the job each part has to do."
+      ],
+      "understand": [
+        "One material often cannot do every job, so people combine materials to get the properties they need.",
+        "The purpose comes first: what does it need to do?"
+      ],
+      "do": [
+        "Suggest why different parts of a shoe, a toy or a lunch box are made of different materials.",
+        "Predict which combination would suit a purpose, with a reason."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "question": "In what ways can we combine materials?",
+      "know": [
+        "Materials can be joined (glued, taped, sewn, tied), layered, woven or twisted together, or mixed.",
+        "A mixture is two or more materials mixed together, like sand and water, or flour and water."
+      ],
+      "understand": [
+        "How the materials are put together matters, not only which materials are used. Woven strips can carry what loose strips cannot."
+      ],
+      "do": [
+        "Combine paper in at least two different ways and say what is different about each.",
+        "Make a simple mixture and describe it."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "question": "How is the combined thing different from what it is made of?",
+      "know": [
+        "A combined object or a mixture can have properties its materials do not have on their own.",
+        "Flour is powdery and water is runny, but paste is sticky. Layers of paper and paste dry hard."
+      ],
+      "understand": [
+        "The new property comes from the combination. It was not hiding in one of the ingredients.",
+        "To know that something has changed, we test before and after in the same way."
+      ],
+      "do": [
+        "Test the materials on their own and then the combined thing with the same test, and say what changed.",
+        "Use property words to compare: stronger, stiffer, stickier, more waterproof."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "Follows a VCAA elaboration about how different amounts of sand and water affect a sandcastle.",
+      "question": "Does it matter how much of each material we use?",
+      "know": [
+        "Changing how much of each material goes in changes what the mixture is like.",
+        "Too much water makes a sloppy mixture. Too little makes a crumbly one."
+      ],
+      "understand": [
+        "A mixture made for a purpose needs the right amounts, which we find by testing."
+      ],
+      "do": [
+        "Make the same mixture with different amounts, compare them, and choose the best one for a job."
+      ]
+    }
+  ],
+  "vocabulary": {
+    "status": "draft",
+    "sources": [
+      "vcaa-science",
+      "r2p-booklet"
+    ],
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the VCAA wording. The word material needs explicit teaching: the Research-2-Practice summary (citing Bouma et al., 1990) reports that pupils use it in its everyday sense only, such as fabric or building supplies.",
+    "everyday": [
+      {
+        "term": "paper"
+      },
+      {
+        "term": "glue"
+      },
+      {
+        "term": "mix"
+      },
+      {
+        "term": "stick"
+      },
+      {
+        "term": "join"
+      },
+      {
+        "term": "strong"
+      },
+      {
+        "term": "weak"
+      },
+      {
+        "term": "bendy"
+      },
+      {
+        "term": "hard"
+      },
+      {
+        "term": "soft"
+      },
+      {
+        "term": "wet and dry"
+      }
+    ],
+    "academic": [
+      {
+        "term": "combine",
+        "meaning": "To put two or more things together.",
+        "in_descriptor": true
+      },
+      {
+        "term": "purpose",
+        "meaning": "The job something is made to do.",
+        "in_descriptor": true
+      },
+      {
+        "term": "property",
+        "meaning": "What something is like: how it looks, feels or behaves.",
+        "in_descriptor": true
+      },
+      {
+        "term": "compare",
+        "meaning": "To look for what is the same and what is different."
+      },
+      {
+        "term": "predict",
+        "meaning": "To say what you think will happen."
+      },
+      {
+        "term": "test",
+        "meaning": "To try something out to see what happens."
+      },
+      {
+        "term": "differ",
+        "meaning": "To be different from.",
+        "in_descriptor": true
+      }
+    ],
+    "science": [
+      {
+        "term": "material",
+        "meaning": "What something is made of.",
+        "in_descriptor": true
+      },
+      {
+        "term": "object",
+        "meaning": "A thing that is made of one or more materials.",
+        "in_descriptor": true
+      },
+      {
+        "term": "mixture",
+        "meaning": "Two or more materials mixed together.",
+        "in_descriptor": true
+      },
+      {
+        "term": "flexible",
+        "meaning": "Bends without breaking."
+      },
+      {
+        "term": "rigid",
+        "meaning": "Stiff, does not bend easily."
+      },
+      {
+        "term": "waterproof",
+        "meaning": "Does not let water through."
+      },
+      {
+        "term": "absorbent",
+        "meaning": "Soaks up water."
+      }
+    ]
+  },
+  "misconceptions": [
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "bouma-1990"
+      ],
+      "idea": "Material means fabric, or building supplies, or things to write with. Paper, metal, water or flour are not materials.",
+      "science": "In science a material is whatever something is made of. Everything is made of materials.",
+      "respond": "Ask students to tick which things in a list are materials, then talk about where they have heard the word used.",
+      "research": [
+        "Bouma, Brandt and Sutton (1990)",
+        "Tarhan, Ayyıldız, Ogunc and Sesen (2013)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "malkopoulou-2015",
+        "driver-2015",
+        "jones-1989"
+      ],
+      "note": "The abstract of Malkopoulou et al. (2015) reports that 5-year-olds could tell object from material in simple cases, but the object overshadowed the material when the object had several features.",
+      "idea": "The name of the object and the name of its material are the same thing. A small piece of wood or wax is an object, not a sample of a material.",
+      "science": "An object is the thing. The material is what it is made of, and it stays the same material whatever shape or size it is.",
+      "respond": "Hold up two different objects made of the same material and two versions of one object made of different materials. Ask: what is it, and what is it made of?",
+      "research": [
+        "Driver, Rushworth, Squires and Wood-Robinson (2015)",
+        "Jones, Lynch and Reesink (1989)",
+        "Malkopoulou, Papageorgiou and Dimitriou (2015), 5-year-olds"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "krnel-2003"
+      ],
+      "note": "Verified: younger children classify using a mix of object properties and material properties, and children above about Year 5 mostly use material properties. The step from that finding to how students explain strength is my inference.",
+      "idea": "What a thing is like depends on its size and shape. Young children describe and sort using properties of the object (shape, size, weight) mixed in with properties of the material (colour, hardness, what it is). So strong can mean big or thick, not a property of the material or of how it was combined.",
+      "science": "Some properties belong to the material and stay the same in a big piece or a small one. A combination can add a property that neither size nor shape explains.",
+      "respond": "Keep the amount of material the same when comparing, and ask students to explain why they grouped or ranked things the way they did.",
+      "research": [
+        "Krnel, Glažar and Watson (2003), 84 children from Reception to Year 8"
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "harden-waller-2025"
+      ],
+      "note": "My judgement from the structure of the description. Not checked against research: Harden and Waller (2025) say a review of the research on children aged 5 to 7 is still to be done.",
+      "idea": "The woven mat or the rope is stronger only because there is more paper in it.",
+      "science": "More material helps, but the way materials are combined adds strength too. The same strips hold more woven than loose.",
+      "respond": "Compare the same number of strips loose and combined, so the amount is not the difference."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. Not checked against research.",
+      "idea": "A combined thing is just its ingredients sitting together, so it must behave like them. Or the opposite: once mixed, the flour and water are gone.",
+      "science": "The materials are still what the thing is made of, and the combination can behave in a new way.",
+      "respond": "Ask before and after: what is it made of now, and what can it do now that it could not do before?"
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. Not checked against research.",
+      "idea": "A mixture is something you cook or eat.",
+      "science": "Any materials mixed together make a mixture: sand and water, soil, paste, paint.",
+      "respond": "Include mixtures that are not food alongside the food examples."
+    }
+  ],
+  "inquiry": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "The code and its wording were checked on the VCAA page. The link to combining materials is my judgement.",
+      "code": "VC2S2I01",
+      "skill": "Questioning and predicting",
+      "how": "Students predict before each test: which will hold more, the loose strips or the woven mat? Which will stick the paper, flour, water or paste?"
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "The VCAA elaboration for this code describes informal measurements of a change in an object using handspans, blocks, pencil lengths or string.",
+      "code": "VC2S2I03",
+      "skill": "Planning and conducting",
+      "how": "Students measure informally: how many pebbles, blocks or small books the paper holds before and after it is combined."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "The VCAA elaboration for this code uses a materials example: recording in a provided table how far a material stretches before it tears.",
+      "code": "VC2S2I04",
+      "skill": "Processing, modelling and analysing",
+      "how": "Students record results in a table you provide (material on its own, combined) and look for the pattern."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "The VCAA elaboration for this code uses a paper example: comparing observations of cutting and folding different types of paper, and asking further questions.",
+      "code": "VC2S2I05",
+      "skill": "Evaluating",
+      "how": "Students compare what happened with what they predicted and with other pairs' results, and ask a new question: what if we used more layers?"
+    }
+  ],
+  "human_endeavour": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "The VCAA lists this as an elaboration of VC2S2U05 itself. It gives no detail beyond the sentence. Possum skin cloaks are a living practice of Aboriginal communities in south-eastern Australia, including Victoria, but I did not check that against a source. Use a named Koorie source or the school's Koorie education contacts for the detail, and for what is appropriate to share.",
+      "hook": "Aboriginal and Torres Strait Islander Peoples combining materials for a purpose: possum pelts sewn together with sinew to make cloaks and decorated with ochre, and contemporary jewellery that combines feathers, woven fibre and shells.",
+      "first_nations": true
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "From a VCAA elaboration of VC2S2U06, the next description. It fits here because weaving and twisting fibres together combine them. Paper Makers Lesson 3 already has a Wurundjeri weaving link: I did not check its source.",
+      "hook": "Fibre technologies: Aboriginal and Torres Strait Islander Peoples twisting and weaving natural fibres into baskets and fishing lines. The same idea as the paper rope and the woven mat: fibres combined are stronger than fibres alone.",
+      "first_nations": true
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "From a VCAA elaboration of VC2S2H02. The idea of asking a maker in is my suggestion.",
+      "code": "VC2S2H02",
+      "hook": "People who work with materials: woodworkers, product designers, fibre artists and sculptors watch closely how materials behave and use that when they combine them. A parent or local maker showing one object and explaining why each material is there is enough.",
+      "first_nations": false
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "The code and its wording (scientific knowledge is based on observations using the senses and tools) were checked on the VCAA page. The paper example is my suggestion.",
+      "code": "VC2S2H01",
+      "hook": "Looking closer with a tool: tear a sheet of paper and look at the torn edge with a magnifying glass. Paper is itself a mat of tiny fibres tangled together.",
+      "first_nations": false
+    }
+  ],
+  "related": {
+    "below": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-science"
+        ],
+        "gap": true,
+        "summary": "There is no level below. Foundation to Level 2 is the first band of the Science curriculum, and Foundation has no separate content descriptions."
+      }
+    ],
+    "same": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-science"
+        ],
+        "code": "VC2S2U04",
+        "band": "Foundation to Level 2",
+        "summary": "Objects are made of one or more materials, and materials have properties we can observe. The idea this description builds on: teach or check it first.",
+        "label": "Objects and materials"
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-science"
+        ],
+        "code": "VC2S2U06",
+        "band": "Foundation to Level 2",
+        "summary": "Bending, twisting, stretching, squashing or breaking changes a material without changing what it is made of. Its elaborations include twisting strands together to make a stronger thread and folding paper, so it overlaps with paper work.",
+        "label": "Changing shape"
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-science"
+        ],
+        "note": "The code was checked on the VCAA page. The link is my judgement.",
+        "code": "VC2S2U09",
+        "band": "Foundation to Level 2",
+        "summary": "Reducing, re-using and recycling materials. Combined materials are harder to recycle than single ones, and re-used paper is a ready supply.",
+        "label": "Reduce, re-use, recycle"
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-dt"
+        ],
+        "note": "The code, its wording and its elaborations were checked on the VCAA Design and Technologies page. Its elaborations have students investigate the properties of paper, plastic, wood and fabric and how those properties suit a design.",
+        "code": "VC2TDE2C04",
+        "band": "Foundation to Level 2",
+        "label": "Properties of materials",
+        "summary": "Design and Technologies: the characteristics and properties of the materials and components used in designs. The hub's STEAM pairing for this description: the science says a combination has new properties, and the design work puts those properties to use."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-dt"
+        ],
+        "note": "The code was checked on the VCAA page. None of its elaborations mention combining ingredients, so the link is my judgement (it is also a pairing in the hub's curriculum file).",
+        "code": "VC2TDE2C03",
+        "band": "Foundation to Level 2",
+        "label": "Preparing food",
+        "summary": "Design and Technologies: choosing and preparing food for healthy eating. Preparing food is combining materials for a purpose, so cooking can carry the same idea. A loose link."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-digital"
+        ],
+        "note": "The code was checked on the VCAA Digital Technologies page. No Digital Technologies elaboration at this level mentions materials, so this link is my judgement and it is a loose one.",
+        "code": "VC2TDI2D01",
+        "band": "Foundation to Level 2",
+        "label": "Showing data",
+        "summary": "Digital Technologies: showing data as objects, pictures, symbols, numbers and words. It fits only when students record a test of their combinations, for example a tally or picture chart of which mix held the most."
+      }
+    ],
+    "above": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-science"
+        ],
+        "code": "VC2S4U05",
+        "band": "Levels 3 and 4",
+        "summary": "The properties of natural and made materials (fibres, metals, glass, plastics) influence how they are used and re-used. The direct next step: an elaboration has students explain the combination of materials in shoes, drink containers and backpacks.",
+        "label": "Materials and their uses"
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-science"
+        ],
+        "code": "VC2S6U03",
+        "band": "Levels 5 and 6",
+        "summary": "Particles explain the properties of solids, liquids and gases, and mixtures (including solutions) form when two or more substances are combined. Mixtures return here in a formal way.",
+        "label": "Particles and mixtures"
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-science"
+        ],
+        "code": "VC2S6U04",
+        "band": "Levels 5 and 6",
+        "summary": "Reversible changes and irreversible changes that make new substances. This is where the question of whether a combination can be undone belongs.",
+        "label": "Reversible changes"
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-science"
+        ],
+        "code": "VC2S8U06",
+        "band": "Levels 7 and 8",
+        "summary": "Pure substances and mixtures, and ways to separate mixtures.",
+        "label": "Separating mixtures"
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-dt"
+        ],
+        "note": "Checked on the VCAA page. Its elaborations include testing the strength of materials and exploring joining processes in products such as cushions and sneakers.",
+        "code": "VC2TDE4C04",
+        "band": "Levels 3 and 4",
+        "label": "Properties and function",
+        "summary": "Design and Technologies: how the properties of materials affect the way a product or system works. Students test properties such as strength, and look at how materials are joined in everyday products."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-dt"
+        ],
+        "note": "Checked on the VCAA page. Its elaborations include Gunditjmara twining techniques for string and rope, and sinew and resin coatings that waterproof bark canoes.",
+        "code": "VC2TDE6C04",
+        "band": "Levels 5 and 6",
+        "label": "Properties and use",
+        "summary": "Design and Technologies: how the properties of materials, systems, components and tools affect how they are used to make designs."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-dt"
+        ],
+        "note": "Checked on the VCAA page. The description itself names combining, and an elaboration looks at hafting, where materials are combined to make a tool.",
+        "code": "VC2TDE8C04",
+        "band": "Levels 7 and 8",
+        "label": "Selecting and combining",
+        "summary": "Design and Technologies: how materials, tools, systems and components are selected, shaped and combined to make ethical designs. Combining returns here by name."
+      }
+    ],
+    "links": [
+      {
+        "from": "VC2S2U04",
+        "to": "VC2S2U05",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S2U05",
+        "to": "VC2S2U06",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U05",
+        "to": "VC2S2U09",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S2U05",
+        "to": "VC2S4U05",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S4U05",
+        "to": "VC2S6U03",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S6U03",
+        "to": "VC2S6U04",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S6U03",
+        "to": "VC2S8U06",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S2U05",
+        "to": "VC2TDE2C04",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U06",
+        "to": "VC2TDE2C04",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U05",
+        "to": "VC2TDE2C03",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S4U05",
+        "to": "VC2TDE4C04",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2TDE2C04",
+        "to": "VC2TDE4C04",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2TDE4C04",
+        "to": "VC2TDE6C04",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2TDE6C04",
+        "to": "VC2TDE8C04",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S2U05",
+        "to": "VC2TDI2D01",
+        "kind": "loose"
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "This is the test Paper Makers Lesson 3 already uses. Described from the unit files, not observed.",
+      "title": "Loose strips against a woven mat",
+      "phenomenon": "A handful of loose paper strips laid across a gap drops its load straight away. The same strips woven over and under carry a pile of pebbles.",
+      "students_do": "Predict, test the loose strips, weave the same number of strips into a mat, test again with the same pebbles, and say what changed.",
+      "materials": [
+        "Paper strips, the same number for each test",
+        "A paper loom (a folded sheet with slits) or tape to hold the first row",
+        "Two books or blocks to make a gap",
+        "Pebbles or blocks as the load"
+      ],
+      "shows": "Materials can be combined in different ways for a purpose, and the combined object can do what its parts cannot.",
+      "caution": "Keep the amount of paper the same in both tests, or students will credit the extra paper."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "This is the idea behind Paper Makers Lesson 4. Described from the unit files, not observed.",
+      "title": "Powdery plus runny makes sticky",
+      "phenomenon": "Flour does not stick paper together. Water does not either. Mixed, they make paste that does, and layers of paper and paste dry hard.",
+      "students_do": "Feel and describe flour and water on their own, try each as glue, mix them, test the paste, then layer strips to dry. Handle a sample made last week to feel the difference.",
+      "materials": [
+        "Plain flour and water",
+        "Cups and icy pole sticks for mixing",
+        "Paper strips",
+        "A dried layered sample made earlier"
+      ],
+      "shows": "A mixture can have properties that differ from the materials it is made from.",
+      "caution": "Flour contains wheat: check the class for coeliac disease and wheat allergy first. Drying takes days, so the hard result has to be shown with a sample made earlier."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "Adapted from the VCAA elaboration about sand, water and sandcastles so it works indoors with flour. Written from my own knowledge and not tried in the STEAM room.",
+      "title": "Too dry, too wet, just right",
+      "phenomenon": "Three sealed bags hold the same flour with different amounts of water. One stays a powder, one is a runny batter, and one becomes a dough that holds a shape.",
+      "students_do": "Predict which bag will hold the shape of a ball. Squash and observe each bag without opening it, record what each is like, and choose the best one for making a model.",
+      "materials": [
+        "Plain flour and water",
+        "Three zip-lock bags per group",
+        "A spoon or small cup to measure"
+      ],
+      "shows": "The properties of a mixture differ from its ingredients and depend on how much of each is used.",
+      "caution": "Wheat allergy and coeliac disease apply here too. Double-bag the runny mixture. Sand and water outside does the same job if the sandpit is free."
+    }
+  ],
+  "pitfalls": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "Based on comparing the wording and elaborations of VC2S2U05 and VC2S2U06 on the VCAA page. In Paper Makers, Lesson 1 (folding and rolling one sheet) reads as VC2S2U06, which the unit does not list. A point for James to decide, not an error I have changed.",
+      "pitfall": "Calling it combining when students have changed one material by folding, rolling or bending it. That is VC2S2U06.",
+      "instead": "Be explicit about which one a lesson is: changing a material, or combining materials. Twisting or weaving several strips together sits in both, so name the combining."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "pitfall": "An unfair comparison, where the combined version simply has more material than the single one.",
+      "instead": "Use the same amount of material in both tests, so the way it is combined is the only difference."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "The achievement standard asks students to tell the properties of the object or mixture apart from those of its materials.",
+      "pitfall": "Make and take: students build something lovely and never test the materials on their own.",
+      "instead": "Always run the same simple test before and after combining, and finish with the sentence: on its own it was, combined it is."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "r2p-booklet"
+      ],
+      "note": "The Research-2-Practice summary reports that pupils use material in its everyday sense and confuse object names with material names.",
+      "pitfall": "Assuming students share your meaning of material, object and property.",
+      "instead": "Teach the three words explicitly and keep asking the pair of questions: what is it, and what is it made of?"
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "pitfall": "Using strong loosely, so it means hard, thick, heavy or good depending on the child.",
+      "instead": "Define strong by the test: it holds more pebbles before it tears or drops them."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "VCAA elaborations do include jelly, ice cream and cake as examples of mixing food, so they are fair examples.",
+      "pitfall": "Only doing food mixtures, or reaching for dissolving, chemical change and whether it can be undone.",
+      "instead": "Balance mixtures with made objects and their purposes. Leave reversible and irreversible for Levels 5 and 6."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "pitfall": "Forgetting allergies and mess when mixtures use food or flour.",
+      "instead": "Check the class medical list before any flour, food or paste lesson, and mix in sealed bags where you can."
+    }
+  ],
+  "unverified": [
+    "I found no research that looked directly at how children aged 5 to 8 think about combining materials or about mixtures. Harden and Waller (2025) note that a research review for ages 5 to 7 is still needed. The three verified misconceptions are about the ideas underneath (material, object, property), and the three draft ones are my judgement.",
+    "I could not read the original research studies. Each verified misconception rests on a published summary that I did read and that names the studies, plus one abstract (Malkopoulou et al., 2015). The studies themselves are listed as not read.",
+    "The First Nations examples are confirmed only as far as the VCAA's one-sentence elaborations. I did not find or check a Koorie source, and I did not check the source of the Wurundjeri weaving link already in Lesson 3.",
+    "The third anchor experience (flour and water in bags) has not been trialled. The first two are described from the unit's lesson files, not from watching the lessons.",
+    "On the map of related content descriptions, the Digital Technologies link (VC2TDI2D01) and the food link (VC2TDE2C03) are my judgement. No VCAA elaboration for either code mentions combining materials. I found no Digital Technologies description above Level 2 with a genuine link, so that column is empty there.",
+    "The lines on the map are my judgement about how the descriptions connect. The VCAA does not publish links between content descriptions."
+  ]
+}

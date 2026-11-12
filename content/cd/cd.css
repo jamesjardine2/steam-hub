@@ -1,0 +1,96 @@
+/* Curriculum fact sheets (CD objects). Loaded after tokens.css and site.css:
+   it only adds layout for this page and uses the shared tokens for every
+   colour. Draft is orange, as it is everywhere else in the hub. */
+
+.cd-hero-meta { margin-top: 14px; font-size: 15px; color: var(--white); }
+
+/* Status pills: verified or draft, on every field. */
+.cd-status { display: inline-block; flex: 0 0 auto; font-size: 12px; font-weight: 700; line-height: 1; padding: 5px 10px; border-radius: var(--radius-pill); white-space: nowrap; }
+.cd-status.is-verified { background: var(--violet); color: var(--white); }
+.cd-status.is-draft { background: var(--solar-orange); color: var(--void); }
+.cd-refs { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+.cd-refs a { padding: 0 2px; }
+.cd-check { margin-top: 8px; font-size: 13px; line-height: 1.5; color: var(--text-muted); }
+.cd-check strong { color: var(--text); }
+
+/* The official wording. */
+.cd-official { display: flex; flex-direction: column; gap: 10px; }
+.cd-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.cd-head h2, .cd-head h3 { margin-right: auto; }
+.cd-stem { font-size: 14px; color: var(--text-muted); }
+.cd-quote { margin: 0; padding-left: 16px; border-left: 4px solid var(--violet); font-size: 19px; font-weight: 500; line-height: 1.5; color: var(--text); }
+.cd-attrib { font-size: 12px; line-height: 1.5; color: var(--text-muted); }
+
+/* One item inside a section: a question, a misconception, a pitfall. */
+.cd-items { display: flex; flex-direction: column; }
+.cd-item { padding: 16px 0; border-top: 1px solid var(--border); }
+.cd-item:first-child { border-top: 0; padding-top: 6px; }
+.cd-item h3 { font-size: 16px; line-height: 1.35; }
+.cd-item p { font-size: 15px; line-height: 1.6; }
+.cd-item .cd-head + * { margin-top: 8px; }
+.cd-label { display: block; margin-top: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-violet); }
+.cd-list { margin: 4px 0 0; padding-left: 20px; font-size: 15px; line-height: 1.6; }
+.cd-prose { font-size: 16px; line-height: 1.65; }
+.cd-tag { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-pill); border: 1px solid var(--text-violet); color: var(--text); }
+
+/* Know, Understand, Do and the three vocabulary tiers sit side by side. */
+.cd-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4px 24px; }
+.cd-cols .cd-label { margin-top: 12px; }
+.cd-words { list-style: none; margin: 6px 0 0; padding: 0; font-size: 15px; line-height: 1.5; }
+.cd-words li { padding: 5px 0; }
+.cd-words .term { font-weight: 700; }
+.cd-words .in-desc .term { color: var(--text-violet); }
+.cd-words .meaning { display: block; font-size: 14px; color: var(--text-muted); }
+
+/* Rows that start with a curriculum code. */
+.cd-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 14px; }
+.cd-row .cd-row-text { flex: 1 1 320px; min-width: 0; }
+.cd-row .chip { flex: 0 0 auto; }
+.cd-group { margin-top: 18px; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); }
+.cd-group:first-child { margin-top: 6px; }
+
+/* The map of related content descriptions: levels up the side, a column for
+   each learning area, a small box for each description and lines between
+   them. Violet arrows show progression. Orange outlines are drafts. */
+.cd-map-scroll { overflow-x: auto; padding-bottom: 4px; }
+.cd-map { position: relative; min-width: 640px; }
+.cd-map-row { display: grid; grid-template-columns: 78px repeat(3, minmax(0, 1fr)); column-gap: 40px; padding: 20px 0; border-top: 1px solid var(--border); }
+.cd-map-heads { border-top: 0; padding: 4px 0 10px; }
+.cd-map-head, .cd-map-level { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); }
+.cd-map-level { line-height: 1.35; }
+.cd-map-cell { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.cd-node { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; gap: 2px; min-height: 44px; padding: 7px 12px; border: 1px solid var(--border); border-radius: var(--radius-input); background: var(--hover); color: var(--text); text-decoration: none; line-height: 1.25; }
+.cd-node:hover { border-color: var(--text-violet); color: var(--text); }
+.cd-node-code { font-size: 11px; font-weight: 700; color: var(--text-violet); }
+.cd-node-label { font-size: 13px; font-weight: 500; }
+.cd-node.is-draft { border-color: var(--solar-orange); }
+.cd-node.is-focus { background: var(--violet); border-color: var(--violet); color: var(--white); }
+.cd-node.is-focus .cd-node-code { color: var(--white); }
+.cd-node.is-focus .cd-node-label { font-weight: 700; }
+.cd-map > .cd-map-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.cd-link { fill: none; stroke: var(--text-muted); stroke-width: 1.5; stroke-linecap: round; }
+.cd-link.is-leads { stroke: var(--text-violet); stroke-width: 2; }
+.cd-link.is-loose { stroke-dasharray: 2 5; }
+.cd-arrow { fill: var(--text-violet); }
+.cd-map-legend { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 12px; font-size: 13px; color: var(--text-muted); }
+.cd-map-key { display: inline-flex; align-items: center; gap: 8px; }
+.cd-node-swatch { width: 18px; height: 12px; border: 1px solid var(--solar-orange); border-radius: 4px; }
+.cd-why { margin-top: 16px; border-top: 1px solid var(--border); }
+.cd-why > summary { cursor: pointer; padding: 12px 0; min-height: 44px; font-size: 14px; font-weight: 700; color: var(--text-violet); }
+
+/* Sources. */
+.cd-sources { margin: 0; padding-left: 26px; font-size: 14px; line-height: 1.55; }
+.cd-sources li { padding: 6px 0; }
+.cd-sources li:target { background: var(--hover); }
+.cd-sources .unread { color: var(--text-muted); }
+
+/* The list of all fact sheets. */
+.cd-index-link { text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 6px; }
+.cd-index-link:hover { border-color: var(--text-violet); background: var(--hover); color: var(--text); }
+.cd-index-link .code { font-size: 13px; font-weight: 700; color: var(--text-violet); }
+.cd-index-link .name { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
+
+@media print {
+  .topbar { display: none; }
+  .acc > .acc-body { display: block; }
+}

@@ -1,0 +1,25 @@
+{
+  "note": "Written by npm run check-cd -- --write. Do not edit by hand.",
+  "objects": [
+    {
+      "code": "VC2S2U05",
+      "title": "Combining materials",
+      "band": "Foundation to Level 2",
+      "sub_strand": "Chemical sciences",
+      "updated": "2026-11-11",
+      "verified": 21,
+      "draft": 25,
+      "unverified": 6
+    },
+    {
+      "code": "VC2S6U08",
+      "title": "Light",
+      "band": "Levels 5 and 6",
+      "sub_strand": "Physical sciences",
+      "updated": "2026-11-10",
+      "verified": 19,
+      "draft": 23,
+      "unverified": 6
+    }
+  ]
+}

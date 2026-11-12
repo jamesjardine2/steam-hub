@@ -5,7 +5,8 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
-    "check-links": "node scripts/check-links.mjs"
+    "check-links": "node scripts/check-links.mjs",
+    "check-cd": "node scripts/check-cd.mjs"
   },
   "dependencies": {
     "@11ty/eleventy": "3.1.7",

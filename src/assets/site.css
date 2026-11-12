@@ -150,6 +150,7 @@ a.vc2 { font-weight: 700; }
 .extras { min-width: 110px; }
 .row-link { font-weight: 700; font-size: 14px; text-decoration: none; padding: 12px 6px; min-width: 40px; }
 .link-row { font-size: 15px; padding: 6px 0; }
+.fact-sheet-link { display: block; margin-top: 12px; }
 .next-taught-line { margin-top: 6px; font-size: 13px; font-weight: 700; color: var(--text-orange); }
 
 /* LISC */
