@@ -1,7 +1,7 @@
 ---
 number: 5
 title: A House for Teddy
-summary: "Pairs follow a LEGO plan to see what plans are for, then students draw and label their own plan for Teddy's house: LEGO walls, a card door that opens and a plastic roof."
+summary: "Pairs follow a LEGO plan to see what plans are for, students draw and label their own plan for Teddy's house (LEGO walls, a card door that opens and a plastic roof), then swap plans and build their partner's wall and doorway to check the plan is clear."
 status: planned
 duration: 45
 lisc:
@@ -33,7 +33,9 @@ pedagogy:
     how: "Plan, label and hinge are introduced with the Frayer word wall, where each non-example is a near miss the class explains, and the words are used again as the how-to shows each step."
   citw.guided_application:
     level: present
-    how: "Pairs follow a LEGO plan card to build a small house, then hold it beside the card and check it matches, before they draw a plan of their own."
+    how:
+      - "Pairs follow a LEGO plan card to build a small house, then hold it beside the card and check it matches, before they draw a plan of their own."
+      - "Partners swap journals and build the front wall and doorway from each other's plan, then the planner checks it and adds anything the builder could not see."
   citw.strategy_modelling:
     level: focus
     how: "The teacher models drawing a plan on the board, thinking aloud: LEGO walls, a plastic roof, a card door that opens, a window, then labels that name each part and its material."
@@ -42,7 +44,9 @@ pedagogy:
     how: "Students draw the parts one at a time with the class (walls, roof, door, window, labels), with a sentence starter for labels and a partner for support."
   vtlm.explicit.monitor:
     level: present
-    how: "While students draw, the teacher asks 'What is this part? Where is the door? Which way does it open?' and checks each plan has the four parts."
+    how:
+      - "While students draw, the teacher asks 'What is this part? Where is the door? Which way does it open?' and checks each plan has the four parts."
+      - "During the swap, a doorway in the wrong place shows the teacher which plans are missing a door or a label, and the planner fixes the plan."
   vc.dt:
     level: focus
     how: "Students generate a design idea by drawing (VC2TDE2D02), plan the plastic roof that won the water test (VC2TDE2D04) and think about what Teddy needs (VC2TDE2D01)."
@@ -54,24 +58,27 @@ sequence:
     time: 5 min
     what: "Introduce plan, label and hinge with the Frayer word wall."
   - phase: Follow the plan
-    time: 8 min
+    time: 7 min
     what: "Pairs build the LEGO house on the plan card, then hold it beside the card: does it match? Fast finishers plan something new on the card, then build it."
   - phase: I do
-    time: 5 min
+    time: 4 min
     what: "Model a plan on the board: LEGO walls, a plastic roof, a card door that opens, a window, then labels that name each part and its material."
   - phase: You do
-    time: 12 min
+    time: 8 min
     what: "Students draw and label their own plan for Teddy's house in their STEAM journal."
+  - phase: Build my plan
+    time: 8 min
+    what: "Partners swap journals and build the front wall and doorway their partner drew. The planner checks: is the door where I drew it? Add anything missing to the plan."
   - phase: Share
-    time: 5 min
-    what: "Students tell a partner what each part is for. Take a few plans to the mat and chorus the key idea."
+    time: 3 min
+    what: "Ask what the builders could not tell from a plan. Chorus the key idea."
   - phase: Pack up
     time: 5 min
-    what: "Put journals and pencils away. Teaser: next week we make the door."
+    what: "Pull the walls apart, bricks back in the tubs, journals and pencils away. Teaser: next week we make the door."
 resources:
   - text: "Follow the plan card (PDF): print two per A4 sheet, cut on the dashed line, one per pair"
     file: 05-lego-plans.pdf
-  - "LEGO tubs and base plates, with the bricks on the plan card for each pair: eight 2x2, four 2x4, two 2x6 and one 2x8 [check the tubs have enough 2x6 and 2x8 bricks; colours do not matter]"
+  - "LEGO tubs and base plates, with the bricks on the plan card for each pair: eight 2x2, four 2x4, two 2x6 and one 2x8 [check the tubs have enough 2x6 and 2x8 bricks; colours do not matter]. The same tubs are used again for Build my plan, so keep them beside each pair while students draw."
   - STEAM journals (class tub) and pencils
   - Coloured pencils or crayons for the roof material
   - "Whiteboard or large paper for the teacher's model plan"
@@ -80,7 +87,7 @@ resources:
 live:
   - kind: SLIDE
     title: Lesson slides
-    note: Recall, hook, Learning Intention, word wall, how to plan and record it
+    note: Recall, hook, Learning Intention, word wall, how to plan, record it and build my plan
     file: 05-slides.html
   - kind: HTML
     title: "Hook: Teddy forgot something"
@@ -96,7 +103,7 @@ live:
     file: 05-frayer.html
 crt_notes: Needs the printed plan cards, LEGO tubs, journals and pencils, so a CRT can run it as written. Ask the CRT to have the Lesson 4 result chart on display.
 ---
-**Setup:** Put the Lesson 4 result chart where students can see it. Put a LEGO tub, a base plate and a plan card on each pair's table, and journals and pencils nearby. Draw a blank house outline area on the board ready for the model plan, and put the label word cards where students can see them.
+**Setup:** Put the Lesson 4 result chart where students can see it. Put a LEGO tub, a base plate and a plan card on each pair's table (the tub stays there for Build my plan at the end), and journals and pencils nearby. Draw a blank house outline area on the board ready for the model plan, and put the label word cards where students can see them.
 
 **Focus:** Builders plan before they build. A plan is a drawing with labels that shows what we will make and what each part is made of. Teddy's house will have LEGO walls on a base, a card door that opens and a plastic roof.
 
@@ -108,11 +115,12 @@ crt_notes: Needs the printed plan cards, LEGO tubs, journals and pencils, so a C
 |---|---|---|
 | 0 to 5 min | Hook (CIC) | Ask the recall question: "Which material kept Teddy dry?" Then play the animation (click or Space): Teddy builds his house in a rush, then walks into the wall because there is no door. It stops on a question mark. Ask: "What went wrong? What should Teddy do first?" Take a few ideas (draw a plan first). Ask: "What parts does his house need?" Students tell a partner. Read the Learning Intention and the Success Criteria. |
 | 5 to 10 min | Word wall | Use the word wall. A **plan** is a drawing of what you will build. A **label** is a word that names a part. A **hinge** joins two parts so one can swing. Students think first, then each box is uncovered. For each non-example, ask "Why is this not a ___?" and use the reasons below. |
-| 10 to 18 min | Follow the plan | Pairs build the LEGO house on their plan card: collect the bricks in the "You need" box, then build what the plan shows. When they finish, they hold the house beside the card and check each labelled part: "Does it match?" Pairs who finish early plan something new for Teddy: draw it on the card first, then build it. Then pull the houses apart. Ask: "How did the plan help you?" |
-| 18 to 23 min | I do | Show the how-to slides, then draw a plan on the board and think aloud. "First the walls. They will be LEGO, so I draw the bricks overlapping. Now the roof. It will be plastic, because plastic kept the water out in our test. Now a door. It will be card, and it must open, so I draw which way it swings. A window, so Teddy has light. Now I label each part, and I say what it is made of: roof, plastic." |
-| 23 to 35 min | You do | Students draw and label their own plan in their journal. Walk through the steps with the class, a part at a time: walls, roof, door, window, labels. Students copy label words from the cards; write labels for students who need it. [Add how many labels each student should aim for.] |
-| 35 to 40 min | Share | Students point to each part and tell a partner what it is and what it is made of: "This is the ___. It is made of ___." Take a few plans to the mat. Say together: **"A plan shows what to build."** |
-| 40 to 45 min | Pack up | Pencils and journals back in the tub, bricks back in the tubs. Teaser: "Next week we make Teddy a door that opens." |
+| 10 to 17 min | Follow the plan | Pairs build the LEGO house on their plan card: collect the bricks in the "You need" box, then build what the plan shows. When they finish, they hold the house beside the card and check each labelled part: "Does it match?" Pairs who finish early plan something new for Teddy: draw it on the card first, then build it. Then pull the houses apart and move the tubs to the side of the table. Ask: "How did the plan help you?" |
+| 17 to 21 min | I do | Show the how-to slides, then draw a plan on the board and think aloud. "First the walls. They will be LEGO, so I draw the bricks overlapping. Now the roof. It will be plastic, because plastic kept the water out in our test. Now a door. It will be card, and it must open, so I draw which way it swings. A window, so Teddy has light. Now I label each part, and I say what it is made of: roof, plastic." |
+| 21 to 29 min | You do | Students draw and label their own plan in their journal. Walk through the steps with the class, a part at a time: walls, roof, door, window, labels. Students copy label words from the cards; write labels for students who need it. [Add how many labels each student should aim for.] |
+| 29 to 37 min | Build my plan | Show the Build my plan slide. Partners swap journals. Each student builds only the **front wall with its doorway** from their partner's plan, on the base plate, with the door gap where the plan shows it. Model it in one minute with your board plan first: "The plan shows the door here, so I leave a gap here." When both walls are built, the planner checks: "Is the door where I drew it? Is the wall the shape I drew?" If the builder could not tell, the planner adds it to the plan now (a door, a label, an arrow). |
+| 37 to 40 min | Share | Ask: "Did your partner build what you drew? What did you add to your plan?" Take two or three answers. Say together: **"A plan shows what to build."** |
+| 40 to 45 min | Pack up | Pull the walls apart, bricks back in the tubs, pencils and journals back in the tub. Teaser: "Next week we make Teddy a door that opens." |
 
 ## Word wall: why each non-example is not the word
 
@@ -133,12 +141,13 @@ Draw a model plan: walls drawn as overlapping bricks, a triangle roof, a door wi
 - Which way does your door open?
 - Where is the hinge on your door?
 - How does a label help the builder?
+- During the swap: How did you know where to put the door? What would help your partner build it?
 
 ## What to look for
 
 | Success criterion | Evidence of learning |
 |---|---|
-| Follows a plan | Builds the LEGO house on the plan card and checks each part matches. |
+| Follows a plan | Builds the LEGO house on the plan card and checks each part matches. Builds the wall and doorway from a partner's plan, with the door where the plan shows it. |
 | Draws the parts | The plan has walls, a roof, a door that opens and a window. |
 | Labels parts and materials | Words or letters beside the parts, with a line to each one, and says what each part is made of. |
 
@@ -146,6 +155,7 @@ Draw a model plan: walls drawn as overlapping bricks, a triangle roof, a door wi
 
 - **Support:** Give the sentence starter "This is the ___." Draw the first part together, and write the label words on a card to copy.
 - **Extension:** Ask students to add a second room or a chimney, or to show where the hinges are on the door.
+- **Build my plan support:** Pair a student who needs support with a student whose plan is clear, and point to the door on the plan before they build. Students who finish the wall early can add the window where the plan shows it.
 
 ## The key idea
 
@@ -154,7 +164,7 @@ A plan is a labelled drawing that shows what we will build. We plan first so tha
 ## Notes for the CRT
 
 - Needs the plan cards, LEGO tubs, journals and pencils. No water is used in this lesson.
-- Please make sure the LEGO houses are pulled apart before the drawing starts, so the bricks are back in the tubs.
+- Please make sure the LEGO houses are pulled apart before the drawing starts, with the tubs moved to the side of each table. The tubs come back out for Build my plan, when partners swap journals and build only the front wall and doorway from each other's plan.
 - Students who finish early can add details such as a path or a garden.
 - Please leave the **STEAM journals** in the class tub on the STEAM desk. A short note about how the class went is always appreciated.
 
