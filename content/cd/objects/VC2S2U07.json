@@ -1,0 +1,731 @@
+{
+  "schema_version": 1,
+  "code": "VC2S2U07",
+  "title": "Weather and seasons",
+  "learning_area": "Science",
+  "band": "Foundation to Level 2",
+  "strand": "Science Understanding",
+  "sub_strand": "Earth and space sciences",
+  "updated": "2026-11-15",
+  "sources": [
+    {
+      "id": "vcaa-curriculum",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "vcaa-copyright",
+      "citation": "Victorian Curriculum and Assessment Authority. Copyright statement for the Victorian Curriculum site (CC BY-NC 3.0 Australia licence and the attribution it asks for).",
+      "url": "https://f10.vcaa.vic.edu.au/copyright-statement",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "r2p-booklet",
+      "citation": "Abrahams, I., Backhouse, A., Bloom, K., Griffin-James, H. and Mat Noor, S. (2021). Research-2-Practice: Supporting Primary School Teachers to Engage with Science Education Research. University of Lincoln. Research summaries and lesson plans: The Water Cycle (Key Stage 2, Year 4).",
+      "url": "https://ray.yorksj.ac.uk/5961/1/R2P%20Primary%20Booklet.pdf",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "iop-sun-covered",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Some students have ideas that the Sun gets covered and that is what causes night\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/some-students-have-ideas-sun-gets-covered-and-what-causes-night",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "iop-winter",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Some students think that it is cold in the winter because the Sun is on the other side of the Earth at that time\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/some-students-think-it-cold-winter-because-sun-other-side-earth-time",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "beyond-penguins-seasons",
+      "citation": "Fries-Gaither, J. (2008). Common misconceptions about day and night, seasons. Beyond Penguins and Polar Bears, The Ohio State University. A teacher resource page, not a research study.",
+      "url": "https://beyondpenguins.ehe.osu.edu/?p=524",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "baxter-1989",
+      "citation": "Baxter, J. (1989). Children's understanding of familiar astronomical events. International Journal of Science Education, 11 (special issue), pages 502 to 513.",
+      "read": false,
+      "via": "beyond-penguins-seasons"
+    },
+    {
+      "id": "savva-2014",
+      "citation": "Savva, S. (2014). Year 3 to year 5 children's conceptual understanding of the mechanism of rainfall: A comparative analysis.",
+      "read": false,
+      "via": "r2p-booklet"
+    }
+  ],
+  "descriptor": {
+    "status": "verified",
+    "sources": [
+      "vcaa-curriculum",
+      "vcaa-copyright"
+    ],
+    "note": "Copied by a script from the Victorian Curriculum Version 2.0 on 15 November 2026, not typed from memory.",
+    "stem": "Students learn that:",
+    "text": "daily and seasonal changes in the weather and the environment can be observed and affect decisions made in everyday life",
+    "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S2U07",
+    "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
+  },
+  "paraphrase": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "My reading of the description and its achievement standard, which was checked in the curriculum: students identify daily and seasonal changes and describe ways these changes affect everyday life.",
+    "text": "The weather changes from day to day, and the world around us changes with the seasons. Students learn to notice and record those changes, and to see that people use them to make everyday decisions: what to wear, what to do, when to plant. The assessable skills are spotting daily and seasonal changes and saying how they affect what we do.",
+    "asks_for": [
+      "The weather changes during a day and from day to day, and those changes can be observed and recorded.",
+      "The environment changes with the seasons: temperature, daylight, plants and animals.",
+      "People use the weather and the season to make decisions in everyday life."
+    ],
+    "not_asking": [
+      "Why there are seasons (Earth's tilt and orbit). That is Levels 5 and 6 (VC2S6U07).",
+      "How rain and clouds form. The water cycle is Levels 3 and 4 (VC2S4U07).",
+      "The difference between weather and climate. That is Levels 3 and 4 (VC2S4U08)."
+    ]
+  },
+  "key_questions": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Making and recording observations of weather is in a VCAA elaboration.",
+      "question": "What is the weather like, and how do we know?",
+      "know": [
+        "Weather words: sunny, cloudy, rainy, windy, hot, warm, cool, cold.",
+        "We find out about the weather by looking, feeling and listening."
+      ],
+      "understand": [
+        "Weather is what the air and sky are doing outside right now, and it changes."
+      ],
+      "do": [
+        "Observe today's weather and record it with a symbol on a class chart."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Comparing weather at different times of day and predicting the next week is in an elaboration for VC2S2I05.",
+      "question": "How does the weather change?",
+      "know": [
+        "Weather can change during a day and from one day to the next.",
+        "A weather chart shows what happened over a week or a month."
+      ],
+      "understand": [
+        "When we record the weather we can see patterns, such as cool mornings and warmer afternoons."
+      ],
+      "do": [
+        "Read a class weather chart and say which kind of day there was most of."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Seasonal changes to plants and to animals are in VCAA elaborations.",
+      "question": "What changes with the seasons?",
+      "know": [
+        "The seasons bring changes in temperature, in how long it is light, and in plants and animals.",
+        "Some trees lose their leaves, flowers and fruit grow at certain times, and some animals migrate or hibernate."
+      ],
+      "understand": [
+        "Seasons are a pattern that comes around again every year."
+      ],
+      "do": [
+        "Name the season and point to one sign of it in the school grounds."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Clothing choices and planning activities by the weather are in VCAA elaborations.",
+      "question": "How do weather and seasons change what we do?",
+      "know": [
+        "People choose clothes, activities and food to suit the weather and the season.",
+        "A forecast tells us what the weather is expected to be."
+      ],
+      "understand": [
+        "Knowing the weather and the season helps people plan and stay safe."
+      ],
+      "do": [
+        "Choose what to wear or do for a given day's weather and explain the choice."
+      ]
+    }
+  ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, built from the achievement standard sentence and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Describe today's weather using weather words.",
+        "Record the weather with a symbol on a chart.",
+        "Say one way the weather changed during a day or across a week.",
+        "Name the current season and one sign of it.",
+        "Say how something in nature changes with the seasons, such as a tree or an animal.",
+        "Choose clothes or an activity to suit the weather or season, and say why."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Weather hands",
+        "how": "At the door or the window, ask: what is the weather doing right now? Students show a gesture for each thing you call (sun, cloud, wind, rain) with thumbs up or down. One minute.",
+        "look_for": "Has it: reports what they can see and feel today. Not yet: answers with their favourite weather or with yesterday's."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled. Teddy is the character from the Foundation unit Teddy's New House.",
+        "title": "Dress Teddy",
+        "how": "Show a weather card or today's forecast and three clothing choices. Students point to what Teddy should wear, then two students say why. Two minutes.",
+        "look_for": "Has it: matches the clothing to the weather and gives the weather as the reason. Not yet: chooses by what they like."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Which season? Four corners",
+        "how": "Show a photo (bare tree, blossom, a hot beach day, falling leaves) and name a corner of the room for each season. Students walk to their answer, and one from each corner says what they noticed. Three minutes.",
+        "look_for": "Has it: points to a sign in the photo. Not yet: picks a season by the colours, or follows a friend."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Read the chart",
+        "how": "Point to the class weather chart and ask one question each as students line up: which day was rainy? What kind of day did we have most? Two to three minutes.",
+        "look_for": "Has it: reads the symbols and counts or compares. Not yet: guesses without looking at the chart."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. These go deeper at this level. Explaining why the seasons happen is Levels 5 and 6.",
+      "items": [
+        "Predict tomorrow's weather, write it down, and check it the next day. How often are the predictions right?",
+        "Count the symbols on a month's chart and make a simple picture graph.",
+        "Compare the morning and the afternoon on the same day for a week, and look for a pattern.",
+        "Find out what the season is like somewhere else, such as a cousin's town or a country a classmate's family comes from.",
+        "Follow one tree or garden bed with a photo every week, and describe how it changes.",
+        "Ask why a forecast is useful, and who needs it most."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Go outside for thirty seconds first: feel the wind, look at the sky, then choose the symbol.",
+        "Offer two choices at a time: is it sunny or cloudy?",
+        "Use the same picture symbols every lesson, each paired with a word and a gesture.",
+        "Give a sentence starter: Today it is ... so I will ...",
+        "Link to the student's morning: what did you wear to school today, and why?"
+      ],
+      "well_below": [
+        "Aim for noticing: hot or cold, wet or dry.",
+        "Take pointing to a picture or a real object (a hat, a raincoat) as the answer.",
+        "Teach two weather words at a time with objects and gestures.",
+        "Give the student the daily job of putting the symbol on the chart with a partner."
+      ]
+    }
+  },
+  "vocabulary": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the official wording.",
+    "everyday": [
+      {
+        "term": "sunny"
+      },
+      {
+        "term": "cloudy"
+      },
+      {
+        "term": "rainy"
+      },
+      {
+        "term": "windy"
+      },
+      {
+        "term": "hot"
+      },
+      {
+        "term": "warm"
+      },
+      {
+        "term": "cool"
+      },
+      {
+        "term": "cold"
+      },
+      {
+        "term": "wet"
+      },
+      {
+        "term": "dry"
+      },
+      {
+        "term": "today"
+      },
+      {
+        "term": "tomorrow"
+      }
+    ],
+    "academic": [
+      {
+        "term": "daily",
+        "meaning": "Every day.",
+        "in_descriptor": true
+      },
+      {
+        "term": "change",
+        "meaning": "To become different.",
+        "in_descriptor": true
+      },
+      {
+        "term": "observe",
+        "meaning": "To look, listen and feel carefully.",
+        "in_descriptor": true
+      },
+      {
+        "term": "affect",
+        "meaning": "To make a difference to something.",
+        "in_descriptor": true
+      },
+      {
+        "term": "decision",
+        "meaning": "A choice you make.",
+        "in_descriptor": true
+      },
+      {
+        "term": "pattern",
+        "meaning": "Something that happens again and again."
+      },
+      {
+        "term": "record",
+        "meaning": "To write or draw what you noticed."
+      }
+    ],
+    "science": [
+      {
+        "term": "weather",
+        "meaning": "What the air and sky are doing outside.",
+        "in_descriptor": true
+      },
+      {
+        "term": "season, seasonal",
+        "meaning": "A time of the year with its own weather and changes.",
+        "in_descriptor": true
+      },
+      {
+        "term": "environment",
+        "meaning": "The world around us: plants, animals, land, air and water.",
+        "in_descriptor": true
+      },
+      {
+        "term": "temperature",
+        "meaning": "How hot or cold something is."
+      },
+      {
+        "term": "forecast",
+        "meaning": "What the weather is expected to be."
+      },
+      {
+        "term": "migrate",
+        "meaning": "To travel a long way when the season changes."
+      },
+      {
+        "term": "hibernate",
+        "meaning": "To rest through the cold season."
+      }
+    ]
+  },
+  "misconceptions": [
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-seasons",
+        "baxter-1989"
+      ],
+      "note": "Checked against a teacher resource page that lists these ideas and cites Baxter (1989). It is not a research study, and I did not read Baxter.",
+      "idea": "The seasons are the same everywhere, at the same time.",
+      "science": "Seasons differ around the world. When it is summer here it is winter in Europe, and places near the equator have wet and dry seasons instead.",
+      "respond": "Show photos of December in Melbourne and in London, and ask why the picture books show snow at Christmas.",
+      "research": [
+        "Baxter (1989)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "iop-winter"
+      ],
+      "note": "Checked against the IOPSpark review. The cause of the seasons is beyond this description, and the studies were with older students, but young children ask.",
+      "idea": "Winter is cold because the Sun has gone away, or is on the other side of the Earth.",
+      "science": "The Sun still shines in winter. The days are shorter and the Sun sits lower in the sky. Why that happens is for later years.",
+      "respond": "Notice together that the Sun is out on a cold winter day, and how early it gets dark.",
+      "research": [
+        "Hsu (2007)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "iop-sun-covered",
+        "baxter-1989"
+      ],
+      "note": "Checked against the IOPSpark review, which lists clouds among the things children say cover the Sun to make night. I did not read Baxter.",
+      "idea": "Clouds cover the Sun and that is what makes night, so weather and night are the same kind of thing.",
+      "science": "Clouds can make a day dull, but night comes every day whatever the weather.",
+      "respond": "Keep day and night on a different chart from the weather, and point out a cloudy day that was still daytime.",
+      "research": [
+        "Baxter (1989)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "savva-2014"
+      ],
+      "note": "Checked against the Research-2-Practice Water Cycle summary, which reports this from pupils in Years 3 to 5. Younger children are likely to hold it too, but I did not find a study of that.",
+      "idea": "Clouds are made of something soft and fluffy, like cotton wool or smoke.",
+      "science": "Clouds are made of tiny drops of water. That is where rain comes from. How they form is for later years.",
+      "respond": "Avoid cotton wool clouds on displays, or say plainly that real clouds are tiny drops of water.",
+      "research": [
+        "Savva (2014)",
+        "Malleus, Kikas and Kruus (2016)"
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "The weather is the same everywhere as it is where I am.",
+      "science": "Weather can be different in the next suburb, and very different in another city on the same day.",
+      "respond": "Look at a weather map or app for Melbourne and for another city on the same morning."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "Each season starts on a date and the weather switches on that day.",
+      "science": "Seasons change gradually, and the signs in plants and animals come slowly over weeks.",
+      "respond": "Follow one tree with a weekly photo and see how slowly it changes."
+    }
+  ],
+  "inquiry": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students follow safe procedures to record a plant's seasonal changes with photographs, videos, drawings or measurements.",
+      "code": "VC2S2I02",
+      "skill": "Planning and conducting",
+      "how": "Students follow the same steps each week to photograph one tree or garden bed from the same spot."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students suggest tables or visual models to record weather or seasonal changes across days, months or a year.",
+      "code": "VC2S2I04",
+      "skill": "Processing, modelling and analysing",
+      "how": "Students record the weather on a class chart and help decide how to show a whole month."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students compare weather observations at different times of day with those of others, and predict weather patterns for the next week.",
+      "code": "VC2S2I05",
+      "skill": "Evaluating",
+      "how": "Students compare their own observation with a partner's and with the chart, and predict next week's weather."
+    }
+  ],
+  "human_endeavour": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The VCAA lists local seasonal calendars in an elaboration of VC2S2U07 itself, and the Gariwerd calendar in an elaboration for VC2S2H02. Neither gives detail beyond the sentence. For the seasons of the Country the school is on, ask the school's Koorie education contacts or a named local source. I did not check one.",
+      "code": "VC2S2H02",
+      "hook": "Aboriginal and Torres Strait Islander Peoples hold deep knowledge of daily and seasonal change, and use local seasonal calendars to know when animals and plants are ready. One example is the Gariwerd calendar of the Djab Wurrung and Jardwardjali Peoples, which links the emu in the night sky with the wildflower season from September to November.",
+      "first_nations": true
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code.",
+      "code": "VC2S2H02",
+      "hook": "People use science at home every day: checking a weather forecast before a family outing, and dressing for the season.",
+      "first_nations": false
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The VCAA lists this as an elaboration of VC2S2U07 itself.",
+      "hook": "How seasonal change affects plants and animals, including animals that hibernate and migrate.",
+      "first_nations": false
+    }
+  ],
+  "related": {
+    "below": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "gap": true,
+        "summary": "There is no level below. Foundation to Level 2 is the first band of the Science curriculum, and Foundation has no separate content descriptions."
+      }
+    ],
+    "same": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S2U08",
+        "band": "Foundation to Level 2",
+        "label": "Sun, Moon and stars",
+        "summary": "Patterns in the sky. Day length and the Sun's position are part of how the seasons look, so the two descriptions share observations."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement. A VCAA elaboration of VC2S2U07 has students look at how seasonal change affects plants and animals.",
+        "code": "VC2S2U02",
+        "band": "Foundation to Level 2",
+        "label": "What living things need",
+        "summary": "Living things have needs that the places they live meet. Seasons change how plants and animals meet those needs."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students decide what to wear to school by checking the forecast on a weather app.",
+        "code": "VC2TDI2C01",
+        "band": "Foundation to Level 2",
+        "label": "Problems digital can solve",
+        "summary": "Digital Technologies: simple problems that a digital system could solve for someone. A weather app is the example the curriculum gives."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students show the decision: if it is raining, take a raincoat, otherwise take a hat.",
+        "code": "VC2TDI2C02",
+        "band": "Foundation to Level 2",
+        "label": "Steps and decisions",
+        "summary": "Digital Technologies: algorithms with steps and decisions. Choosing what to wear from the weather is a decision students can show."
+      }
+    ],
+    "above": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description names weather and climate. A VCAA elaboration has students tell weather patterns over a week from climate patterns over years.",
+        "code": "VC2S4U08",
+        "band": "Levels 3 and 4",
+        "label": "Weather and climate",
+        "summary": "Weather events and climate affect land, air, water and living things, and people affect climate. The direct next step."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S4U07",
+        "band": "Levels 3 and 4",
+        "label": "The water cycle",
+        "summary": "Where water comes from and how it cycles. This is where rain and clouds are explained."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names day and night length and Earth's tilt.",
+        "code": "VC2S6U07",
+        "band": "Levels 5 and 6",
+        "label": "Orbits, day and night",
+        "summary": "Earth's tilt, rotation and orbit explain cycles such as changing day length. This is where the reason for the seasons is taught."
+      }
+    ],
+    "links": [
+      {
+        "from": "VC2S2U07",
+        "to": "VC2S2U08",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U07",
+        "to": "VC2S2U02",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S2U07",
+        "to": "VC2TDI2C01",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2TDI2C01",
+        "to": "VC2TDI2C02",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U07",
+        "to": "VC2S4U08",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S4U08",
+        "to": "VC2S4U07",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U08",
+        "to": "VC2S6U07",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S4U08",
+        "to": "VC2S6U07",
+        "kind": "loose"
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Recording weather is in a VCAA elaboration. The routine is my suggestion and has not been trialled. A weekly specialist lesson only sees one day in five, so the chart works best if the classroom teacher keeps it on the other days.",
+      "title": "The class weather chart",
+      "phenomenon": "Last week's chart shows three sunny days, one cloudy day and one rainy day. Today looks different again.",
+      "students_do": "Go to the window or outside, agree on today's weather, add the symbol, and then read the chart: what did we have most of? What changed since last week?",
+      "materials": [
+        "A large chart with a row for each week",
+        "Picture symbols for sunny, cloudy, rainy and windy",
+        "A window or a doorway"
+      ],
+      "shows": "Weather changes from day to day, and recording it shows patterns.",
+      "caution": "Ask a pattern question every time, or the chart becomes a routine with no thinking in it."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My suggestion, not trialled. Teddy is the character from the Foundation unit Teddy's New House. The clothing choice follows a VCAA elaboration.",
+      "title": "Dress Teddy for the day",
+      "phenomenon": "Teddy is going out. The forecast says rain in the morning and sun in the afternoon. What should Teddy take?",
+      "students_do": "Look at a forecast card or app, choose clothes for Teddy from a set of pictures or dolls' clothes, and explain the choice to a partner. Repeat with a different day.",
+      "materials": [
+        "A teddy",
+        "Pictures or real items: sun hat, raincoat, jumper, shorts, gumboots, sunglasses",
+        "Forecast cards with weather symbols"
+      ],
+      "shows": "People use the weather to make everyday decisions.",
+      "caution": "Accept more than one good answer if the reason is about the weather."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Noticing seasonal changes to plants is in a VCAA elaboration, and recording them with photographs is in an elaboration for VC2S2I02. The school garden is on the STEAM room inventory. The lesson shape is my suggestion, not trialled.",
+      "title": "One tree, all year",
+      "phenomenon": "The same tree photographed from the same spot looks different each term: bare, in bud, in full leaf, dropping leaves.",
+      "students_do": "Walk to the tree, look for signs of the season, take a photo on an iPad from the marked spot, and compare it with the last photo. Draw one thing that has changed.",
+      "materials": [
+        "A deciduous tree or a garden bed in the school grounds",
+        "A marked spot to stand on",
+        "An iPad",
+        "Earlier photos, printed or on screen"
+      ],
+      "shows": "The environment changes with the seasons, and the changes come around again.",
+      "caution": "Choose a tree that does change. Many Australian trees keep their leaves all year."
+    }
+  ],
+  "pitfalls": [
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Using picture books and posters from the northern hemisphere: snow at Christmas, autumn leaves in October.",
+      "instead": "Use local photos and name the months for Melbourne. Talk about why the books look different."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Local seasonal calendars are named in VCAA elaborations.",
+      "pitfall": "Teaching four fixed seasons as the only way to divide the year.",
+      "instead": "Teach the four seasons students will hear about, and show that First Peoples' calendars for this Country divide the year differently, by what plants and animals are doing."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from comparing this description with VC2S6U07 in the curriculum.",
+      "pitfall": "Explaining why there are seasons with the tilt of the Earth.",
+      "instead": "Stay with noticing and recording the changes. The explanation is for Years 5 and 6."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Treating it as a one-lesson topic. Seasons cannot be observed in 45 minutes.",
+      "instead": "Set up something that runs all year, such as the tree photo or the chart, and share it with the classroom teacher."
+    }
+  ],
+  "unverified": [
+    "Research on how children aged 5 and 6 think about weather is thin in what I could read. A review by Henriques that would have helped could not be opened. Four misconceptions rest on sources about older children or on a teacher resource page, and two are my judgement.",
+    "The First Nations examples are confirmed only as far as the VCAA's one-sentence elaborations. I did not find or check a source for the seasons of the Country the school is on.",
+    "None of the three anchor experiences has been trialled. I did not check whether the school grounds have a deciduous tree.",
+    "The lines on the map are my judgement about how the descriptions connect."
+  ]
+}

@@ -1,0 +1,735 @@
+{
+  "schema_version": 1,
+  "code": "VC2S2U08",
+  "title": "Sun, Moon, planets and stars",
+  "learning_area": "Science",
+  "band": "Foundation to Level 2",
+  "strand": "Science Understanding",
+  "sub_strand": "Earth and space sciences",
+  "updated": "2026-11-15",
+  "sources": [
+    {
+      "id": "vcaa-curriculum",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "vcaa-copyright",
+      "citation": "Victorian Curriculum and Assessment Authority. Copyright statement for the Victorian Curriculum site (CC BY-NC 3.0 Australia licence and the attribution it asks for).",
+      "url": "https://f10.vcaa.vic.edu.au/copyright-statement",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "r2p-booklet",
+      "citation": "Abrahams, I., Backhouse, A., Bloom, K., Griffin-James, H. and Mat Noor, S. (2021). Research-2-Practice: Supporting Primary School Teachers to Engage with Science Education Research. University of Lincoln. Research summaries and lesson plans: Moon Phases (Key Stage 2, Year 5).",
+      "url": "https://ray.yorksj.ac.uk/5961/1/R2P%20Primary%20Booklet.pdf",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "iop-sun-moves",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Some students observe the Sun moving up and down and this explains why it gets dark at night and light during the day\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/some-students-observe-sun-moving-and-down-and-explains-why-it-gets-dark-night-and-light-during-day",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "iop-sun-covered",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Some students have ideas that the Sun gets covered and that is what causes night\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/some-students-have-ideas-sun-gets-covered-and-what-causes-night",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "iop-moon-clouds",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Some students observe clouds blocking parts of the Moon and use this as the basis for the different phases of the Moon\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/some-students-observe-clouds-blocking-parts-moon-and-use-basis-different-phases-moon",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "iop-stars",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Some students think the stars and constellations appear in the same place in the sky every night\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/some-students-think-stars-and-constellations-appear-same-place-sky-every-night",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "baxter-1989",
+      "citation": "Baxter, J. (1989). Children's understanding of familiar astronomical events. International Journal of Science Education, 11 (special issue), pages 502 to 513.",
+      "read": false,
+      "via": "iop-sun-covered"
+    },
+    {
+      "id": "abell-2002",
+      "citation": "Abell, S., George, M. and Martini, M. (2002). The moon investigation: Instructional strategies for elementary science methods.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "dunlop-2000",
+      "citation": "Dunlop, J. (2000). How children observe the universe, as cited by the IOPSpark review. I did not see the full reference.",
+      "read": false,
+      "via": "iop-moon-clouds"
+    }
+  ],
+  "descriptor": {
+    "status": "verified",
+    "sources": [
+      "vcaa-curriculum",
+      "vcaa-copyright"
+    ],
+    "note": "Copied by a script from the Victorian Curriculum Version 2.0 on 15 November 2026, not typed from memory.",
+    "stem": "Students learn that:",
+    "text": "Earth is one of 8 planets in our solar system; observing the sky reveals patterns in the changing positions of the Sun, Moon, planets and stars",
+    "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S2U08",
+    "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
+  },
+  "paraphrase": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "My reading of the description and its achievement standard, which was checked in the curriculum: students identify celestial objects and describe patterns they see in the sky.",
+    "text": "Earth is a planet, one of eight that travel around the Sun. From Earth we can see the Sun, the Moon, some planets and the stars, and where they are in the sky changes in ways that repeat. Students watch, record and describe those patterns: the Sun's path across a day, the Moon's changing shape across a month, and what can be seen by day and by night. The assessable skills are naming what is in the sky and describing a pattern.",
+    "asks_for": [
+      "Earth is a planet, and there are eight planets in our solar system.",
+      "The Sun, the Moon, planets and stars can be seen in the sky, some by day and some by night.",
+      "Their positions and appearance change in patterns that repeat: across a day, a month and a year.",
+      "The patterns are found by observing and recording over time."
+    ],
+    "not_asking": [
+      "Why the patterns happen. Earth's rotation and orbit are Levels 5 and 6 (VC2S6U07), and the Moon's phases are explained at Levels 7 and 8 (VC2S8U12).",
+      "The order, names and sizes of the planets as facts to memorise. Knowing Earth is one of eight is enough.",
+      "The names of the eight phases of the Moon."
+    ]
+  },
+  "key_questions": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Day and night sky objects are in a VCAA elaboration.",
+      "question": "What can we see in the sky?",
+      "know": [
+        "In the day we see the Sun, and sometimes the Moon.",
+        "At night we see the Moon, stars and sometimes planets.",
+        "The Sun is a star. It looks big and bright because it is much closer than the others."
+      ],
+      "understand": [
+        "The stars are still there in the day. The Sun is so bright that we cannot see them."
+      ],
+      "do": [
+        "Sort pictures of things in the sky into day, night and both."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Images and models of the solar system are in a VCAA elaboration.",
+      "question": "Where is Earth?",
+      "know": [
+        "Earth is a planet.",
+        "There are eight planets in our solar system, and they all go around the Sun."
+      ],
+      "understand": [
+        "We live on one planet among several, and the Sun is at the centre."
+      ],
+      "do": [
+        "Point to Earth in a picture or model of the solar system, and say how many planets there are."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Measuring shadows with chalk lines and string is in an elaboration for VC2S2I02.",
+      "question": "How does the Sun's place in the sky change during a day?",
+      "know": [
+        "The Sun is low in the morning, high in the middle of the day and low again in the evening.",
+        "Shadows are long when the Sun is low and short when it is high."
+      ],
+      "understand": [
+        "The Sun's path across the sky is the same pattern every day."
+      ],
+      "do": [
+        "Mark a shadow with chalk at two times in a lesson, and say how it changed."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "r2p-booklet"
+      ],
+      "note": "My judgement. A class Moon diary is in a VCAA elaboration, and the Research-2-Practice summary recommends Moon journals as the starting point for learning about the Moon.",
+      "question": "How does the Moon change?",
+      "know": [
+        "The Moon looks different on different nights: a thin curve, a half, a full circle.",
+        "It takes about a month to go through all its shapes and start again."
+      ],
+      "understand": [
+        "The Moon's changing shape is a pattern, so we can predict what it will look like next."
+      ],
+      "do": [
+        "Record the Moon's shape in a class diary, put the drawings in order and predict the next one."
+      ]
+    }
+  ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, built from the achievement standard sentence and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Name things seen in the sky: the Sun, the Moon, stars and planets.",
+        "Say which can be seen in the day, which at night, and which in both.",
+        "Say that Earth is a planet and that there are eight planets in our solar system.",
+        "Describe how the Sun's position changes from morning to afternoon.",
+        "Describe how the Moon's shape changes over a month.",
+        "Use a pattern to predict: where the shadow will be later, or what the Moon will look like next week."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [
+          "iop-sun-moves"
+        ],
+        "note": "My suggestion, not trialled. The idea that the Moon belongs to the night and swaps with the Sun is reported in the IOPSpark review.",
+        "title": "Day, night or both?",
+        "how": "Call out or show the Sun, the Moon, stars and a planet one at a time. Students stand for day, sit for night, and put hands on heads for both. Ask one student about the Moon. Two minutes.",
+        "look_for": "Has it: hands on head for the Moon, and can say they have seen it in the day. Not yet: sits for the Moon every time, because the Moon comes out when the Sun goes down."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Where will the shadow be?",
+        "how": "Outside, mark a student's shadow with chalk at the start of the lesson. Before you go back out at the end, each student points to where they think it will be now. Check it together. Three minutes across the lesson.",
+        "look_for": "Has it: predicts it has moved and maybe changed length. Not yet: expects it in the same place, or says the chalk moved."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "iop-moon-clouds"
+        ],
+        "note": "My suggestion, not trialled. Saying that clouds cover part of the Moon is reported in the IOPSpark review, often when a student has no other idea.",
+        "title": "Put the Moons in order",
+        "how": "Give each pair five or six Moon cards from the class diary, mixed up. They put them in order and hold up the one that comes next. Three minutes.",
+        "look_for": "Has it: orders them as a gradual change and predicts the next shape. Not yet: orders at random, or says the clouds covered part of it."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Find Earth",
+        "how": "Show a picture or model of the solar system as students line up. Each one answers one question: point to Earth, point to the Sun, or how many planets? Three minutes.",
+        "look_for": "Has it: finds Earth and knows it is one of eight planets. Not yet: points to the biggest or brightest thing, or calls the Sun a planet."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. These go deeper at this level. Explaining the patterns is Levels 5 and 6 and beyond.",
+      "items": [
+        "Predict the Moon's shape for a date next week, seal the prediction in an envelope and check it.",
+        "Mark a shadow three or four times across a day and describe the whole pattern, not just two points.",
+        "Look for the Moon in the daytime sky for a week and record when it can be seen.",
+        "Find out what a blue moon or a supermoon is, and whether it is a regular event.",
+        "Compare how two sky stories from different cultures describe the same pattern.",
+        "Ask a question that needs a month to answer, and plan how to find out."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Start with what the student has seen themselves: have you ever seen the Moon in the day?",
+        "Use real photos of the sky before drawings and models.",
+        "Work with shadows the student can stand in and move, before talking about the Sun's path.",
+        "Use three Moon cards (thin, half, full) before using six.",
+        "Give a sentence starter: In the morning the Sun is ... Later it is ..."
+      ],
+      "well_below": [
+        "Aim for naming: Sun, Moon, star.",
+        "Sort into two groups only, day sky and night sky, with pictures.",
+        "Take pointing as the answer.",
+        "Make shadows with the body and talk about big and small."
+      ]
+    }
+  },
+  "vocabulary": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the official wording.",
+    "everyday": [
+      {
+        "term": "sky"
+      },
+      {
+        "term": "day"
+      },
+      {
+        "term": "night"
+      },
+      {
+        "term": "morning"
+      },
+      {
+        "term": "afternoon"
+      },
+      {
+        "term": "light"
+      },
+      {
+        "term": "dark"
+      },
+      {
+        "term": "shadow"
+      },
+      {
+        "term": "shape"
+      },
+      {
+        "term": "bright"
+      }
+    ],
+    "academic": [
+      {
+        "term": "observe",
+        "meaning": "To look carefully.",
+        "in_descriptor": true
+      },
+      {
+        "term": "pattern",
+        "meaning": "Something that happens again and again in the same way.",
+        "in_descriptor": true
+      },
+      {
+        "term": "position",
+        "meaning": "Where something is.",
+        "in_descriptor": true
+      },
+      {
+        "term": "change",
+        "meaning": "To become different.",
+        "in_descriptor": true
+      },
+      {
+        "term": "predict",
+        "meaning": "To say what you think will happen."
+      },
+      {
+        "term": "record",
+        "meaning": "To write or draw what you noticed."
+      }
+    ],
+    "science": [
+      {
+        "term": "Sun",
+        "meaning": "The star at the centre of our solar system.",
+        "in_descriptor": true
+      },
+      {
+        "term": "Moon",
+        "meaning": "The object that goes around Earth and that we see in the sky.",
+        "in_descriptor": true
+      },
+      {
+        "term": "planet",
+        "meaning": "A large object that goes around the Sun. Earth is one.",
+        "in_descriptor": true
+      },
+      {
+        "term": "star",
+        "meaning": "A huge ball of hot gas that makes its own light.",
+        "in_descriptor": true
+      },
+      {
+        "term": "Earth",
+        "meaning": "The planet we live on.",
+        "in_descriptor": true
+      },
+      {
+        "term": "solar system",
+        "meaning": "The Sun and everything that goes around it.",
+        "in_descriptor": true
+      },
+      {
+        "term": "orbit",
+        "meaning": "The path one object takes around another."
+      }
+    ]
+  },
+  "misconceptions": [
+    {
+      "status": "verified",
+      "sources": [
+        "iop-sun-moves"
+      ],
+      "note": "Checked against the IOPSpark review, which quotes students saying the Sun goes down and the Moon comes up at night.",
+      "idea": "The Sun is for the day and the Moon is for the night. When one goes down the other comes up.",
+      "science": "The Moon is often in the sky during the day. It does not swap places with the Sun.",
+      "respond": "Look for the Moon in the daytime sky together, or show a photo of it in a blue sky.",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "iop-sun-covered",
+        "baxter-1989"
+      ],
+      "note": "Checked against the IOPSpark review. I did not read Baxter.",
+      "idea": "Night comes because something covers the Sun: clouds, the Moon, or hills.",
+      "science": "Nothing covers the Sun. We stop seeing it each evening and see it again each morning, every day, whatever the weather. Why that happens is for later years.",
+      "respond": "Ask what happens on a clear evening with no clouds. It still gets dark.",
+      "research": [
+        "Baxter (1989)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "iop-moon-clouds",
+        "dunlop-2000"
+      ],
+      "note": "Checked against the IOPSpark review, which says students often offer this when they have no other idea. I did not read Dunlop.",
+      "idea": "The Moon changes shape because clouds cover part of it.",
+      "science": "The Moon's shape changes in the same order every month, on clear nights too. Clouds would not make a pattern.",
+      "respond": "Put the Moon diary drawings in order. A cloud could not make the same slow pattern twice.",
+      "research": [
+        "Dunlop (2000)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "iop-stars"
+      ],
+      "note": "Checked against the IOPSpark review, which lists a teaching resource for ages 5 to 11.",
+      "idea": "The stars are in the same place every night, and all night.",
+      "science": "The stars move across the sky during the night, and different stars can be seen at different times of the year.",
+      "respond": "Show a star trail photo, which the curriculum suggests, and ask what made the streaks.",
+      "research": []
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "The Sun is not a star. Stars are tiny.",
+      "science": "The Sun is a star. The others look tiny because they are very, very far away.",
+      "respond": "Compare a torch held close with the same torch seen from across the oval."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "The Moon shines with its own light, like the Sun.",
+      "science": "The Moon does not make light. We see it because sunlight shines on it.",
+      "respond": "Shine a torch on a ball in a darkened corner: the ball is bright only where the light hits it."
+    }
+  ],
+  "inquiry": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code gives the question: I wonder if the Moon will look the same tomorrow or next week as it does today?",
+      "code": "VC2S2I01",
+      "skill": "Questioning and predicting",
+      "how": "Students ask and predict what the Moon will look like next week, or where a shadow will be later."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students suggest safe ways to observe the Sun, and measure shadows with chalk lines and string.",
+      "code": "VC2S2I02",
+      "skill": "Planning and conducting",
+      "how": "Students agree the safety rule (never look at the Sun), then mark and measure shadows with chalk and string."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code names time-lapse photography for observing the apparent movement of celestial objects.",
+      "code": "VC2S2I03",
+      "skill": "Planning and conducting: observing and recording",
+      "how": "Students take a photo of a shadow from the same spot at the start and end of a lesson, or watch a time-lapse of the sky."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students sort and order the changing appearance of the Moon to show a monthly cycle.",
+      "code": "VC2S2I04",
+      "skill": "Processing, modelling and analysing",
+      "how": "Students put the Moon diary drawings in order and describe the pattern."
+    }
+  ],
+  "human_endeavour": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The VCAA lists both examples as elaborations of VC2S2U08 itself, and names the Wardaman People. It gives no detail beyond the sentences, and I did not check a First Nations source. Use a named source or the school's Koorie education contacts before teaching it.",
+      "hook": "Cultural stories of Aboriginal and Torres Strait Islander Peoples describe the patterns in the changing positions of the Sun, Moon and stars. One example is the Wardaman People's account of a planet appearing to move backwards against the stars, as the old ancestor spirits walking the zodiacal path, forwards and backwards.",
+      "first_nations": true
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code, which names the Gariwerd calendar of the Djab Wurrung and Jardwardjali Peoples.",
+      "code": "VC2S2H02",
+      "hook": "Reading the sky to know the season: the Gariwerd calendar links the appearance of the emu in the night sky with the wildflower season from September to November.",
+      "first_nations": true
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code.",
+      "code": "VC2S2H01",
+      "hook": "Astronomers use the patterns in how stars and comets move to predict when they will appear again.",
+      "first_nations": false
+    }
+  ],
+  "related": {
+    "below": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "gap": true,
+        "summary": "There is no level below. Foundation to Level 2 is the first band of the Science curriculum, and Foundation has no separate content descriptions."
+      }
+    ],
+    "same": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S2U07",
+        "band": "Foundation to Level 2",
+        "label": "Weather and seasons",
+        "summary": "Daily and seasonal changes in weather and the environment. Day length and the Sun's height are sky patterns that go with the seasons."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The code and its wording were checked in the curriculum. No elaboration mentions the sky, so this is my judgement and a loose link.",
+        "code": "VC2TDI2D01",
+        "band": "Foundation to Level 2",
+        "label": "Showing data",
+        "summary": "Digital Technologies: finding patterns in data and showing data as pictures and symbols. A Moon diary is data shown as pictures, with a pattern to find."
+      }
+    ],
+    "above": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement: the Moon is seen by reflected sunlight, and shadows show where the Sun is.",
+        "code": "VC2S6U08",
+        "band": "Levels 5 and 6",
+        "label": "Light",
+        "summary": "Light sources, straight-line travel and shadows. It explains shadows and why the Moon can be seen."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names the planets, the Sun, and cyclic changes such as day and night length.",
+        "code": "VC2S6U07",
+        "band": "Levels 5 and 6",
+        "label": "Orbits, day and night",
+        "summary": "Gravity keeps the planets in orbit, and Earth's tilt, rotation and orbit explain the cycles we see. The direct next step: the reasons behind the patterns."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names the relative positions of Earth, the Sun and the Moon.",
+        "code": "VC2S8U12",
+        "band": "Levels 7 and 8",
+        "label": "Eclipses and seasons",
+        "summary": "Models of Earth, the Sun and the Moon explain eclipses, seasons and tides. This is where the Moon's phases are explained."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names stars, solar systems and galaxies.",
+        "code": "VC2S10U13",
+        "band": "Levels 9 and 10",
+        "label": "The universe",
+        "summary": "Galaxies, stars and solar systems, and the big bang theory."
+      }
+    ],
+    "links": [
+      {
+        "from": "VC2S2U08",
+        "to": "VC2S2U07",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U08",
+        "to": "VC2TDI2D01",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S2U08",
+        "to": "VC2S6U07",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S6U07",
+        "to": "VC2S6U08",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S6U07",
+        "to": "VC2S8U12",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S8U12",
+        "to": "VC2S10U13",
+        "kind": "leads"
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Measuring shadows with chalk lines and string is in an elaboration for VC2S2I02. The lesson shape is my suggestion and has not been trialled. It needs a sunny day.",
+      "title": "Chalk shadows",
+      "phenomenon": "A shadow traced in chalk at the start of the lesson no longer fits the student standing in the same footprints forty minutes later. It has moved and changed length.",
+      "students_do": "In pairs, trace footprints and then the shadow. Predict where the shadow will be at the end of the lesson. Come back, stand in the footprints, trace again and measure both with string.",
+      "materials": [
+        "Chalk",
+        "String",
+        "A sunny patch of asphalt"
+      ],
+      "shows": "The Sun's position in the sky changes during the day in a regular way.",
+      "caution": "Never look at the Sun. Have a cloudy-day plan, such as a torch moved over a toy figure indoors."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "r2p-booklet",
+        "abell-2002"
+      ],
+      "note": "A class Moon diary across a month is in a VCAA elaboration. The Research-2-Practice summary, drawing on Abell et al. (2002), recommends Moon journals before any teaching of the phases. A weekly lesson cannot observe the Moon, so the looking happens at home or with the classroom teacher.",
+      "title": "The class Moon diary",
+      "phenomenon": "Drawings of the Moon collected over four weeks, pinned in order, show it growing from a thin curve to a full circle and shrinking back.",
+      "students_do": "Each week, add drawings or photos brought from home or taken from a Moon phase app or calendar. Put them in order, describe what is changing, and predict next week's Moon.",
+      "materials": [
+        "A wall strip with a space for each day of the month",
+        "Black paper circles and chalk or white crayon",
+        "A Moon calendar or app for cloudy nights"
+      ],
+      "shows": "The Moon's appearance changes in a pattern that repeats about every month.",
+      "caution": "Not every family can look at the Moon each night. Use the app or calendar so no student is left out."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My suggestion, not trialled. Models of the solar system are in a VCAA elaboration.",
+      "title": "Eight planets on the oval",
+      "phenomenon": "Nine students stand in a line as the Sun and the eight planets. The third one out from the Sun is Earth: that is where we are.",
+      "students_do": "Hold a card for each planet and line up from the Sun. Find Earth. Then each planet walks its own circle around the Sun while the rest of the class watches and counts the planets.",
+      "materials": [
+        "Nine cards: the Sun and eight planets",
+        "A large open space"
+      ],
+      "shows": "Earth is one of eight planets in our solar system, and they all go around the Sun.",
+      "caution": "Say that the real distances and sizes are far bigger than the model. The Sun would not fit on the oval."
+    }
+  ],
+  "pitfalls": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from comparing this description with VC2S6U07 and VC2S8U12 in the curriculum.",
+      "pitfall": "Explaining day and night, or the Moon's phases, with a spinning globe and a torch.",
+      "instead": "Stay with observing and describing the patterns. The explanations are for Years 5 to 8, and students need the observations first."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "abell-2002"
+      ],
+      "note": "The Research-2-Practice summary reports that pupils learn about the Moon best from direct observation over time, and recommends a month of Moon journaling before any teaching of phases.",
+      "pitfall": "Teaching the Moon from a diagram of its phases.",
+      "instead": "Start with a month of looking and recording. Let students find the pattern in their own drawings."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Turning the solar system into a list of planet names and facts to memorise.",
+      "instead": "Keep to the big idea: Earth is a planet, one of eight, going around the Sun."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Planning it as a daytime, single-lesson topic. The patterns take a day, a month or a year to see.",
+      "instead": "Share the observing with classroom teachers and families, and use lesson time to put the records together."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Forgetting Sun safety when observing.",
+      "instead": "Make never look at the Sun a rule every time the class goes outside for this unit."
+    }
+  ],
+  "unverified": [
+    "I could not read the original research studies. Each verified misconception rests on an IOPSpark review that I read. I could not see the full reference list on those pages.",
+    "Two misconceptions (the Sun is not a star, and the Moon makes its own light) are my judgement.",
+    "The First Nations examples are confirmed only as far as the VCAA's one-sentence elaborations. I did not find or check a First Nations source.",
+    "None of the three anchor experiences has been trialled. Two depend on clear weather, and the Moon diary depends on observing outside school hours.",
+    "I left the Design and Technologies column of the map empty, and the Digital Technologies link is a loose one."
+  ]
+}

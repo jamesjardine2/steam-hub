@@ -13,6 +13,39 @@
       "unverified": 6
     },
     {
+      "code": "VC2S2U07",
+      "title": "Weather and seasons",
+      "band": "Foundation to Level 2",
+      "sub_strand": "Earth and space sciences",
+      "updated": "2026-11-15",
+      "verified": 16,
+      "approved": 0,
+      "draft": 25,
+      "unverified": 4
+    },
+    {
+      "code": "VC2S2U08",
+      "title": "Sun, Moon, planets and stars",
+      "band": "Foundation to Level 2",
+      "sub_strand": "Earth and space sciences",
+      "updated": "2026-11-15",
+      "verified": 17,
+      "approved": 0,
+      "draft": 25,
+      "unverified": 5
+    },
+    {
+      "code": "VC2S2U10",
+      "title": "How objects move",
+      "band": "Foundation to Level 2",
+      "sub_strand": "Physical sciences",
+      "updated": "2026-11-15",
+      "verified": 9,
+      "approved": 0,
+      "draft": 28,
+      "unverified": 5
+    },
+    {
       "code": "VC2S2U12",
       "title": "Sound",
       "band": "Foundation to Level 2",
@@ -24,6 +57,17 @@
       "unverified": 5
     },
     {
+      "code": "VC2S4U07",
+      "title": "The water cycle",
+      "band": "Levels 3 and 4",
+      "sub_strand": "Earth and space sciences",
+      "updated": "2026-11-15",
+      "verified": 17,
+      "approved": 0,
+      "draft": 28,
+      "unverified": 4
+    },
+    {
       "code": "VC2S4U10",
       "title": "Forces",
       "band": "Levels 3 and 4",
@@ -33,6 +77,17 @@
       "approved": 18,
       "draft": 7,
       "unverified": 6
+    },
+    {
+      "code": "VC2S6U05",
+      "title": "Earth's changing surface",
+      "band": "Levels 5 and 6",
+      "sub_strand": "Earth and space sciences",
+      "updated": "2026-11-15",
+      "verified": 19,
+      "approved": 0,
+      "draft": 25,
+      "unverified": 5
     },
     {
       "code": "VC2S6U08",

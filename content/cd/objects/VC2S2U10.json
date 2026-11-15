@@ -1,0 +1,642 @@
+{
+  "schema_version": 1,
+  "code": "VC2S2U10",
+  "title": "How objects move",
+  "learning_area": "Science",
+  "band": "Foundation to Level 2",
+  "strand": "Science Understanding",
+  "sub_strand": "Physical sciences",
+  "updated": "2026-11-15",
+  "sources": [
+    {
+      "id": "vcaa-curriculum",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "vcaa-copyright",
+      "citation": "Victorian Curriculum and Assessment Authority. Copyright statement for the Victorian Curriculum site (CC BY-NC 3.0 Australia licence and the attribution it asks for).",
+      "url": "https://f10.vcaa.vic.edu.au/copyright-statement",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "iop-heavier",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Many students think a heavier object will fall faster than a lighter one of the same general shape or size\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/many-students-think-heavier-object-will-fall-faster-lighter-one-same-general-shape-or-size",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "iop-keep-moving",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Many students think that a force is needed to keep an object moving with a constant speed\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/many-students-think-force-needed-keep-object-moving-constant-speed",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "gunstone-white-1981",
+      "citation": "Gunstone, R. F. and White, R. T. (1981). Understanding of gravity. Science Education, 65 (3), pages 291 to 299.",
+      "read": false,
+      "via": "iop-heavier"
+    },
+    {
+      "id": "watts-zylbersztajn-1981",
+      "citation": "Watts, D. M. and Zylbersztajn, A. (1981). A survey of some children's ideas about force. Physics Education, 16 (6), pages 360 to 365.",
+      "read": false,
+      "via": "iop-keep-moving"
+    }
+  ],
+  "descriptor": {
+    "status": "verified",
+    "sources": [
+      "vcaa-curriculum",
+      "vcaa-copyright"
+    ],
+    "note": "Copied by a script from the Victorian Curriculum Version 2.0 on 15 November 2026, not typed from memory.",
+    "stem": "Students learn that:",
+    "text": "the way objects move depends on a variety of factors including their size, shape and material",
+    "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S2U10",
+    "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
+  },
+  "paraphrase": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "My reading of the description and its achievement standard, which was checked in the curriculum: students identify factors that influence the movement of objects.",
+    "text": "Things move in different ways: they roll, slide, bounce, spin and fall. How a thing moves depends on what it is like, especially its size, its shape and what it is made of. Students notice the differences, compare objects, and start to say which feature made the difference. The assessable skill is naming something about an object that changes how it moves.",
+    "asks_for": [
+      "Objects move in different ways, and those ways can be described and compared.",
+      "Shape changes how an object moves: round things roll, flat things slide.",
+      "Size changes how an object moves.",
+      "The material an object is made of changes how it moves, for example how well a ball bounces."
+    ],
+    "not_asking": [
+      "Pushes and pulls as forces. That is the next description, VC2S2U11.",
+      "Friction and gravity by name. Those are Levels 3 and 4 (VC2S4U10).",
+      "Measuring speed or distance with numbers. Comparing (further, faster, higher) is enough."
+    ]
+  },
+  "key_questions": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Grouping toys by how they move is in a VCAA elaboration.",
+      "question": "In what ways can things move?",
+      "know": [
+        "Things can roll, slide, bounce, spin, swing and fall.",
+        "The same object can move in more than one way."
+      ],
+      "understand": [
+        "Different objects move in different ways, and we can sort them by how they move."
+      ],
+      "do": [
+        "Show and name a movement, and sort a set of toys or objects by how they move."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Rolling blocks, tubes and boiled eggs down a slope is in a VCAA elaboration.",
+      "question": "How does shape change the way something moves?",
+      "know": [
+        "Round things roll. Things with flat sides slide.",
+        "A tube rolls one way and slides the other."
+      ],
+      "understand": [
+        "The shape of an object changes how it moves down a slope."
+      ],
+      "do": [
+        "Predict whether an object will roll or slide, test it, and say what about its shape made the difference."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Comparing balls of different sizes and of different materials is in VCAA elaborations.",
+      "question": "Do size and material make a difference?",
+      "know": [
+        "Balls of different sizes roll and bounce differently.",
+        "A rubber ball bounces more than a foam, cloth or clay ball of the same size."
+      ],
+      "understand": [
+        "Two objects with the same shape can still move differently because of their size or what they are made of."
+      ],
+      "do": [
+        "Compare two balls that differ in one way only, and say which feature made them move differently."
+      ]
+    }
+  ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, built from the achievement standard sentence and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Show and name at least three ways things move, such as roll, slide and bounce.",
+        "Sort objects into groups by how they move.",
+        "Predict whether an object will roll or slide down a slope, and check.",
+        "Name one thing about an object (its size, its shape or its material) that changes how it moves.",
+        "Compare two objects and say what is different about how they move and why."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Roll or slide?",
+        "how": "Hold up six objects one at a time (a ball, a block, a tube, a lid, a book, an egg-shaped toy). Students roll their arms for roll or slide a flat hand for slide before you let it go down the ramp. Three minutes.",
+        "look_for": "Has it: gets most right and can point to the round or flat part. Not yet: guesses by what the object is (it is a toy, so it rolls)."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "iop-heavier"
+        ],
+        "note": "My suggestion, not trialled. Expecting the heavier or bigger object always to win is the idea reported in the IOPSpark review.",
+        "title": "Which one, and why?",
+        "how": "Hold up two balls of the same size made of different materials and ask which will bounce higher. Students point to their choice, then you drop both. Ask two students why. Two minutes.",
+        "look_for": "Has it: talks about what the ball is made of. Not yet: says the bigger or heavier one always wins, or cannot give a reason."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Sort it on the mat",
+        "how": "Give each table a tub of objects and two hoops or sheets of paper. Ask them to sort by how the objects move. Walk the room and ask one group at a time how they chose. Four minutes.",
+        "look_for": "Has it: groups by movement (these roll, these slide) and can explain a tricky one. Not yet: groups by colour or kind of toy."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Finish my sentence",
+        "how": "As students line up, hold an object and say: this rolls because it is ... or this bounces because it is made of ... One answer each. Three minutes.",
+        "look_for": "Has it: finishes with a shape, size or material word. Not yet: repeats the movement (it rolls because it rolls)."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. These go deeper at this level. Naming pushes and pulls is the next description.",
+      "items": [
+        "Give tricky shapes: a cone, a boiled egg, a tube with a lid on one end. Predict the path, then test.",
+        "Change one thing only: same shape and size, different material. What stayed the same, and what changed?",
+        "Ask for the rule: round things roll. Then find something round that does not roll well, and explain why.",
+        "Make it yourself: shape plasticine so it rolls straight, then so it rolls in a circle, then so it slides.",
+        "Record it: film the ramp test in slow motion on an iPad and describe what happened.",
+        "Order three balls from lowest to highest bounce, and say how you kept the test fair."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Let the student move like the object first: roll, slide and bounce with their own body or hands.",
+        "Use two very different objects, a ball and a block, before anything in between.",
+        "Teach one movement word at a time, each with a gesture.",
+        "Give a sentence starter: It can ... because it is ...",
+        "Keep picture cards for roll, slide and bounce on the mat."
+      ],
+      "well_below": [
+        "Aim for doing and noticing: let it go, watch what happens.",
+        "Take pointing or showing as the answer: which one rolled?",
+        "Use two words only (roll, stop) with gestures.",
+        "Give the student the job of releasing the object at the top of the ramp."
+      ]
+    }
+  },
+  "vocabulary": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the official wording.",
+    "everyday": [
+      {
+        "term": "move"
+      },
+      {
+        "term": "roll"
+      },
+      {
+        "term": "slide"
+      },
+      {
+        "term": "bounce"
+      },
+      {
+        "term": "spin"
+      },
+      {
+        "term": "fall"
+      },
+      {
+        "term": "fast"
+      },
+      {
+        "term": "slow"
+      },
+      {
+        "term": "big"
+      },
+      {
+        "term": "small"
+      },
+      {
+        "term": "round"
+      },
+      {
+        "term": "flat"
+      }
+    ],
+    "academic": [
+      {
+        "term": "depend",
+        "meaning": "To change because of something else.",
+        "in_descriptor": true
+      },
+      {
+        "term": "factor",
+        "meaning": "One of the things that makes a difference.",
+        "in_descriptor": true
+      },
+      {
+        "term": "compare",
+        "meaning": "To look for what is the same and what is different."
+      },
+      {
+        "term": "predict",
+        "meaning": "To say what you think will happen."
+      }
+    ],
+    "science": [
+      {
+        "term": "object",
+        "meaning": "A thing.",
+        "in_descriptor": true
+      },
+      {
+        "term": "size",
+        "meaning": "How big something is.",
+        "in_descriptor": true
+      },
+      {
+        "term": "shape",
+        "meaning": "The form of something: round, flat, long.",
+        "in_descriptor": true
+      },
+      {
+        "term": "material",
+        "meaning": "What something is made of.",
+        "in_descriptor": true
+      },
+      {
+        "term": "movement",
+        "meaning": "The way something moves."
+      },
+      {
+        "term": "slope or ramp",
+        "meaning": "A surface that is higher at one end."
+      },
+      {
+        "term": "surface",
+        "meaning": "The top or outside of something."
+      }
+    ]
+  },
+  "misconceptions": [
+    {
+      "status": "verified",
+      "sources": [
+        "iop-heavier",
+        "gunstone-white-1981"
+      ],
+      "note": "Checked against the IOPSpark review. The studies it names were with secondary and university students, so how common this is at age 5 is not confirmed. I did not read the studies.",
+      "idea": "Heavier or bigger things always go faster and further.",
+      "science": "Not always. Two balls of the same shape roll down a ramp at much the same speed even when one is heavier. Shape and material often matter more.",
+      "respond": "Race a heavy ball and a light ball of the same size down the same ramp. Predict first.",
+      "research": [
+        "Gunstone and White (1981)",
+        "Bliss, Ogborn and Whitelock (1989)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "iop-keep-moving",
+        "watts-zylbersztajn-1981"
+      ],
+      "note": "Checked against the IOPSpark review, whose studies were with older students. The wording for young children is mine.",
+      "idea": "It stopped because it got tired, or it ran out of go.",
+      "science": "Things do not get tired. The floor or carpet slows them down.",
+      "respond": "Roll the same ball on carpet and on a smooth floor and ask why it went further. Leave the word friction for later years.",
+      "research": [
+        "Watts and Zylbersztajn (1981)"
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "Only balls roll.",
+      "science": "Anything with a round part can roll: tubes, wheels, lids, tins and pencils.",
+      "respond": "Send a tube and a tin down the ramp, first on their sides and then on their ends."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "It moves that way because of what it is: a car goes because it is a car.",
+      "science": "It moves that way because of its features. The car rolls because it has round wheels.",
+      "respond": "Turn the toy car on its roof and ask why it does not roll now."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "Hard things do not bounce, and soft things do.",
+      "science": "It depends on the material. A hard rubber ball bounces well. A soft clay ball does not.",
+      "respond": "Drop a hard rubber ball and a plasticine ball of the same size."
+    }
+  ],
+  "inquiry": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
+      "code": "VC2S2I01",
+      "skill": "Questioning and predicting",
+      "how": "Students predict before every test: will it roll or slide? Which will bounce higher?"
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
+      "code": "VC2S2I04",
+      "skill": "Processing, modelling and analysing",
+      "how": "Students sort objects into a provided two-column chart (rolls, slides) and look for what each group has in common."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
+      "code": "VC2S2I06",
+      "skill": "Communicating",
+      "how": "Students describe what happened using movement words and, where they can, a reason."
+    }
+  ],
+  "human_endeavour": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The VCAA lists this as an elaboration of VC2S2U10 itself, and names the game and the region. I did not check the detail against a Koorie source. Use a named source or the school's Koorie education contacts before teaching it.",
+      "hook": "The ball used in marngrook, a football game played by some Aboriginal groups at gatherings and celebrations: traditionally a possum-skin ball in south-western Victoria, and in some other areas a ball made from materials such as kangaroo skin. Size, shape and material all change how it moves.",
+      "first_nations": true
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
+      "code": "VC2S2H02",
+      "hook": "People choose the size, shape and material of a ball to suit the game: compare a tennis ball, a football and a basketball.",
+      "first_nations": false
+    }
+  ],
+  "related": {
+    "below": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "gap": true,
+        "summary": "There is no level below. Foundation to Level 2 is the first band of the Science curriculum, and Foundation has no separate content descriptions."
+      }
+    ],
+    "same": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names pushes and pulls changing movement. The link is my judgement.",
+        "code": "VC2S2U11",
+        "band": "Foundation to Level 2",
+        "label": "Pushes and pulls",
+        "summary": "Pushes and pulls are forces that change an object's movement or shape. This description is about the object. That one is about what is done to it."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S2U04",
+        "band": "Foundation to Level 2",
+        "label": "Objects and materials",
+        "summary": "Objects are made of materials with properties we can observe. Material is one of the three factors in this description."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "VCAA elaborations for this code have students test how materials affect the movement and speed of a wheeled toy on different surfaces, and explore traditional toys designed to produce movement.",
+        "code": "VC2TDE2C01",
+        "band": "Foundation to Level 2",
+        "label": "Technologies and movement",
+        "summary": "Design and Technologies: how technologies make things move in products and systems. The design partner for this description."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students make a ramp from blocks and gutters or cardboard to roll a ball or toy car down, and judge its success.",
+        "code": "VC2TDE2D02",
+        "band": "Foundation to Level 2",
+        "label": "Design ideas",
+        "summary": "Design and Technologies: coming up with and sharing design ideas. Building and judging a ramp is this description at work."
+      }
+    ],
+    "above": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names forces affecting motion.",
+        "code": "VC2S4U10",
+        "band": "Levels 3 and 4",
+        "label": "Forces",
+        "summary": "Friction, gravity, magnetic and electrostatic forces change the speed and direction of objects. The reasons behind what students see here."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names forces.",
+        "code": "VC2TDE4C01",
+        "band": "Levels 3 and 4",
+        "label": "Forces in products",
+        "summary": "Design and Technologies: how forces affect the way a product or system works."
+      }
+    ],
+    "links": [
+      {
+        "from": "VC2S2U10",
+        "to": "VC2S2U11",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U10",
+        "to": "VC2S2U04",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U10",
+        "to": "VC2TDE2C01",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2TDE2C01",
+        "to": "VC2TDE2D02",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U10",
+        "to": "VC2S4U10",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2TDE2C01",
+        "to": "VC2TDE4C01",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S4U10",
+        "to": "VC2TDE4C01",
+        "kind": "connects"
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Rolling blocks, tubes and boiled eggs down a slope is in a VCAA elaboration. The lesson shape is my suggestion and has not been trialled.",
+      "title": "Ramp races",
+      "phenomenon": "A ball rolls straight down a ramp. A block slides or sticks. A tube rolls on its side and slides on its end. A boiled egg wobbles off to one side.",
+      "students_do": "Predict roll or slide for each object, test it, and sort the objects into two hoops. Then find the odd ones out and say what about their shape made them different.",
+      "materials": [
+        "A ramp made from a board or a big book on a block",
+        "Balls, blocks, tubes, lids, a tin and a boiled egg or egg-shaped toy",
+        "Two hoops or sheets of paper to sort into"
+      ],
+      "shows": "Shape changes how an object moves.",
+      "caution": "Set the rule first that objects go down the ramp, not across the room."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Comparing how balls of different sizes and materials roll and bounce is in VCAA elaborations. The lesson shape is my suggestion, not trialled.",
+      "title": "The bounce test",
+      "phenomenon": "Dropped from the same height, a rubber ball bounces high, a tennis ball less, a foam ball a little, and a plasticine ball lands with a thud.",
+      "students_do": "Predict the order, drop each ball from the same mark on the wall, and line the balls up from lowest to highest bounce. Then compare a big ball and a small ball made of the same thing.",
+      "materials": [
+        "Balls of the same size made of different materials: rubber, tennis, foam, cloth",
+        "A ball rolled from plasticine or air dry clay",
+        "A mark on the wall to drop from"
+      ],
+      "shows": "The material and size of an object change how it moves.",
+      "caution": "Drop, do not throw. A throw adds something else that changes the result."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My suggestion, not trialled. Plasticine, air dry clay and foil are on the STEAM room inventory.",
+      "title": "Same stuff, new shape",
+      "phenomenon": "One lump of plasticine rolled into a ball rolls down the ramp. Squashed flat, the same lump slides or stays put. Rolled into a sausage, it rolls one way only.",
+      "students_do": "Make a ball, test it, then change only the shape and test again. Draw the three shapes and how each one moved.",
+      "materials": [
+        "A lump of plasticine for each pair",
+        "A ramp",
+        "Paper and pencils"
+      ],
+      "shows": "The same material and the same amount can move differently when the shape changes.",
+      "caution": "Keep the lump whole: adding or removing plasticine changes the size as well."
+    }
+  ],
+  "pitfalls": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from comparing this description with VC2S2U11 and VC2S4U10 in the curriculum.",
+      "pitfall": "Explaining results with gravity, friction or force.",
+      "instead": "Stay with what students can see and say: its shape, its size, what it is made of. The forces come in later years."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Changing two things at once, such as a big rubber ball against a small foam one.",
+      "instead": "Compare objects that differ in one way only, and say out loud what is the same."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "iop-heavier"
+      ],
+      "note": "My judgement about teacher language. The student idea it feeds is reported in the source.",
+      "pitfall": "Telling students that heavier things go faster.",
+      "instead": "Let the test decide, and include a pair where the heavier object does not win."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Using only balls and toy cars, so rolling is the only movement students meet.",
+      "instead": "Include things that slide, spin, wobble and stop."
+    }
+  ],
+  "unverified": [
+    "I could not read the original research studies. The two verified misconceptions rest on IOPSpark reviews whose studies were with older students, so how common the ideas are at age 5 is not confirmed.",
+    "Three misconceptions are my judgement. I found no research on how children aged 5 and 6 think about objects rolling, sliding and bouncing.",
+    "The marngrook example is confirmed only as far as the VCAA's one-sentence elaboration.",
+    "None of the three anchor experiences has been trialled. Balls of different materials are not on the STEAM room inventory.",
+    "I left the Digital Technologies column of the map empty. I found no genuine link at this level."
+  ]
+}

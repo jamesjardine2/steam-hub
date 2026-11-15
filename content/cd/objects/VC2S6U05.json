@@ -1,0 +1,734 @@
+{
+  "schema_version": 1,
+  "code": "VC2S6U05",
+  "title": "Earth's changing surface",
+  "learning_area": "Science",
+  "band": "Levels 5 and 6",
+  "strand": "Science Understanding",
+  "sub_strand": "Earth and space sciences",
+  "updated": "2026-11-15",
+  "sources": [
+    {
+      "id": "vcaa-curriculum",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "vcaa-copyright",
+      "citation": "Victorian Curriculum and Assessment Authority. Copyright statement for the Victorian Curriculum site (CC BY-NC 3.0 Australia licence and the attribution it asks for).",
+      "url": "https://f10.vcaa.vic.edu.au/copyright-statement",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "beyond-penguins-erosion",
+      "citation": "Fries-Gaither, J. (2008). Common misconceptions about weathering, erosion, volcanoes, and earthquakes. Beyond Penguins and Polar Bears, The Ohio State University. A teacher resource page, not a research study.",
+      "url": "https://beyondpenguins.ehe.osu.edu/?p=1768",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "keeley-probes",
+      "citation": "Keeley, P. and coauthors (2005 to 2008). Uncovering Student Ideas in Science, Volumes 1 to 3. NSTA Press.",
+      "read": false,
+      "via": "beyond-penguins-erosion"
+    }
+  ],
+  "descriptor": {
+    "status": "verified",
+    "sources": [
+      "vcaa-curriculum",
+      "vcaa-copyright"
+    ],
+    "note": "Copied by a script from the Victorian Curriculum Version 2.0 on 15 November 2026, not typed from memory.",
+    "stem": "Students learn that:",
+    "text": "geological processes including weathering, erosion, transportation and deposition can cause slow or rapid changes to Earth’s surface",
+    "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S6U05",
+    "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
+  },
+  "paraphrase": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "My reading of the description and its achievement standard, which was checked in the curriculum: students model key processes that change Earth's surface.",
+    "text": "The land is not fixed. Rock is broken down where it sits (weathering), the pieces are picked up and carried by water, wind or ice (erosion and transportation), and they are dropped somewhere else (deposition). Some of this is so slow that nobody sees it happen, and some happens in a single storm. Students learn to tell the processes apart, to model them, and to read the signs of them in a landscape. The assessable skill is modelling the processes that change Earth's surface.",
+    "asks_for": [
+      "Weathering breaks rock down in place, by mechanical causes such as wind, heat, cold and frost, and by living things such as roots.",
+      "Erosion and transportation move the pieces away, carried by moving water, wind or ice.",
+      "Deposition is where the pieces are dropped, building up new land.",
+      "These changes can be slow, over thousands of years, or rapid, in a flood or a storm."
+    ],
+    "not_asking": [
+      "The rock cycle and the three kinds of rock. Those are Levels 7 and 8 (VC2S8U11).",
+      "Earthquakes, volcanoes and other natural hazards. That is the next description at this level, VC2S6U06.",
+      "Chemical weathering in detail. The elaborations name mechanical and biological weathering.",
+      "Plate tectonics."
+    ]
+  },
+  "key_questions": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. The kinds of weathering are in a VCAA elaboration.",
+      "question": "What breaks rock down?",
+      "know": [
+        "Weathering is rock being broken into smaller pieces where it is.",
+        "It can be mechanical (wind-blown sand, heating and cooling, water freezing in cracks) or biological (plant roots)."
+      ],
+      "understand": [
+        "Even the hardest rock is slowly broken down. Soil and sand are what is left."
+      ],
+      "do": [
+        "Find and photograph signs of weathering in the school grounds, such as a cracked path, a root lifting asphalt or a worn step."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Erosion by moving air and water, and telling weathering from erosion, are in VCAA elaborations.",
+      "question": "What moves the pieces, and where do they end up?",
+      "know": [
+        "Erosion is the pieces being picked up and carried away. Transportation is the carrying.",
+        "Moving water, wind and ice all carry rock, sand and soil.",
+        "Deposition is where the pieces are dropped: a beach, a river bank, a delta, a dune."
+      ],
+      "understand": [
+        "Weathering breaks it, erosion takes it, deposition drops it. What is lost from one place builds another."
+      ],
+      "do": [
+        "Model erosion and deposition in a tray, and label where each happened."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Comparing timescales is in a VCAA elaboration, and slow or rapid is in the description.",
+      "question": "How fast does the land change?",
+      "know": [
+        "Most weathering and erosion is very slow, over thousands or millions of years.",
+        "Some change is rapid: a flood, a landslide or a storm can reshape a place in hours."
+      ],
+      "understand": [
+        "A model in a tray shows in minutes what takes far longer in the real world."
+      ],
+      "do": [
+        "Sort examples of change into slow and rapid, and explain one of each."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Human changes to landscapes and factors that reduce erosion are in VCAA elaborations.",
+      "question": "How do people speed erosion up, and how can they slow it down?",
+      "know": [
+        "Clearing plants, farming, building and walking off paths can speed up erosion.",
+        "Plants, mulch, terraces, drains and barriers slow it down."
+      ],
+      "understand": [
+        "Plant roots and ground cover hold soil in place, so what people do to the land changes how fast it erodes."
+      ],
+      "do": [
+        "Test a way of reducing erosion in the tray model, and explain why it worked."
+      ]
+    }
+  ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, built from the achievement standard sentence and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Explain the difference between weathering and erosion.",
+        "Name two causes of weathering and two things that carry eroded material.",
+        "Explain what deposition is and give an example of a landform it builds.",
+        "Model erosion and deposition, and point to where each happened in the model.",
+        "Give an example of a slow change and a rapid change to Earth's surface.",
+        "Say how a model is like the real thing and how it is different, especially in time.",
+        "Explain one way people increase erosion and one way they reduce it."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [
+          "beyond-penguins-erosion"
+        ],
+        "note": "My suggestion, not trialled. That students treat weathering and erosion as the same thing is listed on the Beyond Penguins page.",
+        "title": "Break it or take it?",
+        "how": "Read out or show six short examples (a tree root cracking a path, a river carrying mud, wind blowing sand off a dune, ice splitting a rock, waves dragging sand off a beach, a statue's face wearing smooth). Students make a fist for weathering (break it) or a sweeping hand for erosion (take it). Three minutes.",
+        "look_for": "Has it: fist for the root, the ice and the statue, and sweep for the river, the wind and the waves. Not yet: uses one sign for everything, or decides by whether water is involved."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Label the tray",
+        "how": "After the stream tray, each group puts three small flags or sticky notes on their tray: where erosion happened, where the material was carried, and where it was deposited. Walk the room. Three minutes.",
+        "look_for": "Has it: erosion at the steep top, deposition where the water slowed at the bottom. Not yet: all three flags in the same spot, or deposition left off."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "beyond-penguins-erosion"
+        ],
+        "note": "My suggestion, not trialled. That students think erosion happens quickly, because models are quick, is listed on the Beyond Penguins page.",
+        "title": "How long?",
+        "how": "Show three photos (a canyon, a beach after a storm, a rounded river pebble). For each, students hold up one finger for hours or days, two for years, three for thousands of years or more. Ask one student to explain each. Two minutes.",
+        "look_for": "Has it: three fingers for the canyon and the pebble, one for the storm beach. Not yet: one finger for everything, because the tray took five minutes."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "beyond-penguins-erosion"
+        ],
+        "note": "My suggestion, not trialled. That students think erosion is always bad is listed on the Beyond Penguins page.",
+        "title": "Good, bad or both?",
+        "how": "As students leave, ask each one for an example of erosion or deposition that harms people or helps them. One answer each. Three minutes.",
+        "look_for": "Has it: can give a helpful example, such as river flats with rich soil or a beach built from sand. Not yet: says erosion is only damage."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. These go deeper at this level. Mapping erosion sites and planning a repeatable slope test follow VCAA elaborations for the inquiry codes.",
+      "items": [
+        "Plan the tray test as a fair, repeatable investigation: change the slope or the cover, measure how much soil moved, and repeat it.",
+        "Ask what the model gets wrong, and how they would improve it.",
+        "Use a map or aerial photo of the local area to predict where erosion is likely, then check on a walk.",
+        "Read a landscape photo: where did this sand come from, what carried it, and why did it stop here?",
+        "Design and test an erosion barrier for the tray, then write to the council or the principal recommending it for a real spot.",
+        "Find out how rangers protect a park and cultural sites from erosion."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Use the short handles: break it, take it, drop it. Add the long words once the ideas are in place.",
+        "Let the student pour the water and say what they see, before any explanation.",
+        "Use before and after photos of the same place, side by side.",
+        "Give a sentence starter: The ... broke the rock. The ... carried it to ...",
+        "Keep a picture card for each process on the desk, with its handle and its real name."
+      ],
+      "well_below": [
+        "Aim for one idea: water and wind can move sand and soil from one place to another.",
+        "Work in the tray with hands and water, and take pointing as the answer: where did the sand go?",
+        "Sort photos into two groups only: before and after.",
+        "Give the student a clear job in the group, such as pouring or holding the tray."
+      ]
+    }
+  },
+  "vocabulary": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the official wording. Weathering sounds like weather, which causes confusion.",
+    "everyday": [
+      {
+        "term": "rock"
+      },
+      {
+        "term": "sand"
+      },
+      {
+        "term": "soil"
+      },
+      {
+        "term": "mud"
+      },
+      {
+        "term": "wind"
+      },
+      {
+        "term": "waves"
+      },
+      {
+        "term": "river"
+      },
+      {
+        "term": "flood"
+      },
+      {
+        "term": "crack"
+      },
+      {
+        "term": "wear away"
+      },
+      {
+        "term": "slow"
+      },
+      {
+        "term": "fast"
+      }
+    ],
+    "academic": [
+      {
+        "term": "process",
+        "meaning": "A set of changes that happen in order.",
+        "in_descriptor": true
+      },
+      {
+        "term": "cause",
+        "meaning": "To make something happen.",
+        "in_descriptor": true
+      },
+      {
+        "term": "rapid",
+        "meaning": "Very fast.",
+        "in_descriptor": true
+      },
+      {
+        "term": "surface",
+        "meaning": "The top or outside of something.",
+        "in_descriptor": true
+      },
+      {
+        "term": "model",
+        "meaning": "Something made to show how the real thing works."
+      },
+      {
+        "term": "timescale",
+        "meaning": "How long something takes."
+      },
+      {
+        "term": "mitigate",
+        "meaning": "To make a problem smaller."
+      }
+    ],
+    "science": [
+      {
+        "term": "geological",
+        "meaning": "To do with rocks and the Earth.",
+        "in_descriptor": true
+      },
+      {
+        "term": "weathering",
+        "meaning": "Rock being broken down where it is.",
+        "in_descriptor": true
+      },
+      {
+        "term": "erosion",
+        "meaning": "Broken rock and soil being picked up and moved away.",
+        "in_descriptor": true
+      },
+      {
+        "term": "transportation",
+        "meaning": "The carrying of rock, sand and soil by water, wind or ice.",
+        "in_descriptor": true
+      },
+      {
+        "term": "deposition",
+        "meaning": "Carried material being dropped in a new place.",
+        "in_descriptor": true
+      },
+      {
+        "term": "sediment",
+        "meaning": "Small pieces of rock, sand and soil that are carried and dropped."
+      },
+      {
+        "term": "landform",
+        "meaning": "A natural shape of the land, such as a valley, dune or delta."
+      }
+    ]
+  },
+  "misconceptions": [
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-erosion",
+        "keeley-probes"
+      ],
+      "note": "Checked against a teacher resource page that lists these ideas. It is not a research study, and it does not name a study for each idea.",
+      "idea": "Weathering and erosion are the same thing.",
+      "science": "Weathering breaks rock down where it is. Erosion carries the pieces away.",
+      "respond": "Shake sugar cubes in a jar: they break up (weathering) but nothing leaves the jar. Then tip the pieces out (erosion).",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-erosion"
+      ],
+      "note": "Checked against a teacher resource page, not a research study.",
+      "idea": "Rocks do not change. Mountains and cliffs have always looked the way they do now.",
+      "science": "All rock is slowly worn down. Landscapes look fixed only because the change is too slow to see in a lifetime.",
+      "respond": "Compare a sharp, freshly broken rock with a rounded river pebble, and ask how one became the other.",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-erosion"
+      ],
+      "note": "Checked against a teacher resource page, not a research study. It warns that classroom models show changes quickly.",
+      "idea": "Erosion happens quickly, the way it does in the tray.",
+      "science": "Most erosion takes thousands or millions of years. A model speeds it up so we can see it.",
+      "respond": "After every model, ask how long the real thing would take.",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-erosion"
+      ],
+      "note": "Checked against a teacher resource page, not a research study.",
+      "idea": "Erosion is always bad.",
+      "science": "Erosion and deposition also build things people depend on, such as beaches and the rich soil of river flats and deltas.",
+      "respond": "Ask where the sand on a beach came from.",
+      "research": []
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "Weathering is caused by the weather.",
+      "science": "Weather is one cause (rain, heat, frost), but plant roots and wind-blown sand weather rock too. The words are related but not the same.",
+      "respond": "Show a tree root lifting a footpath and ask what the weather had to do with it."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "Only water causes erosion.",
+      "science": "Wind and ice move material too. Sand dunes are built by wind.",
+      "respond": "Blow gently through a straw across dry sand in the tray."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "The eroded material just disappears.",
+      "science": "It always ends up somewhere. Deposition is the other half of erosion.",
+      "respond": "In the tray, find the sand that left the top. It is at the bottom."
+    }
+  ],
+  "inquiry": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "VCAA elaborations for this code have students use maps or aerial photos to predict sites likely to be affected by erosion, and plan a repeatable investigation of erosion on slopes.",
+      "code": "VC2S6I02",
+      "skill": "Planning and conducting: fair tests",
+      "how": "Students plan the tray test so it can be repeated: same soil, same water, change only the slope or the cover."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students use maps to find patterns in erosion sites, or aerial photographs to show erosion over time.",
+      "code": "VC2S6I04",
+      "skill": "Processing, modelling and analysing",
+      "how": "Students record how much soil moved in each test in a table, and mark erosion on a map or photo of the school."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students discuss the difference between data and evidence when considering weathering, erosion, transportation and deposition.",
+      "code": "VC2S6I05",
+      "skill": "Evaluating",
+      "how": "Students decide which of their observations count as evidence for erosion, and where their model could mislead."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students write a persuasive text to a local council arguing for an erosion mitigation strategy.",
+      "code": "VC2S6I06",
+      "skill": "Communicating",
+      "how": "Students present their best erosion barrier and argue for using it in a real place."
+    }
+  ],
+  "human_endeavour": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The VCAA lists this as an elaboration of VC2S6U05 itself. It gives no detail beyond the sentence, and I did not check a First Nations source. Use a named source or the school's Koorie education contacts before teaching it.",
+      "hook": "How Aboriginal and Torres Strait Islander Peoples have been and are affected by the rapid erosion of sand dunes, and by salt water reaching culturally significant freshwater swamps.",
+      "first_nations": true
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code.",
+      "code": "VC2S6H02",
+      "hook": "Park rangers use what is known about erosion to set rules (keep to the path, do not climb the sandstone) and to build drains, railings and barriers that protect parks and Aboriginal and Torres Strait Islander Peoples' cultural sites.",
+      "first_nations": true
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code.",
+      "code": "VC2S6H01",
+      "hook": "New ways to reduce erosion, such as contour banks and strip-cropping, come from geologists, hydrologists and farmers working together.",
+      "first_nations": false
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code.",
+      "code": "VC2S6H02",
+      "hook": "Communities design landscape features that reduce erosion in fragile places.",
+      "first_nations": false
+    }
+  ],
+  "related": {
+    "below": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names rocks, minerals and soils. A VCAA elaboration has students examine what local soils are made of.",
+        "code": "VC2S4U06",
+        "band": "Levels 3 and 4",
+        "label": "Rocks, minerals and soils",
+        "summary": "Rocks, minerals and soils and their properties. Students arrive knowing what rock and soil are. This description explains how one becomes the other."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S4U07",
+        "band": "Levels 3 and 4",
+        "label": "The water cycle",
+        "summary": "Water moving through sky, land and ocean. Run-off is the moving water that does much of the eroding."
+      }
+    ],
+    "same": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code looks at heavy rainfall and the transportation and deposition of river sediments, and another at storms eroding cultural sites.",
+        "code": "VC2S6U06",
+        "band": "Levels 5 and 6",
+        "label": "Natural hazards",
+        "summary": "Sudden geological changes and extreme weather, and how people reduce their effects. The rapid end of the same story."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students experiment with ways of preparing soil, including mulch, and their effect on soil quality.",
+        "code": "VC2TDE6C02",
+        "band": "Levels 5 and 6",
+        "label": "Food and fibre production",
+        "summary": "Design and Technologies: how food and fibre are produced in managed environments. Keeping soil in place and healthy is a design problem for growers."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The code and its wording were checked in the curriculum. No elaboration mentions erosion, so this is my judgement and a loose link.",
+        "code": "VC2TDI6D03",
+        "band": "Levels 5 and 6",
+        "label": "Analysing data",
+        "summary": "Digital Technologies: analysing and graphing data with software. It fits when students graph how much soil moved in each tray test."
+      }
+    ],
+    "above": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code names weathering, erosion and deposition among the processes of the rock cycle.",
+        "code": "VC2S8U11",
+        "band": "Levels 7 and 8",
+        "label": "The rock cycle",
+        "summary": "The rock cycle and its timescales. Weathering, erosion and deposition become steps in how rocks form and change."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names weathering among the processes that cycle carbon.",
+        "code": "VC2S10U10",
+        "band": "Levels 9 and 10",
+        "label": "The carbon cycle",
+        "summary": "Carbon cycling through Earth's systems, with weathering as one of the processes."
+      }
+    ],
+    "links": [
+      {
+        "from": "VC2S4U06",
+        "to": "VC2S6U05",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S4U07",
+        "to": "VC2S6U05",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S6U05",
+        "to": "VC2S6U06",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S6U05",
+        "to": "VC2TDE6C02",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S6U05",
+        "to": "VC2TDI6D03",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S6U05",
+        "to": "VC2S8U11",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S8U11",
+        "to": "VC2S10U10",
+        "kind": "leads"
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Modelling erosion on a simulated landscape and exploring what reduces it is in a VCAA elaboration. The lesson shape is my suggestion and has not been trialled. The school garden is on the STEAM room inventory as a source of soil. Trays and sand are not listed.",
+      "title": "The stream tray",
+      "phenomenon": "Water poured gently at the top of a tilted tray of damp sand or soil cuts a channel, carries material down, and drops it in a fan where the water slows.",
+      "students_do": "Predict what the water will do. Pour, watch and label where erosion, transportation and deposition happened. Then repeat with half the slope covered in grass clippings or mulch and compare how much soil moved.",
+      "materials": [
+        "A deep tray or a paint roller tray for each group",
+        "Damp sand or garden soil",
+        "A cup or a bottle with a small hole in the lid",
+        "Grass clippings, leaves or mulch",
+        "A tub to catch the run-off"
+      ],
+      "shows": "Moving water erodes, transports and deposits material, and ground cover slows erosion.",
+      "caution": "Ask how long the real thing takes. The tray shows in five minutes what a river does in thousands of years. Do it outside."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "beyond-penguins-erosion"
+      ],
+      "note": "My suggestion, not trialled. Telling weathering from erosion is in a VCAA elaboration, and treating them as the same is a misconception listed on the Beyond Penguins page.",
+      "title": "Shake the rocks",
+      "phenomenon": "Sugar cubes or sticks of chalk shaken in a sealed jar come out smaller and rounded, with a pile of dust. Nothing has left the jar.",
+      "students_do": "Draw the cubes, shake for one minute, and draw them again. Predict what two more minutes will do. Decide whether this is weathering or erosion, and what would have to happen for it to be erosion.",
+      "materials": [
+        "A jar with a lid for each group",
+        "Sugar cubes or pieces of chalk",
+        "A timer",
+        "Paper to tip the contents onto"
+      ],
+      "shows": "Weathering breaks material down in place. Erosion only happens when the pieces are carried away.",
+      "caution": "Say what the model stands for: tumbling in a river or on a beach. Real rock takes far longer."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Identifying local examples of erosion, and how people have changed local landscapes, are in VCAA elaborations. The walk is my suggestion and has not been trialled. I have not checked what the school grounds show.",
+      "title": "Erosion hunt",
+      "phenomenon": "Around the school there are bare patches under the swings, soil washed onto a path below a garden bed, a root lifting the asphalt and a worn stone step.",
+      "students_do": "Walk the grounds in pairs with an iPad. Photograph three signs of change and decide for each: weathering, erosion or deposition? What caused it, and could it be slowed? Mark them on a map of the school.",
+      "materials": [
+        "An iPad for each pair",
+        "A simple map of the school grounds",
+        "A clipboard and pencil"
+      ],
+      "shows": "Weathering, erosion and deposition are happening here, some of it caused by people, and it can be reduced.",
+      "caution": "Walk the route yourself first so you know there is something to find."
+    }
+  ],
+  "pitfalls": [
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-erosion"
+      ],
+      "note": "The Beyond Penguins page warns that models show changes quickly while the real processes take far longer.",
+      "pitfall": "Letting the tray model stand for the real thing without talking about time.",
+      "instead": "End every model with two questions: how long would this really take, and what does the model leave out?"
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. The description names four processes and a VCAA elaboration asks students to tell weathering from erosion.",
+      "pitfall": "Using weathering and erosion as if they meant the same.",
+      "instead": "Use the handles every time: break it, take it, drop it."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from comparing this description with VC2S6U06 in the curriculum.",
+      "pitfall": "Sliding into volcanoes and earthquakes, which students find more exciting.",
+      "instead": "Keep this unit to weathering, erosion, transportation and deposition. Hazards belong to VC2S6U06."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Teaching erosion only as damage caused by people.",
+      "instead": "Show it as a natural process that also builds beaches, dunes and river flats, which people can speed up or slow down."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Using only faraway examples such as the Grand Canyon.",
+      "instead": "Start in the school grounds and the local creek or river bank, then go further afield."
+    }
+  ],
+  "unverified": [
+    "I did not find research on primary students' ideas about weathering and erosion that I could read. The four verified misconceptions rest on a teacher resource page (Beyond Penguins and Polar Bears), not a study. A 1997 study by Dove came up in search, but it was with students aged 16 to 19 and I could not open it.",
+    "Three misconceptions are my judgement.",
+    "The First Nations examples are confirmed only as far as the VCAA's one-sentence elaborations. I did not find or check a First Nations source.",
+    "None of the three anchor experiences has been trialled. Trays, sand, jars and sugar cubes are not on the STEAM room inventory, and I have not checked what signs of erosion the school grounds show.",
+    "The lines on the map are my judgement about how the descriptions connect. The Digital Technologies link is a loose one."
+  ]
+}

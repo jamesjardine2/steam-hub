@@ -1,0 +1,807 @@
+{
+  "schema_version": 1,
+  "code": "VC2S4U07",
+  "title": "The water cycle",
+  "learning_area": "Science",
+  "band": "Levels 3 and 4",
+  "strand": "Science Understanding",
+  "sub_strand": "Earth and space sciences",
+  "updated": "2026-11-15",
+  "sources": [
+    {
+      "id": "vcaa-curriculum",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "vcaa-copyright",
+      "citation": "Victorian Curriculum and Assessment Authority. Copyright statement for the Victorian Curriculum site (CC BY-NC 3.0 Australia licence and the attribution it asks for).",
+      "url": "https://f10.vcaa.vic.edu.au/copyright-statement",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "r2p-booklet",
+      "citation": "Abrahams, I., Backhouse, A., Bloom, K., Griffin-James, H. and Mat Noor, S. (2021). Research-2-Practice: Supporting Primary School Teachers to Engage with Science Education Research. University of Lincoln. Research summaries and lesson plans: The Water Cycle and Evaporation (Key Stage 2, Year 4).",
+      "url": "https://ray.yorksj.ac.uk/5961/1/R2P%20Primary%20Booklet.pdf",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "ben-zvi-assaraf-2010",
+      "citation": "Ben-Zvi Assaraf, O. and Orion, N. (2010). System thinking skills at the elementary school level. Journal of Research in Science Teaching, 47, pages 540 to 563.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "malleus-2016",
+      "citation": "Malleus, E., Kikas, E. and Kruus, S. (2016). Students' understanding of cloud and rainbow formation and teachers' awareness of students' performance. International Journal of Science Education, 38 (6), pages 993 to 1011.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "savva-2014",
+      "citation": "Savva, S. (2014). Year 3 to year 5 children's conceptual understanding of the mechanism of rainfall: A comparative analysis.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "taiwo-1999",
+      "citation": "Taiwo, A. A., Ray, H., Motswiri, M. J. and Masene, R. (1999). Perceptions of the water cycle among primary school children in Botswana.",
+      "read": false,
+      "via": "r2p-booklet"
+    }
+  ],
+  "descriptor": {
+    "status": "verified",
+    "sources": [
+      "vcaa-curriculum",
+      "vcaa-copyright"
+    ],
+    "note": "Copied by a script from the Victorian Curriculum Version 2.0 on 15 November 2026, not typed from memory.",
+    "stem": "Students learn that:",
+    "text": "water is an important Earth resource that originates from various sources; water cycles through the environment by moving through the sky, landscape and ocean, and involves processes including precipitation, evaporation, transpiration, condensation, melting, freezing, crystallisation, infiltration and run-off",
+    "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S4U07",
+    "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
+  },
+  "paraphrase": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "My reading of the description and its achievement standard, which was checked in the curriculum: students list sources of water on Earth, identify key processes in the water cycle, and describe how water can cycle through the environment.",
+    "text": "Water is a resource we depend on, and there is only so much of it. It is found in many places (oceans, rivers, lakes, ice, underground, the air) and it is always moving between them. Students learn where water is, the main ways it moves and changes (evaporating, condensing, falling as rain, soaking in, running off, freezing and melting), and that these join up into a cycle with no start and no end. The assessable skills are naming sources of water, naming the key processes, and describing a path water can take.",
+    "asks_for": [
+      "Water is an important resource, and it comes from many sources. Most of it is salt water.",
+      "Water moves through the sky, the land and the ocean.",
+      "The processes that move and change it include precipitation, evaporation, condensation, transpiration, melting, freezing, infiltration and run-off.",
+      "Together these make a cycle: the same water goes around again and again."
+    ],
+    "not_asking": [
+      "Particles. Explaining evaporation with moving particles is Levels 5 and 6 (VC2S6U03).",
+      "All nine process words as a list to memorise. The achievement standard asks for key processes.",
+      "Weather and climate. That is the next description at this level, VC2S4U08."
+    ]
+  },
+  "key_questions": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. The figures and the list of freshwater sources are in VCAA elaborations.",
+      "question": "Where is Earth's water?",
+      "know": [
+        "Most of Earth's water is salt water in the oceans. Only about 2.5 per cent is fresh water.",
+        "Fresh water is in rivers, lakes, wetlands, ice and under the ground. Only a small part of it is easy to use."
+      ],
+      "understand": [
+        "Fresh water is precious because there is so little of it that we can use."
+      ],
+      "do": [
+        "List sources of water, sort them into salt and fresh, and name a local one."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "r2p-booklet"
+      ],
+      "note": "My judgement. The everyday examples are in a VCAA elaboration. That evaporated water has not vanished answers a misconception in the Research-2-Practice summary.",
+      "question": "How does water get into the air and back out again?",
+      "know": [
+        "Evaporation: liquid water turns into water vapour, a gas we cannot see, and goes into the air.",
+        "Condensation: water vapour cools and turns back into tiny drops of liquid water.",
+        "Clouds are made of tiny drops of water. Precipitation is water falling as rain, hail or snow."
+      ],
+      "understand": [
+        "Water that evaporates has not gone. It is in the air, and it comes back.",
+        "Heat makes water evaporate faster. Cooling makes water vapour condense."
+      ],
+      "do": [
+        "Point to evaporation and condensation in everyday life: washing drying, a puddle shrinking, drops on a cold bottle."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "r2p-booklet"
+      ],
+      "note": "My judgement. Infiltration and run-off are named in the description. That students leave out the ground is from the Research-2-Practice summary.",
+      "question": "Where does water go when it reaches the ground?",
+      "know": [
+        "Run-off: water flows over the land into creeks, rivers and the sea.",
+        "Infiltration: water soaks into the ground and becomes groundwater.",
+        "Plants take up water and give it off from their leaves. This is transpiration."
+      ],
+      "understand": [
+        "The ground is part of the water cycle, not just the sky."
+      ],
+      "do": [
+        "Trace what happens to rain that falls on the school: on the roof, on the asphalt, on the garden."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "r2p-booklet"
+      ],
+      "note": "My judgement. That primary pupils do not think of water as cycling is from the Research-2-Practice summary.",
+      "question": "Why do we call it a cycle?",
+      "know": [
+        "A cycle goes around and around with no beginning and no end."
+      ],
+      "understand": [
+        "The same water keeps moving between the sky, the land and the ocean. No new water is made.",
+        "A drop of water can take many different paths, not one fixed loop."
+      ],
+      "do": [
+        "Describe one journey a drop of water could take, using at least three process words, and then a different journey."
+      ]
+    }
+  ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, built from the achievement standard sentence and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "List at least four sources of water on Earth, and say which are salt and which are fresh.",
+        "Name a local source of water.",
+        "Explain what happens to the water in a puddle that dries up.",
+        "Explain where the drops on the outside of a cold bottle come from.",
+        "Say what clouds are made of.",
+        "Say two things that can happen to rain when it reaches the ground.",
+        "Describe a journey water can take through the sky, the land and the ocean, using the process words, and say why it is a cycle."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [
+          "r2p-booklet"
+        ],
+        "note": "My suggestion, not trialled. The answers to listen for (it vanished, the Sun sucked it up, it soaked in) are the ideas listed in the Research-2-Practice lesson plan.",
+        "title": "Where did the puddle go?",
+        "how": "Wipe a wet handprint on the board or show a photo of a puddle before and after. Each student writes one sentence on scrap paper: where is that water now? Hold them up and scan. Two minutes.",
+        "look_for": "Has it: says the water is in the air, as water vapour. Not yet: says it has gone, disappeared, was sucked up by the Sun, or all soaked in."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "r2p-booklet"
+        ],
+        "note": "My suggestion, not trialled. The wrong answers come from the Research-2-Practice summary.",
+        "title": "What is a cloud made of?",
+        "how": "Offer three answers and have students vote with one, two or three fingers at the same moment: (1) water vapour, a gas, (2) tiny drops of water, (3) something soft like cotton wool. Ask one student from each answer why. Two minutes.",
+        "look_for": "Has it: tiny drops of water. Not yet: a gas, or something fluffy."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Add what is missing",
+        "how": "Show a water cycle drawing with only the sky loop: sea, arrow up, cloud, rain. Students add one thing that is missing on a sticky note or by pointing. Three minutes.",
+        "look_for": "Has it: adds something on the ground (a river, water soaking in, plants). Not yet: says nothing is missing."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "One drop's journey",
+        "how": "As students leave, each one tells you one step in a drop's journey, carrying on from the student before: it fell as rain, it ran into the creek, and so on. Three to four minutes.",
+        "look_for": "Has it: uses a process word correctly and makes a step that could really follow. Not yet: repeats the standard loop whatever came before."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. These go deeper at this level before reaching for particles, which are Levels 5 and 6.",
+      "items": [
+        "Ask for two different journeys for the same drop, one fast and one that takes thousands of years (through ice or groundwater).",
+        "Test what changes how fast water evaporates: warmth, wind or how spread out it is. Plan it as a fair test.",
+        "Trace the school's tap water back to its source and forward to where it goes down the drain.",
+        "Improve a model: draw the water cycle, then revise the drawing after each new piece of evidence, and say what changed in your thinking.",
+        "Work out why only a tiny part of Earth's water can be used, and show it with a litre of water and a spoon.",
+        "Find out how people on this Country cared for and found water, using a source the school trusts."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Start with what the student can see happen in a lesson: a wet handprint drying, drops forming on a cold cup.",
+        "Teach three process words first (evaporate, condense, rain) and add the ground ones later.",
+        "Use the same simple picture every time, and add to it step by step.",
+        "Act it out: students as drops, moving between the sea, the cloud and the river.",
+        "Give a sentence starter: The water went from the ... to the ... It is called ..."
+      ],
+      "well_below": [
+        "Aim for one idea: water can go up into the air and come back down as rain.",
+        "Use real water and take showing as the answer: where is the water now?",
+        "Sort pictures into two groups only: water in the sky, water on the ground.",
+        "Teach rain, cloud and river with pictures before the lesson, or ask the classroom teacher to."
+      ]
+    }
+  },
+  "vocabulary": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the official wording. Nine process words are named in the description, which is too many to teach at once.",
+    "everyday": [
+      {
+        "term": "water"
+      },
+      {
+        "term": "rain"
+      },
+      {
+        "term": "cloud"
+      },
+      {
+        "term": "puddle"
+      },
+      {
+        "term": "river"
+      },
+      {
+        "term": "sea"
+      },
+      {
+        "term": "ice"
+      },
+      {
+        "term": "steam"
+      },
+      {
+        "term": "wet"
+      },
+      {
+        "term": "dry"
+      },
+      {
+        "term": "tap"
+      },
+      {
+        "term": "drain"
+      }
+    ],
+    "academic": [
+      {
+        "term": "resource",
+        "meaning": "Something we need and use.",
+        "in_descriptor": true
+      },
+      {
+        "term": "source",
+        "meaning": "Where something comes from.",
+        "in_descriptor": true
+      },
+      {
+        "term": "process",
+        "meaning": "A set of changes that happen in order.",
+        "in_descriptor": true
+      },
+      {
+        "term": "environment",
+        "meaning": "The world around us.",
+        "in_descriptor": true
+      },
+      {
+        "term": "cycle",
+        "meaning": "Something that goes around and comes back to where it started.",
+        "in_descriptor": true
+      },
+      {
+        "term": "model",
+        "meaning": "A drawing or object that helps explain how something works."
+      }
+    ],
+    "science": [
+      {
+        "term": "evaporation",
+        "meaning": "Liquid water turning into water vapour.",
+        "in_descriptor": true
+      },
+      {
+        "term": "condensation",
+        "meaning": "Water vapour turning back into liquid water.",
+        "in_descriptor": true
+      },
+      {
+        "term": "precipitation",
+        "meaning": "Water falling from clouds as rain, hail or snow.",
+        "in_descriptor": true
+      },
+      {
+        "term": "run-off",
+        "meaning": "Water flowing over the land.",
+        "in_descriptor": true
+      },
+      {
+        "term": "infiltration",
+        "meaning": "Water soaking into the ground.",
+        "in_descriptor": true
+      },
+      {
+        "term": "transpiration",
+        "meaning": "Plants giving off water from their leaves.",
+        "in_descriptor": true
+      },
+      {
+        "term": "water vapour",
+        "meaning": "Water as a gas, which we cannot see."
+      },
+      {
+        "term": "groundwater",
+        "meaning": "Water under the ground."
+      },
+      {
+        "term": "fresh water and salt water",
+        "meaning": "Water we can drink, and water from the sea."
+      }
+    ]
+  },
+  "misconceptions": [
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "ben-zvi-assaraf-2010"
+      ],
+      "note": "Checked against the Research-2-Practice summary. I did not read the study.",
+      "idea": "Water in one place has nothing to do with water in another. Rain, the river and the tap are separate things.",
+      "science": "It is the same water, always moving from one place to another.",
+      "respond": "Ask where the water in the tap was last week, last year and a thousand years ago.",
+      "research": [
+        "Ben-Zvi Assaraf and Orion (2010)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "ben-zvi-assaraf-2010"
+      ],
+      "note": "Checked against the Research-2-Practice summary. I did not read the study.",
+      "idea": "The water cycle happens in the sky: sea, cloud, rain, and that is all.",
+      "science": "Much of the cycle happens on and under the ground: run-off, soaking in, groundwater, and water moving through plants.",
+      "respond": "Give a drawing with only the sky loop and ask what is missing.",
+      "research": [
+        "Ben-Zvi Assaraf and Orion (2010)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "malleus-2016",
+        "savva-2014"
+      ],
+      "note": "Checked against the Research-2-Practice summary. I did not read the studies.",
+      "idea": "Clouds are made of water vapour, or of something soft and fluffy.",
+      "science": "Clouds are made of tiny drops of liquid water or ice. Water vapour is a gas and cannot be seen.",
+      "respond": "Show the cloud in a bottle, which the curriculum suggests, and ask whether a gas you cannot see could look white.",
+      "research": [
+        "Malleus, Kikas and Kruus (2016)",
+        "Villarroel and Ros (2013)",
+        "Savva (2014)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "malleus-2016",
+        "taiwo-1999"
+      ],
+      "note": "Checked against the Research-2-Practice summary. I did not read the studies.",
+      "idea": "Only dark rain clouds are part of the water cycle. White clouds are something else.",
+      "science": "All clouds are made of water and are part of the cycle. Rain falls when the drops get big and heavy enough.",
+      "respond": "Compare photos of different clouds and ask what each is made of.",
+      "research": [
+        "Malleus, Kikas and Kruus (2016)",
+        "Taiwo et al. (1999)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet"
+      ],
+      "note": "Listed among common misconceptions in the Research-2-Practice lesson plan, which does not name a study for it.",
+      "idea": "When water evaporates it is gone. It disappears.",
+      "science": "It has changed into water vapour, a gas in the air. It is still water and it comes back.",
+      "respond": "Catch it coming back: breathe on a cold window, or watch drops form on a cold can.",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet"
+      ],
+      "note": "Listed among common misconceptions in the Research-2-Practice lesson plan, which does not name a study for it.",
+      "idea": "The Sun sucks the water up, or the water soaks into the ground or the bench.",
+      "science": "Warmth makes the water turn into vapour and spread into the air. It does not need the Sun: washing dries indoors too.",
+      "respond": "Dry a wet handprint on a tiled or metal surface that water cannot soak into, in the shade.",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet"
+      ],
+      "note": "Listed among common misconceptions in the Research-2-Practice lesson plan, which does not name a study for it.",
+      "idea": "Ice, water and steam are three different substances.",
+      "science": "They are all water, in three states: solid, liquid and gas.",
+      "respond": "Melt an ice cube and let the puddle dry, and ask at each step whether it is still water.",
+      "research": []
+    }
+  ],
+  "inquiry": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
+      "code": "VC2S4I01",
+      "skill": "Questioning and predicting",
+      "how": "Students predict which wet patch will dry first (sun or shade, spread out or in a cup) and say why."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students compare observations of local water sources at different times of the day or year, using cameras and recording devices.",
+      "code": "VC2S4I03",
+      "skill": "Planning and conducting: observing and recording",
+      "how": "Students photograph a puddle or wet patch at intervals, or a local creek on different visits, and compare."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
+      "code": "VC2S4I04",
+      "skill": "Processing, modelling and analysing",
+      "how": "Students draw a model of the water cycle and revise it as they learn more."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students compare water-use surveys from home and school.",
+      "code": "VC2S4I05",
+      "skill": "Evaluating",
+      "how": "Students compare their explanations of where the puddle went with another group's and decide which fits the evidence."
+    }
+  ],
+  "human_endeavour": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The VCAA lists this as an elaboration of VC2S4U07 itself. It gives no detail beyond the sentence, and I did not check a First Nations source. Use a named source or the school's Koorie education contacts before teaching it.",
+      "hook": "Land, sea and water are central to Aboriginal and Torres Strait Islander Peoples' culture and spirituality, and connection to water includes the responsibility to care for water on Country and Place, especially where water is scarce.",
+      "first_nations": true
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code.",
+      "code": "VC2S4H02",
+      "hook": "Aboriginal and Torres Strait Islander Peoples' knowledge of evaporation and how to reduce it to save water, such as digging flask-shaped wells with a narrow entrance.",
+      "first_nations": true
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code.",
+      "code": "VC2S4H01",
+      "hook": "Hydrologists use rainfall and water-use data to explain how much water flows in rivers and why it changes over time.",
+      "first_nations": false
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code.",
+      "code": "VC2S4H02",
+      "hook": "How people store water (dams, wells, tanks, pipes and water towers) and why we are asked to save and recycle it.",
+      "first_nations": false
+    }
+  ],
+  "related": {
+    "below": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S2U07",
+        "band": "Foundation to Level 2",
+        "label": "Weather and seasons",
+        "summary": "Daily and seasonal changes in the weather. Students arrive knowing rain as weather. This description explains where it comes from and where it goes."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S2U09",
+        "band": "Foundation to Level 2",
+        "label": "Reduce, re-use, recycle",
+        "summary": "Caring for Earth's water, land and air. The first place students meet water as something to look after."
+      }
+    ],
+    "same": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names changes of state caused by adding or removing heat.",
+        "code": "VC2S4U04",
+        "band": "Levels 3 and 4",
+        "label": "Solids, liquids and gases",
+        "summary": "Solids, liquids and gases, and heat changing one into another. Evaporation, condensation, freezing and melting are these changes happening outdoors."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S4U08",
+        "band": "Levels 3 and 4",
+        "label": "Weather and climate",
+        "summary": "Weather events and climate, and their effects on land, air and water. Rain, drought and floods are the water cycle seen as weather."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students propose improvements to a water-saving system for a bathroom at home or school.",
+        "code": "VC2TDE4S01",
+        "band": "Levels 3 and 4",
+        "label": "Designing for needs",
+        "summary": "Design and Technologies: how designers meet community needs, including sustainability. Saving and storing water is a design problem."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The code and its wording were checked in the curriculum. No elaboration mentions water, so this is my judgement and a loose link.",
+        "code": "VC2TDI4D02",
+        "band": "Levels 3 and 4",
+        "label": "Data with software",
+        "summary": "Digital Technologies: collecting, organising and presenting data with software. It fits when students record and graph rainfall or evaporation results."
+      }
+    ],
+    "above": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S6U04",
+        "band": "Levels 5 and 6",
+        "label": "Reversible changes",
+        "summary": "Reversible and irreversible changes. Changes of state, which drive the water cycle, are named there as reversible."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement. The description names erosion and transportation, and a VCAA elaboration names moving water as a cause.",
+        "code": "VC2S6U05",
+        "band": "Levels 5 and 6",
+        "label": "Earth's changing surface",
+        "summary": "Weathering, erosion, transportation and deposition. Run-off from the water cycle is one of the things that reshapes the land."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement: both are cycles of matter through Earth's systems.",
+        "code": "VC2S10U10",
+        "band": "Levels 9 and 10",
+        "label": "The carbon cycle",
+        "summary": "Carbon cycling through Earth's systems. The idea of a cycle, met first with water, returns with carbon."
+      }
+    ],
+    "links": [
+      {
+        "from": "VC2S2U07",
+        "to": "VC2S4U07",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S2U09",
+        "to": "VC2S4U07",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S4U07",
+        "to": "VC2S4U04",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S4U07",
+        "to": "VC2S4U08",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S4U07",
+        "to": "VC2TDE4S01",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S4U07",
+        "to": "VC2TDI4D02",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S4U07",
+        "to": "VC2S6U05",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S4U04",
+        "to": "VC2S6U04",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S6U05",
+        "to": "VC2S10U10",
+        "kind": "loose"
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "r2p-booklet"
+      ],
+      "note": "Rain puddles that evaporate are in a VCAA elaboration. The lesson shape is my suggestion and has not been trialled.",
+      "title": "The disappearing handprint",
+      "phenomenon": "A wet handprint on the board, a tile or the asphalt is gone within a few minutes. It did not drip, and nothing wiped it.",
+      "students_do": "Predict where the water will go. Make two prints, one in the sun or a breeze and one in the shade, time them, and write where the water is now. Then draw what you think happened.",
+      "materials": [
+        "Water and a sponge",
+        "A surface water cannot soak into: a whiteboard, a tile or a metal tray",
+        "A timer"
+      ],
+      "shows": "Water evaporates into the air. It has not vanished and it has not soaked in.",
+      "caution": "Use a surface that does not absorb water, or students will say it soaked in."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Drops forming on a cold water bottle are in a VCAA elaboration. The lesson shape is my suggestion, not trialled.",
+      "title": "Water from nowhere",
+      "phenomenon": "A dry metal tin or glass filled with ice and water is wet on the outside a few minutes later, though nothing spilled.",
+      "students_do": "Dry the outside, add ice and water, and watch. Predict where the drops come from, then test the leak idea by using coloured water inside: the drops outside stay clear.",
+      "materials": [
+        "A metal tin or glass for each group",
+        "Ice and water",
+        "Food dye",
+        "A paper towel"
+      ],
+      "shows": "Water vapour in the air condenses into liquid water on a cold surface. This is how clouds and dew form.",
+      "caution": "It works poorly on a very dry day. Breathe on a cold window as a back-up."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A game or simulation of the water cycle is in a VCAA elaboration. The game is my suggestion and has not been trialled.",
+      "title": "A drop's journey",
+      "phenomenon": "Thirty drops of water start in the ocean. After ten turns, some have been round the sky loop three times, some are stuck in ice, and some are still underground.",
+      "students_do": "Move between stations (ocean, cloud, river, groundwater, plant, ice) by rolling a dice and reading where that number sends you. Record each stop, then tell your journey with the process words.",
+      "materials": [
+        "Six station signs",
+        "A dice and a simple key at each station",
+        "A strip of paper for each student to record their stops"
+      ],
+      "shows": "Water cycles through sky, land and ocean, there is more than one path, and the ground is part of it.",
+      "caution": "Make sure some paths are slow, such as ice and groundwater, so the cycle is not one neat loop."
+    }
+  ],
+  "pitfalls": [
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet"
+      ],
+      "note": "The Research-2-Practice summary recommends having pupils build, explain and revise their own models with how and why questions, in place of learning a finished diagram.",
+      "pitfall": "Giving students the finished water cycle diagram to label.",
+      "instead": "Have them draw their own model first, then revise it as evidence comes in, and ask how and why at each arrow."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "r2p-booklet"
+      ],
+      "note": "My judgement about teacher language. The student idea it feeds is listed in the source.",
+      "pitfall": "Saying the Sun sucks up or draws up the water.",
+      "instead": "Say the water turns into water vapour and spreads into the air, and that warmth makes it happen faster."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. The description names nine processes and the achievement standard asks for key ones.",
+      "pitfall": "Teaching all nine process words as a vocabulary list.",
+      "instead": "Secure evaporation, condensation and precipitation with things students can see, then add run-off and infiltration. Leave crystallisation as a word to meet, not to master."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Using only the standard picture of a mountain, a sea and one cloud.",
+      "instead": "Make it local: the school roof, the drain, the Maribyrnong River and the bay."
+    }
+  ],
+  "unverified": [
+    "I could not read the original research studies. Each verified misconception rests on the Research-2-Practice summary or lesson plan, which I read. Three of the misconceptions are listed in the lesson plan without a named study.",
+    "The First Nations examples are confirmed only as far as the VCAA's one-sentence elaborations. I did not find or check a First Nations source.",
+    "None of the three anchor experiences has been trialled. Tins or glasses, ice and food dye are not on the STEAM room inventory.",
+    "The lines on the map are my judgement about how the descriptions connect. The Digital Technologies link is a loose one."
+  ]
+}
