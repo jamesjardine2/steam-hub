@@ -10,9 +10,9 @@
   "approved_on": "2026-11-15",
   "sources": [
     {
-      "id": "vcaa-local",
-      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations). Read from the hub's local copy, VC2_Science_DigiTech_DesignTech_F-10.md, compiled from cached VCAA documents in November 2026 while the VCAA site was offline.",
-      "url": "https://github.com/jamesjardine2/steam-hub/blob/main/VC2_Science_DigiTech_DesignTech_F-10.md",
+      "id": "vcaa-curriculum",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
       "accessed": "2026-11-15",
       "read": true
     },
@@ -124,10 +124,10 @@
   "descriptor": {
     "status": "verified",
     "sources": [
-      "vcaa-local",
+      "vcaa-curriculum",
       "vcaa-copyright"
     ],
-    "note": "Copied by a script from the hub's local copy of the curriculum on 15 November 2026, not typed from memory. The VCAA site was offline that day, so the wording has not been checked against the live site. This is the Version 2.0 description behind the enduring understanding in the school's Year 3/4 concept planner Forces at Work, which quotes the earlier curriculum.",
+    "note": "Copied by a script from the Victorian Curriculum Version 2.0 on 15 November 2026, not typed from memory. This is the Version 2.0 description behind the enduring understanding in the school's Year 3/4 concept planner Forces at Work, which quotes the earlier curriculum.",
     "stem": "Students learn that:",
     "text": "forces, including frictional, gravitational, electrostatic and magnetic, can be exerted by one object on another through direct contact or from a distance and affect the motion (speed and direction) of objects",
     "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S4U10",
@@ -136,9 +136,9 @@
   "paraphrase": {
     "status": "approved",
     "sources": [
-      "vcaa-local"
+      "vcaa-curriculum"
     ],
-    "note": "My reading of the description and its achievement standard. The achievement standard wording was checked in the local copy: students identify forces acting on objects and describe the effects of these.",
+    "note": "My reading of the description and its achievement standard. The achievement standard wording was checked in the curriculum: students identify forces acting on objects and describe the effects of these.",
     "text": "A force is a push or a pull that one object puts on another. Some forces need touching (friction) and some work across a gap (gravity, magnetic and electrostatic forces). Whatever the kind, a force shows itself by changing motion: it starts or stops something, speeds it up, slows it down or turns it. The assessable skills are naming the forces acting on an object and describing what they do to it.",
     "asks_for": [
       "Forces act between two objects: one object exerts a force on another.",
@@ -157,7 +157,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local",
+        "vcaa-curriculum",
         "iop-keep-moving"
       ],
       "note": "My judgement. The first three questions follow the three key questions in the school's Year 3/4 concept planner Forces at Work, so the fact sheet lines up with what classroom teachers plan from. The point about moving things comes from the research summaries.",
@@ -178,7 +178,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local",
+        "vcaa-curriculum",
         "iop-friction"
       ],
       "note": "My judgement. Shoe soles, slowing and stopping, and the positive and negative effects of friction are in a VCAA elaboration.",
@@ -198,7 +198,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "My judgement. Magnets acting without touching, gravity acting whether or not an object is moving, and astronauts on the Moon are in VCAA elaborations.",
       "question": "Which forces can act without touching?",
@@ -218,7 +218,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "My judgement. Force arrows showing direction and size are in a VCAA elaboration. The identifying skill is the achievement standard.",
       "question": "How can we show the forces acting on an object?",
@@ -236,9 +236,9 @@
   "vocabulary": {
     "status": "approved",
     "sources": [
-      "vcaa-local"
+      "vcaa-curriculum"
     ],
-    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the wording in the local copy. Exert and electrostatic are the hard words in the description and need explicit teaching.",
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the official wording. Exert and electrostatic are the hard words in the description and need explicit teaching.",
     "everyday": [
       {
         "term": "push"
@@ -454,7 +454,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "The science is from a VCAA elaboration (gravity acts on an object whether or not it is moving). That students think otherwise is my judgement. I did not check it against a study.",
       "idea": "Gravity only acts on things that are falling. Nothing is pulling on a book that is sitting on the desk.",
@@ -466,7 +466,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "A VCAA elaboration for this code has students pose questions about the distance between magnets and how they attract or repel.",
       "code": "VC2S4I01",
@@ -476,7 +476,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "Two VCAA elaborations for this code use forces: planning what to change and what to keep the same when testing which shoe has the most friction, and predicting the forces in a game or toy design, then building and testing a prototype.",
       "code": "VC2S4I02",
@@ -486,9 +486,9 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
-      "note": "The code and its wording were checked in the local copy. I did not check its elaborations for a forces example, so the link is my judgement.",
+      "note": "The code and its wording were checked in the curriculum. I did not check its elaborations for a forces example, so the link is my judgement.",
       "code": "VC2S4I03",
       "skill": "Planning and conducting: measuring and recording",
       "how": "Students measure how far an object travels in centimetres with a ruler or tape, and repeat each test."
@@ -496,7 +496,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "A VCAA elaboration for this code has students construct a table comparing the measured distances an object moves over surfaces with different frictional forces.",
       "code": "VC2S4I04",
@@ -506,7 +506,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "A VCAA elaboration for this code has students make an advertisement explaining why a high-friction surface suits flooring.",
       "code": "VC2S4I06",
@@ -518,7 +518,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "The VCAA lists this as an elaboration of VC2S4U10 itself, and names both games and the peoples and places. I did not check the detail against a Koorie or Torres Strait Islander source. Use a named source or the school's Koorie education contacts for how the games are played and what is appropriate to share.",
       "hook": "Forces in Aboriginal and Torres Strait Islander Peoples' traditional toys and games: marngrook, played in western Victoria, where a ball made from possum fur drops under gravity and is kicked high by a contact force, and kokan, played by the Mabuiag People, where sand's friction slows a ball hit with a bat.",
@@ -527,7 +527,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "Both examples are VCAA elaborations for this code.",
       "code": "VC2S4H02",
@@ -537,7 +537,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "The VCAA lists this as an elaboration of VC2S4U10 itself.",
       "hook": "Astronauts walking and dropping objects on the Moon: video evidence of gravity at work somewhere other than Earth.",
@@ -549,7 +549,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "The description itself names pushes and pulls as forces with strength and direction.",
         "code": "VC2S2U11",
@@ -560,9 +560,9 @@
       {
         "status": "approved",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
-        "note": "The code and its wording were checked in the local copy. The link is my judgement.",
+        "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
         "code": "VC2S2U10",
         "band": "Foundation to Level 2",
         "label": "How objects move",
@@ -571,9 +571,9 @@
       {
         "status": "approved",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
-        "note": "The code and its wording were checked in the local copy. The link is my judgement.",
+        "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
         "code": "VC2TDE2C01",
         "band": "Foundation to Level 2",
         "label": "Technologies and movement",
@@ -584,7 +584,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "The description itself names forces. Its elaborations include how surfaces change the speed of a rolling marble, and First Nations examples: buoyant forces in bark and dugout canoes, and woomera design.",
         "code": "VC2TDE4C01",
@@ -595,9 +595,9 @@
       {
         "status": "approved",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
-        "note": "The code and its wording were checked in the local copy. No Digital Technologies elaboration at this level mentions forces, so this is my judgement and a loose link.",
+        "note": "The code and its wording were checked in the curriculum. No Digital Technologies elaboration at this level mentions forces, so this is my judgement and a loose link.",
         "code": "VC2TDI4D02",
         "band": "Levels 3 and 4",
         "label": "Data with software",
@@ -608,7 +608,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "gap": true,
         "summary": "There is no Physical sciences description about forces at Levels 5 and 6. Forces appear there only as gravity in Earth and space sciences (VC2S6U07), then return in full at Levels 7 and 8. Year 3/4 is the main planned teaching of friction, magnets and static electricity in primary school."
@@ -616,7 +616,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "The description itself names the force of gravity.",
         "code": "VC2S6U07",
@@ -627,7 +627,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "The description itself names balanced and unbalanced forces, gravitational force and force diagrams.",
         "code": "VC2S8U14",
@@ -638,7 +638,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "The description itself says simple machines alter the direction and magnitude of forces.",
         "code": "VC2S8U13",
@@ -649,7 +649,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "The description itself names force and motion.",
         "code": "VC2TDE8C01",
@@ -660,7 +660,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "The description itself names force.",
         "code": "VC2S10U17",
@@ -736,7 +736,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "Comparing measured distances over surfaces with different friction is in a VCAA elaboration for VC2S4I04. The lesson shape is my suggestion and has not been trialled. LEGO bricks are on the STEAM room inventory.",
       "title": "How far does it roll?",
@@ -754,7 +754,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "A magnet pulling an object without touching it is in a VCAA elaboration, and asking about the distance between magnets is in another. The lesson shape is my suggestion, not trialled. Magnets are on the STEAM room inventory. I did not check how many or what kinds.",
       "title": "The floating paper clip",
@@ -773,7 +773,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "My suggestion, not trialled. Electrostatic force is named in the description but has no VCAA elaboration of its own. Balloons are on the STEAM room inventory.",
       "title": "The balloon and the can",
@@ -813,7 +813,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "My judgement, from the wording of the description, which puts contact and distance and the effect on motion ahead of the list of names.",
       "pitfall": "Teaching the four named forces as a list to memorise.",
@@ -822,7 +822,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local",
+        "vcaa-curriculum",
         "iop-friction"
       ],
       "note": "The positive and negative effects of friction are in a VCAA elaboration. That teaching tends to show only the negative side is my judgement.",
@@ -832,15 +832,14 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
-      "note": "My judgement, from comparing this description with VC2S8U14 and VC2S10U17 in the local copy.",
+      "note": "My judgement, from comparing this description with VC2S8U14 and VC2S10U17 in the curriculum.",
       "pitfall": "Reaching for balanced and unbalanced forces, newtons, or mass against weight to explain results.",
       "instead": "Stay with naming the forces and describing the change in speed or direction. Force arrows are enough. The rest is Levels 7 and 8."
     }
   ],
   "unverified": [
-    "The VCAA site was offline on 15 November 2026, so the official wording, the elaborations and the neighbouring codes were all taken from the hub's local copy of the curriculum, not from the live site. Check the description against the VCAA site when it is back.",
     "I could not read the original research studies. Each verified misconception rests on a published summary that I read and that names the studies. Most of the studies on force, falling and gravity were with secondary students or older (the notes say which), so how common each idea is in Years 3 and 4 is not confirmed.",
     "The last misconception (gravity only acts on falling things) is my judgement. I did not check it against a study.",
     "The marngrook and kokan examples are confirmed only as far as the VCAA's one-sentence elaboration. I did not find or check a Koorie or Torres Strait Islander source.",

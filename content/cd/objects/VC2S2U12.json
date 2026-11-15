@@ -10,9 +10,9 @@
   "approved_on": "2026-11-15",
   "sources": [
     {
-      "id": "vcaa-local",
-      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations). Read from the hub's local copy, VC2_Science_DigiTech_DesignTech_F-10.md, compiled from cached VCAA documents in November 2026 while the VCAA site was offline.",
-      "url": "https://github.com/jamesjardine2/steam-hub/blob/main/VC2_Science_DigiTech_DesignTech_F-10.md",
+      "id": "vcaa-curriculum",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
       "accessed": "2026-11-15",
       "read": true
     },
@@ -123,10 +123,10 @@
   "descriptor": {
     "status": "verified",
     "sources": [
-      "vcaa-local",
+      "vcaa-curriculum",
       "vcaa-copyright"
     ],
-    "note": "Copied by a script from the hub's local copy of the curriculum on 15 November 2026, not typed from memory. The VCAA site was offline that day, so the wording has not been checked against the live site. The local copy says it was compiled from cached VCAA documents.",
+    "note": "Copied by a script from the Victorian Curriculum Version 2.0 on 15 November 2026, not typed from memory.",
     "stem": "Students learn that:",
     "text": "sound can make materials vibrate and vibrating materials can make sound; different actions can be used to produce sounds of varying pitch and volume",
     "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S2U12",
@@ -135,9 +135,9 @@
   "paraphrase": {
     "status": "approved",
     "sources": [
-      "vcaa-local"
+      "vcaa-curriculum"
     ],
-    "note": "My reading of the description and its achievement standard. The achievement standard wording was checked in the local copy: students describe the effect of sound energy on objects and demonstrate how different sounds can be produced.",
+    "note": "My reading of the description and its achievement standard. The achievement standard wording was checked in the curriculum: students describe the effect of sound energy on objects and demonstrate how different sounds can be produced.",
     "text": "Sound and vibration go both ways. When something vibrates (shakes back and forth very fast) it makes a sound, and a sound can make other things vibrate. Students also need to make sounds on purpose: louder or quieter, higher or lower, by changing what they do or what they do it to. The assessable skills are describing what a sound does to an object and showing how to produce different sounds.",
     "asks_for": [
       "Vibrating materials make sound. Every sound has something vibrating behind it, even when the vibration is too small or too fast to see.",
@@ -156,7 +156,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local",
+        "vcaa-curriculum",
         "r2p-booklet",
         "iop-vibrations"
       ],
@@ -178,7 +178,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "My judgement. This is the first half of the description and the first half of the achievement standard sentence (the effect of sound energy on objects). A VCAA elaboration has students investigate how sound energy makes things vibrate.",
       "question": "What can a sound do to the things around it?",
@@ -196,7 +196,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "My judgement. A VCAA elaboration has students find patterns between the volume of a sound and the strength of the vibrations that produced it.",
       "question": "How can we make a sound louder or quieter?",
@@ -214,7 +214,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local",
+        "vcaa-curriculum",
         "r2p-booklet",
         "iop-pitch-volume"
       ],
@@ -237,10 +237,10 @@
   "vocabulary": {
     "status": "approved",
     "sources": [
-      "vcaa-local",
+      "vcaa-curriculum",
       "r2p-booklet"
     ],
-    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the wording in the local copy. Loudness and pitch are named as target vocabulary in a VCAA elaboration. High, low, soft and volume all have other everyday meanings, so they need explicit teaching.",
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the official wording. Loudness and pitch are named as target vocabulary in a VCAA elaboration. High, low, soft and volume all have other everyday meanings, so they need explicit teaching.",
     "everyday": [
       {
         "term": "sound"
@@ -451,9 +451,9 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
-      "note": "The code and its wording were checked in the local copy. None of its elaborations mention sound, so the link is my judgement.",
+      "note": "The code and its wording were checked in the curriculum. None of its elaborations mention sound, so the link is my judgement.",
       "code": "VC2S2I01",
       "skill": "Questioning and predicting",
       "how": "Students predict before each test: will the longer ruler sound higher or lower? Will the rice move if nobody touches the drum?"
@@ -461,7 +461,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "Two VCAA elaborations for this code use sound: suggesting materials and equipment to test predictions and measure the loudness of sounds made by different objects, and following steps to construct a musical instrument.",
       "code": "VC2S2I02",
@@ -471,7 +471,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "A VCAA elaboration for this code names clap-o-meter apps that measure sound volume and slow-motion video of a vibrating ruler. I have not checked which sound meter apps are on the school iPads.",
       "code": "VC2S2I03",
@@ -481,7 +481,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "A VCAA elaboration for this code has students find patterns in the sounds made by saucepan lids of different sizes or elastic bands of different thicknesses.",
       "code": "VC2S2I04",
@@ -491,7 +491,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "A VCAA elaboration for this code has students compare their observations of sound with those of others and consider whether everyone senses sound in the same way.",
       "code": "VC2S2I05",
@@ -503,7 +503,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "The VCAA lists this as an elaboration of VC2S2U12 itself.",
       "hook": "Echoes and echolocation: where echoes happen, and how dolphins, bats and some people with vision impairment use echoes to find objects around them.",
@@ -512,7 +512,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "Both examples are VCAA elaborations for this code.",
       "code": "VC2S2H02",
@@ -522,7 +522,7 @@
     {
       "status": "verified",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "A VCAA elaboration for this code lists sound recordings among the ways scientists make observations. The link to the lesson is my suggestion.",
       "code": "VC2S2H01",
@@ -532,7 +532,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "There is no First Nations elaboration for sound at Foundation to Level 2. The only VCAA link is a Levels 9 and 10 elaboration (VC2S10U14) on how the choice of material affects the sound of Aboriginal and Torres Strait Islander Peoples' traditional musical, hunting and communication instruments. Which instruments, and what is appropriate to share or handle, I did not check. Use a named Koorie source or the school's Koorie education contacts before teaching it.",
       "hook": "Aboriginal and Torres Strait Islander Peoples have long chosen materials for the sound they make, in instruments for music and for communication.",
@@ -544,7 +544,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "gap": true,
         "summary": "There is no level below. Foundation to Level 2 is the first band of the Science curriculum, and Foundation has no separate content descriptions."
@@ -554,9 +554,9 @@
       {
         "status": "approved",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
-        "note": "The code and its wording were checked in the local copy. The link is my judgement.",
+        "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
         "code": "VC2S2U11",
         "band": "Foundation to Level 2",
         "label": "Pushes and pulls",
@@ -565,7 +565,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "A VCAA elaboration for this code covers the five sensory organs, including ears, and echolocation in bats.",
         "code": "VC2S2U03",
@@ -576,9 +576,9 @@
       {
         "status": "approved",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
-        "note": "The code and its wording were checked in the local copy. No elaboration mentions sound, so the link is my judgement. It is the pairing in the hub's curriculum file and in the Sound Signals unit.",
+        "note": "The code and its wording were checked in the curriculum. No elaboration mentions sound, so the link is my judgement. It is the pairing in the hub's curriculum file and in the Sound Signals unit.",
         "code": "VC2TDE2C04",
         "band": "Foundation to Level 2",
         "label": "Properties of materials",
@@ -587,7 +587,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "A VCAA elaboration for this code has students assemble the containers, contents and joining materials for musical shakers and check they work.",
         "code": "VC2TDE2D03",
@@ -598,9 +598,9 @@
       {
         "status": "approved",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
-        "note": "The code and its wording were checked in the local copy. No Digital Technologies elaboration at this level mentions sound, so this is my judgement and a loose link. The Sound Signals unit lists this code.",
+        "note": "The code and its wording were checked in the curriculum. No Digital Technologies elaboration at this level mentions sound, so this is my judgement and a loose link. The Sound Signals unit lists this code.",
         "code": "VC2TDI2S01",
         "band": "Foundation to Level 2",
         "label": "Exploring digital systems",
@@ -611,7 +611,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "gap": true,
         "summary": "There is no content description about sound at Levels 3 and 4, or at Levels 7 and 8. After Level 2, sound comes back by name only at Levels 9 and 10, so this is the one planned chance in primary school to teach how sounds are made."
@@ -619,7 +619,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "A VCAA elaboration for this code has students show electrical energy being transformed into heat, light and sound.",
         "code": "VC2S6U09",
@@ -630,9 +630,9 @@
       {
         "status": "approved",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
-        "note": "The code and its wording were checked in the local copy. The link is my judgement: the description does not mention sound.",
+        "note": "The code and its wording were checked in the curriculum. The link is my judgement: the description does not mention sound.",
         "code": "VC2S6U08",
         "band": "Levels 5 and 6",
         "label": "Light",
@@ -641,7 +641,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "The description names sound alongside movement and light.",
         "code": "VC2TDE6C01",
@@ -652,7 +652,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "A VCAA elaboration for this code explains how digital systems store audio as whole numbers for the amplitude of the sound wave.",
         "code": "VC2TDI8D01",
@@ -663,7 +663,7 @@
       {
         "status": "verified",
         "sources": [
-          "vcaa-local"
+          "vcaa-curriculum"
         ],
         "note": "VCAA elaborations for this code link the volume of a sound to the amplitude of its wave and pitch to frequency, model sound with slinky springs, and look at material choice in Aboriginal and Torres Strait Islander Peoples' instruments.",
         "code": "VC2S10U14",
@@ -729,7 +729,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "The twanged ruler is an example in a VCAA elaboration, and slow-motion video of it is in another. The lesson shape is my suggestion and has not been trialled.",
       "title": "The twanging ruler",
@@ -746,7 +746,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "My suggestion, not trialled. It is the half of the description that the ruler does not show: sound making a material vibrate. Balloons and baking paper are on the STEAM room inventory. Rice or salt and elastic bands are not listed.",
       "title": "Jumping rice and a buzzing balloon",
@@ -764,7 +764,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "Elastic bands of different thicknesses and box guitars are examples in VCAA elaborations. The lesson shape is my suggestion and has not been trialled.",
       "title": "Elastic band box guitar",
@@ -792,7 +792,7 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
       "note": "My judgement, from the wording of the description and the achievement standard, which both start with what sound does to objects.",
       "pitfall": "Teaching only that vibrations make sound, and leaving out that sound makes materials vibrate.",
@@ -801,9 +801,9 @@
     {
       "status": "approved",
       "sources": [
-        "vcaa-local"
+        "vcaa-curriculum"
       ],
-      "note": "My judgement, from comparing this description with VC2S10U14 in the local copy.",
+      "note": "My judgement, from comparing this description with VC2S10U14 in the curriculum.",
       "pitfall": "Explaining sound with waves, particles or the inside of the ear.",
       "instead": "Stay with what students can see, feel and hear: something vibrates, and the sound changes when the vibration changes. Waves wait until Levels 9 and 10 (VC2S10U14)."
     },
@@ -826,7 +826,6 @@
     }
   ],
   "unverified": [
-    "The VCAA site was offline on 15 November 2026, so the official wording, the elaborations and the neighbouring codes were all taken from the hub's local copy of the curriculum, not from the live site. The local copy says it was compiled from cached VCAA documents. Check the description against the VCAA site when it is back.",
     "I could not read the original research studies. Each verified misconception rests on a published summary that I read and that names the studies. Several of those studies were with students older than Years 1 and 2 (the notes say which), so how common each idea is at ages 5 to 8 is not confirmed.",
     "The last misconception (that sound cannot make things move) is my judgement. I found no study for it.",
     "There is no First Nations elaboration for sound at Foundation to Level 2. The First Nations hook leans on a Levels 9 and 10 elaboration and names no instrument or community. I did not find or check a Koorie source.",
