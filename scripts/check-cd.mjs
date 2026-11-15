@@ -107,7 +107,7 @@ function extraRules(cd, file, errors) {
     }
     // Verified means checked against a named source that was actually read.
     if (field.status === "verified" && !ids.some((id) => sources.get(id) && sources.get(id).read)) {
-      errors.push(`${where}: status is verified but it names no source that was read (use draft, or add the source)`);
+      errors.push(`${where}: status is verified but it names no source that was read (use draft, or add the source; approved is for James's review, not for sources)`);
     }
   }
   for (const s of sources.values()) {
@@ -183,6 +183,7 @@ function summary(cd) {
     sub_strand: cd.sub_strand,
     updated: cd.updated,
     verified: fields.filter((f) => f.field.status === "verified").length,
+    approved: fields.filter((f) => f.field.status === "approved").length,
     draft: fields.filter((f) => f.field.status === "draft").length,
     unverified: (cd.unverified || []).length,
   };
@@ -217,7 +218,7 @@ for (const name of files) {
   } else {
     const s = summary(cd);
     index.push(s);
-    console.log(`ok   ${name}: ${s.verified} verified, ${s.draft} draft, ${s.unverified} flagged as not checked`);
+    console.log(`ok   ${name}: ${s.verified} verified, ${s.approved} approved, ${s.draft} draft, ${s.unverified} flagged as not checked`);
   }
 }
 

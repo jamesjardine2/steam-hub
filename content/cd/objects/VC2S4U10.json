@@ -7,6 +7,7 @@
   "strand": "Science Understanding",
   "sub_strand": "Physical sciences",
   "updated": "2026-11-15",
+  "approved_on": "2026-11-15",
   "sources": [
     {
       "id": "vcaa-local",
@@ -133,7 +134,7 @@
     "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
   },
   "paraphrase": {
-    "status": "draft",
+    "status": "approved",
     "sources": [
       "vcaa-local"
     ],
@@ -154,7 +155,7 @@
   },
   "key_questions": [
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local",
         "iop-keep-moving"
@@ -175,7 +176,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local",
         "iop-friction"
@@ -195,7 +196,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -215,7 +216,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -233,7 +234,7 @@
     }
   ],
   "vocabulary": {
-    "status": "draft",
+    "status": "approved",
     "sources": [
       "vcaa-local"
     ],
@@ -451,7 +452,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -483,7 +484,7 @@
       "how": "Students use a planning scaffold for a friction test: change the surface, keep the object, the ramp and the release the same."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -557,7 +558,7 @@
         "summary": "Pushes and pulls are forces that change an object's movement or shape, and have a strength and a direction. The idea this description builds on: check it first."
       },
       {
-        "status": "draft",
+        "status": "approved",
         "sources": [
           "vcaa-local"
         ],
@@ -568,7 +569,7 @@
         "summary": "The way objects move depends on their size, shape and material. Students arrive having rolled, slid and bounced things. This description adds the forces that explain what they saw."
       },
       {
-        "status": "draft",
+        "status": "approved",
         "sources": [
           "vcaa-local"
         ],
@@ -592,7 +593,7 @@
         "summary": "Design and Technologies: how forces affect the way a product or system works. The hub's STEAM pairing for this description, and the pairing in Think Like an Engineer."
       },
       {
-        "status": "draft",
+        "status": "approved",
         "sources": [
           "vcaa-local"
         ],
@@ -733,7 +734,7 @@
   },
   "anchors": [
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -751,7 +752,7 @@
       "caution": "Release, do not push. A push changes two things at once and hands students the idea that the car carries a force that runs out."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -770,7 +771,7 @@
       "caution": "Keep magnets away from iPads, bank cards and anyone with a medical implant. Strong magnets can pinch fingers."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -800,7 +801,7 @@
       "instead": "Plan one explicit question that ties the challenge to the science, such as which force slowed it down and what exerted it, and ask it before and after testing."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "r2p-booklet",
         "iop-keep-moving"
@@ -810,7 +811,7 @@
       "instead": "Name the force that changed the motion and the object that exerted it: the carpet's friction slowed the car."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -819,7 +820,7 @@
       "instead": "Keep returning to the same three questions: what exerted the force, was it touching, and what did it do to the motion?"
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local",
         "iop-friction"
@@ -829,7 +830,7 @@
       "instead": "Include grip: shoe soles, tyres, brakes, and what holding a pencil would be like without friction."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],

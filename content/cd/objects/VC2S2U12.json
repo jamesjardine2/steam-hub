@@ -7,6 +7,7 @@
   "strand": "Science Understanding",
   "sub_strand": "Physical sciences",
   "updated": "2026-11-15",
+  "approved_on": "2026-11-15",
   "sources": [
     {
       "id": "vcaa-local",
@@ -132,7 +133,7 @@
     "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
   },
   "paraphrase": {
-    "status": "draft",
+    "status": "approved",
     "sources": [
       "vcaa-local"
     ],
@@ -153,7 +154,7 @@
   },
   "key_questions": [
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local",
         "r2p-booklet",
@@ -175,7 +176,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -193,7 +194,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -211,7 +212,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local",
         "r2p-booklet",
@@ -234,7 +235,7 @@
     }
   ],
   "vocabulary": {
-    "status": "draft",
+    "status": "approved",
     "sources": [
       "vcaa-local",
       "r2p-booklet"
@@ -438,7 +439,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [],
       "note": "My judgement. I found no study for it. It is the first half of the description, which most sound teaching skips.",
       "idea": "Vibrating things make sound, but a sound cannot make something else move.",
@@ -448,7 +449,7 @@
   ],
   "inquiry": [
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -529,7 +530,7 @@
       "first_nations": false
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -551,7 +552,7 @@
     ],
     "same": [
       {
-        "status": "draft",
+        "status": "approved",
         "sources": [
           "vcaa-local"
         ],
@@ -573,7 +574,7 @@
         "summary": "The external features of plants and animals and what they do. Ears are the feature that detects sound, and some animals rely on echoes."
       },
       {
-        "status": "draft",
+        "status": "approved",
         "sources": [
           "vcaa-local"
         ],
@@ -595,7 +596,7 @@
         "summary": "Design and Technologies: using materials, components, tools and techniques to make designs safely. Making a shaker or box guitar is this description at work."
       },
       {
-        "status": "draft",
+        "status": "approved",
         "sources": [
           "vcaa-local"
         ],
@@ -627,7 +628,7 @@
         "summary": "Energy is transferred and transformed in electrical circuits. Sound appears as one thing electrical energy can become, for example in a buzzer."
       },
       {
-        "status": "draft",
+        "status": "approved",
         "sources": [
           "vcaa-local"
         ],
@@ -726,7 +727,7 @@
   },
   "anchors": [
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -743,7 +744,7 @@
       "caution": "Change one thing at a time, length or strength, or pitch and volume will blur together. Hold the ruler down firmly near the desk edge."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -761,7 +762,7 @@
       "caution": "Bang beside the cup, not over it, so breath or a bumped desk does not move the rice. Check for latex allergies before using balloons."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -789,7 +790,7 @@
       "instead": "Once the idea is in place, take it to sounds with no visible vibration (a voice, a clap, a whistle, a speaker) and ask each time what is vibrating."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -798,7 +799,7 @@
       "instead": "Plan one experience where students see or feel a sound moving something without touching it."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-local"
       ],
@@ -807,7 +808,7 @@
       "instead": "Stay with what students can see, feel and hear: something vibrates, and the sound changes when the vibration changes. Waves wait until Levels 9 and 10 (VC2S10U14)."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "r2p-booklet",
         "respect-sound"
@@ -817,7 +818,7 @@
       "instead": "Fix the pairs and keep to them: loud and quiet for volume, high and low for pitch. Show both words with a gesture or picture every time."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [],
       "note": "My judgement, not based on a source.",
       "pitfall": "Twenty-five instruments played at once. Nobody can hear a pattern, and it is hard on students who are sensitive to noise.",

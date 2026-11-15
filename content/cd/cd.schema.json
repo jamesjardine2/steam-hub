@@ -508,14 +508,20 @@
         "type": "string",
         "minLength": 5
       }
+    },
+    "approved_on": {
+      "$ref": "#/$defs/date",
+      "description": "The date James approved the draft fields in this file."
     }
   },
   "$defs": {
     "status": {
       "enum": [
         "verified",
+        "approved",
         "draft"
-      ]
+      ],
+      "description": "verified: checked against a named source that was read. draft: Claude's judgement, waiting for James's review. approved: Claude's judgement that James has reviewed and approved. Only James's say-so moves a field from draft to approved."
     },
     "date": {
       "type": "string",

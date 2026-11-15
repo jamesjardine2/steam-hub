@@ -8,7 +8,8 @@
       "sub_strand": "Chemical sciences",
       "updated": "2026-11-11",
       "verified": 21,
-      "draft": 25,
+      "approved": 25,
+      "draft": 0,
       "unverified": 6
     },
     {
@@ -18,7 +19,8 @@
       "sub_strand": "Physical sciences",
       "updated": "2026-11-15",
       "verified": 23,
-      "draft": 20,
+      "approved": 20,
+      "draft": 0,
       "unverified": 6
     },
     {
@@ -28,7 +30,8 @@
       "sub_strand": "Physical sciences",
       "updated": "2026-11-15",
       "verified": 23,
-      "draft": 18,
+      "approved": 18,
+      "draft": 0,
       "unverified": 7
     },
     {
@@ -38,7 +41,8 @@
       "sub_strand": "Physical sciences",
       "updated": "2026-11-10",
       "verified": 19,
-      "draft": 23,
+      "approved": 23,
+      "draft": 0,
       "unverified": 6
     }
   ]

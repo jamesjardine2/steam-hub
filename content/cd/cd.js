@@ -59,7 +59,7 @@
   let sourceNumbers = new Map();
 
   const pill = (status) =>
-    h("span", { class: `cd-status is-${status}` }, status === "verified" ? "Verified" : "Draft");
+    h("span", { class: `cd-status is-${status}` }, { verified: "Verified", approved: "Approved", draft: "Draft" }[status] || status);
 
   // [1] [3]: links to the numbered sources at the bottom of the page.
   function refs(ids) {
@@ -79,8 +79,9 @@
 
   function counts(fields) {
     const verified = fields.filter((f) => f.status === "verified").length;
-    const draft = fields.length - verified;
-    return [verified ? `${verified} verified` : "", draft ? `${draft} draft` : ""].filter(Boolean).join(" · ");
+    const approved = fields.filter((f) => f.status === "approved").length;
+    const draft = fields.length - verified - approved;
+    return [verified ? `${verified} verified` : "", approved ? `${approved} approved` : "", draft ? `${draft} draft` : ""].filter(Boolean).join(" · ");
   }
 
   function section(title, fields, body, open) {
@@ -267,7 +268,7 @@
       h("div", { class: "cd-map-scroll" }, map),
       h("p", { class: "cd-map-legend" },
         key("leads", "Leads to"), key("connects", "Connects"), key("loose", "Loose link"),
-        h("span", { class: "cd-map-key" }, h("span", { class: "cd-node-swatch" }), "Draft: needs review")));
+        nodes.some((n) => n.status === "draft") ? h("span", { class: "cd-map-key" }, h("span", { class: "cd-node-swatch" }), "Draft: needs review") : null));
   }
 
   // A path through corner points, with the corners rounded.
@@ -416,7 +417,9 @@
     return h("div", { class: "card stack-tight" },
       h("h2", { class: "card-title" }, "Reading the labels"),
       h("p", { class: "small" }, pill("verified"), " Checked against a named source that was read. Follow the source numbers."),
-      h("p", { class: "small" }, pill("draft"), " Claude's own judgement. It needs James's review."),
+      h("p", { class: "small" }, pill("approved"), " Claude's own judgement, reviewed and approved by James", cd.approved_on ? ` on ${niceDate(cd.approved_on)}` : "", "."),
+      // The draft label is explained only while the sheet still has a draft.
+      JSON.stringify(cd).includes('"status":"draft"') ? h("p", { class: "small" }, pill("draft"), " Claude's own judgement. It needs James's review.") : null,
       h("p", { class: "small muted" }, `Updated ${niceDate(cd.updated)}.`));
   }
 
@@ -439,7 +442,7 @@
         h("div", { class: "hero-text" },
           h("p", { class: "hero-kicker" }, `${cd.code} · ${cd.learning_area} · ${cd.band} · ${cd.sub_strand}`),
           h("h1", {}, cd.title),
-          summary ? h("p", { class: "cd-hero-meta" }, `${summary.verified} fields verified · ${summary.draft} draft`) : null)),
+          summary ? h("p", { class: "cd-hero-meta" }, [`${summary.verified} fields verified`, summary.approved ? `${summary.approved} approved` : "", summary.draft ? `${summary.draft} draft` : ""].filter(Boolean).join(" · ")) : null)),
       official(cd),
       h("div", { class: "columns" },
         h("section", { class: "main-col accs" },
@@ -531,7 +534,7 @@
         h("span", { class: "code" }, o.code),
         h("span", { class: "name" }, o.title),
         h("span", { class: "small muted" }, `${o.band} · ${o.sub_strand}`),
-        h("span", { class: "small muted" }, `${o.verified} verified · ${o.draft} draft`));
+        h("span", { class: "small muted" }, [`${o.verified} verified`, o.approved ? `${o.approved} approved` : "", o.draft ? `${o.draft} draft` : ""].filter(Boolean).join(" · ")));
     document.title = "Science cycle · FCPS STEAM";
     // The switch sits beside the heading, so the whole table fits one screen.
     const view = cycle ? h("div", { class: "cyc-view" }, cycleTable(cycle, sheets)) : null;

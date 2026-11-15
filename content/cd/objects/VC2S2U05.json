@@ -7,6 +7,7 @@
   "strand": "Science Understanding",
   "sub_strand": "Chemical sciences",
   "updated": "2026-11-11",
+  "approved_on": "2026-11-15",
   "sources": [
     {
       "id": "vcaa-science",
@@ -95,7 +96,7 @@
     "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
   },
   "paraphrase": {
-    "status": "draft",
+    "status": "approved",
     "sources": [
       "vcaa-science"
     ],
@@ -115,7 +116,7 @@
   },
   "key_questions": [
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-science",
         "r2p-booklet"
@@ -135,7 +136,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-science"
       ],
@@ -155,7 +156,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-science"
       ],
@@ -173,7 +174,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-science"
       ],
@@ -192,7 +193,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-science"
       ],
@@ -211,7 +212,7 @@
     }
   ],
   "vocabulary": {
-    "status": "draft",
+    "status": "approved",
     "sources": [
       "vcaa-science",
       "r2p-booklet"
@@ -368,7 +369,7 @@
       ]
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "harden-waller-2025"
       ],
@@ -378,7 +379,7 @@
       "respond": "Compare the same number of strips loose and combined, so the amount is not the difference."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [],
       "note": "My judgement. Not checked against research.",
       "idea": "A combined thing is just its ingredients sitting together, so it must behave like them. Or the opposite: once mixed, the flour and water are gone.",
@@ -386,7 +387,7 @@
       "respond": "Ask before and after: what is it made of now, and what can it do now that it could not do before?"
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [],
       "note": "My judgement. Not checked against research.",
       "idea": "A mixture is something you cook or eat.",
@@ -396,7 +397,7 @@
   ],
   "inquiry": [
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-science"
       ],
@@ -466,7 +467,7 @@
       "first_nations": false
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-science"
       ],
@@ -509,7 +510,7 @@
         "label": "Changing shape"
       },
       {
-        "status": "draft",
+        "status": "approved",
         "sources": [
           "vcaa-science"
         ],
@@ -531,7 +532,7 @@
         "summary": "Design and Technologies: the characteristics and properties of the materials and components used in designs. The hub's STEAM pairing for this description: the science says a combination has new properties, and the design work puts those properties to use."
       },
       {
-        "status": "draft",
+        "status": "approved",
         "sources": [
           "vcaa-dt"
         ],
@@ -542,7 +543,7 @@
         "summary": "Design and Technologies: choosing and preparing food for healthy eating. Preparing food is combining materials for a purpose, so cooking can carry the same idea. A loose link."
       },
       {
-        "status": "draft",
+        "status": "approved",
         "sources": [
           "vcaa-digital"
         ],
@@ -708,7 +709,7 @@
   },
   "anchors": [
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [],
       "note": "This is the test Paper Makers Lesson 3 already uses. Described from the unit files, not observed.",
       "title": "Loose strips against a woven mat",
@@ -724,7 +725,7 @@
       "caution": "Keep the amount of paper the same in both tests, or students will credit the extra paper."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [],
       "note": "This is the idea behind Paper Makers Lesson 4. Described from the unit files, not observed.",
       "title": "Powdery plus runny makes sticky",
@@ -740,7 +741,7 @@
       "caution": "Flour contains wheat: check the class for coeliac disease and wheat allergy first. Drying takes days, so the hard result has to be shown with a sample made earlier."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-science"
       ],
@@ -759,7 +760,7 @@
   ],
   "pitfalls": [
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-science"
       ],
@@ -768,13 +769,13 @@
       "instead": "Be explicit about which one a lesson is: changing a material, or combining materials. Twisting or weaving several strips together sits in both, so name the combining."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [],
       "pitfall": "An unfair comparison, where the combined version simply has more material than the single one.",
       "instead": "Use the same amount of material in both tests, so the way it is combined is the only difference."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-science"
       ],
@@ -783,7 +784,7 @@
       "instead": "Always run the same simple test before and after combining, and finish with the sentence: on its own it was, combined it is."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "r2p-booklet"
       ],
@@ -792,13 +793,13 @@
       "instead": "Teach the three words explicitly and keep asking the pair of questions: what is it, and what is it made of?"
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [],
       "pitfall": "Using strong loosely, so it means hard, thick, heavy or good depending on the child.",
       "instead": "Define strong by the test: it holds more pebbles before it tears or drops them."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [
         "vcaa-science"
       ],
@@ -807,7 +808,7 @@
       "instead": "Balance mixtures with made objects and their purposes. Leave reversible and irreversible for Levels 5 and 6."
     },
     {
-      "status": "draft",
+      "status": "approved",
       "sources": [],
       "pitfall": "Forgetting allergies and mess when mixtures use food or flour.",
       "instead": "Check the class medical list before any flour, food or paste lesson, and mix in sealed bags where you can."
