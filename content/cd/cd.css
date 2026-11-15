@@ -49,7 +49,7 @@
 .cd-group { margin-top: 18px; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); }
 .cd-group:first-child { margin-top: 6px; }
 
-/* The map of related content descriptions: levels up the side, a column for
+/* The map of related content descriptions: levels down the side, a column for
    each learning area, a small box for each description and lines between
    them. Violet arrows show progression. Orange outlines are drafts. */
 .cd-map-scroll { overflow-x: auto; padding-bottom: 4px; }

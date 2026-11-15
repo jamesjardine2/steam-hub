@@ -198,7 +198,7 @@
   }
 
   // ---- The map of related content descriptions ----
-  // Levels run up the side (highest at the top) and each learning area has a
+  // Levels run down the side (lowest at the top) and each learning area has a
   // column. Every box opens its content description on the VCAA site.
 
   const MAP_AREAS = [["VC2S", "Science"], ["VC2TDE", "Design and Technologies"], ["VC2TDI", "Digital Technologies"]];
@@ -238,11 +238,13 @@
     };
 
     const bands = [];
-    for (let level = Math.max(...levels); level >= Math.min(...levels); level -= 2) {
+    // Lowest level at the top. Each cell is filled in reverse, so this fact
+    // sheet's own box sits at the bottom of its cell, next to the level below.
+    for (let level = Math.min(...levels); level <= Math.max(...levels); level += 2) {
       bands.push(h("div", { class: "cd-map-row", "data-level": level },
         h("div", { class: "cd-map-level" }, MAP_LEVELS[level]),
         MAP_AREAS.map((_, col) => h("div", { class: "cd-map-cell" },
-          nodes.filter((n) => n.level === level && n.col === col).map(box)))));
+          nodes.filter((n) => n.level === level && n.col === col).reverse().map(box)))));
     }
 
     const lines = s("svg", { class: "cd-map-lines", "aria-hidden": "true" });
