@@ -1,6 +1,6 @@
 # Curriculum fact sheets (CD objects)
 
-A CD object is a fact sheet for one Victorian Curriculum 2.0 Science content description: what it asks, what students get wrong, and where to start. This is a trial (November 2026). There are four so far: VC2S6U08, VC2S2U05, VC2S2U12 and VC2S4U10. James asks for each one. Do not add more until he asks.
+A CD object is a fact sheet for one Victorian Curriculum 2.0 Science content description: what it asks, what students get wrong, and where to start. This is a trial (November 2026). There are five so far: VC2S6U08, VC2S2U05, VC2S2U12, VC2S4U10 and VC2S6U09. James asks for each one. Do not add more until he asks.
 
 ## What is in this folder
 

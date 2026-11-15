@@ -1,0 +1,860 @@
+{
+  "schema_version": 1,
+  "code": "VC2S6U09",
+  "title": "Electrical circuits",
+  "learning_area": "Science",
+  "band": "Levels 5 and 6",
+  "strand": "Science Understanding",
+  "sub_strand": "Physical sciences",
+  "updated": "2026-11-15",
+  "sources": [
+    {
+      "id": "vcaa-curriculum",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "vcaa-copyright",
+      "citation": "Victorian Curriculum and Assessment Authority. Copyright statement for the Victorian Curriculum site (CC BY-NC 3.0 Australia licence and the attribution it asks for).",
+      "url": "https://f10.vcaa.vic.edu.au/copyright-statement",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "iop-one-wire",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Some students hold a 'consumer-source' model of the simple circuit\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/some-students-hold-consumer-source-model-simple-circuit",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "iop-wires",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Some students have differing ideas about what is happening in the wires of an electric circuit when it is working\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/some-students-have-differing-ideas-about-what-happening-wires-electric-circuit-when-it-working",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "iop-battery",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Many students think that electric current or electric charge (or 'electricity'), rather than energy, is stored in a battery\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/many-students-think-electric-current-or-electric-charge-or-electricity-rather-energy-stored-battery",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "iop-sequence",
+      "citation": "Institute of Physics. IOPSpark misconception research review: \"Many students see circuit behaviour as a sequence of causes and effects, rather than seeing the whole circuit as an interacting system\" (with the studies that documented it).",
+      "url": "https://spark.iop.org/many-students-see-circuit-behaviour-sequence-causes-and-effects-rather-seeing-whole-circuit",
+      "accessed": "2026-11-15",
+      "read": true
+    },
+    {
+      "id": "osborne-1983",
+      "citation": "Osborne, R. (1983). Towards modifying children's ideas about electric current. Research in Science and Technological Education, 1 (1), pages 73 to 82.",
+      "read": false,
+      "via": "iop-one-wire"
+    },
+    {
+      "id": "azaiza-2006",
+      "citation": "Azaiza, I., Bar, V. and Galili, I. (2006). Learning electricity in elementary school. International Journal of Science and Mathematics Education, 4 (1), pages 45 to 71.",
+      "read": false,
+      "via": "iop-one-wire"
+    },
+    {
+      "id": "arnold-millar-1987",
+      "citation": "Arnold, M. and Millar, R. (1987). Being constructive: An alternative approach to the teaching of introductory ideas in electricity. International Journal of Science Education, 9 (5), pages 553 to 563.",
+      "read": false,
+      "via": "iop-wires"
+    },
+    {
+      "id": "shipstone-1988",
+      "citation": "Shipstone, D. (1988). Pupils' understanding of simple electrical circuits: Some implications for instruction. Physics Education, 23 (2), page 92.",
+      "read": false,
+      "via": "iop-wires"
+    },
+    {
+      "id": "chiu-lin-2005",
+      "citation": "Chiu, M. H. and Lin, J. W. (2005). Promoting fourth graders' conceptual change of their understanding of electric current via multiple analogies. Journal of Research in Science Teaching, 42 (4), pages 429 to 464.",
+      "read": false,
+      "via": "iop-battery"
+    },
+    {
+      "id": "summers-1998",
+      "citation": "Summers, M., Kruger, C. and Mant, J. (1998). Teaching electricity effectively in the primary school: a case study. International Journal of Science Education, 20 (2), pages 153 to 172.",
+      "read": false,
+      "via": "iop-battery"
+    }
+  ],
+  "descriptor": {
+    "status": "verified",
+    "sources": [
+      "vcaa-curriculum",
+      "vcaa-copyright"
+    ],
+    "note": "Copied by a script from the Victorian Curriculum Version 2.0 on 15 November 2026, not typed from memory.",
+    "stem": "Students learn that:",
+    "text": "materials may be electrical insulators or conductors; energy can be transferred and transformed in electrical circuits where the components of a circuit play particular roles in the function of the circuit",
+    "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S6U09",
+    "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
+  },
+  "paraphrase": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "My reading of the description and its achievement standard, which was checked in the curriculum: students distinguish between electrical insulators and conductors, and identify the role of circuit components in the transfer and transformation of electrical energy.",
+    "text": "Electricity only does something when there is a complete loop for it to travel around. Some materials let it through (conductors) and some do not (insulators), and a circuit uses both on purpose. Each part of a circuit has a job: the battery supplies the energy, the wires carry it, the switch opens and closes the loop, and a bulb, buzzer or motor turns the electrical energy into light, sound or movement. The assessable skills are telling conductors from insulators and saying what each part of a circuit is for.",
+    "asks_for": [
+      "Materials are either good at letting electricity through (conductors) or not (insulators).",
+      "A circuit is a complete loop of conducting material from one end of the energy source, through the parts, and back to the other end.",
+      "Each component has a role: source, conductor, switch, and a device such as a bulb, buzzer or motor.",
+      "Energy is transferred around a circuit and transformed by the device into light, sound, heat or movement."
+    ],
+    "not_asking": [
+      "Voltage, current and resistance as measured quantities. Those are Levels 7 and 8 (VC2S8U17).",
+      "Series and parallel circuits compared with measurements. Also Levels 7 and 8.",
+      "How electricity is generated. That is Levels 9 and 10 (VC2S10U16).",
+      "What is moving inside the wire (electrons, charge). A flow going around the loop is enough."
+    ]
+  },
+  "key_questions": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "iop-one-wire"
+      ],
+      "note": "My judgement. The list of what a circuit needs follows a VCAA elaboration. The complete loop is the idea the research says students most often lack.",
+      "question": "What does a circuit need before it will work?",
+      "know": [
+        "A circuit needs a source of electrical energy (a battery), conducting material (wires) and a device (a bulb, buzzer or motor).",
+        "The parts must join in a complete loop, from one end of the battery, through the device and back to the other end."
+      ],
+      "understand": [
+        "One wire is never enough. If there is a gap anywhere in the loop, nothing in the circuit works.",
+        "It all happens at once: the whole loop works together, not one part after another."
+      ],
+      "do": [
+        "Build a working circuit, and find and fix the fault in one that does not work.",
+        "Predict from a drawing whether a circuit will work, and say why."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Investigating conductors and insulators and why each is used is in a VCAA elaboration, and the question about the best conductor is in an elaboration for VC2S6I01.",
+      "question": "Which materials let electricity through, and why does it matter?",
+      "know": [
+        "A conductor lets electricity through. Metals are good conductors.",
+        "An insulator does not. Plastic, rubber, glass, wood and dry paper are insulators."
+      ],
+      "understand": [
+        "Circuits use both on purpose: metal inside a wire carries the electricity, and the plastic coating keeps it in.",
+        "Insulators are what make electricity safe to use."
+      ],
+      "do": [
+        "Test a set of materials in a circuit, sort them into conductors and insulators, and explain where each would be used."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. The role of switches is in a VCAA elaboration, and the roles of components are the achievement standard.",
+      "question": "What job does each part of a circuit do?",
+      "know": [
+        "The battery supplies the energy. The wires carry it. The switch makes and breaks the loop. The device uses it to do something.",
+        "A switch is a gap in the circuit that can be closed and opened."
+      ],
+      "understand": [
+        "Take any one part away and the circuit stops, because every part is a piece of the same loop.",
+        "A switch works wherever it is in the loop, because a gap anywhere stops the whole circuit."
+      ],
+      "do": [
+        "Name each part of a circuit and say what would happen without it.",
+        "Draw a circuit using the standard symbols."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "iop-battery"
+      ],
+      "note": "My judgement. Showing electrical energy being transformed into heat, light and sound is in a VCAA elaboration. Keeping energy apart from the thing that flows answers a misconception in the research.",
+      "question": "Where does the energy go?",
+      "know": [
+        "A battery stores energy.",
+        "A bulb turns electrical energy into light and heat, a buzzer into sound, a motor into movement."
+      ],
+      "understand": [
+        "Energy is transferred from the battery to the device and transformed there. That is why a battery goes flat.",
+        "The flow goes all the way around and back. It is the energy that is delivered, not the flow that is used up."
+      ],
+      "do": [
+        "Describe the energy change in a familiar device, such as a torch or a doorbell."
+      ]
+    }
+  ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, built from the achievement standard sentence and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Sort a set of materials into conductors and insulators, and say how they know.",
+        "Explain why a wire has metal inside and plastic outside.",
+        "Build or draw a complete circuit, and say why it has to be a loop.",
+        "Find the fault in a circuit that does not work.",
+        "Name each part of a circuit and say what job it does.",
+        "Explain what a switch does, and why it works wherever it sits in the loop.",
+        "Describe how energy is transformed in a device: electrical energy to light, sound, heat or movement."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [
+          "iop-one-wire"
+        ],
+        "note": "My suggestion, not trialled. The four drawings follow the kinds of answer the IOPSpark review reports, including the single wire.",
+        "title": "Will it light?",
+        "how": "Show four drawings of a battery, a bulb and wires: one wire only, two wires to the same end of the battery, a complete loop, and a loop with a gap. Students vote on each with thumbs up or down at the same moment, then one student explains each. Three minutes.",
+        "look_for": "Has it: thumbs up only for the complete loop, and says why. Not yet: thumbs up for the single wire, because the battery sends electricity to the bulb."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Conductor or insulator?",
+        "how": "Hold up eight objects one at a time (a key, a plastic ruler, foil, a rubber band, a coin, a pencil sharpened at both ends, a wooden stick, a paper clip). Students stand for a conductor and sit for an insulator, then test the two that split the room. Three minutes.",
+        "look_for": "Has it: stands for the metals and can say what they have in common. Not yet: sorts by whether it looks shiny or feels hard. The pencil is a good talking point: the graphite conducts and the wood does not."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "iop-sequence"
+        ],
+        "note": "My suggestion, not trialled. The idea that a change only affects what comes after it is from the IOPSpark review.",
+        "title": "Move the switch",
+        "how": "Draw a loop with a battery, a bulb and a switch before the bulb. Ask: if I move the switch to the other side of the bulb, will it still turn the bulb off? Students write yes or no and one reason on scrap paper and hold it up. Two minutes.",
+        "look_for": "Has it: yes, because a gap anywhere breaks the whole loop. Not yet: no, because the electricity has already reached the bulb."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Jobs at the door",
+        "how": "As students leave, point to one part of a circuit on the board (battery, wire, switch, bulb, plastic coating) and ask for its job in one sentence. One part each. Three to four minutes.",
+        "look_for": "Has it: says what the part does for the circuit (the battery supplies the energy, the coating keeps the electricity in). Not yet: describes what it looks like, or says the battery holds the electricity."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Circuits return at Levels 7 and 8 with voltage and current, so these go deeper at this level and only touch the next step lightly, through two bulbs in one loop. Taking a torch apart follows a VCAA elaboration for VC2TDE6C01.",
+      "items": [
+        "Give a circuit that does not work and no other help: find the fault, fix it, and write the rule that it broke.",
+        "Ask for the drawing first: draw the circuit with symbols, predict what it will do, then build it and compare.",
+        "Take a torch apart, trace the loop from battery to bulb and back, and find where the switch breaks it.",
+        "Design brief: build a switch from foil and card that only works when a door is opened, or a quiz board that lights when the right pair is touched.",
+        "Add a second bulb to the same loop and explain what changes, without using the word voltage.",
+        "Rank conductors: is every conductor as good as every other? Plan a fair way to find out.",
+        "Explain it: make a short Book Creator page that teaches a Year 3 student why one wire is never enough."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Start with the loop, using bodies: students hold hands in a ring, pass a squeeze around, and see it stop when one pair lets go.",
+        "Build one circuit and keep it built. Change one thing at a time and say what happened.",
+        "Trace the loop with a finger, out of the battery, through the bulb and back, every time.",
+        "Teach three part names first (battery, wire, bulb) and add switch, conductor and insulator later.",
+        "Give a sentence starter: The ... is for ... Without it, the circuit ...",
+        "Use a labelled picture of the circuit beside the real one, so the student can match part to name."
+      ],
+      "well_below": [
+        "Aim for one idea: join it all up and it works, make a gap and it stops.",
+        "Let the student be the switch: closing and opening the gap, and saying on and off.",
+        "Sort real objects into two piles only, lets it work and does not, using the tester.",
+        "Teach on, off and battery with pictures before the lesson, or ask the classroom teacher to.",
+        "Pair the student with a partner and give them a clear job, such as holding the foil pads or pressing the switch."
+      ]
+    }
+  },
+  "vocabulary": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the official wording. Transfer and transform are easy to confuse and need teaching side by side.",
+    "everyday": [
+      {
+        "term": "battery"
+      },
+      {
+        "term": "wire"
+      },
+      {
+        "term": "bulb"
+      },
+      {
+        "term": "switch"
+      },
+      {
+        "term": "on and off"
+      },
+      {
+        "term": "light"
+      },
+      {
+        "term": "buzz"
+      },
+      {
+        "term": "plug"
+      },
+      {
+        "term": "power"
+      }
+    ],
+    "academic": [
+      {
+        "term": "component",
+        "meaning": "One of the parts that make up something.",
+        "in_descriptor": true
+      },
+      {
+        "term": "role",
+        "meaning": "The job something does.",
+        "in_descriptor": true
+      },
+      {
+        "term": "function",
+        "meaning": "What something is for, or how it works.",
+        "in_descriptor": true
+      },
+      {
+        "term": "transfer",
+        "meaning": "To move from one place to another.",
+        "in_descriptor": true
+      },
+      {
+        "term": "transform",
+        "meaning": "To change from one form into another.",
+        "in_descriptor": true
+      },
+      {
+        "term": "complete",
+        "meaning": "With nothing missing and no gaps."
+      },
+      {
+        "term": "symbol",
+        "meaning": "A simple picture that stands for something."
+      }
+    ],
+    "science": [
+      {
+        "term": "electrical circuit",
+        "meaning": "A complete loop that electricity can travel around.",
+        "in_descriptor": true
+      },
+      {
+        "term": "conductor",
+        "meaning": "A material that lets electricity through.",
+        "in_descriptor": true
+      },
+      {
+        "term": "insulator",
+        "meaning": "A material that does not let electricity through.",
+        "in_descriptor": true
+      },
+      {
+        "term": "energy",
+        "meaning": "What makes things happen: light, sound, heat and movement all need it.",
+        "in_descriptor": true
+      },
+      {
+        "term": "electrical energy",
+        "meaning": "Energy carried by electricity."
+      },
+      {
+        "term": "source",
+        "meaning": "Where the energy comes from, such as a battery."
+      },
+      {
+        "term": "circuit diagram",
+        "meaning": "A drawing of a circuit that uses symbols."
+      },
+      {
+        "term": "short circuit",
+        "meaning": "A loop with no device in it, which gets hot and flattens the battery."
+      }
+    ]
+  },
+  "misconceptions": [
+    {
+      "status": "verified",
+      "sources": [
+        "iop-one-wire",
+        "osborne-1983",
+        "azaiza-2006"
+      ],
+      "note": "Checked against the IOPSpark review, which names studies with primary-age children, including Osborne (1983) with children aged 8 to 12. I did not read the studies.",
+      "idea": "The battery gives electricity to the bulb, so one wire from the battery to the bulb is enough.",
+      "science": "Nothing happens without a complete loop. There has to be a path from one end of the battery, through the bulb and back to the other end.",
+      "respond": "Ask students to predict and draw before they build: show me how you would light the bulb with one wire. Then let them try it.",
+      "research": [
+        "Osborne (1983)",
+        "Azaiza, Bar and Galili (2006)",
+        "Borges and Gilbert (1999)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "iop-wires",
+        "arnold-millar-1987"
+      ],
+      "note": "Checked against the IOPSpark review. I did not read the studies it names.",
+      "idea": "Electricity comes out of both ends of the battery and meets in the bulb. The clash is what makes it light.",
+      "science": "The flow goes one way around the loop: out of one end of the battery, through the bulb and back in at the other end.",
+      "respond": "Use the rope loop model: the rope moves one way all the way around, and it still works.",
+      "research": [
+        "Arnold and Millar (1987)",
+        "Osborne (1983)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "iop-wires",
+        "shipstone-1988"
+      ],
+      "note": "Checked against the IOPSpark review, which says this view is very hard to shift. I did not read the studies.",
+      "idea": "The bulb uses up the electricity, so less comes back to the battery than went out.",
+      "science": "The same flow comes back as went out. What the bulb takes is energy, which leaves as light and heat.",
+      "respond": "With the rope loop, ask whether any rope is lost at the hand that grips. The rope all comes back. The warmth in the hand is the energy.",
+      "research": [
+        "Shipstone (1988)",
+        "Arnold and Millar (1987)",
+        "Dupin and Johsua (1987)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "iop-battery",
+        "chiu-lin-2005",
+        "summers-1998"
+      ],
+      "note": "Checked against the IOPSpark review, which includes studies in primary schools. I did not read the studies.",
+      "idea": "A battery is a tank of electricity. When it is flat, the electricity has all been poured out.",
+      "science": "A battery stores energy, not electricity. The stuff that flows is already in the wires. The battery pushes it around, and goes flat when its stored energy is used.",
+      "respond": "Ask where the rope came from in the rope loop: it was there all along. The person pulling gets tired, and that is the battery going flat.",
+      "research": [
+        "Chiu and Lin (2005)",
+        "Summers, Kruger and Mant (1998)",
+        "Arnold and Millar (1987)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "iop-sequence"
+      ],
+      "note": "Checked against the IOPSpark review. The studies it names were mostly with secondary students, though it lists a teaching resource for ages 5 to 11, so how common this is in Years 5 and 6 is not confirmed.",
+      "idea": "Electricity sets off from the battery and reaches each part in turn, so a change only affects the parts after it.",
+      "science": "A circuit works as a whole. A switch or a gap anywhere stops everything at once.",
+      "respond": "Move the switch to the other side of the bulb and predict first. It still works.",
+      "research": [
+        "Shipstone (1988)",
+        "McDermott and Shaffer (1992)"
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "Conductors are metal things and insulators are everything else, with nothing in between.",
+      "science": "Metals are good conductors, but some other things conduct too, such as the graphite in a pencil and salty water. That is why water and electricity are dangerous together.",
+      "respond": "Put a pencil sharpened at both ends into the tester, then a cup of salty water."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement about what students think. Electrical hazards at home and the safety measures for them are in a VCAA elaboration.",
+      "idea": "Batteries are safe to play with, so the electricity in the wall must be much the same.",
+      "science": "Mains electricity is far more powerful than a small battery and can kill. Small batteries are used in class because they are safe.",
+      "respond": "Say it plainly at the start of the unit and again whenever circuits come out: batteries only, never a power point."
+    }
+  ],
+  "inquiry": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students pose the question: what type of material is the best conductor and what is the best insulator of electricity?",
+      "code": "VC2S6I01",
+      "skill": "Questioning and predicting",
+      "how": "Students predict which materials will complete the circuit, give a reason, and turn it into a question they can test."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students identify risks when identifying electrical hazards at home and explain rules for the safe use of equipment.",
+      "code": "VC2S6I02",
+      "skill": "Planning and conducting: fair tests and safety",
+      "how": "Students plan the conductor test (same tester, same length of material) and write the safety rules for working with batteries."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students represent circuits with virtual simulations or circuit diagrams and show the direction of electricity flow.",
+      "code": "VC2S6I04",
+      "skill": "Processing, modelling and analysing",
+      "how": "Students draw their circuit with the standard symbols, add an arrow for the direction of flow, and record the conductor test in a table."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
+      "code": "VC2S6I05",
+      "skill": "Evaluating",
+      "how": "Groups compare their conductor results, look for any that disagree, and work out whether the material or a loose connection was the cause."
+    }
+  ],
+  "human_endeavour": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The VCAA lists this as an elaboration of VC2S6U09 itself.",
+      "hook": "Electricity at home: how it is used, the hazards it brings, and the safety measures that reduce them, such as insulated wires, safety switches and keeping water away from power.",
+      "first_nations": false
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "This is a VCAA elaboration for the Design and Technologies description VC2TDE6C01, not for a Science description. It gives no detail beyond the sentence, and I did not check a First Nations source.",
+      "hook": "Solar power in remote communities: how photovoltaic systems are expected to give Aboriginal and Torres Strait Islander people ways to support and contribute to clean energy, at home and in industry.",
+      "first_nations": true
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The code and its wording were checked in the curriculum. The history is from my general knowledge, not a source I read for this fact sheet.",
+      "code": "VC2S6H01",
+      "hook": "The first battery: around 1800 Alessandro Volta stacked metal discs and wet card to make a steady flow of electricity, building on the work of Luigi Galvani. A story of science changing by building on other people's work.",
+      "first_nations": false
+    }
+  ],
+  "related": {
+    "below": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
+        "code": "VC2S4U09",
+        "band": "Levels 3 and 4",
+        "label": "Heat energy",
+        "summary": "Sources of heat energy, and heat moving from one object to another. The first time students meet energy being transferred, which this description builds on."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description names electrostatic forces. The link to circuits is my judgement and a loose one.",
+        "code": "VC2S4U10",
+        "band": "Levels 3 and 4",
+        "label": "Forces",
+        "summary": "Forces, including electrostatic forces. Students have met static electricity as a force. This description is their first look at electricity that flows."
+      }
+    ],
+    "same": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
+        "code": "VC2S6U08",
+        "band": "Levels 5 and 6",
+        "label": "Light",
+        "summary": "Light sources and how light travels. A bulb in a circuit is a light source, so the two descriptions meet where electrical energy becomes light."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names electrical energy and its transformation. Its elaborations include planning switches, bulbs and a power source, and taking apart a torch or buzzer to explore the circuit.",
+        "code": "VC2TDE6C01",
+        "band": "Levels 5 and 6",
+        "label": "Electricity to movement",
+        "summary": "Design and Technologies: how electrical energy is transformed into movement, sound or light in a product or system. The hub's STEAM pairing for this description."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students join components to produce an electric circuit.",
+        "code": "VC2TDE6D03",
+        "band": "Levels 5 and 6",
+        "label": "Making designs safely",
+        "summary": "Design and Technologies: choosing and using materials, tools and techniques to make designs safely. Building a working circuit is this description in action."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The code and its wording were checked in the curriculum. I did not check its elaborations, so the link is my judgement.",
+        "code": "VC2TDI6S01",
+        "band": "Levels 5 and 6",
+        "label": "Inside digital systems",
+        "summary": "Digital Technologies: the main internal components of digital systems and what they do. A micro:bit is a circuit with a source, conductors and devices, so it can be read with the same ideas."
+      }
+    ],
+    "above": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names circuits, components, voltage and current. Its elaborations include series and parallel circuits and household wiring.",
+        "code": "VC2S8U17",
+        "band": "Levels 7 and 8",
+        "label": "Voltage and current",
+        "summary": "Circuits transfer energy when current flows, and voltage and current explain how they work. The direct next step, where the ideas here get names and measurements."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code looks at heat as a by-product in filament light bulbs and in charging and using batteries.",
+        "code": "VC2S8U15",
+        "band": "Levels 7 and 8",
+        "label": "Forms of energy",
+        "summary": "Forms of energy, transfers and transformations, and energy efficiency. The energy idea from this description, widened beyond circuits."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students test the durability of batteries.",
+        "code": "VC2TDE8C01",
+        "band": "Levels 7 and 8",
+        "label": "Force, motion, energy",
+        "summary": "Design and Technologies: how force, motion and energy are used to control engineered systems."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names electricity, batteries and photovoltaic cells.",
+        "code": "VC2S10U16",
+        "band": "Levels 9 and 10",
+        "label": "Generating electricity",
+        "summary": "How electricity is generated as alternating or direct current. Where the energy in the battery or the wall comes from."
+      }
+    ],
+    "links": [
+      {
+        "from": "VC2S4U09",
+        "to": "VC2S6U09",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S4U10",
+        "to": "VC2S6U09",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S6U09",
+        "to": "VC2S6U08",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S6U09",
+        "to": "VC2TDE6C01",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2TDE6C01",
+        "to": "VC2TDE6D03",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S6U09",
+        "to": "VC2TDI6S01",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S6U09",
+        "to": "VC2S8U17",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S8U17",
+        "to": "VC2S8U15",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S8U17",
+        "to": "VC2TDE8C01",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2TDE6C01",
+        "to": "VC2TDE8C01",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S8U17",
+        "to": "VC2S10U16",
+        "kind": "leads"
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "status": "draft",
+      "sources": [
+        "iop-one-wire"
+      ],
+      "note": "The rope loop is the model the IOPSpark review points to for ages 5 to 11. The lesson shape is my suggestion and has not been trialled.",
+      "title": "The rope loop",
+      "phenomenon": "The class stands in a ring holding a long loop of rope loosely. One student pulls the rope through hand over hand, and it moves everywhere at once. Another grips it gently and feels their hand warm up.",
+      "students_do": "Predict what happens if one person lets go, if the puller stops, and if a second person grips. Test each, then match the model to the circuit: who is the battery, the wire, the bulb and the switch?",
+      "materials": [
+        "A loop of smooth rope about ten metres long, ends joined",
+        "A space where the class can stand in a ring"
+      ],
+      "shows": "A circuit is a complete loop that works all at once. The rope is not used up at the gripping hand. Energy is what is delivered.",
+      "caution": "Grip gently, since a tight grip on moving rope can burn. Say where the model stops being true: real circuits do not need pulling by hand."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My suggestion, not trialled. Investigating conductors and insulators is in a VCAA elaboration. Makey Makey kits and foil are on the STEAM room inventory. The inventory says the Makey Makey count is still to be confirmed and that they need a computer with USB.",
+      "title": "Does it complete the circuit?",
+      "phenomenon": "A Makey Makey plays a sound when the loop from its board, through an object and back through a student holding the earth lead, is complete. A key, foil and a pencil lead set it off. A ruler, a rubber band and dry paper do not.",
+      "students_do": "Predict for ten objects, test each one, and sort them into a two-column table. Then make the loop longer by adding more students holding hands, and find what happens when one lets go.",
+      "materials": [
+        "A Makey Makey with its crocodile leads, and a computer with USB, for each group",
+        "Test objects: keys, coins, foil, paper clips, a pencil sharpened at both ends, plastic, rubber, wood, paper, a cup of salty water"
+      ],
+      "shows": "Some materials are conductors and some are insulators, and a circuit only works when the loop is complete.",
+      "caution": "The Makey Makey senses tiny flows that a bulb circuit would not, so fruit and people conduct here. Say that it is a sensitive tester, and that this is why mains electricity is so dangerous to touch."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My suggestion, not trialled. The role of switches is in a VCAA elaboration. micro:bits and foil are on the STEAM room inventory. I did not check that the room has crocodile leads apart from those in the Makey Makey kits.",
+      "title": "Build a foil switch",
+      "phenomenon": "Two pads of foil on card, joined by crocodile leads to pin 0 and GND on a micro:bit, light the display and play a sound when they are pressed together. Lift them apart and it stops.",
+      "students_do": "Code the micro:bit to show an icon and play a tone when pin 0 is pressed. Build the foil switch, test it, then redesign it as a pressure pad or a door alarm. Name each part's job: battery pack, leads, foil, switch, display and speaker.",
+      "materials": [
+        "A micro:bit with its battery pack for each pair",
+        "Two crocodile leads",
+        "Foil, card and tape",
+        "An iPad with the micro:bit app"
+      ],
+      "shows": "A switch is a gap in the loop that can be closed. Each component has a role, and electrical energy is transformed into light and sound.",
+      "caution": "Never join the two ends of a battery with foil or a lead on their own: with no device in the loop it gets hot quickly. Batteries only, never a power point."
+    }
+  ],
+  "pitfalls": [
+    {
+      "status": "verified",
+      "sources": [
+        "iop-one-wire",
+        "osborne-1983"
+      ],
+      "note": "The IOPSpark review reports Osborne (1983): building a basic circuit does not guarantee that a student understands how the current flows, and discussing varied examples is what helps.",
+      "pitfall": "Taking a lit bulb as proof of understanding. Students can build a working circuit by trial and error and still think one wire would do.",
+      "instead": "Ask for a prediction and a drawing before the build, and an explanation after it. Include circuits that will not work."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "iop-battery",
+        "iop-wires"
+      ],
+      "note": "My judgement about teacher language. The student ideas it feeds are reported in the sources.",
+      "pitfall": "Saying the battery sends electricity to the bulb, the bulb uses the electricity, or the battery has run out of electricity.",
+      "instead": "Say the flow goes around the loop and back, the bulb transforms energy, and the battery has run out of stored energy."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. The inventory lists micro:bits, Jacdac kits and Makey Makeys, and no simple battery, bulb and wire sets.",
+      "pitfall": "Teaching circuits only through micro:bit, Jacdac or Makey Makey. They hide the loop inside a board and a cable, so students see plug it in and it works.",
+      "instead": "Use the rope loop first, name the hidden loop out loud every time, and if the budget allows buy a class set of battery holders, bulbs or buzzers and leads so students can see every part."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from comparing this description with VC2S8U17 in the curriculum.",
+      "pitfall": "Bringing in voltage, amps, resistance or series against parallel to explain what students see.",
+      "instead": "Stay with the loop, the roles of the parts and where the energy goes. The measurements are Levels 7 and 8."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Electrical hazards and safety measures are in a VCAA elaboration.",
+      "pitfall": "Leaving safety to a single warning at the start.",
+      "instead": "Make it part of the content: why wires are coated, why water matters, why a short circuit gets hot, and why class work uses small batteries only. Keep button batteries out of the room."
+    }
+  ],
+  "unverified": [
+    "I could not read the original research studies. Each verified misconception rests on an IOPSpark review that I read and that names the studies. The review on sequential thinking draws mostly on secondary students.",
+    "The last two misconceptions (only metals conduct, and batteries make mains seem safe) are my judgement. I did not check them against a study.",
+    "The First Nations hook is confirmed only as far as one sentence in a Design and Technologies elaboration. The Volta story is from general knowledge.",
+    "None of the three anchor experiences has been trialled. The STEAM room inventory lists no simple circuit equipment (battery holders, bulbs, buzzers, leads), so two anchors lean on Makey Makey and micro:bit. I did not check that the Makey Makeys work with the room's devices or that spare crocodile leads exist.",
+    "No unit in the hub lists this code yet.",
+    "The lines on the map are my judgement about how the descriptions connect. The Digital Technologies link is a loose one."
+  ]
+}

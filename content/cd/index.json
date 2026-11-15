@@ -44,6 +44,17 @@
       "approved": 23,
       "draft": 7,
       "unverified": 6
+    },
+    {
+      "code": "VC2S6U09",
+      "title": "Electrical circuits",
+      "band": "Levels 5 and 6",
+      "sub_strand": "Physical sciences",
+      "updated": "2026-11-15",
+      "verified": 18,
+      "approved": 0,
+      "draft": 28,
+      "unverified": 6
     }
   ]
 }
