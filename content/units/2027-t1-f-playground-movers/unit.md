@@ -6,7 +6,7 @@ term: 1
 lesson_count: 8
 focus: "Physical Science + Digital Technologies"
 blurb: "Pushes and pulls make things move. Foundation students plan, build and test a moving toy for a playground, while learning how our specialist room works."
-status: draft
+status: planned
 plan: 2027-t1-f
 report_subject: Digital Technologies
 lisc:
