@@ -58,8 +58,6 @@
 
   let sourceNumbers = new Map();
 
-  const pill = (status) =>
-    h("span", { class: `cd-status is-${status}` }, { verified: "Verified", approved: "Approved", draft: "Draft" }[status] || status);
 
   // [1] [3]: links to the numbered sources at the bottom of the page.
   function refs(ids) {
@@ -69,24 +67,16 @@
   }
 
   const head = (field, title, level = "h3") =>
-    h("div", { class: "cd-head" }, title ? h(level, {}, text(title)) : null, pill(field.status), refs(field.sources));
+    h("div", { class: "cd-head" }, title ? h(level, {}, text(title)) : null, refs(field.sources));
 
-  // The note says what was and was not checked for this field.
-  const check = (field) => (field.note ? h("p", { class: "cd-check" }, h("strong", {}, "Check: "), text(field.note)) : null);
 
   const label = (words) => h("span", { class: "cd-label" }, words);
   const list = (lines) => h("ul", { class: "cd-list" }, lines.map((line) => h("li", {}, text(line))));
 
-  function counts(fields) {
-    const verified = fields.filter((f) => f.status === "verified").length;
-    const approved = fields.filter((f) => f.status === "approved").length;
-    const draft = fields.length - verified - approved;
-    return [verified ? `${verified} verified` : "", approved ? `${approved} approved` : "", draft ? `${draft} draft` : ""].filter(Boolean).join(" · ");
-  }
 
   function section(title, fields, body, open) {
     return h("details", { class: "acc", open: Boolean(open) },
-      h("summary", {}, h("span", { class: "acc-title" }, title), h("span", { class: "acc-hint" }, counts(fields))),
+      h("summary", {}, h("span", { class: "acc-title" }, title)),
       h("div", { class: "acc-body" }, body));
   }
 
@@ -101,8 +91,7 @@
       h("p", { class: "cd-stem" }, d.stem),
       h("blockquote", { class: "cd-quote" }, d.text),
       h("p", {}, h("a", { href: d.url, target: "_blank", rel: "noopener" }, `Open ${cd.code} on the VCAA site`)),
-      h("p", { class: "cd-attrib" }, d.attribution),
-      check(d));
+      h("p", { class: "cd-attrib" }, d.attribution));
   }
 
   function paraphrase(cd) {
@@ -112,7 +101,6 @@
       h("p", { class: "cd-prose" }, text(p.text)),
       label("The ideas inside it"), list(p.asks_for),
       p.not_asking && p.not_asking.length ? [label("Not part of this description"), list(p.not_asking)] : null,
-      check(p),
     ], true);
   }
 
@@ -123,8 +111,29 @@
         h("div", { class: "cd-cols" },
           h("div", {}, label("Know"), list(q.know)),
           h("div", {}, label("Understand"), list(q.understand)),
-          h("div", {}, label("Do"), list(q.do))),
-        check(q)))));
+          h("div", {}, label("Do"), list(q.do)))))));
+  }
+
+  // Field 11: what competence looks like, quick checks, and what to do for
+  // students who already have it or who are below the level.
+  function assessment(cd) {
+    const a = cd.assessment;
+    if (!a) return null;
+    const block = (name, field, lines) => h("div", { class: "cd-item" }, head(field, name), list(lines));
+    return section("Assessment and differentiation", [a.can_do, ...a.quick_checks, a.extend, a.support], items([
+      block("A student who has this can", a.can_do, a.can_do.items),
+      h("div", { class: "cd-item" },
+        h("h3", {}, "Quick checks"),
+        a.quick_checks.map((q) => h("div", { class: "cd-quick" },
+          head(q, q.title, "h4"),
+          h("p", {}, text(q.how)),
+          label("Look for"), h("p", {}, text(q.look_for))))),
+      block("For students who already have it", a.extend, a.extend.items),
+      h("div", { class: "cd-item" },
+        head(a.support, "For students below the level"),
+        list(a.support.below),
+        label("Well below the level"), list(a.support.well_below)),
+    ]));
   }
 
   function vocabulary(cd) {
@@ -138,7 +147,6 @@
       head(v),
       h("div", { class: "cd-cols" }, tier("Everyday", v.everyday), tier("Academic", v.academic), tier("Science-specific", v.science)),
       h("p", { class: "cd-check" }, "Words in violet are in the official description."),
-      check(v),
     ]);
   }
 
@@ -150,8 +158,7 @@
         m.respond ? [label("Bring it out"), h("p", {}, text(m.respond))] : null,
         m.research && m.research.length
           ? [label("Studies named by the source"), h("p", { class: "small muted" }, m.research.join("; "))]
-          : null,
-        check(m)))));
+          : null))));
   }
 
   const codeRow = (field, chipCode, lead, body, extra) =>
@@ -163,9 +170,8 @@
         h("div", { class: "cd-row-text" },
           lead ? h("p", { class: "strong" }, lead) : null,
           h("p", {}, text(body)),
-          extra,
-          check(field)),
-        pill(field.status), refs(field.sources)));
+          extra),
+        refs(field.sources)));
 
   function inquiry(cd) {
     return section("Science Inquiry skills", cd.inquiry, items(cd.inquiry.map((r) => codeRow(r, r.code, r.skill, r.how))));
@@ -230,9 +236,9 @@
 
     const box = (n) => {
       const el = h("a", {
-        class: `cd-node${n.focus ? " is-focus" : ""}${n.status === "draft" ? " is-draft" : ""}`,
+        class: `cd-node${n.focus ? " is-focus" : ""}`,
         href: vcaaUrl(n.code), target: "_blank", rel: "noopener",
-        title: `${n.summary}${n.status === "draft" ? " (Draft)" : ""}`,
+        title: n.summary,
       }, h("span", { class: "cd-node-code" }, n.code), h("span", { class: "cd-node-label" }, n.label || n.code));
       boxes.set(n.code, { el, ...n });
       return el;
@@ -267,8 +273,7 @@
     return h("div", { class: "cd-map-wrap" },
       h("div", { class: "cd-map-scroll" }, map),
       h("p", { class: "cd-map-legend" },
-        key("leads", "Leads to"), key("connects", "Connects"), key("loose", "Loose link"),
-        nodes.some((n) => n.status === "draft") ? h("span", { class: "cd-map-key" }, h("span", { class: "cd-node-swatch" }), "Draft: needs review") : null));
+        key("leads", "Leads to"), key("connects", "Connects"), key("loose", "Loose link")));
   }
 
   // A path through corner points, with the corners rounded.
@@ -374,16 +379,14 @@
         label("Students do"), h("p", {}, text(a.students_do)),
         label("You need"), list(a.materials),
         label("It shows"), h("p", {}, text(a.shows)),
-        a.caution ? [label("Watch for"), h("p", {}, text(a.caution))] : null,
-        check(a)))));
+        a.caution ? [label("Watch for"), h("p", {}, text(a.caution))] : null))));
   }
 
   function pitfalls(cd) {
     return section("Teacher pitfalls", cd.pitfalls, items(cd.pitfalls.map((p) =>
       h("div", { class: "cd-item" },
         head(p, p.pitfall),
-        label("Instead"), h("p", {}, text(p.instead)),
-        check(p)))));
+        label("Instead"), h("p", {}, text(p.instead))))));
   }
 
   function sources(cd) {
@@ -413,42 +416,23 @@
       place ? h("a", { class: "link-row", href: "./" }, "Science cycle", h("span", { class: "small muted" }, ` · ${place}`)) : null);
   }
 
-  function statusKey(cd) {
-    return h("div", { class: "card stack-tight" },
-      h("h2", { class: "card-title" }, "Reading the labels"),
-      h("p", { class: "small" }, pill("verified"), " Checked against a named source that was read. Follow the source numbers."),
-      h("p", { class: "small" }, pill("approved"), " Claude's own judgement, reviewed and approved by James", cd.approved_on ? ` on ${niceDate(cd.approved_on)}` : "", "."),
-      // The draft label is explained only while the sheet still has a draft.
-      JSON.stringify(cd).includes('"status":"draft"') ? h("p", { class: "small" }, pill("draft"), " Claude's own judgement. It needs James's review.") : null,
-      h("p", { class: "small muted" }, `Updated ${niceDate(cd.updated)}.`));
-  }
-
-  function notChecked(cd) {
-    if (!cd.unverified.length) return null;
-    return h("div", { class: "card amber stack-tight" },
-      h("h2", { class: "card-title" }, "Could not be checked"),
-      h("ul", { class: "cd-list" }, cd.unverified.map((line) => h("li", {}, text(line)))));
-  }
-
   // ---- Pages ----
 
   function showSheet(cd, index, units, cycle) {
     sourceNumbers = new Map(cd.sources.map((s, i) => [s.id, i + 1]));
     document.title = `${cd.code} ${cd.title} · FCPS STEAM`;
-    const summary = index.find((o) => o.code === cd.code);
     root.replaceChildren(
       h("p", { class: "crumbs" }, h("a", { href: "../" }, "Overview"), " / ", h("a", { href: "./" }, "Science cycle"), ` / ${cd.code}`),
       h("section", { class: "hero" },
         h("div", { class: "hero-text" },
           h("p", { class: "hero-kicker" }, `${cd.code} · ${cd.learning_area} · ${cd.band} · ${cd.sub_strand}`),
-          h("h1", {}, cd.title),
-          summary ? h("p", { class: "cd-hero-meta" }, [`${summary.verified} fields verified`, summary.approved ? `${summary.approved} approved` : "", summary.draft ? `${summary.draft} draft` : ""].filter(Boolean).join(" · ")) : null)),
+          h("h1", {}, cd.title))),
       official(cd),
       h("div", { class: "columns" },
         h("section", { class: "main-col accs" },
-          paraphrase(cd), keyQuestions(cd), vocabulary(cd), misconceptions(cd), inquiry(cd),
+          paraphrase(cd), keyQuestions(cd), assessment(cd), vocabulary(cd), misconceptions(cd), inquiry(cd),
           humanEndeavour(cd), related(cd, index), anchors(cd), pitfalls(cd), sources(cd)),
-        h("aside", { class: "side-col stack" }, usedIn(cd, units, cycle), statusKey(cd), notChecked(cd))));
+        h("aside", { class: "side-col stack" }, usedIn(cd, units, cycle))));
 
     // A source number opens the Sources section and moves to that source.
     root.addEventListener("click", (event) => {
@@ -533,8 +517,7 @@
       h("a", { class: "card cd-index-link", href: `?code=${o.code}` },
         h("span", { class: "code" }, o.code),
         h("span", { class: "name" }, o.title),
-        h("span", { class: "small muted" }, `${o.band} · ${o.sub_strand}`),
-        h("span", { class: "small muted" }, [`${o.verified} verified`, o.approved ? `${o.approved} approved` : "", o.draft ? `${o.draft} draft` : ""].filter(Boolean).join(" · ")));
+        h("span", { class: "small muted" }, `${o.band} · ${o.sub_strand}`));
     document.title = "Science cycle · FCPS STEAM";
     // The switch sits beside the heading, so the whole table fits one screen.
     const view = cycle ? h("div", { class: "cyc-view" }, cycleTable(cycle, sheets)) : null;
@@ -545,7 +528,7 @@
       cycle
         ? [view,
           h("p", { class: "cyc-foot" },
-            cycle.matched === "draft" ? [pill("draft"), ` Which description is taught when was matched by Claude from the ${cycle.source}, and the short statements are Claude's. Both need James's check. `] : null,
+            cycle.matched === "draft" ? [`Which description is taught when was matched by Claude from the ${cycle.source}, and the short statements are Claude's. Both need James's check. `] : null,
             cycle.attribution)]
         : h("p", { class: "ph" }, "[The Science cycle could not be loaded]"),
       // Fact sheets for codes that are not in the cycle would be listed here.

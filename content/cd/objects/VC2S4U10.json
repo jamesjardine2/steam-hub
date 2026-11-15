@@ -233,6 +233,101 @@
       ]
     }
   ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, built from the achievement standard sentence (students identify forces acting on objects and describe the effects of these) and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Name the force acting in a familiar situation: friction, gravity, a magnetic force or an electrostatic force.",
+        "Say which two objects are involved: what exerts the force and what it acts on.",
+        "Sort forces into those that need contact and those that act from a distance.",
+        "Describe what a force did to an object's motion: started it, stopped it, sped it up, slowed it down or turned it.",
+        "Explain why a moving object slows down by naming friction, not by saying the push ran out.",
+        "Give one example where friction helps and one where it gets in the way.",
+        "Draw a force arrow that shows the direction of a force, and use a longer arrow for a bigger force."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [
+          "iop-magnet-static"
+        ],
+        "note": "My suggestion, not trialled. Mixing up static electricity and magnetism is a misconception this sheet lists.",
+        "title": "Contact or distance?",
+        "how": "Show or act out six quick situations (a dropped ball, a magnet pulling a paper clip, a shoe gripping the floor, a rubbed balloon lifting hair, a book sliding to a stop, a magnet pushing another magnet). Students hold up a fist for contact or an open hand for distance, then name the force to a partner. Three minutes.",
+        "look_for": "Has it: open hand for gravity, magnets and the balloon, and names each force. Not yet: fist for the dropped ball (nothing is touching it, so no force), or calls the balloon a magnet."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "iop-keep-moving",
+          "r2p-booklet"
+        ],
+        "note": "My suggestion, not trialled. What to listen for comes from the research summaries on the idea that a moving object carries a force that runs out.",
+        "title": "Why did it stop?",
+        "how": "Roll a ball along the floor until it stops. Each student writes or says one sentence: The ball stopped because ... Collect a quick sample by asking four or five students. Two minutes.",
+        "look_for": "Has it: names friction, or the floor, acting on the ball. Not yet: says the push ran out, it ran out of force, or it got tired."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Arrow on the picture",
+        "how": "Give each student a small picture (a car on a ramp, a ball in the air, a box being pushed). They draw one force arrow and label it. Walk the room, or collect and sort into two piles. Four minutes.",
+        "look_for": "Has it: the arrow points the way the force acts (gravity down, friction against the motion) and has a label. Not yet: the arrow shows only the way the object is moving."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "iop-magnets"
+        ],
+        "note": "My suggestion, not trialled. That students expect all metals to be magnetic is from the IOPSpark review.",
+        "title": "Finger vote",
+        "how": "Ask one question with three answers and have students vote with one, two or three fingers at the same moment. For example: a magnet will pick up (1) all metals, (2) only some metals, (3) anything shiny. Ask one student from each answer to say why. Two minutes.",
+        "look_for": "Has it: chooses only some metals and can name one a magnet ignores. Not yet: all metals, or anything shiny."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Forces come back in full at Levels 7 and 8 (VC2S8U14), so these go deeper at this level and only touch the next step lightly, through more than one arrow on a drawing.",
+      "items": [
+        "Ask for every force on one object, not just one: a car rolling down a ramp has gravity and friction acting at once.",
+        "Have them plan the fair test themselves: what to change, what to measure, what to keep the same.",
+        "Put numbers on it: repeat each test three times, record the distances and explain why they are not all the same.",
+        "Challenge a rule: find a small magnet that beats a big one, or a smooth surface with more grip than a rough one.",
+        "Design brief: make the car travel exactly one metre by changing only the surface, or move a paper clip through a maze without touching it.",
+        "Explain it: write or record an explanation of a marngrook kick or a kokan hit using the names of the forces.",
+        "Ask what would happen on the Moon, and why."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Go back to pushes and pulls (VC2S2U11): name every force as a push or a pull before using its science name.",
+        "Teach one force at a time, starting with friction, which students can feel by rubbing their hands or dragging a shoe.",
+        "Use big contrasts: carpet against a smooth desk, a strong magnet against a weak one.",
+        "Give a sentence starter: The ... pulled the ... so it ...",
+        "Keep a small word bank with a picture for each force on the desk.",
+        "Let the student place a cut-out arrow on a picture before asking them to draw one."
+      ],
+      "well_below": [
+        "Aim for cause and effect: I push it, it moves. It rubs on the carpet, it stops.",
+        "Work with real objects and take showing as the answer: point to what pulled the paper clip.",
+        "Sort into two groups only, touching and not touching, with objects in hand.",
+        "Teach push, pull and stop with gestures before the lesson, or ask the classroom teacher to.",
+        "Give a partner role with a clear job, such as releasing the car or holding the tape measure, so the student is part of the test."
+      ]
+    }
+  },
   "vocabulary": {
     "status": "approved",
     "sources": [

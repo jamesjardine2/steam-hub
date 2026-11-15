@@ -18,6 +18,7 @@
     "descriptor",
     "paraphrase",
     "key_questions",
+    "assessment",
     "vocabulary",
     "misconceptions",
     "inquiry",
@@ -512,6 +513,138 @@
     "approved_on": {
       "$ref": "#/$defs/date",
       "description": "The date James approved the draft fields in this file."
+    },
+    "assessment": {
+      "description": "Field 11 (added November 2026). What competence looks like, quick ways to check it, and what to do for students who already have it or who are below the level. Plain statements a teacher can pick up and use.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "can_do",
+        "quick_checks",
+        "extend",
+        "support"
+      ],
+      "properties": {
+        "can_do": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "sources",
+            "items"
+          ],
+          "properties": {
+            "status": {
+              "$ref": "#/$defs/status"
+            },
+            "sources": {
+              "$ref": "#/$defs/sourceIds"
+            },
+            "note": {
+              "type": "string"
+            },
+            "items": {
+              "$ref": "#/$defs/lines",
+              "description": "Each line finishes the sentence: A student who has this can ... One observable thing per line."
+            }
+          }
+        },
+        "quick_checks": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "description": "Quick, age-appropriate checks that fit inside a 45-minute lesson with a whole class.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "sources",
+              "title",
+              "how",
+              "look_for"
+            ],
+            "properties": {
+              "status": {
+                "$ref": "#/$defs/status"
+              },
+              "sources": {
+                "$ref": "#/$defs/sourceIds"
+              },
+              "note": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 3
+              },
+              "how": {
+                "type": "string",
+                "minLength": 10,
+                "description": "What the teacher does and what students do. Say how long it takes."
+              },
+              "look_for": {
+                "type": "string",
+                "minLength": 10,
+                "description": "What shows a student has it, and what shows they do not yet."
+              }
+            }
+          }
+        },
+        "extend": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "sources",
+            "items"
+          ],
+          "properties": {
+            "status": {
+              "$ref": "#/$defs/status"
+            },
+            "sources": {
+              "$ref": "#/$defs/sourceIds"
+            },
+            "note": {
+              "type": "string"
+            },
+            "items": {
+              "$ref": "#/$defs/lines",
+              "description": "Strategies for students who can already do everything in can_do."
+            }
+          }
+        },
+        "support": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "sources",
+            "below",
+            "well_below"
+          ],
+          "properties": {
+            "status": {
+              "$ref": "#/$defs/status"
+            },
+            "sources": {
+              "$ref": "#/$defs/sourceIds"
+            },
+            "note": {
+              "type": "string"
+            },
+            "below": {
+              "$ref": "#/$defs/lines",
+              "description": "Strategies for students working below the level."
+            },
+            "well_below": {
+              "$ref": "#/$defs/lines",
+              "description": "Strategies for students working well below the level."
+            }
+          }
+        }
+      }
     }
   },
   "$defs": {

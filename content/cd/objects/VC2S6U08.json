@@ -6,7 +6,7 @@
   "band": "Levels 5 and 6",
   "strand": "Science Understanding",
   "sub_strand": "Physical sciences",
-  "updated": "2026-11-10",
+  "updated": "2026-11-15",
   "approved_on": "2026-11-15",
   "sources": [
     {
@@ -253,6 +253,100 @@
       ]
     }
   ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "My judgement, built from the achievement standard sentence (students identify sources of light and model different pathways of light to explain what they observe) and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Sort things into light sources and things that only reflect light, such as the Moon or a mirror.",
+        "Draw the path of light as straight lines with arrows, starting at the source.",
+        "Explain how we see an object: light from a source reflects off it and into our eyes.",
+        "Explain a shadow as the place where an object has blocked the light.",
+        "Predict how a shadow changes when the object moves closer to the light or further away.",
+        "Describe what happens to light at a surface with the right word: absorbed, transmitted, reflected or refracted.",
+        "Use a drawing of light paths to explain something they have seen, such as a pencil that looks bent in water."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [
+          "iop-eye-object",
+          "iop-seeing-separate"
+        ],
+        "note": "My suggestion, not trialled. The three kinds of drawing match the ideas about seeing reported in the IOPSpark reviews.",
+        "title": "Draw how you see the book",
+        "how": "Each student draws a lamp, a book and an eye on scrap paper, then adds arrows to show how the person sees the book. Thirty seconds to draw, then hold it up. Sort what you see into three kinds. Three minutes.",
+        "look_for": "Has it: arrows go from the lamp to the book and then from the book to the eye. Not yet: arrows go from the eye to the book, or only from the lamp to the book."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Source or not?",
+        "how": "Call out or show eight things (the Sun, the Moon, a torch, a mirror, a candle, a white wall, a phone screen, a diamond). Students stand for a source and sit for not a source. Ask one student to defend each disputed one. Three minutes.",
+        "look_for": "Has it: sits for the Moon, the mirror and the diamond, and says they reflect light from somewhere else. Not yet: stands for anything bright or shiny."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "iop-shadows",
+          "best-making-a-shadow"
+        ],
+        "note": "My suggestion, not trialled. The idea that a shadow is a fixed copy of the object is from the IOPSpark review and the BEST diagnostic question.",
+        "title": "Predict the shadow",
+        "how": "Hold an object between a torch and the wall. Before you move it, students show with their hands whether the shadow will get bigger or smaller when the object moves towards the torch. Then move it, and ask a partner pair to explain with straight lines. Two minutes.",
+        "look_for": "Has it: predicts bigger and explains that the object now blocks more of the spreading light. Not yet: says the shadow stays the same size as the object, or cannot say why."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "One word at the door",
+        "how": "As students leave, show each one a material held up to a torch (foil, baking paper, black card, a clear cup of water) and ask for the one word that best says what the light does. Three to four minutes.",
+        "look_for": "Has it: reflected for foil, absorbed for black card, transmitted for the clear cup, and can say baking paper does some of each. Not yet: uses one word for everything, or says light stops at all of them."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "My judgement. Light is not taught again until Levels 9 and 10, so these go deeper at this level instead of moving up a level.",
+      "items": [
+        "Ask for a ray drawing that explains a result before they test it, then check the drawing against what happens.",
+        "Set a mirror maze: get torch light around two corners to hit a target, and draw the path with the angles marked.",
+        "Have them explain why ordinary objects can be seen at all: if paper did not reflect light, what would it look like?",
+        "Investigate one variable with measurements: distance from the torch against shadow height, recorded in a table and graphed.",
+        "Explain the coin that reappears in water with a drawing, not just a description.",
+        "Link it to the sky: why the Moon shines, and what a lunar eclipse is, using sources and shadows.",
+        "Explain it: make a short Book Creator page that teaches a Year 3 student how we see."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Start with shadows, which students can see and change, before the idea of how we see.",
+        "Make light paths visible and physical: stretch string from the torch to the object to the wall.",
+        "Teach two of the four words first (reflected and absorbed) and add transmitted and refracted later.",
+        "Give a drawing frame with the source, object and eye already printed, so the student only adds arrows.",
+        "Give a sentence starter: Light from the ... hits the ... and ...",
+        "Use a darkened corner and one torch so there is only one source to think about."
+      ],
+      "well_below": [
+        "Aim for two ideas: light comes from a source, and blocking it makes a shadow.",
+        "Work with a torch and hands, and take showing as the answer: make the shadow bigger, make it disappear.",
+        "Sort real objects into two groups only: lets light through, does not let light through.",
+        "Teach light, dark and shadow with pictures before the lesson, or ask the classroom teacher to.",
+        "Check how the student copes with a darkened room, and keep a lamp on nearby if they need it."
+      ]
+    }
+  },
   "vocabulary": {
     "status": "approved",
     "sources": [

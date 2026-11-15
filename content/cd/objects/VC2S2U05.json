@@ -6,7 +6,7 @@
   "band": "Foundation to Level 2",
   "strand": "Science Understanding",
   "sub_strand": "Chemical sciences",
-  "updated": "2026-11-11",
+  "updated": "2026-11-15",
   "approved_on": "2026-11-15",
   "sources": [
     {
@@ -211,6 +211,95 @@
       ]
     }
   ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "My judgement, built from the achievement standard sentence (students give examples of objects and mixtures made from a combination of materials, and tell the properties of the object or mixture apart from the properties of the materials it is made from) and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Name the materials an everyday object is made of, and say which objects are made of more than one.",
+        "Give an example of an object and of a mixture made by combining materials.",
+        "Show or name at least two ways of combining materials, such as joining, layering, weaving or mixing.",
+        "Say why the materials were combined: what job the object needs to do.",
+        "Describe a material before it is combined and the combined thing after, using property words such as strong, bendy, sticky or waterproof.",
+        "Say one way the combined thing is different from what it was made of."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [
+          "r2p-booklet"
+        ],
+        "note": "My suggestion, not trialled. What to listen for comes from the Research-2-Practice summary on telling an object from its material.",
+        "title": "One material or more?",
+        "how": "Hold up six everyday objects one at a time (a wooden block, a pencil, a paper cup, a shoe, a spoon, a glue stick). The class shows one finger for one material or two fingers for more than one. Then ask two or three students to name the materials. Three minutes.",
+        "look_for": "Has it: two fingers for the pencil and the shoe, and can name the materials. Not yet: names the object again when asked for the material (it is made of pencil)."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Before and after words",
+        "how": "After a combining test, each pair gets two word cards from a small set (strong, weak, bendy, stiff, sticky, runny, dry). They place one card on the ingredient and one on the combined thing, and hold them up. Two minutes.",
+        "look_for": "Has it: chooses a different word for the combined thing and can say why. Not yet: gives the same word to both, or describes size (it is bigger)."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "harden-waller-2025"
+        ],
+        "note": "My suggestion, not trialled. The idea that more material explains the strength is the misconception this sheet lists from Harden and Waller (2025).",
+        "title": "Same paper, fair test?",
+        "how": "Show two woven mats, one made with many more strips than the other, and ask: is this a fair way to find out if weaving makes paper stronger? Thumbs up or down, then one reason to a partner. Two minutes.",
+        "look_for": "Has it: says the amount of paper has to stay the same. Not yet: says the bigger mat is just stronger."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Tell me at the door",
+        "how": "As students line up, each finishes one sentence aloud: We combined ... and ... to make it ... Three to four minutes.",
+        "look_for": "Has it: names two materials and a property that changed. Not yet: names what they made, with no materials or no property."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-science"
+      ],
+      "note": "My judgement. These go deeper at this level before reaching for Levels 3 and 4, where VC2S4U05 has students explain the combination of materials in shoes, drink containers and backpacks.",
+      "items": [
+        "Ask for the rule, not the result: what did combining change, and what stayed the same?",
+        "Change the amounts on purpose: make three pastes with more and less water, and find which is best for the job.",
+        "Take apart a real product with layers, such as a juice carton or a padded envelope, and say what each layer is for.",
+        "Design brief: combine materials to make something that is both strong and bendy, or both light and waterproof.",
+        "Compare two ways of combining the same materials (strips glued flat against strips woven) and say which suits which job.",
+        "Explain it: record a sentence in Book Creator about why the combined thing did what its parts could not."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Secure the idea underneath first: object and material. Sort real objects by what they are made of before any combining.",
+        "Use only two materials and one property at a time, for example paper and glue, weak and strong.",
+        "Let students feel the difference with their hands before any words: pull the loose strips, then pull the woven mat.",
+        "Give a sentence starter: It is made of ... and ... Now it is ...",
+        "Keep picture cards for the property words on the desk, each with a gesture.",
+        "Pair the student with a partner who names each material as they use it."
+      ],
+      "well_below": [
+        "Aim for noticing a change: two things went in, something different came out.",
+        "Work with real materials and hands only, and take pointing or showing as the answer.",
+        "Teach two words (strong, weak, or wet, dry) with pictures before the lesson, or ask the classroom teacher to.",
+        "Offer gloves, a tool or a partner to do the mixing for a student who dislikes sticky or wet textures."
+      ]
+    }
+  },
   "vocabulary": {
     "status": "approved",
     "sources": [

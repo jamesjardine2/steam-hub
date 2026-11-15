@@ -6,10 +6,10 @@
       "title": "Combining materials",
       "band": "Foundation to Level 2",
       "sub_strand": "Chemical sciences",
-      "updated": "2026-11-11",
+      "updated": "2026-11-15",
       "verified": 21,
       "approved": 25,
-      "draft": 0,
+      "draft": 7,
       "unverified": 6
     },
     {
@@ -20,7 +20,7 @@
       "updated": "2026-11-15",
       "verified": 23,
       "approved": 20,
-      "draft": 0,
+      "draft": 7,
       "unverified": 5
     },
     {
@@ -31,7 +31,7 @@
       "updated": "2026-11-15",
       "verified": 23,
       "approved": 18,
-      "draft": 0,
+      "draft": 7,
       "unverified": 6
     },
     {
@@ -39,10 +39,10 @@
       "title": "Light",
       "band": "Levels 5 and 6",
       "sub_strand": "Physical sciences",
-      "updated": "2026-11-10",
+      "updated": "2026-11-15",
       "verified": 19,
       "approved": 23,
-      "draft": 0,
+      "draft": 7,
       "unverified": 6
     }
   ]

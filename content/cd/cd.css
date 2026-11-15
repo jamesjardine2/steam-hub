@@ -1,15 +1,8 @@
 /* Curriculum fact sheets (CD objects). Loaded after tokens.css and site.css:
    it only adds layout for this page and uses the shared tokens for every
-   colour. Draft is orange, as it is everywhere else in the hub. Approved (James has
-   reviewed it) is a violet outline. */
+   colour. */
 
-.cd-hero-meta { margin-top: 14px; font-size: 15px; color: var(--white); }
 
-/* Status pills: verified or draft, on every field. */
-.cd-status { display: inline-block; flex: 0 0 auto; font-size: 12px; font-weight: 700; line-height: 1; padding: 5px 10px; border-radius: var(--radius-pill); white-space: nowrap; }
-.cd-status.is-verified { background: var(--violet); color: var(--white); }
-.cd-status.is-approved { border: 1px solid var(--violet); padding: 4px 9px; color: var(--text); }
-.cd-status.is-draft { background: var(--solar-orange); color: var(--void); }
 .cd-refs { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
 .cd-refs a { padding: 0 2px; }
 .cd-check { margin-top: 8px; font-size: 13px; line-height: 1.5; color: var(--text-muted); }
@@ -35,6 +28,11 @@
 .cd-prose { font-size: 16px; line-height: 1.65; }
 .cd-tag { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-pill); border: 1px solid var(--text-violet); color: var(--text); }
 
+/* A quick check inside the assessment section. */
+.cd-quick { margin-top: 14px; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-input); }
+.cd-quick h4 { font-size: 15px; margin-right: auto; }
+.cd-quick .cd-head + * { margin-top: 6px; }
+
 /* Know, Understand, Do and the three vocabulary tiers sit side by side. */
 .cd-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4px 24px; }
 .cd-cols .cd-label { margin-top: 12px; }
@@ -53,7 +51,7 @@
 
 /* The map of related content descriptions: levels down the side, a column for
    each learning area, a small box for each description and lines between
-   them. Violet arrows show progression. Orange outlines are drafts. */
+   them. Violet arrows show progression. */
 .cd-map-scroll { overflow-x: auto; padding-bottom: 4px; }
 .cd-map { position: relative; min-width: 640px; }
 .cd-map-row { display: grid; grid-template-columns: 78px repeat(3, minmax(0, 1fr)); column-gap: 40px; padding: 20px 0; border-top: 1px solid var(--border); }
@@ -65,7 +63,6 @@
 .cd-node:hover { border-color: var(--text-violet); color: var(--text); }
 .cd-node-code { font-size: 11px; font-weight: 700; color: var(--text-violet); }
 .cd-node-label { font-size: 13px; font-weight: 500; }
-.cd-node.is-draft { border-color: var(--solar-orange); }
 .cd-node.is-focus { background: var(--violet); border-color: var(--violet); color: var(--white); }
 .cd-node.is-focus .cd-node-code { color: var(--white); }
 .cd-node.is-focus .cd-node-label { font-weight: 700; }
@@ -76,7 +73,6 @@
 .cd-arrow { fill: var(--text-violet); }
 .cd-map-legend { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 12px; font-size: 13px; color: var(--text-muted); }
 .cd-map-key { display: inline-flex; align-items: center; gap: 8px; }
-.cd-node-swatch { width: 18px; height: 12px; border: 1px solid var(--solar-orange); border-radius: 4px; }
 .cd-why { margin-top: 16px; border-top: 1px solid var(--border); }
 .cd-why > summary { cursor: pointer; padding: 12px 0; min-height: 44px; font-size: 14px; font-weight: 700; color: var(--text-violet); }
 

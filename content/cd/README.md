@@ -21,7 +21,7 @@ The whole folder is copied to the site as `/cd/`. A fact sheet is at `/cd/?code=
 
 ## The format
 
-Each file has the ten fields below. `cd.schema.json` is the full definition, with a description on every field.
+Each file has the eleven fields below. `cd.schema.json` is the full definition, with a description on every field.
 
 | Field | Key | What goes in it |
 | --- | --- | --- |
@@ -35,12 +35,19 @@ Each file has the ten fields below. `cd.schema.json` is the full definition, wit
 | 8 | `related` | Related content descriptions `below`, `same` and `above`, with codes |
 | 9 | `anchors` | Two or three anchor experiences for a 45-minute lesson in a room with no storeroom |
 | 10 | `pitfalls` | Teacher-side pitfalls, each with what to do `instead` |
+| 11 | `assessment` | `can_do`: plain statements of what a student who has it can do. `quick_checks`: two to five quick, age-appropriate checks, each with `how` and `look_for`. `extend`: strategies for students who already have it. `support`: strategies for students `below` and `well_below` the level |
 
 **The map (November 2026).** When `related` has a `links` list, the page draws field 8 as a map: levels down the side (lowest at the top), a column each for Science, Design and Technologies and Digital Technologies, a small box for each row (it opens the code on the VCAA site) and a line for each link. The written rows fold away under "Why each one is linked". For the map, every row needs a `label` (two to four words for its box), and each link is `{ "from": code, "to": code, "kind": ... }`: `leads` (an arrow: `to` builds on `from`), `connects` (a strong link at the same stage, such as a STEAM pairing) or `loose` (dashed, a weaker link). Only add a Technologies box where the link is genuine, and leave a column empty when it is not. Without `links`, the page shows the plain list (VC2S6U08 does). The other three have the map, so give a new fact sheet one too.
 
+**Assessment (field 11).** James asked for it in November 2026: he wants each sheet to hold things he will definitely use, with a balance of theory, teaching approaches and practical ideas. Write `can_do` from the achievement standard sentence, one observable thing per line. Quick checks must work with a whole class inside a 45-minute lesson, say how long they take, and say what to look for (has it, not yet), using the misconceptions where they help. Never record or name students on the hub. Extension goes deeper at the same level before it reaches for the next level's content. Support strategies are general adjustments: say that a student's individual plan and the classroom teacher's advice come first. It is shown after the key questions. James judged the sample on VC2S2U12 and asked for it on every sheet, so every fact sheet has it.
+
 There are also `sources` (every source, each with an `id`) and `unverified` (a plain list of what could not be checked). There is no teaching time: that belongs to the unit.
 
-## Status: the rule that matters most
+## Status: a record in the file, not shown on the page
+
+James asked on 15 November 2026 for the labels to go. The page shows no Verified, Approved or Draft labels, no "Check:" notes and no "Could not be checked" card. It shows the content and the numbered source links, which is how a reader tells what rests on research. Treat what you write as ready for James to use. Do not add a label, a note or a card to the page asking him to review something. If something is a guess worth a second look, tell him in the chat.
+
+The `status`, `note` and `unverified` fields stay in each file as a record of where things came from. Keep filling them in honestly as below: the checker still enforces them.
 
 Every field, and every item in a list, has a `status` and a `sources` list.
 

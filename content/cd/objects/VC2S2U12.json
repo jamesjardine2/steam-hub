@@ -234,6 +234,97 @@
       ]
     }
   ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, built from the achievement standard sentence (students describe the effect of sound energy on objects and demonstrate how different sounds can be produced) and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Name or point to what is vibrating when a sound is made.",
+        "Do the same for a sound where nothing can be seen moving, such as a voice or a clap.",
+        "Stop a sound by stopping the vibration, and say why that worked.",
+        "Show or describe a sound making something else vibrate.",
+        "Make a sound louder or quieter on purpose, and say what they changed.",
+        "Make a sound higher or lower on purpose, and say what they changed.",
+        "Describe one sound with a pitch word and a volume word, such as high and quiet."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Show me",
+        "how": "Every pair has a ruler on the desk edge or an elastic band on a box. Call one instruction at a time: higher, lower, louder, quieter, then low and loud. Students do it, you scan the room. Two to three minutes.",
+        "look_for": "Has it: changes the length or the band for pitch, and the strength of the flick for volume. Not yet: flicks harder when asked for higher."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Hands for pitch, arms for volume",
+        "how": "Play or make four sounds: high and loud, high and quiet, low and loud, low and quiet. For each one the whole class puts a hand up high or down low for pitch, then arms wide or close for volume. Two minutes, no equipment for students.",
+        "look_for": "Has it: gets the two mixed sounds right (high and quiet, low and loud). Not yet: hand goes up for every loud sound."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "iop-vibrations",
+          "iop-material"
+        ],
+        "note": "My suggestion, not trialled. What to listen for comes from the research summaries on how students explain sounds.",
+        "title": "What is vibrating? at the door",
+        "how": "As students line up, show each one a picture or object (drum, guitar, a person singing, a phone playing music, two hands clapping) and ask: what is vibrating? One answer each on the way out. Three to four minutes.",
+        "look_for": "Has it: names a thing that is vibrating (the skin, the string, your throat, the speaker). Not yet: names the action (you hit it) or the material (because it is metal)."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Predict, watch, tell a partner",
+        "how": "Before the rice and drum test, students show thumbs up or down: will the rice move if nobody touches it? After the test, each tells a partner why it moved. Listen in on three or four pairs.",
+        "look_for": "Has it: says the sound made the skin vibrate, or shake. Not yet: says the wind or the bang pushed the rice, or cannot say."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. The next description about sound is not until Levels 9 and 10, so these go deeper at this level instead of moving up a level. The sound meter idea follows a VCAA elaboration.",
+      "items": [
+        "Give sounds with no visible vibration (a whistle, a recorder, blowing across a bottle, a phone speaker) and ask them to find what is vibrating.",
+        "Ask for the rule, not the result: the longer the ruler, the lower the sound. Then have them test the rule on a new object.",
+        "Set a puzzle that breaks the rule: tapping a bottle with more water sounds lower, but blowing across it sounds higher. Why?",
+        "Change one thing only: plan a fair comparison of thick and thin bands with the same stretch and the same pluck.",
+        "Design brief: build an instrument that plays three different pitches, or a signal that can be heard across the room and one that only a neighbour can hear.",
+        "Put numbers on it: use a sound meter app on an iPad to order sounds from quietest to loudest.",
+        "Explain it: record a short explanation in Book Creator for a Foundation student."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Go back to feeling it: a hand on the throat while humming, on a speaker, or holding a ringing triangle. Pair the word vibrate with the feeling and a shaky-hand gesture.",
+        "Teach one idea at a time: stay with loud and quiet for a whole lesson before bringing in high and low.",
+        "Use big contrasts: a very long and a very short ruler, a very thick and a very thin band.",
+        "Give a sentence starter: The ... is vibrating. I made it louder by ...",
+        "Keep picture cards for loud, quiet, high and low on the desk, each with its gesture.",
+        "Pair the student with a partner who says what they are doing as they do it."
+      ],
+      "well_below": [
+        "Aim for cause and effect: I hit it, it makes a sound. I hold it, the sound stops.",
+        "Work on loud and quiet only, with real objects and gestures, and leave pitch out.",
+        "Take showing as evidence: a student who makes it louder when asked has shown the idea without needing the words.",
+        "Teach the two words (loud, quiet) with pictures before the lesson, or ask the classroom teacher to.",
+        "Offer a quieter spot or ear defenders to a student who finds the noise hard, and give them a soft instrument such as a shaker."
+      ]
+    }
+  },
   "vocabulary": {
     "status": "approved",
     "sources": [
