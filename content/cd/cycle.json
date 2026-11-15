@@ -1,0 +1,263 @@
+{
+  "note": "The two-year cycle of Science Understandings, from the school's Concept Curriculum Scope and Sequence (2025 and 2026). Each item has a short statement in our own words (short, a few words that name the idea, the same as the fact sheet's title where there is one), the official VCAA wording of its content description (text), copied by script from the hub's local copy of the curriculum, and the school's enduring understanding it was matched from (eu, kept as a record and not shown on the page). The matches were made by Claude on 15 November 2026 and are for James to confirm. Checked by npm run check-cd. A composite year level is treated as one group: where the school's plan lists an understanding for only one year of a pair (Year 1 or Year 5), both years do it (James, November 2026). One record from the plan: for Year 1/2 Biological in even years, Year 2's understanding matches VC2S2U01, and Year 1's (needs and features that help living things survive) is closer to VC2S2U02 or VC2S2U03.",
+  "source": "FCPS Concept Curriculum Plan: 2025/2026 Concept Curriculum Scope and Sequence",
+  "matched": "draft",
+  "years": {
+    "odd": {
+      "label": "Odd years"
+    },
+    "even": {
+      "label": "Even years"
+    }
+  },
+  "rows": [
+    {
+      "cohort": "f",
+      "label": "Foundation",
+      "every": [
+        {
+          "sub": "Physical sciences",
+          "code": "VC2S2U10",
+          "short": "How objects move",
+          "text": "the way objects move depends on a variety of factors including their size, shape and material",
+          "eu": "The way things move depends on their size, shape, and material."
+        },
+        {
+          "sub": "Earth and space sciences",
+          "code": "VC2S2U07",
+          "short": "Weather and seasons",
+          "text": "daily and seasonal changes in the weather and the environment can be observed and affect decisions made in everyday life",
+          "eu": "Weather and seasons change, and this affects daily decisions."
+        },
+        {
+          "sub": "Biological sciences",
+          "code": "VC2S2U02",
+          "short": "What living things need",
+          "text": "plants and animals have basic needs, including air, water, food and shelter; the places where they live meet those needs",
+          "eu": "Living things need air, water, food, and shelter to survive."
+        },
+        {
+          "sub": "Chemical sciences",
+          "code": "VC2S2U04",
+          "short": "Objects and materials",
+          "text": "objects can be made of one or more different materials; these materials have observable properties",
+          "eu": "Objects are made of different materials, and each material has special properties."
+        }
+      ]
+    },
+    {
+      "cohort": "y12",
+      "label": "Year 1/2",
+      "odd": [
+        {
+          "sub": "Physical sciences",
+          "code": "VC2S2U12",
+          "short": "Sound",
+          "text": "sound can make materials vibrate and vibrating materials can make sound; different actions can be used to produce sounds of varying pitch and volume",
+          "eu": "Vibrations create sound, and different actions can change the pitch and volume."
+        },
+        {
+          "sub": "Earth and space sciences",
+          "code": "VC2S2U08",
+          "short": "Sun, Moon, planets and stars",
+          "text": "Earth is one of 8 planets in our solar system; observing the sky reveals patterns in the changing positions of the Sun, Moon, planets and stars",
+          "eu": "The positions of the Sun, Moon, planets, and stars change in predictable ways."
+        },
+        {
+          "sub": "Biological sciences",
+          "code": "VC2S2U03",
+          "short": "Features for survival",
+          "text": "plants and animals have external features that perform different functions to enable their survival; in plants these features include roots, stems, leaves, flowers, fruit, bulbs, trunks and branches while different features in animals enable them to move, breathe, eat and respond to their environment",
+          "eu": "Plants and animals have specialised features that are important for their survival in their environments."
+        },
+        {
+          "sub": "Chemical sciences",
+          "code": "VC2S2U06",
+          "short": "Changing a material's shape",
+          "text": "materials can be changed physically by different actions without changing their material composition, including by bending, twisting, stretching, crushing, squashing and breaking into smaller pieces",
+          "eu": "Physical changes can alter the shape or form of materials."
+        }
+      ],
+      "even": [
+        {
+          "sub": "Physical sciences",
+          "code": "VC2S2U11",
+          "short": "Pushes and pulls",
+          "text": "pushes and pulls are forces that can change an object’s movement or shape and can be represented in terms of strength and direction",
+          "eu": "Pushes and pulls can change how things move or their shape."
+        },
+        {
+          "sub": "Earth and space sciences",
+          "code": "VC2S2U09",
+          "short": "Reduce, re-use, recycle",
+          "text": "taking care of Earth’s water, land and air involves consideration of reducing, re-using and recycling materials to conserve Earth’s resources",
+          "eu": "We can protect the Earth by reducing, reusing, and recycling materials."
+        },
+        {
+          "sub": "Biological sciences",
+          "code": "VC2S2U01",
+          "short": "Grouping living things",
+          "text": "plants and animals have observable features that can be used to group them in different ways",
+          "eu": "Living things have distinctive features that allow us to classify them into groups."
+        },
+        {
+          "sub": "Chemical sciences",
+          "code": "VC2S2U05",
+          "short": "Combining materials",
+          "text": "materials can be combined in a variety of ways for particular purposes; the properties of objects and mixtures can differ from the properties of the materials from which they are made",
+          "eu": "Materials can be combined to create new objects with different properties."
+        }
+      ]
+    },
+    {
+      "cohort": "y34",
+      "label": "Year 3/4",
+      "odd": [
+        {
+          "sub": "Physical sciences",
+          "code": "VC2S4U10",
+          "short": "Forces",
+          "text": "forces, including frictional, gravitational, electrostatic and magnetic, can be exerted by one object on another through direct contact or from a distance and affect the motion (speed and direction) of objects",
+          "eu": "Different types of forces can change how objects move."
+        },
+        {
+          "sub": "Earth and space sciences",
+          "code": "VC2S4U07",
+          "short": "The water cycle",
+          "text": "water is an important Earth resource that originates from various sources; water cycles through the environment by moving through the sky, landscape and ocean, and involves processes including precipitation, evaporation, transpiration, condensation, melting, freezing, crystallisation, infiltration and run-off",
+          "eu": "Water moves through the environment in a cycle."
+        },
+        {
+          "sub": "Biological sciences",
+          "code": "VC2S4U03",
+          "short": "Food chains",
+          "text": "consumers, producers and decomposers have different roles and interactions within a habitat; food chains can be used to represent feeding relationships",
+          "eu": "Living things in ecosystems depend on each other through feeding relationships, with each organism playing a specific role."
+        },
+        {
+          "sub": "Chemical sciences",
+          "code": "VC2S4U05",
+          "short": "Materials and their uses",
+          "text": "the properties of natural and made materials, including fibres, metals, glass and plastics, influence their use and re-use",
+          "eu": "The unique properties of materials determine their suitability for various applications and potential for reuse."
+        }
+      ],
+      "even": [
+        {
+          "sub": "Physical sciences",
+          "code": "VC2S4U09",
+          "short": "Heat energy",
+          "text": "heat energy can be generated from different sources; temperature changes may happen when heat is transferred from one object to another",
+          "eu": "Heat energy comes from different sources, and it can cause temperature changes when it moves between objects."
+        },
+        {
+          "sub": "Earth and space sciences",
+          "code": "VC2S4U06",
+          "short": "Rocks, minerals and soils",
+          "text": "rocks, minerals and soils are important Earth resources and have observable properties that enable them to be used in a variety of ways",
+          "eu": "Rocks, minerals, and soils have unique properties."
+        },
+        {
+          "sub": "Earth and space sciences",
+          "code": "VC2S4U08",
+          "short": "Weather and climate",
+          "text": "weather events and climate have impacts on the land, air, water and living things; human activity can affect climate",
+          "eu": "Weather events and climate influence the environment, and human activity can change the climate."
+        },
+        {
+          "sub": "Biological sciences",
+          "code": "VC2S4U01",
+          "short": "Living, non-living, once living",
+          "text": "living things have characteristics that distinguish them from non-living things and things that were once living, including fossils",
+          "eu": "Living things, non-living things, and once-living things have distinct characteristics that define them."
+        },
+        {
+          "sub": "Biological sciences",
+          "code": "VC2S4U02",
+          "short": "Life cycles",
+          "text": "plants and animals have different life cycles; offspring are similar, but not identical, to their parents",
+          "eu": "Life cycles vary among living things, and offspring inherit traits from their parents while maintaining unique characteristics."
+        },
+        {
+          "sub": "Chemical sciences",
+          "code": "VC2S4U04",
+          "short": "Solids, liquids and gases",
+          "text": "solids, liquids and gases have observable properties; adding or removing heat energy leads to a change of state between solids, liquids and gases",
+          "eu": "Matter exists in different states, and heat energy can cause transitions between these states."
+        }
+      ]
+    },
+    {
+      "cohort": "y56",
+      "label": "Year 5/6",
+      "odd": [
+        {
+          "sub": "Physical sciences",
+          "code": "VC2S6U09",
+          "short": "Electrical circuits",
+          "text": "materials may be electrical insulators or conductors; energy can be transferred and transformed in electrical circuits where the components of a circuit play particular roles in the function of the circuit",
+          "eu": "Electrical circuits allow energy to move and change form."
+        },
+        {
+          "sub": "Earth and space sciences",
+          "code": "VC2S6U05",
+          "short": "Earth's changing surface",
+          "text": "geological processes including weathering, erosion, transportation and deposition can cause slow or rapid changes to Earth’s surface",
+          "eu": "Natural processes shape the Earth's surface over time."
+        },
+        {
+          "sub": "Biological sciences",
+          "code": "VC2S6U01",
+          "short": "Habitats and survival",
+          "text": "habitats can be described by their physical conditions; changing the physical conditions of a habitat, including by human activity, may affect the growth and survival of organisms",
+          "eu": "Changes in habitat conditions can impact the growth and survival of living things."
+        },
+        {
+          "sub": "Chemical sciences",
+          "code": "VC2S6U04",
+          "short": "Reversible and irreversible changes",
+          "text": "changes to substances may be reversible, in which case the substance may be recovered, or irreversible, in which case new substances are formed; for most substances a change of state or dissolving in water is reversible, while irreversible changes include cooking and rusting",
+          "eu": "Substances can change reversibly, where they return to their original state, or irreversibly, forming new substances, like in cooking or rusting."
+        }
+      ],
+      "even": [
+        {
+          "sub": "Physical sciences",
+          "code": "VC2S6U08",
+          "short": "Light",
+          "text": "light can be produced from many sources; light travels in a straight path, can form shadows, and can be absorbed, transmitted, reflected or refracted by objects",
+          "eu": "Light travels in straight lines and can interact with objects in different ways."
+        },
+        {
+          "sub": "Earth and space sciences",
+          "code": "VC2S6U07",
+          "short": "Gravity, orbits, day and night",
+          "text": "the force of gravity keeps Earth and other planets in the solar system in orbit around the Sun; cyclic observable phenomena, including variable day and night length, can be related to Earth’s tilt, rotation on its axis and revolution around the Sun",
+          "eu": "Gravity keeps planets in orbit, and Earth's tilt, rotation, and revolution cause cycles like changing day and night lengths."
+        },
+        {
+          "sub": "Earth and space sciences",
+          "code": "VC2S6U06",
+          "short": "Natural hazards",
+          "text": "sudden geological changes or extreme weather conditions can affect Earth’s surface and atmosphere; the impacts of natural hazards, including earthquakes, volcanic eruptions, wildfires and floods, can be reduced by human actions and technological innovations",
+          "eu": "Geological changes and extreme weather can impact Earth, but human actions can reduce the effects of natural hazards."
+        },
+        {
+          "sub": "Biological sciences",
+          "code": "VC2S6U02",
+          "short": "Adaptation over time",
+          "text": "organisms have evolved over time, as seen in fossils and scientific records; the structural features and behaviours of living organisms enable them to thrive in their environments",
+          "eu": "Living things have adapted over time to survive in their environments."
+        },
+        {
+          "sub": "Chemical sciences",
+          "code": "VC2S6U03",
+          "short": "Particles and mixtures",
+          "text": "the observable properties of matter (solids, liquids and gases) can be explained by modelling the motion and arrangement of their particles; mixtures (including solutions) can be formed by combining 2 or more different substances",
+          "eu": "The properties of solids, liquids, and gases are explained by particle movement and arrangement, and mixtures form by combining substances."
+        }
+      ]
+    }
+  ],
+  "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
+}

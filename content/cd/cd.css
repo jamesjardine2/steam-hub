@@ -84,6 +84,41 @@
 .cd-sources li:target { background: var(--hover); }
 .cd-sources .unread { color: var(--text-muted); }
 
+/* The Science cycle on the front page: one screen, a column for each strand
+   and a row for each year level. The switch shows odd or even years. Each cell
+   has a short statement. Official wording shows the full description. */
+.cyc-head { align-items: center; margin-bottom: 14px; }
+.cyc-head h1 { font-size: 32px; }
+.cyc-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.cyc-toggle { display: inline-flex; padding: 4px; gap: 4px; border: 1px solid var(--border); border-radius: var(--radius-pill); background: var(--card); }
+.cyc-switch { min-height: 44px; padding: 6px 18px; border: 1px solid transparent; border-radius: var(--radius-pill); background: none; color: var(--text); font: inherit; font-size: 14px; font-weight: 700; line-height: 1.2; cursor: pointer; }
+.cyc-switch:hover { background: var(--hover); }
+.cyc-switch[aria-pressed="true"] { background: var(--violet); color: var(--white); }
+.cyc-full { border-color: var(--border); background: var(--card); }
+.cyc-years { display: block; font-size: 12px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.cyc-scroll { overflow-x: auto; }
+.cyc { width: 100%; min-width: 820px; border-collapse: collapse; table-layout: fixed; font-size: 13px; line-height: 1.4; }
+.cyc th, .cyc td { padding: 12px 12px; text-align: left; vertical-align: top; border-top: 1px solid var(--border); }
+.cyc thead th { border-top: 0; padding-bottom: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); }
+.cyc thead th:first-child { width: 96px; }
+.cyc-year { font-size: 16px; font-weight: 800; letter-spacing: -0.02em; }
+.cyc-year .cyc-years { color: var(--text-muted); }
+.cyc-view[data-year="odd"] .cyc-even, .cyc-view[data-year="even"] .cyc-odd { display: none; }
+.cyc-item { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+.cyc-item + .cyc-item { margin-top: 14px; }
+.cyc-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.cyc-meta .chip { font-size: 11px; font-weight: 700; padding: 3px 9px; }
+.cyc-item.has-sheet .chip { border-color: var(--violet); }
+.cyc-sheet { font-size: 11px; font-weight: 700; line-height: 1; padding: 5px 9px; border-radius: var(--radius-pill); background: var(--violet); color: var(--white); text-decoration: none; }
+.cyc-sheet:hover { color: var(--white); }
+.cyc-short { font-size: 15px; font-weight: 700; line-height: 1.3; color: var(--text); }
+.cyc-text { display: none; color: var(--text-muted); }
+.cyc-view.is-full .cyc-text { display: block; }
+.cyc-note { font-size: 12px; color: var(--text-muted); }
+.cyc-view:not(.is-full) .cyc-note { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; overflow: hidden; }
+.cyc-foot { margin-top: 14px; font-size: 12px; line-height: 1.6; color: var(--text-muted); }
+.cyc-more { margin: 32px 0 14px; }
+
 /* The list of all fact sheets. */
 .cd-index-link { text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 6px; }
 .cd-index-link:hover { border-color: var(--text-violet); background: var(--hover); color: var(--text); }

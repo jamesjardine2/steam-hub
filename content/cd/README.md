@@ -1,6 +1,6 @@
 # Curriculum fact sheets (CD objects)
 
-A CD object is a fact sheet for one Victorian Curriculum 2.0 Science content description: what it asks, what students get wrong, and where to start. This is a trial (November 2026) with two samples, VC2S6U08 and VC2S2U05. James decides whether to do the rest. Do not add more until he asks.
+A CD object is a fact sheet for one Victorian Curriculum 2.0 Science content description: what it asks, what students get wrong, and where to start. This is a trial (November 2026). There are four so far: VC2S6U08, VC2S2U05, VC2S2U12 and VC2S4U10. James asks for each one. Do not add more until he asks.
 
 ## What is in this folder
 
@@ -10,13 +10,14 @@ content/cd/
   cd.schema.json    the format, as a JSON Schema
   objects/          one JSON file per content description, named <CODE>.json
   index.json        the list of fact sheets, written by the checker (never edit by hand)
+  cycle.json        the school's two-year Science cycle, drawn as the table on the front page
   index.html        the page (plain HTML)
   cd.js             draws a fact sheet from its JSON file
   cd.css            layout for the page (colours come from src/assets/tokens.css)
 scripts/check-cd.mjs   the checker
 ```
 
-The whole folder is copied to the site as `/cd/`. A fact sheet is at `/cd/?code=VC2S6U08` and the list is at `/cd/`. There is nothing to build for the page itself. Two links are made by the hub's build (`src/_data/site.js`): a unit page shows "Fact sheet: ..." under its curriculum codes when a code in `unit.md` has a fact sheet, and `/cd/units.json` tells the fact sheet which units to link back to.
+The whole folder is copied to the site as `/cd/`. A fact sheet is at `/cd/?code=VC2S6U08`. The front page, `/cd/`, is the Science cycle, from `cycle.json`, and is in the hub's top navigation (`index.html` has its own copy of the navigation bar: keep it in step with `src/_includes/base.njk`): one grid with a column for each strand and a row for each year level, and a switch for odd or even years (it starts on odd years and names no calendar years, and Foundation is the same every year). The strands run Physical, Earth and space, Biological, Chemical, left to right. Each item shows a short statement in our own words (`short`, a few words that name the idea, the same as the fact sheet's title where there is one) and its code. The Official wording button adds the VCAA wording of each content description (`text`, copied by script from the local copy of the curriculum, with the VCAA credit line under the table). A code with a fact sheet gets a Fact sheet link, and the fact sheet links back, so a new fact sheet shows up in the grid with no extra step. `eu` is the school's enduring understanding each item was matched from (its Concept Curriculum Scope and Sequence): it is kept as a record and not shown, because James found some of them ambiguous. A composite year level is one group: do not add notes such as "Year 5 only", because if Year 5 does it, Year 6 does too (James, November 2026). The matches were made by Claude (`"matched": "draft"`): change that to `"verified"` once James has confirmed them, and the note under the table goes away. The checker makes sure each code is a real Science Understanding code at that row's level and strand, and that `text` matches the local copy word for word. There is nothing to build for the page itself. Two links are made by the hub's build (`src/_data/site.js`): a unit page shows "Fact sheet: ..." under its curriculum codes when a code in `unit.md` has a fact sheet, and `/cd/units.json` tells the fact sheet which units to link back to.
 
 ## The format
 
@@ -35,7 +36,7 @@ Each file has the ten fields below. `cd.schema.json` is the full definition, wit
 | 9 | `anchors` | Two or three anchor experiences for a 45-minute lesson in a room with no storeroom |
 | 10 | `pitfalls` | Teacher-side pitfalls, each with what to do `instead` |
 
-**The map (on trial, VC2S2U05 only, November 2026).** When `related` has a `links` list, the page draws field 8 as a map: levels down the side (lowest at the top), a column each for Science, Design and Technologies and Digital Technologies, a small box for each row (it opens the code on the VCAA site) and a line for each link. The written rows fold away under "Why each one is linked". For the map, every row needs a `label` (two to four words for its box), and each link is `{ "from": code, "to": code, "kind": ... }`: `leads` (an arrow: `to` builds on `from`), `connects` (a strong link at the same stage, such as a STEAM pairing) or `loose` (dashed, a weaker link). Only add a Technologies box where the link is genuine, and leave a column empty when it is not. Without `links`, the page shows the plain list (VC2S6U08 does). Do not add the map to another fact sheet until James asks.
+**The map (November 2026).** When `related` has a `links` list, the page draws field 8 as a map: levels down the side (lowest at the top), a column each for Science, Design and Technologies and Digital Technologies, a small box for each row (it opens the code on the VCAA site) and a line for each link. The written rows fold away under "Why each one is linked". For the map, every row needs a `label` (two to four words for its box), and each link is `{ "from": code, "to": code, "kind": ... }`: `leads` (an arrow: `to` builds on `from`), `connects` (a strong link at the same stage, such as a STEAM pairing) or `loose` (dashed, a weaker link). Only add a Technologies box where the link is genuine, and leave a column empty when it is not. Without `links`, the page shows the plain list (VC2S6U08 does). The other three have the map, so give a new fact sheet one too.
 
 There are also `sources` (every source, each with an `id`) and `unverified` (a plain list of what could not be checked). There is no teaching time: that belongs to the unit.
 
@@ -54,6 +55,7 @@ Sources have `read: true` (you opened it: give `url` and `accessed`) or `read: f
 
 Work through these steps in order. Do one content description at a time.
 
+0. **If the VCAA site is offline,** use the local copy in the repo root instead (`VC2_Science_DigiTech_DesignTech_F-10.md` to read, the `.json` to copy the wording by script). Name it as the source, as `objects/VC2S2U12.json` does, and say in `unverified` that the live site was not checked.
 1. **Get the official data.** Download `https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum` (with `curl -sL`). The page holds all the content descriptions as data: search the file for `"code":"VC2S6U08"` to find the `contentDescription`, the `elaborations`, the `strand` and `subStrand`, and the `achievementExtracts` (the achievement standard sentence). Copy the description text with a script, never by retyping it and never from memory.
 2. **Copy a sample.** Copy `objects/VC2S6U08.json` to `objects/<CODE>.json` and change every field. Keep `schema_version` at 1 and set `updated` to today.
 3. **Fill `descriptor`.** `stem` and `text` exactly as the VCAA has them, `url` ending in `#<CODE>`, status `verified`, sources `vcaa-science` and `vcaa-copyright`. Keep the `attribution` line as it is in the samples: the VCAA licence (CC BY-NC 3.0 Australia) allows copying with that credit.

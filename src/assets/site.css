@@ -1,7 +1,7 @@
 /* House styles. Colours, fonts and radii come from tokens.css ("Electric",
    see DESIGN.md); nothing here is hard-coded. Surfaces and text use the
-   theme roles (--bg, --card, --text, ...) so light and dark mode both
-   work. Accents: violet throughout, with solar orange as the partner for
+   theme roles (--bg, --card, --text, ...) so every page shares one look.
+   Accents: violet throughout, with solar orange as the partner for
    "next", drafts, CRT and notes. */
 
 * { box-sizing: border-box; }
@@ -232,9 +232,6 @@ textarea:focus, input:focus { border-color: var(--text-violet); outline: none; }
 button.btn { font-family: inherit; cursor: pointer; }
 button.btn:disabled { opacity: 0.5; cursor: default; outline: none; }
 
-/* Light or dark mode switch (theme.js) */
-.theme-toggle { font: inherit; font-size: 14px; font-weight: 500; line-height: 1.2; color: var(--text); background: transparent; border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 10px 14px; min-height: 44px; cursor: pointer; }
-.theme-toggle:hover { background: var(--hover); }
 
 /* Home page: where each class is up to, at a glance */
 .glance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px 28px; }

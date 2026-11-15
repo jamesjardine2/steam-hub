@@ -4,9 +4,8 @@
    Two layers:
    1. The palette (--void, --violet, ...): fixed values, never redefined.
    2. Roles (--bg, --text, ...): what the hub and artefacts use for
-      surfaces and text. Dark is the default; [data-theme="light"] maps the
-      same palette the other way round, so light mode adds no new colours.
-      src/assets/theme.js sets data-theme from the device's saved choice.
+      surfaces and text: a light page with dark text. The site is light
+      only. There is no dark mode (James, November 2026).
 
    Contrast rules: --violet is a fill only on dark, with white text on it;
    violet text uses --text-violet (Ultraviolet on dark, Violet on light).
@@ -47,38 +46,11 @@
   --radius-card: 16px;
   --radius-input: 10px;
   --radius-pill: 999px;
-
-  /* Roles, dark (default): void page, surface cards, raised hover */
-  color-scheme: dark;
-  --bg: var(--void);
-  --card: var(--surface);
-  --hover: var(--raised);
-  --border: var(--line);
-  --text: var(--glow);
-  --text-muted: var(--mist);
-  --text-violet: var(--ultraviolet);
-  --text-orange: var(--solar-orange);
-  --text-pink: var(--plasma-pink);
-  --text-cyan: var(--ion-cyan);
-  /* Drawings in artefacts: paper and flour, labels, picture backgrounds */
-  --paper: var(--glow);
-  --ink: var(--glow);
-  --panel: var(--surface);
-  --panel-2: var(--raised);
-  /* Pedagogy tiers: dark tile, bright icon, dots and level text */
-  --tile-department: var(--tier-department-bg);
-  --tone-department: var(--tier-department);
-  --tile-fcps: var(--tier-fcps-bg);
-  --tone-fcps: var(--tier-fcps);
-  --tile-adopted: var(--tier-adopted-bg);
-  --tone-adopted: var(--tier-adopted);
-  --tile-curriculum: var(--tier-curriculum-bg);
-  --tone-curriculum: var(--tier-curriculum);
-  --missing-text: var(--link-missing);
-  --missing-fill: transparent;
 }
 
-:root[data-theme="light"] {
+/* Roles: light page, white cards. The hub and the artefacts are light only
+   (James, November 2026), so there is one set. */
+:root {
   color-scheme: light;
   --bg: var(--glow);
   --card: var(--white);
@@ -109,8 +81,7 @@
   --missing-fill: color-mix(in srgb, var(--link-missing) 45%, var(--white));
 }
 
-/* Printing (handouts, CRT plans and their PDFs) is always light, so the
-   page margins print white instead of taking the dark default. */
+/* Printing (handouts, CRT plans and their PDFs) is light like the rest. */
 @media print {
-  :root, :root[data-theme] { color-scheme: light; }
+  :root { color-scheme: light; }
 }

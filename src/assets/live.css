@@ -2,7 +2,7 @@
    1280x720 projector pages, linked as ../../../assets/live.css after
    tokens.css. Colours come only from tokens.css.
 
-   Dark "Electric" stage with bright accents. Colour carries meaning, the
+   A light "Electric" stage with bright accents. Colour carries meaning, the
    same in every lesson, so students learn the cues:
      violet  what we are learning (title, LISC, step numbers)
      orange  think about it (hooks, predictions)
@@ -12,8 +12,8 @@
    VTLM 2.0 Attention and Focus: one idea per slide, few words, no
    decoration, bars hidden while presenting (live.js).
    Each slide uses violet plus its one partner colour. Surfaces and text
-   use the theme roles (--bg, --card, --text, ...), so pages work in light
-   and dark mode (light by default, see theme.js). Anything students read
+   use the theme roles (--bg, --card, --text, ...). The site is light only.
+   Anything students read
    is in --text, never --text-muted, because projectors wash out greys. */
 
 * { box-sizing: border-box; }
@@ -25,7 +25,6 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; }
 header { position: absolute; z-index: 5; top: 0; left: 0; right: 0; height: 64px; background: var(--card); border-bottom: 1px solid var(--border); color: var(--text); display: flex; align-items: center; gap: 20px; padding: 0 28px; }
 header .t { font-weight: 800; letter-spacing: -0.02em; font-size: 20px; }
 header .u { margin-left: auto; font-size: 15px; color: var(--text-muted); }
-header .theme { margin-left: auto; font-size: 15px; padding: 10px 18px; min-height: 0; background: transparent; }
 header a { color: var(--text); background: var(--hover); text-decoration: none; font-weight: 500; font-size: 15px; padding: 10px 18px; border-radius: var(--radius-pill); }
 
 footer { position: absolute; z-index: 5; bottom: 0; left: 0; right: 0; height: 80px; background: var(--card); border-top: 1px solid var(--border); display: flex; align-items: center; gap: 12px; padding: 0 28px; }

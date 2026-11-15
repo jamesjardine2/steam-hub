@@ -12,6 +12,26 @@
       "unverified": 6
     },
     {
+      "code": "VC2S2U12",
+      "title": "Sound",
+      "band": "Foundation to Level 2",
+      "sub_strand": "Physical sciences",
+      "updated": "2026-11-15",
+      "verified": 23,
+      "draft": 20,
+      "unverified": 6
+    },
+    {
+      "code": "VC2S4U10",
+      "title": "Forces",
+      "band": "Levels 3 and 4",
+      "sub_strand": "Physical sciences",
+      "updated": "2026-11-15",
+      "verified": 23,
+      "draft": 18,
+      "unverified": 7
+    },
+    {
       "code": "VC2S6U08",
       "title": "Light",
       "band": "Levels 5 and 6",

@@ -1,6 +1,6 @@
 # STEAM Hub design system: "Electric"
 
-A dark theme built on near-black, with electric accents led by a vivid violet. Use these tokens for every page in the hub. Don't add colours or fonts that aren't listed here.
+A light theme (a pale page, white cards, near-black text) with electric accents led by a vivid violet. The site is light only: there is no dark mode (James, November 2026). Use these tokens for every page in the hub. Don't add colours or fonts that aren't listed here.
 
 ## Colours
 
@@ -20,7 +20,7 @@ A dark theme built on near-black, with electric accents led by a vivid violet. U
 | Token | Hex | Use |
 |---|---|---|
 | `--violet` | `#5329E7` | Primary brand colour. Fills only (buttons, pills, active nav), always with white text |
-| `--ultraviolet` | `#8B6BFF` | Violet for text on dark (links, headings accents, focus rings) |
+| `--ultraviolet` | `#8B6BFF` | A lighter violet. Not used for text now the site is light only: violet text uses `--violet` |
 | `--volt-blue` | `#2F6BFF` | Secondary actions, charts |
 | `--ion-cyan` | `#00D4FF` | Info, highlights, charts |
 | `--plasma-pink` | `#FF2E88` | Badges ("New"), alerts, charts. Dark text on top |

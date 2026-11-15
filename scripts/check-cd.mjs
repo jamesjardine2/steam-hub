@@ -223,6 +223,68 @@ for (const name of files) {
 
 if (!files.length) console.log("No CD objects in content/cd/objects/ yet.");
 
+// ---- The Science cycle table (content/cd/cycle.json) ----
+// Every item needs a real Science Understanding code at the row's level and
+// in the strand it is filed under, and every code from Foundation to Level 6
+// should appear somewhere in the cycle.
+const CYCLE = path.join(DIR, "cycle.json");
+if (fs.existsSync(CYCLE)) {
+  const errors = [];
+  let cycle;
+  try {
+    cycle = JSON.parse(fs.readFileSync(CYCLE, "utf8"));
+  } catch (e) {
+    errors.push(`not valid JSON: ${e.message}`);
+  }
+  if (cycle) {
+    const BAND = { f: "2", y12: "2", y34: "4", y56: "6" };
+    // The local copy of the curriculum, when it is there, to check the quoted wording against.
+    const REF = path.join(ROOT, "VC2_Science_DigiTech_DesignTech_F-10.json");
+    let officialText = null;
+    if (fs.existsSync(REF)) {
+      officialText = new Map();
+      (function walk(v) {
+        if (Array.isArray(v)) v.forEach(walk);
+        else if (v && typeof v === "object") {
+          if (typeof v.code === "string" && typeof v.text === "string") officialText.set(v.code, v.text);
+          Object.values(v).forEach(walk);
+        }
+      })(JSON.parse(fs.readFileSync(REF, "utf8")));
+    }
+    const seen = new Set();
+    for (const row of cycle.rows || []) {
+      if (!BAND[row.cohort]) errors.push(`${row.label}: cohort should be f, y12, y34 or y56`);
+      for (const key of ["every", "odd", "even"]) {
+        for (const [i, item] of (row[key] || []).entries()) {
+          const where = `${row.label}, ${key}[${i}]`;
+          const known = curriculum[item.code];
+          if (!item.short || item.short.length > 40) errors.push(`${where}: needs a short statement (short) of at most 40 characters`);
+          if (!item.text) errors.push(`${where}: needs the official wording (text)`);
+          else if (officialText && officialText.get(item.code) !== item.text) errors.push(`${where}: text is not the wording of ${item.code} in the local copy of the curriculum`);
+          if (!known || !/^VC2S(2|4|6)U/.test(item.code)) errors.push(`${where}: ${item.code} is not a Science Understanding code in src/_data/curriculum.json`);
+          else {
+            if (known.band !== BAND[row.cohort]) errors.push(`${where}: ${item.code} is not at this row's level`);
+            if (known.sub !== item.sub) errors.push(`${where}: ${item.code} is ${known.sub}, not ${item.sub}`);
+            seen.add(item.code);
+          }
+        }
+      }
+    }
+    // The official wording is quoted as it is, so only our own text is checked for dashes.
+    for (const { where, text } of strings(cycle, "").filter((s) => !/\.text$/.test(s.where))) {
+      if (/[\u2014\u2013]/.test(text) || /\s-\s/.test(text)) errors.push(`${where}: has a dash (rewrite the sentence, and use "to" for ranges)`);
+    }
+    const missing = Object.keys(curriculum).filter((c) => /^VC2S(2|4|6)U/.test(c) && !seen.has(c));
+    if (errors.length) {
+      failed++;
+      console.error("FAIL cycle.json");
+      for (const e of errors) console.error(`  ${e}`);
+    } else {
+      console.log(`ok   cycle.json: ${seen.size} Science Understanding codes in the cycle${missing.length ? `, not in it: ${missing.join(", ")}` : ", none left out"}`);
+    }
+  }
+}
+
 if (!failed) {
   const text = JSON.stringify({ note: "Written by npm run check-cd -- --write. Do not edit by hand.", objects: index }, null, 2) + "\n";
   const current = fs.existsSync(INDEX) ? fs.readFileSync(INDEX, "utf8") : "";

@@ -401,13 +401,15 @@
 
   // ---- Side column ----
 
-  function usedIn(cd, units) {
+  function usedIn(cd, units, cycle) {
     const rows = (units && units[cd.code]) || [];
+    const place = cyclePlaces(cycle).get(cd.code);
     return h("div", { class: "card stack-tight" },
       h("h2", { class: "card-title" }, "Used in"),
       rows.length
         ? rows.map((u) => h("a", { class: "link-row", href: `../${u.url}` }, u.title, h("span", { class: "small muted" }, ` · ${u.where}`)))
-        : h("p", { class: "small muted" }, "No unit in the hub lists this code yet."));
+        : h("p", { class: "small muted" }, "No unit in the hub lists this code yet."),
+      place ? h("a", { class: "link-row", href: "./" }, "Science cycle", h("span", { class: "small muted" }, ` · ${place}`)) : null);
   }
 
   function statusKey(cd) {
@@ -427,12 +429,12 @@
 
   // ---- Pages ----
 
-  function showSheet(cd, index, units) {
+  function showSheet(cd, index, units, cycle) {
     sourceNumbers = new Map(cd.sources.map((s, i) => [s.id, i + 1]));
     document.title = `${cd.code} ${cd.title} · FCPS STEAM`;
     const summary = index.find((o) => o.code === cd.code);
     root.replaceChildren(
-      h("p", { class: "crumbs" }, h("a", { href: "../" }, "Overview"), " / ", h("a", { href: "./" }, "Curriculum fact sheets"), ` / ${cd.code}`),
+      h("p", { class: "crumbs" }, h("a", { href: "../" }, "Overview"), " / ", h("a", { href: "./" }, "Science cycle"), ` / ${cd.code}`),
       h("section", { class: "hero" },
         h("div", { class: "hero-text" },
           h("p", { class: "hero-kicker" }, `${cd.code} · ${cd.learning_area} · ${cd.band} · ${cd.sub_strand}`),
@@ -443,7 +445,7 @@
         h("section", { class: "main-col accs" },
           paraphrase(cd), keyQuestions(cd), vocabulary(cd), misconceptions(cd), inquiry(cd),
           humanEndeavour(cd), related(cd, index), anchors(cd), pitfalls(cd), sources(cd)),
-        h("aside", { class: "side-col stack" }, usedIn(cd, units), statusKey(cd), notChecked(cd))));
+        h("aside", { class: "side-col stack" }, usedIn(cd, units, cycle), statusKey(cd), notChecked(cd))));
 
     // A source number opens the Sources section and moves to that source.
     root.addEventListener("click", (event) => {
@@ -452,21 +454,100 @@
     });
   }
 
-  function showIndex(index) {
-    root.replaceChildren(
-      h("div", { class: "page-head" },
-        h("div", {},
-          h("p", { class: "kicker" }, "Trial"),
-          h("h1", {}, "Curriculum fact sheets"),
-          h("p", { class: "lede" }, "One sheet for each Science content description: what it asks, what students get wrong, and where to start."))),
-      index.length
-        ? h("div", { class: "card-grid fill" }, index.map((o) =>
-          h("a", { class: "card cd-index-link", href: `?code=${o.code}` },
-            h("span", { class: "code" }, o.code),
-            h("span", { class: "name" }, o.title),
-            h("span", { class: "small muted" }, `${o.band} · ${o.sub_strand}`),
-            h("span", { class: "small muted" }, `${o.verified} verified · ${o.draft} draft`))))
-        : h("p", { class: "ph" }, "[No fact sheets yet]"));
+  // ---- The Science cycle (the front page) ----
+  // What each year level learns across the school's two-year cycle, from
+  // cycle.json. An understanding with a fact sheet opens it.
+
+  // Left to right, in the order James asked for.
+  const STRANDS = ["Physical sciences", "Earth and space sciences", "Biological sciences", "Chemical sciences"];
+
+  // "Year 3/4, odd years" for each code in the cycle.
+  function cyclePlaces(cycle) {
+    const places = new Map();
+    for (const row of (cycle && cycle.rows) || []) {
+      for (const [key, when] of [["every", "every year"], ["odd", "odd years"], ["even", "even years"]]) {
+        for (const item of row[key] || []) places.set(item.code, `${row.label}, ${when}`);
+      }
+    }
+    return places;
+  }
+
+  function cycleItem(item, sheets) {
+    const sheet = sheets.get(item.code);
+    return h("div", { class: `cyc-item${sheet ? " has-sheet" : ""}` },
+      h("span", { class: "cyc-short", title: item.text }, item.short),
+      h("span", { class: "cyc-meta" },
+        h("a", { class: "chip", href: vcaaUrl(item.code), target: "_blank", rel: "noopener", title: `Open ${item.code} in the Victorian Curriculum` }, item.code),
+        sheet ? h("a", { class: "cyc-sheet", href: `?code=${item.code}`, title: `Open the fact sheet: ${sheet.title}` }, "Fact sheet") : null),
+      h("span", { class: "cyc-text" }, item.text),
+      item.note ? h("span", { class: "cyc-note" }, item.note) : null);
+  }
+
+  // One screen: a column for each strand, a row for each year level. Both
+  // years are in the page and the switch above the table shows one of them.
+  function cycleTable(cycle, sheets) {
+    const items = (row, key, s) => (row[key] || []).filter((i) => i.sub === s).map((i) => cycleItem(i, sheets));
+    const cell = (row, s) => h("td", {},
+      row.every
+        ? items(row, "every", s)
+        : [h("div", { class: "cyc-odd" }, items(row, "odd", s)), h("div", { class: "cyc-even" }, items(row, "even", s))]);
+    return h("div", { class: "cyc-scroll" },
+      h("table", { class: "cyc" },
+        h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "Year level"), STRANDS.map((s) => h("th", { scope: "col" }, s.replace(" sciences", ""))))),
+        h("tbody", {}, cycle.rows.map((row) => h("tr", {},
+          h("th", { scope: "row", class: "cyc-year" }, row.label, row.every ? h("span", { class: "cyc-years" }, "Every year") : null),
+          STRANDS.map((s) => cell(row, s)))))));
+  }
+
+  // The odd or even switch, and the switch for the full wording.
+  function cycleControls(cycle, view) {
+    const yearButton = (key) => h("button", { type: "button", class: "cyc-switch", "data-year": key, "aria-pressed": "false" },
+      cycle.years[key].label);
+    const full = h("button", { type: "button", class: "cyc-switch cyc-full", "aria-pressed": "false" }, "Official wording");
+    const bar = h("div", { class: "cyc-controls" },
+      h("div", { class: "cyc-toggle", role: "group", "aria-label": "Year of the cycle" }, yearButton("odd"), yearButton("even")),
+      full);
+    const show = (key) => {
+      view.dataset.year = key;
+      bar.querySelectorAll("[data-year]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.year === key)));
+    };
+    bar.addEventListener("click", (event) => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      if (button.dataset.year) show(button.dataset.year);
+      else full.setAttribute("aria-pressed", String(view.classList.toggle("is-full")));
+    });
+    // Odd years show first.
+    show("odd");
+    return bar;
+  }
+
+  function showIndex(index, cycle) {
+    const sheets = new Map(index.map((o) => [o.code, o]));
+    const places = cyclePlaces(cycle);
+    const extra = index.filter((o) => !places.has(o.code));
+    const sheetCard = (o) =>
+      h("a", { class: "card cd-index-link", href: `?code=${o.code}` },
+        h("span", { class: "code" }, o.code),
+        h("span", { class: "name" }, o.title),
+        h("span", { class: "small muted" }, `${o.band} · ${o.sub_strand}`),
+        h("span", { class: "small muted" }, `${o.verified} verified · ${o.draft} draft`));
+    document.title = "Science cycle · FCPS STEAM";
+    // The switch sits beside the heading, so the whole table fits one screen.
+    const view = cycle ? h("div", { class: "cyc-view" }, cycleTable(cycle, sheets)) : null;
+    root.replaceChildren(...[
+      h("div", { class: "page-head cyc-head" },
+        h("h1", {}, "Science cycle"),
+        cycle ? cycleControls(cycle, view) : null),
+      cycle
+        ? [view,
+          h("p", { class: "cyc-foot" },
+            cycle.matched === "draft" ? [pill("draft"), ` Which description is taught when was matched by Claude from the ${cycle.source}, and the short statements are Claude's. Both need James's check. `] : null,
+            cycle.attribution)]
+        : h("p", { class: "ph" }, "[The Science cycle could not be loaded]"),
+      // Fact sheets for codes that are not in the cycle would be listed here.
+      extra.length ? [h("h2", { class: "cyc-more" }, "Other fact sheets"), h("div", { class: "card-grid fill" }, extra.map(sheetCard))] : null,
+    ].flat(Infinity).filter(Boolean));
   }
 
   function showError(message) {
@@ -482,13 +563,14 @@
     } catch {
       return showError("The list of fact sheets could not be loaded");
     }
-    if (!code) return showIndex(index);
+    const cycle = await getJson("cycle.json", true);
+    if (!code) return showIndex(index, cycle);
     if (!/^VC2S[A-Z0-9]+$/.test(code) || !index.some((o) => o.code === code)) {
       return showError(`There is no fact sheet for ${code.slice(0, 20)} yet`);
     }
     try {
       const [cd, units] = await Promise.all([getJson(`objects/${code}.json`), getJson("units.json", true)]);
-      showSheet(cd, index, units);
+      showSheet(cd, index, units, cycle);
     } catch {
       showError(`The fact sheet for ${code} could not be loaded`);
     }
