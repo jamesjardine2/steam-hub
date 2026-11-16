@@ -30,7 +30,7 @@ const text = (v) => typeof v === "string" && v.trim().length > 0;
 // contexts) come only from James's focus and their pairing partners. Claude
 // builds in the other Science and Design and Technologies strands, and
 // Digital Technologies only when James switched it on, all at the cohort's level.
-const BAND = { f: "2", y12: "2", y34: "4", y56: "6" }[plan.cohort];
+const BAND = { f: "2", y12: "2", y1: "2", y2: "2", y34: "4", y56: "6" }[plan.cohort];
 const answers = plan.answers || {};
 const focus = answers.focus || answers.targets || [];
 const isContent = (c) => c.strand === "Science Understanding" || c.strand === "Technologies Contexts";
@@ -98,7 +98,7 @@ if (round === "directions") {
   if (plan.status !== "draft") fail(`status should be "draft", not "${plan.status}"`);
   const slug = plan.unit && plan.unit.slug;
   const unitFile = slug && path.join("content", "units", slug, "unit.md");
-  if (!slug || !/^[0-9]{4}-t[1-4]-(f|y12|y34|y56)-[a-z0-9-]+$/.test(slug)) fail("plan.unit.slug is missing or badly named");
+  if (!slug || !/^[0-9]{4}-t[1-4]-(f|y12|y1|y2|y34|y56)-[a-z0-9-]+$/.test(slug)) fail("plan.unit.slug is missing or badly named");
   else if (!fs.existsSync(unitFile)) fail(`${unitFile} does not exist`);
   else {
     const u = matter.read(unitFile).data;

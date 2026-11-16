@@ -10,7 +10,7 @@ Three kinds of plan, in this build order:
 
 1. **A unit:** one cohort, one term. Ends as a draft `unit.md` (title, overarching LISC, curriculum codes, cross-curriculum links, assessment plan, lesson outline). Lessons are then planned one at a time with the existing "Plan Lesson N with Claude" button.
 2. **A single lesson:** a standalone lesson, incursion or event day (for example a high school lab visit). Ends as a draft lesson file in a small "one-off" unit for that term.
-3. **A year map:** every cohort across the year, and across the two-year cycle, showing which Science and Technologies codes each cohort covers and where the gaps are. It is the starting point for choosing curriculum targets in a unit plan.
+3. **A year map:** every cohort across the year, and across its cycle (two years for Year 3/4 and Year 5/6, one year for Year 1 and Year 2 from 2027), showing which Science and Technologies codes each cohort covers and where the gaps are. It is the starting point for choosing curriculum targets in a unit plan.
 
 ## 2. How it runs
 
@@ -30,7 +30,7 @@ A plan in progress is saved as `content/plans/<year>-t<term>-<cohort>.json`: the
 
 ### Step 1: what the hub knows
 
-Shown, not asked: the cohort, the classes, `lesson_count`, last term's unit, the unit this cohort did two years ago (the last time round the cycle), the other cohorts' units this term, and the curriculum codes this cohort has covered in the cycle so far.
+Shown, not asked: the cohort, the classes, `lesson_count`, last term's unit, the unit this cohort did the last time round the cycle (two years ago, or a year ago for Year 1 and Year 2, which have been separate cohorts with a yearly sequence since 2027 and look back through the old Year 1/2 units), the other cohorts' units this term, and the curriculum codes this cohort has covered in the cycle so far.
 
 ### Step 2: non-negotiables
 
@@ -48,7 +48,7 @@ Only when James turns it on for this plan. Open prompts with no defaults: what e
 
 ### Round 1: directions
 
-Claude suggests three genuinely different directions (for example a design challenge, a scientific investigation and a game build, never three versions of one idea). On the two-year cycle, one of them is always "remix what we did last time", with what the unit's reflections said to keep, cut and change. Each direction has:
+Claude suggests three genuinely different directions (for example a design challenge, a scientific investigation and a game build, never three versions of one idea). When the cohort has a unit from the last time round, one of them is always "remix what we did last time", with what the unit's reflections said to keep, cut and change. Each direction has:
 
 - a big idea and an overarching LISC
 - two or three easy assessment options (section 6)
@@ -106,7 +106,7 @@ Spaces and partners to add as they're confirmed: high school science lab visits,
 - **Codes:** `src/_data/curriculum.json` lists every Science, Design and Technologies, and Digital Technologies content description from Foundation to Level 6: code, learning area, level band, strand, a short summary in our own words, and the VCAA link. The full wording stays on the VCAA site (VCAA owns it and this site is public).
 - **Links:** `lib/vc2.js` links every learning area (it currently links Design and Technologies, Digital Technologies, Science and Mathematics, and falls back to the VCAA search for the rest). All Science and Technologies links are checked, like `npm run check-links`.
 - **Cross-curriculum connections:** a unit and a lesson can list `connections:` codes from other learning areas (Health and Physical Education, The Arts including Music and Visual Arts, Mathematics, English and others). Claude suggests them in each direction, for example Design and Technologies with Health through food, Science with Music through sound, or Digital Technologies with Mathematics through coordinates. They show as chips beside the curriculum codes, in a second colour.
-- **Coverage:** the year map shows which codes each cohort has covered across the two-year cycle. It needs 2026 Terms 1 to 3 in the hub (the Phase 2 import), so coverage starts partial and fills in as units are added.
+- **Coverage:** the year map shows which codes each cohort has covered across its cycle. It needs 2026 Terms 1 to 3 in the hub (the Phase 2 import), so coverage starts partial and fills in as units are added.
 
 ## 6. Assessment, kept easy
 

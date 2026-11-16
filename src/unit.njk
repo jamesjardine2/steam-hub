@@ -129,7 +129,7 @@ eleventyComputed:
         <p class="ph small">[End-of-unit note: what to keep, cut and change when this comes round again]</p>
       {% endfor %}
       <a class="btn btn-amber" href="{{ unit.reflectionsEditUrl }}" target="_blank" rel="noopener">Add a reflection</a>
-      <p class="next-taught-line">Next taught: {{ unit.nextTaught }}</p>
+      {% if unit.nextTaught %}<p class="next-taught-line">Next taught: {{ unit.nextTaught }}</p>{% endif %}
     </div>
   </aside>
 </div>

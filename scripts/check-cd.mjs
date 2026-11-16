@@ -238,7 +238,7 @@ if (fs.existsSync(CYCLE)) {
     errors.push(`not valid JSON: ${e.message}`);
   }
   if (cycle) {
-    const BAND = { f: "2", y12: "2", y34: "4", y56: "6" };
+    const BAND = { f: "2", y1: "2", y2: "2", y34: "4", y56: "6" };
     // The local copy of the curriculum, when it is there, to check the quoted wording against.
     const REF = path.join(ROOT, "VC2_Science_DigiTech_DesignTech_F-10.json");
     let officialText = null;
@@ -254,7 +254,7 @@ if (fs.existsSync(CYCLE)) {
     }
     const seen = new Set();
     for (const row of cycle.rows || []) {
-      if (!BAND[row.cohort]) errors.push(`${row.label}: cohort should be f, y12, y34 or y56`);
+      if (!BAND[row.cohort]) errors.push(`${row.label}: cohort should be f, y1, y2, y34 or y56`);
       for (const key of ["every", "odd", "even"]) {
         for (const [i, item] of (row[key] || []).entries()) {
           const where = `${row.label}, ${key}[${i}]`;

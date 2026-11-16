@@ -15,12 +15,22 @@ const CONTENT = path.join(process.cwd(), "content");
 const DEFAULT_LESSON_COUNT = 8;
 const DEFAULT_DURATION = 45;
 
+// The groups James teaches. From 2027 the school split Year 1/2: Year 1 and
+// Year 2 are separate groups with their own sequence, the same every year, so
+// "y12" ends with 2026 and "y1" and "y2" start in 2027. "cycle" is how many
+// years pass before a unit comes round again. "after" names the group whose
+// units came before this one (the Planning page looks back through them).
 const COHORTS = [
-  { id: "f", label: "Foundation" },
-  { id: "y12", label: "Year 1/2" },
-  { id: "y34", label: "Year 3/4" },
-  { id: "y56", label: "Year 5/6" },
+  { id: "f", label: "Foundation", cycle: 2 },
+  { id: "y12", label: "Year 1/2", cycle: 2, until: 2026 },
+  { id: "y1", label: "Year 1", cycle: 1, from: 2027, after: "y12" },
+  { id: "y2", label: "Year 2", cycle: 1, from: 2027, after: "y12" },
+  { id: "y34", label: "Year 3/4", cycle: 2 },
+  { id: "y56", label: "Year 5/6", cycle: 2 },
 ];
+const COHORT_IDS = COHORTS.map((c) => c.id).join(", ");
+// Whether a group exists in a year.
+const cohortRuns = (c, year) => (!c.from || year >= c.from) && (!c.until || year <= c.until);
 const VTLM = [
   "Focus the learning",
   "Explicit explanation and modelling",
@@ -408,9 +418,15 @@ function loadUnit(slug, classes, progress) {
   }
   const { data, content } = readMatter(file);
   const cohort = COHORTS.find((c) => c.id === data.cohort);
-  if (!cohort) warn(file, `unknown cohort "${data.cohort}" (use f, y12, y34 or y56)`);
+  if (!cohort) warn(file, `unknown cohort "${data.cohort}" (use one of ${COHORT_IDS})`);
   const year = Number(data.year);
   const term = Number(data.term);
+  if (cohort && !cohortRuns(cohort, year)) {
+    warn(file, `cohort "${data.cohort}" (${cohort.label}) ${cohort.until ? `ended with ${cohort.until}` : `starts in ${cohort.from}`}: from 2027 use y1 or y2, up to 2026 use y12`);
+  }
+  // When the unit comes round again: a year later for Year 1 and Year 2, two
+  // years later for the rest. Nothing for a group that has ended.
+  const comesBack = cohort && cohortRuns(cohort, year + cohort.cycle) ? termLabel(year + cohort.cycle, term) : "";
 
   const unit = {
     slug,
@@ -443,7 +459,7 @@ function loadUnit(slug, classes, progress) {
     reportSubject: data.report_subject || "",
     // Assessment plan: [{ title, how, when }]
     assessment: asList(data.assessment).map((a) => (typeof a === "string" ? { title: a, how: "", when: "" } : { title: a.title || "", how: a.how || "", when: a.when || "" })),
-    nextTaught: data.next_taught || termLabel(year + 2, term),
+    nextTaught: data.next_taught || comesBack,
     reflectionsEditUrl: `https://github.com/${REPO}/edit/${BRANCH}/content/units/${slug}/reflections.md`,
     classes: (classes[String(year)] || {})[data.cohort] || [],
   };
@@ -609,7 +625,8 @@ export default function () {
   };
   const currentUnits = units.filter((u) => u.termKey === currentTerm.key && u.status !== "draft");
 
-  const overview = COHORTS.map((c) => ({
+  // One card for each group that exists in the current term's year.
+  const overview = COHORTS.filter((c) => cohortRuns(c, currentTerm.year)).map((c) => ({
     ...c,
     unit: currentUnits.find((u) => u.cohort === c.id) || null,
   }));

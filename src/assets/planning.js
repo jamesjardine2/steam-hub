@@ -29,7 +29,10 @@
   const today = () => new Date().toLocaleDateString("en-CA", { timeZone: "Australia/Melbourne" });
   const cohortLabel = (id) => (DATA.cohorts.find((c) => c.id === id) || {}).label || id;
   const termLabel = (y, t) => `Term ${t}, ${y}`;
-  const band = (cohort) => ({ f: "2", y12: "2", y34: "4", y56: "6" }[cohort] || "2");
+  const band = (cohort) => ({ f: "2", y12: "2", y1: "2", y2: "2", y34: "4", y56: "6" }[cohort] || "2");
+  const cohortOf = (id) => DATA.cohorts.find((c) => c.id === id) || { id, label: id, cycle: 2 };
+  // Whether a group exists in a year: Year 1/2 ends with 2026, Year 1 and Year 2 start in 2027.
+  const cohortRuns = (c, year) => (!c.from || year >= c.from) && (!c.until || year <= c.until);
   const pathFor = (id) => `content/plans/${id}.json`;
   // Matches the run-name in .github/workflows/plan-unit.yml.
   const job = (id, round) => ({ workflow: WORKFLOW, title: `Plan unit: ${id} (${round})` });
@@ -46,6 +49,17 @@
 
   // ---- Start a new plan
   const newCard = $("[data-plan-new]");
+  // Only offer the groups that exist in the chosen year.
+  function offerCohorts() {
+    const select = $("[data-new-cohort]", newCard);
+    const year = Number($("[data-new-year]", newCard).value);
+    const was = select.value;
+    const open = DATA.cohorts.filter((c) => cohortRuns(c, year));
+    select.innerHTML = open.map((c) => `<option value="${esc(c.id)}">${esc(c.label)}</option>`).join("");
+    if (open.some((c) => c.id === was)) select.value = was;
+  }
+  $("[data-new-year]", newCard).addEventListener("input", offerCohorts);
+  offerCohorts();
   $("[data-new-start]", newCard).addEventListener("click", async () => {
     const status = $("[data-status]", newCard);
     if (!hub.getToken()) { status.innerHTML = keyNote(); return; }
@@ -135,17 +149,21 @@
   // ---- What the hub already knows
   function context() {
     const key = plan.year * 10 + plan.term;
-    const mine = DATA.units.filter((u) => u.cohort === plan.cohort && u.status !== "draft");
+    // Year 1 and Year 2 look back through the Year 1/2 units from before 2027.
+    const cohort = cohortOf(plan.cohort);
+    const span = (cohort.cycle || 2) * 10;
+    const mine = DATA.units.filter((u) => (u.cohort === plan.cohort || u.cohort === cohort.after) && u.status !== "draft");
     const before = mine.filter((u) => u.termKey < key).sort((a, b) => b.termKey - a.termKey);
     const lastTerm = before[0] || null;
-    const lastCycle = mine.find((u) => u.termKey === key - 20) || null;
+    // The same term the last time round: a year ago for Year 1 and Year 2, two years ago for the rest.
+    const lastCycle = mine.find((u) => u.termKey === key - span) || null;
     const others = DATA.units.filter((u) => u.termKey === key && u.cohort !== plan.cohort);
-    // Codes this cohort has covered in the two-year cycle before this term.
+    // Codes this cohort has covered in its cycle (one year or two) before this term.
     const covered = {};
-    mine.filter((u) => u.termKey < key && u.termKey >= key - 20)
+    mine.filter((u) => u.termKey < key && u.termKey >= key - span)
       .forEach((u) => u.curriculum.forEach((c) => { (covered[c] ||= []).push(u.title); }));
     const classes = (DATA.classes[String(plan.year)] || DATA.classes[String(plan.year - 1)] || {})[plan.cohort] || [];
-    return { lastTerm, lastCycle, others, covered, classes };
+    return { lastTerm, lastCycle, others, covered, classes, yearly: cohort.cycle === 1 };
   }
 
   function render() {
@@ -162,7 +180,7 @@
           <dt>Cohort</dt><dd>${esc(cohortLabel(plan.cohort))}${ctx.classes.length ? ` · ${ctx.classes.map(esc).join(", ")}` : ""}</dd>
           <dt>Lessons</dt><dd><input type="number" min="1" max="12" value="${esc(plan.lesson_count)}" data-field="lesson_count" class="plan-num"> (about 2 lost to school events in a 10-week term)</dd>
           <dt>Last term</dt><dd>${unitLink(ctx.lastTerm)}</dd>
-          <dt>Two years ago</dt><dd>${unitLink(ctx.lastCycle)}${ctx.lastCycle ? ` <span class="small muted">Claude offers a remix of it as one direction.</span>` : ""}</dd>
+          <dt>${ctx.yearly ? "A year ago" : "Two years ago"}</dt><dd>${unitLink(ctx.lastCycle)}${ctx.lastCycle ? ` <span class="small muted">Claude offers a remix of it as one direction.</span>` : ""}</dd>
           <dt>Other cohorts this term</dt><dd>${ctx.others.length ? ctx.others.map((u) => `${esc(cohortLabel(u.cohort))}: <a href="${esc(site(u.url))}">${esc(u.title)}</a>`).join(" · ") : `<span class="muted">None planned yet</span>`}</dd>
         </dl>
       </section>
@@ -236,7 +254,7 @@
           return `<label class="plan-code">
             <input type="checkbox" value="${code}" data-focus${chosen.has(code) ? " checked" : ""}>
             <span><a class="plan-code-id" href="${vcaa(code, c.area)}" target="_blank" rel="noopener">${code}</a> ${esc(c.summary)}
-            ${ctx.covered[code] ? `<span class="small muted">Covered: ${esc(ctx.covered[code].join(", "))}</span>` : `<span class="tag-suggest">Not covered this cycle</span>`}
+            ${ctx.covered[code] ? `<span class="small muted">Covered: ${esc(ctx.covered[code].join(", "))}</span>` : `<span class="tag-suggest">${ctx.yearly ? "Not covered this year" : "Not covered this cycle"}</span>`}
             ${links.length ? `<span class="small muted">Pairs with ${links.map((l) => esc(l.code)).join(", ")}</span>` : ""}</span>
           </label>`;
         }).join("")).join("")}

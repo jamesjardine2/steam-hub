@@ -83,7 +83,8 @@
 .cd-sources .unread { color: var(--text-muted); }
 
 /* The Science cycle on the front page: one screen, a column for each strand
-   and a row for each year level. The switch shows odd or even years. Each cell
+   and a row for each year level. The switch shows odd or even years for
+   Year 3/4 and Year 5/6. Foundation, Year 1 and Year 2 are the same every year. Each cell
    has a short statement. Official wording shows the full description. */
 .cyc-head { align-items: center; margin-bottom: 14px; }
 .cyc-head h1 { font-size: 32px; }

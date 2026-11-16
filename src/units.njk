@@ -18,7 +18,7 @@ permalink: /units/
       <span class="row-between"><span class="pill">{{ u.cohortLabel }}</span><span class="small muted">{% if u.status == "draft" %}Draft unit{% else %}{{ u.plannedCount }} of {{ u.lessonCount }} planned{% endif %}</span></span>
       <span class="unit-link-title">{{ u.title }}</span>
       <span class="blurb">{{ u.blurb }}</span>
-      <span class="next-taught">Next taught: {{ u.nextTaught }}</span>
+      {% if u.nextTaught %}<span class="next-taught">Next taught: {{ u.nextTaught }}</span>{% endif %}
     </a>
     {% endfor %}
   </div>

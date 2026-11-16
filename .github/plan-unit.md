@@ -8,7 +8,7 @@ You are running on GitHub because James pressed a button on the hub's Planning p
 2. `PLANNING.md` (the spec for this feature).
 3. The plan file. `cohort`, `year`, `term` and `lesson_count` say what is being planned. `answers` holds James's non-negotiables: `focus` (the codes the unit is about: Science Understanding and/or Design and Technologies contexts), `targets` (the codes the unit must cover, the same as `focus`), `digital_tech` (true when the unit should be complemented with Digital Technologies), `report_subject`, `must_use` and `cant_use` (ids from `src/_data/resources.json`), `open_to_buying`, `checking`, `dates`, `links`, `notes`, and `spark` (only when `spark_on` is true).
 4. `src/_data/curriculum.json` (codes and summaries), `src/_data/resources.json` (what the room owns), `src/_data/lenses.json` (pedagogy tags).
-5. This cohort's earlier units in `content/units/` (folders contain the cohort id, for example `-y12-`), above all the unit from the same term two years ago and its `reflections.md`. Also skim the other cohorts' units for the same term.
+5. This cohort's earlier units in `content/units/` (folders contain the cohort id, for example `-y34-`), above all the unit from the same term the last time round and its `reflections.md`. Year 3/4 (`y34`) and Year 5/6 (`y56`) are on a two-year cycle, so the last time round is two years ago. From 2027 Year 1 (`y1`) and Year 2 (`y2`) are separate cohorts with their own sequence, the same every year, so the last time round is one year ago; their earlier units also include the Year 1/2 (`y12`) units from 2026 and before. Never write a `y12` unit for 2027 or later. `content/cd/cycle.json` shows which Science Understanding each year level learns. Also skim the other cohorts' units for the same term.
 
 ## The art and the science of teaching
 
@@ -36,7 +36,7 @@ Every code must be in `src/_data/curriculum.json` at the cohort's level (the `2`
 
 Write three directions into the plan's `directions` array, then set `"status": "directions"`. Do not change `answers` or `choices`. If directions already exist, replace them with three fresh ones that take James's newest answers into account.
 
-The three must be genuinely different kinds of unit (for example a design challenge, a scientific investigation and a game or digital build), never three versions of one idea. When the hub has a unit for this cohort from the same term two years ago, one direction is a **remix** of it: keep what its reflections say worked, change what they say to change.
+The three must be genuinely different kinds of unit (for example a design challenge, a scientific investigation and a game or digital build), never three versions of one idea. When the hub has a unit for this cohort from the same term the last time round (two years ago, or one year ago for Year 1 and Year 2), one direction is a **remix** of it: keep what its reflections say worked, change what they say to change.
 
 Every direction must cover all of `answers.targets`, use every `must_use` resource, avoid every `cant_use` resource, fit `lesson_count` lessons of 45 minutes, and respect `dates`. Build on owned resources. Only when `open_to_buying` is true may a direction need something not owned; list it under `purchases` and keep the rest of the direction working without it if possible.
 

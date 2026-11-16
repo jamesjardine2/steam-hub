@@ -1,6 +1,6 @@
 ---
 title: Unit title
-cohort: y12              # f, y12, y34 or y56
+cohort: y1               # f, y1, y2, y34 or y56 (y12 only up to 2026)
 year: 2027
 term: 1
 lesson_count: 8

@@ -1,7 +1,7 @@
 {
-  "id": "2027-t1-y12",
+  "id": "2027-t1-y2",
   "kind": "unit",
-  "cohort": "y12",
+  "cohort": "y2",
   "year": 2027,
   "term": 1,
   "lesson_count": 8,
@@ -576,5 +576,5 @@
       "own": ""
     }
   },
-  "unit": { "slug": "2027-t1-y12-sound-signals", "title": "Sound Signals" }
+  "unit": { "slug": "2027-t1-y2-sound-signals", "title": "Sound Signals" }
 }

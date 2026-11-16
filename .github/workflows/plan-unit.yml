@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       plan:
-        description: "Plan id, e.g. 2027-t1-y12"
+        description: "Plan id, e.g. 2027-t1-y2"
         required: true
         type: string
       round:
@@ -49,7 +49,7 @@ jobs:
           PLAN: ${{ inputs.plan }}
           ROUND: ${{ inputs.round }}
         run: |
-          [[ "$PLAN" =~ ^[0-9]{4}-t[1-4]-(f|y12|y34|y56)$ && -f "content/plans/$PLAN.json" ]] || { echo "Unknown plan: $PLAN"; exit 1; }
+          [[ "$PLAN" =~ ^[0-9]{4}-t[1-4]-(f|y12|y1|y2|y34|y56)$ && -f "content/plans/$PLAN.json" ]] || { echo "Unknown plan: $PLAN"; exit 1; }
           [[ "$ROUND" =~ ^(directions|draft|revise)$ ]] || { echo "Round must be directions, draft or revise"; exit 1; }
 
       - name: Claude plans the unit

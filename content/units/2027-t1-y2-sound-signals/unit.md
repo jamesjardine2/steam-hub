@@ -1,13 +1,13 @@
 ---
 title: "Sound Signals"
-cohort: y12
+cohort: y2
 year: 2027
 term: 1
 lesson_count: 8
 focus: "Sound + Digital Technologies"
 blurb: Students use what they know about sound to build a sound game that follows steps, while Lessons 1 to 4 teach the room's expectations and routines through listening games and signals.
 status: planned
-plan: 2027-t1-y12
+plan: 2027-t1-y2
 report_subject: Digital Technologies
 lisc:
   intention: To use what we know about sound to build a sound game that follows steps.

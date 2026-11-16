@@ -1,6 +1,6 @@
 {
-  "note": "The two-year cycle of Science Understandings, from the school's Concept Curriculum Scope and Sequence (2025 and 2026). Each item has a short statement in our own words (short, a few words that name the idea, the same as the fact sheet's title where there is one), the official VCAA wording of its content description (text), copied by script from the hub's local copy of the curriculum, and the school's enduring understanding it was matched from (eu, kept as a record and not shown on the page). The matches and the short statements were made by Claude, and James approved them on 15 November 2026. Checked by npm run check-cd. A composite year level is treated as one group: where the school's plan lists an understanding for only one year of a pair (Year 1 or Year 5), both years do it (James, November 2026). One record from the plan: for Year 1/2 Biological in even years, Year 2's understanding matches VC2S2U01, and Year 1's (needs and features that help living things survive) is closer to VC2S2U02 or VC2S2U03.",
-  "source": "FCPS Concept Curriculum Plan: 2025/2026 Concept Curriculum Scope and Sequence",
+  "note": "The school's cycle of Science Understandings, from its Concept Curriculum Scope and Sequence. From 2027 Foundation, Year 1 and Year 2 each have their own sequence, the same every year (the draft 2027 to 2028 plan, read on 16 November 2026). Year 3/4 and Year 5/6 stay on a two-year cycle of odd and even years (the 2025 and 2026 plan, which the 2027 to 2028 plan matches). Each item has a short statement in our own words (short, a few words that name the idea, the same as the fact sheet's title where there is one), the official VCAA wording of its content description (text), copied by script from the hub's local copy of the curriculum, and the school's enduring understanding it was matched from (eu, kept as a record and not shown on the page). The matches and the short statements were made by Claude. James approved the Year 3 to 6 matches on 15 November 2026. The Foundation, Year 1 and Year 2 rows were moved to the new plan by Claude on 16 November 2026, using the same matches of enduring understanding to code. Checked by npm run check-cd. A composite year level (Year 3/4, Year 5/6) is treated as one group: where the school's plan lists an understanding for only one year of a pair, both years do it (James, November 2026). Records from the 2027 to 2028 plan: Foundation has no Chemical sciences unit, Year 1 has no Physical sciences unit and Year 2 has no Earth and space sciences unit. No enduring understanding in it matches VC2S2U04 (objects and materials), VC2S2U09 (reduce, re-use, recycle) or VC2S2U11 (pushes and pulls), so they are not in the grid, although the unit names suggest they are still touched: Foundation's Physical unit is called Movement, pushes and pulls, Year 1's Chemical unit is Properties of materials and Year 2's Chemical unit is Physical changes and recycling.",
+  "source": "FCPS Concept Curriculum Scope and Sequence: 2027 to 2028 (draft) and 2025/2026",
   "matched": "approved",
   "years": {
     "odd": {
@@ -31,6 +31,26 @@
         },
         {
           "sub": "Biological sciences",
+          "code": "VC2S2U01",
+          "short": "Grouping living things",
+          "text": "plants and animals have observable features that can be used to group them in different ways",
+          "eu": "Living things have distinctive features that allow us to classify them into groups."
+        }
+      ]
+    },
+    {
+      "cohort": "y1",
+      "label": "Year 1",
+      "every": [
+        {
+          "sub": "Earth and space sciences",
+          "code": "VC2S2U08",
+          "short": "Sun, Moon, planets and stars",
+          "text": "Earth is one of 8 planets in our solar system; observing the sky reveals patterns in the changing positions of the Sun, Moon, planets and stars",
+          "eu": "The positions of the Sun, Moon, planets, and stars change in predictable ways."
+        },
+        {
+          "sub": "Biological sciences",
           "code": "VC2S2U02",
           "short": "What living things need",
           "text": "plants and animals have basic needs, including air, water, food and shelter; the places where they live meet those needs",
@@ -38,30 +58,23 @@
         },
         {
           "sub": "Chemical sciences",
-          "code": "VC2S2U04",
-          "short": "Objects and materials",
-          "text": "objects can be made of one or more different materials; these materials have observable properties",
-          "eu": "Objects are made of different materials, and each material has special properties."
+          "code": "VC2S2U05",
+          "short": "Combining materials",
+          "text": "materials can be combined in a variety of ways for particular purposes; the properties of objects and mixtures can differ from the properties of the materials from which they are made",
+          "eu": "Materials can be combined to create new objects with different properties."
         }
       ]
     },
     {
-      "cohort": "y12",
-      "label": "Year 1/2",
-      "odd": [
+      "cohort": "y2",
+      "label": "Year 2",
+      "every": [
         {
           "sub": "Physical sciences",
           "code": "VC2S2U12",
           "short": "Sound",
           "text": "sound can make materials vibrate and vibrating materials can make sound; different actions can be used to produce sounds of varying pitch and volume",
           "eu": "Vibrations create sound, and different actions can change the pitch and volume."
-        },
-        {
-          "sub": "Earth and space sciences",
-          "code": "VC2S2U08",
-          "short": "Sun, Moon, planets and stars",
-          "text": "Earth is one of 8 planets in our solar system; observing the sky reveals patterns in the changing positions of the Sun, Moon, planets and stars",
-          "eu": "The positions of the Sun, Moon, planets, and stars change in predictable ways."
         },
         {
           "sub": "Biological sciences",
@@ -76,36 +89,6 @@
           "short": "Changing a material's shape",
           "text": "materials can be changed physically by different actions without changing their material composition, including by bending, twisting, stretching, crushing, squashing and breaking into smaller pieces",
           "eu": "Physical changes can alter the shape or form of materials."
-        }
-      ],
-      "even": [
-        {
-          "sub": "Physical sciences",
-          "code": "VC2S2U11",
-          "short": "Pushes and pulls",
-          "text": "pushes and pulls are forces that can change an object’s movement or shape and can be represented in terms of strength and direction",
-          "eu": "Pushes and pulls can change how things move or their shape."
-        },
-        {
-          "sub": "Earth and space sciences",
-          "code": "VC2S2U09",
-          "short": "Reduce, re-use, recycle",
-          "text": "taking care of Earth’s water, land and air involves consideration of reducing, re-using and recycling materials to conserve Earth’s resources",
-          "eu": "We can protect the Earth by reducing, reusing, and recycling materials."
-        },
-        {
-          "sub": "Biological sciences",
-          "code": "VC2S2U01",
-          "short": "Grouping living things",
-          "text": "plants and animals have observable features that can be used to group them in different ways",
-          "eu": "Living things have distinctive features that allow us to classify them into groups."
-        },
-        {
-          "sub": "Chemical sciences",
-          "code": "VC2S2U05",
-          "short": "Combining materials",
-          "text": "materials can be combined in a variety of ways for particular purposes; the properties of objects and mixtures can differ from the properties of the materials from which they are made",
-          "eu": "Materials can be combined to create new objects with different properties."
         }
       ]
     },

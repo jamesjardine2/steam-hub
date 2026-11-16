@@ -442,13 +442,14 @@
   }
 
   // ---- The Science cycle (the front page) ----
-  // What each year level learns across the school's two-year cycle, from
-  // cycle.json. An understanding with a fact sheet opens it.
+  // What each year level learns, from cycle.json. Foundation, Year 1 and
+  // Year 2 are the same every year. Year 3/4 and Year 5/6 are on a two-year
+  // cycle of odd and even years. An understanding with a fact sheet opens it.
 
   // Left to right, in the order James asked for.
   const STRANDS = ["Physical sciences", "Earth and space sciences", "Biological sciences", "Chemical sciences"];
 
-  // "Year 3/4, odd years" for each code in the cycle.
+  // "Year 3/4, odd years" or "Year 1, every year" for each code in the cycle.
   function cyclePlaces(cycle) {
     const places = new Map();
     for (const row of (cycle && cycle.rows) || []) {
@@ -470,8 +471,9 @@
       item.note ? h("span", { class: "cyc-note" }, item.note) : null);
   }
 
-  // One screen: a column for each strand, a row for each year level. Both
-  // years are in the page and the switch above the table shows one of them.
+  // One screen: a column for each strand, a row for each year level. For
+  // Year 3/4 and Year 5/6 both years are in the page and the switch above the
+  // table shows one of them. The other rows do not change with the switch.
   function cycleTable(cycle, sheets) {
     const items = (row, key, s) => (row[key] || []).filter((i) => i.sub === s).map((i) => cycleItem(i, sheets));
     const cell = (row, s) => h("td", {},
@@ -492,7 +494,7 @@
       cycle.years[key].label);
     const full = h("button", { type: "button", class: "cyc-switch cyc-full", "aria-pressed": "false" }, "Official wording");
     const bar = h("div", { class: "cyc-controls" },
-      h("div", { class: "cyc-toggle", role: "group", "aria-label": "Year of the cycle" }, yearButton("odd"), yearButton("even")),
+      h("div", { class: "cyc-toggle", role: "group", "aria-label": "Year of the cycle for Years 3 to 6" }, yearButton("odd"), yearButton("even")),
       full);
     const show = (key) => {
       view.dataset.year = key;
