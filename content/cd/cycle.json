@@ -1,5 +1,5 @@
 {
-  "note": "The school's cycle of Science Understandings, from its Concept Curriculum Scope and Sequence. From 2027 Foundation, Year 1 and Year 2 each have their own sequence, the same every year (the draft 2027 to 2028 plan, read on 16 November 2026). Year 3/4 and Year 5/6 stay on a two-year cycle of odd and even years (the 2025 and 2026 plan, which the 2027 to 2028 plan matches). Each item has a short statement in our own words (short, a few words that name the idea, the same as the fact sheet's title where there is one), the official VCAA wording of its content description (text), copied by script from the hub's local copy of the curriculum, and the school's enduring understanding it was matched from (eu, kept as a record and not shown on the page). The matches and the short statements were made by Claude. James approved the Year 3 to 6 matches on 15 November 2026. The Foundation, Year 1 and Year 2 rows were moved to the new plan by Claude on 16 November 2026, using the same matches of enduring understanding to code. Checked by npm run check-cd. A composite year level (Year 3/4, Year 5/6) is treated as one group: where the school's plan lists an understanding for only one year of a pair, both years do it (James, November 2026). Records from the 2027 to 2028 plan: Foundation has no Chemical sciences unit, Year 1 has no Physical sciences unit and Year 2 has no Earth and space sciences unit. No enduring understanding in it matches VC2S2U04 (objects and materials), VC2S2U09 (reduce, re-use, recycle) or VC2S2U11 (pushes and pulls), because the Victorian Lesson Plans (VLPs) teach each of them inside another sequence. James asked (17 November 2026) to show them with a small Combined flag. Each has combined: the VLP sequence it is taught in, its lessons in that sequence and the code it shares the sequence with (with), from the VLP Science sequences at a glance spreadsheet: VC2S2U11 in Foundation's Movement, pushes and pulls (Lessons 1 and 5), VC2S2U04 in Year 1's Properties of materials (Lesson 1) and VC2S2U09 in Year 2's Physical changes and recycling (Lessons 5 to 7, a Chemical sciences sequence). They have no eu.",
+  "note": "The school's cycle of Science Understandings, from its Concept Curriculum Scope and Sequence. From 2027 Foundation, Year 1 and Year 2 each have their own sequence, the same every year (the draft 2027 to 2028 plan, read on 16 November 2026). Year 3/4 and Year 5/6 stay on a two-year cycle of odd and even years (the 2025 and 2026 plan, which the 2027 to 2028 plan matches). Each item has a short statement in our own words (short, a few words that name the idea, the same as the fact sheet's title where there is one), the official VCAA wording of its content description (text), copied by script from the hub's local copy of the curriculum, and the school's enduring understanding it was matched from (eu, kept as a record and not shown on the page). The matches and the short statements were made by Claude. James approved the Year 3 to 6 matches on 15 November 2026. The Foundation, Year 1 and Year 2 rows were moved to the new plan by Claude on 16 November 2026, using the same matches of enduring understanding to code. Checked by npm run check-cd. A composite year level (Year 3/4, Year 5/6) is treated as one group: where the school's plan lists an understanding for only one year of a pair, both years do it (James, November 2026). Records from the 2027 to 2028 plan: Foundation has no Chemical sciences unit, Year 1 has no Physical sciences unit and Year 2 has no Earth and space sciences unit. No enduring understanding in it matches VC2S2U04 (objects and materials), VC2S2U09 (reduce, re-use, recycle) or VC2S2U11 (pushes and pulls), because the Victorian Lesson Plans (VLPs) teach each of them inside another sequence. James asked (17 November 2026) to show them with a small Combined flag. Each has combined: the VLP sequence it is taught in, its lessons in that sequence and the code it shares the sequence with (with), from the VLP Science sequences at a glance spreadsheet: VC2S2U11 in Foundation's Movement, pushes and pulls (Lessons 1 and 5), VC2S2U04 in Year 1's Properties of materials (Lesson 1) and VC2S2U09 in Year 2's Physical changes and recycling (Lessons 5 to 7, a Chemical sciences sequence). They have no eu. For a neater grid (James, 17 November 2026) VC2S2U11 sits in the Year 1 row and VC2S2U04 in the Foundation row, the year levels with an empty cell in that strand. combined.row names the row whose sequence teaches it, and the flag then reads Combined in F or Combined in Y1.",
   "source": "FCPS Concept Curriculum Scope and Sequence: 2027 to 2028 (draft) and 2025/2026",
   "matched": "approved",
   "years": {
@@ -23,17 +23,6 @@
           "eu": "The way things move depends on their size, shape, and material."
         },
         {
-          "sub": "Physical sciences",
-          "code": "VC2S2U11",
-          "short": "Pushes and pulls",
-          "text": "pushes and pulls are forces that can change an object’s movement or shape and can be represented in terms of strength and direction",
-          "combined": {
-            "sequence": "Movement, pushes and pulls",
-            "lessons": "Lessons 1 and 5",
-            "with": "VC2S2U10"
-          }
-        },
-        {
           "sub": "Earth and space sciences",
           "code": "VC2S2U07",
           "short": "Weather and seasons",
@@ -46,6 +35,18 @@
           "short": "Grouping living things",
           "text": "plants and animals have observable features that can be used to group them in different ways",
           "eu": "Living things have distinctive features that allow us to classify them into groups."
+        },
+        {
+          "sub": "Chemical sciences",
+          "code": "VC2S2U04",
+          "short": "Objects and materials",
+          "text": "objects can be made of one or more different materials; these materials have observable properties",
+          "combined": {
+            "sequence": "Properties of materials",
+            "lessons": "Lesson 1",
+            "with": "VC2S2U05",
+            "row": "Year 1"
+          }
         }
       ]
     },
@@ -53,6 +54,18 @@
       "cohort": "y1",
       "label": "Year 1",
       "every": [
+        {
+          "sub": "Physical sciences",
+          "code": "VC2S2U11",
+          "short": "Pushes and pulls",
+          "text": "pushes and pulls are forces that can change an object’s movement or shape and can be represented in terms of strength and direction",
+          "combined": {
+            "sequence": "Movement, pushes and pulls",
+            "lessons": "Lessons 1 and 5",
+            "with": "VC2S2U10",
+            "row": "Foundation"
+          }
+        },
         {
           "sub": "Earth and space sciences",
           "code": "VC2S2U08",
@@ -73,17 +86,6 @@
           "short": "Combining materials",
           "text": "materials can be combined in a variety of ways for particular purposes; the properties of objects and mixtures can differ from the properties of the materials from which they are made",
           "eu": "Materials can be combined to create new objects with different properties."
-        },
-        {
-          "sub": "Chemical sciences",
-          "code": "VC2S2U04",
-          "short": "Objects and materials",
-          "text": "objects can be made of one or more different materials; these materials have observable properties",
-          "combined": {
-            "sequence": "Properties of materials",
-            "lessons": "Lesson 1",
-            "with": "VC2S2U05"
-          }
         }
       ]
     },

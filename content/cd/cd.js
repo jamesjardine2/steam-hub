@@ -463,7 +463,11 @@
   // A description the VLPs teach inside another sequence (combined in
   // cycle.json) gets a small flag. Hover names the sequence; Official wording
   // spells it out under the item.
-  const combinedText = (c) => `VLP: taught in ${c.sequence}, ${c.lessons}, with ${c.with}`;
+  // A combined item can sit in another row than the sequence that teaches it
+  // (combined.row), and its flag then says where: "Combined in F".
+  const ROW_SHORT = { Foundation: "F", "Year 1": "Y1", "Year 2": "Y2", "Year 3/4": "Y3/4", "Year 5/6": "Y5/6" };
+  const combinedText = (c) => `VLP: taught in ${c.row ? `${c.row}'s ` : ""}${c.sequence}, ${c.lessons}, with ${c.with}`;
+  const combinedFlag = (c) => (c.row ? `Combined in ${ROW_SHORT[c.row] || c.row}` : "Combined");
 
   function cycleItem(item, sheets) {
     const sheet = sheets.get(item.code);
@@ -473,7 +477,7 @@
       h("span", { class: "cyc-meta" },
         h("a", { class: "chip", href: vcaaUrl(item.code), target: "_blank", rel: "noopener", title: `Open ${item.code} in the Victorian Curriculum` }, item.code),
         sheet ? h("a", { class: "cyc-sheet", href: `?code=${item.code}`, title: `Open the fact sheet: ${sheet.title}` }, "Fact sheet") : null,
-        c ? h("span", { class: "cyc-combined", title: combinedText(c) }, "Combined") : null),
+        c ? h("span", { class: "cyc-combined", title: combinedText(c) }, combinedFlag(c)) : null),
       h("span", { class: "cyc-text" }, item.text),
       c ? h("span", { class: "cyc-text cyc-combined-text" }, combinedText(c)) : null,
       item.note ? h("span", { class: "cyc-note" }, item.note) : null);

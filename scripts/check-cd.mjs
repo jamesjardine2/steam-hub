@@ -265,7 +265,12 @@ if (fs.existsSync(CYCLE)) {
           if (item.combined !== undefined) {
             const c = item.combined || {};
             if (!c.sequence || !c.lessons || !c.with) errors.push(`${where}: combined needs sequence, lessons and with`);
-            else if (!(row[key] || []).some((other) => other.code === c.with)) errors.push(`${where}: combined.with ${c.with} is not in the same row`);
+            else {
+              // with is in the same row, or in combined.row when the item sits in another row.
+              const home = c.row ? (cycle.rows || []).find((r) => r.label === c.row) : row;
+              if (!home) errors.push(`${where}: combined.row "${c.row}" is not a row label`);
+              else if (!["every", "odd", "even"].some((k) => (home[k] || []).some((other) => other.code === c.with))) errors.push(`${where}: combined.with ${c.with} is not in ${c.row ? `the ${c.row} row` : "the same row"}`);
+            }
           }
           else if (officialText && officialText.get(item.code) !== item.text) errors.push(`${where}: text is not the wording of ${item.code} in the local copy of the curriculum`);
           if (!known || !/^VC2S(2|4|6)U/.test(item.code)) errors.push(`${where}: ${item.code} is not a Science Understanding code in src/_data/curriculum.json`);
