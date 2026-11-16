@@ -460,14 +460,22 @@
     return places;
   }
 
+  // A description the VLPs teach inside another sequence (combined in
+  // cycle.json) gets a small flag. Hover names the sequence; Official wording
+  // spells it out under the item.
+  const combinedText = (c) => `VLP: taught in ${c.sequence}, ${c.lessons}, with ${c.with}`;
+
   function cycleItem(item, sheets) {
     const sheet = sheets.get(item.code);
-    return h("div", { class: `cyc-item${sheet ? " has-sheet" : ""}` },
+    const c = item.combined;
+    return h("div", { class: `cyc-item${sheet ? " has-sheet" : ""}${c ? " is-combined" : ""}` },
       h("span", { class: "cyc-short", title: item.text }, item.short),
       h("span", { class: "cyc-meta" },
         h("a", { class: "chip", href: vcaaUrl(item.code), target: "_blank", rel: "noopener", title: `Open ${item.code} in the Victorian Curriculum` }, item.code),
-        sheet ? h("a", { class: "cyc-sheet", href: `?code=${item.code}`, title: `Open the fact sheet: ${sheet.title}` }, "Fact sheet") : null),
+        sheet ? h("a", { class: "cyc-sheet", href: `?code=${item.code}`, title: `Open the fact sheet: ${sheet.title}` }, "Fact sheet") : null,
+        c ? h("span", { class: "cyc-combined", title: combinedText(c) }, "Combined") : null),
       h("span", { class: "cyc-text" }, item.text),
+      c ? h("span", { class: "cyc-text cyc-combined-text" }, combinedText(c)) : null,
       item.note ? h("span", { class: "cyc-note" }, item.note) : null);
   }
 
@@ -529,6 +537,9 @@
         cycle ? cycleControls(cycle, view) : null),
       cycle
         ? [view,
+          cycle.rows.some((r) => ["every", "odd", "even"].some((k) => (r[k] || []).some((i) => i.combined)))
+            ? h("p", { class: "cyc-foot cyc-key" }, h("span", { class: "cyc-combined" }, "Combined"), " The VLPs teach this description inside another sequence. Hover over the flag, or choose Official wording, to see which.")
+            : null,
           h("p", { class: "cyc-foot" },
             cycle.matched === "draft" ? [`Which description is taught when was matched by Claude from the ${cycle.source}, and the short statements are Claude's. Both need James's check. `] : null,
             cycle.attribution)]

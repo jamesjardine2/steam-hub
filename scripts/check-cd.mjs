@@ -261,6 +261,12 @@ if (fs.existsSync(CYCLE)) {
           const known = curriculum[item.code];
           if (!item.short || item.short.length > 40) errors.push(`${where}: needs a short statement (short) of at most 40 characters`);
           if (!item.text) errors.push(`${where}: needs the official wording (text)`);
+          // combined: the VLP sequence that teaches this description inside another one.
+          if (item.combined !== undefined) {
+            const c = item.combined || {};
+            if (!c.sequence || !c.lessons || !c.with) errors.push(`${where}: combined needs sequence, lessons and with`);
+            else if (!(row[key] || []).some((other) => other.code === c.with)) errors.push(`${where}: combined.with ${c.with} is not in the same row`);
+          }
           else if (officialText && officialText.get(item.code) !== item.text) errors.push(`${where}: text is not the wording of ${item.code} in the local copy of the curriculum`);
           if (!known || !/^VC2S(2|4|6)U/.test(item.code)) errors.push(`${where}: ${item.code} is not a Science Understanding code in src/_data/curriculum.json`);
           else {
