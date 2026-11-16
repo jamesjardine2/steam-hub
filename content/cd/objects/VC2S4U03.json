@@ -1,0 +1,760 @@
+{
+  "schema_version": 1,
+  "code": "VC2S4U03",
+  "title": "Food chains",
+  "learning_area": "Science",
+  "band": "Levels 3 and 4",
+  "strand": "Science Understanding",
+  "sub_strand": "Biological sciences",
+  "updated": "2026-11-16",
+  "sources": [
+    {
+      "id": "vcaa-curriculum",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
+      "accessed": "2026-11-16",
+      "read": true
+    },
+    {
+      "id": "vcaa-copyright",
+      "citation": "Victorian Curriculum and Assessment Authority. Copyright statement for the Victorian Curriculum site (CC BY-NC 3.0 Australia licence and the attribution it asks for).",
+      "url": "https://f10.vcaa.vic.edu.au/copyright-statement",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "r2p-booklet",
+      "citation": "Abrahams, I., Backhouse, A., Bloom, K., Griffin-James, H. and Mat Noor, S. (2021). Research-2-Practice: Supporting Primary School Teachers to Engage with Science Education Research. University of Lincoln. Research summaries and lesson plans: Plants and Classification (Key Stages 1 and 2).",
+      "url": "https://ray.yorksj.ac.uk/5961/1/R2P%20Primary%20Booklet.pdf",
+      "accessed": "2026-11-16",
+      "read": true
+    },
+    {
+      "id": "beyond-penguins-ecosystems",
+      "citation": "Fries-Gaither, J. (2009). Common misconceptions about biomes and ecosystems. Beyond Penguins and Polar Bears, The Ohio State University. A teacher resource page, not a research study.",
+      "url": "https://beyondpenguins.ehe.osu.edu/?p=2417",
+      "accessed": "2026-11-16",
+      "read": true
+    },
+    {
+      "id": "encounter-edu",
+      "citation": "Encounter Edu (no date). How to teach food chains and webs. A teacher professional learning page, not a research study, with no reference list.",
+      "url": "https://encounteredu.com/cpd/subject-updates/how-to-teach-food-chains-and-webs",
+      "accessed": "2026-11-16",
+      "read": true
+    }
+  ],
+  "descriptor": {
+    "status": "verified",
+    "sources": [
+      "vcaa-curriculum",
+      "vcaa-copyright"
+    ],
+    "note": "Copied by a script from the Victorian Curriculum Version 2.0 on 16 November 2026, not typed from memory.",
+    "stem": "Students learn that:",
+    "text": "consumers, producers and decomposers have different roles and interactions within a habitat; food chains can be used to represent feeding relationships",
+    "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S4U03",
+    "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
+  },
+  "paraphrase": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "My reading of the description and its achievement standard, which was checked in the curriculum: students identify the roles of organisms in a habitat, and construct food chains.",
+    "text": "Every living thing in a habitat has a job in how food moves around. Producers (plants) make their own food. Consumers (animals) get theirs by eating plants or other animals. Decomposers (fungi, bacteria and small animals such as worms) break down what is dead and return it to the soil. A food chain is a simple drawing of who is eaten by whom, starting with a producer. The assessable skills are naming an organism's role and building a food chain.",
+    "asks_for": [
+      "Living things in a habitat have roles: producer, consumer or decomposer.",
+      "They interact: animals get their food from plants and from other animals.",
+      "A food chain represents feeding relationships, starting with a producer.",
+      "Because they are linked, a change to one living thing affects others."
+    ],
+    "not_asking": [
+      "Food webs, food pyramids and energy at each level. Those are Levels 7 and 8 (VC2S8U04).",
+      "Photosynthesis as a process. Knowing that plants make their own food using sunlight is enough.",
+      "How physical conditions affect survival. That is Levels 5 and 6 (VC2S6U01)."
+    ]
+  },
+  "key_questions": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. How animals, including humans, get their food from plants and other animals is in a VCAA elaboration.",
+      "question": "Where do living things get their food?",
+      "know": [
+        "Plants make their own food using sunlight. They are producers.",
+        "Animals cannot make food. They eat plants or other animals. They are consumers."
+      ],
+      "understand": [
+        "Every animal's food can be traced back to a plant."
+      ],
+      "do": [
+        "Trace something a person eats, such as an egg or a sandwich, back to a plant."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Sorting the living things in a local habitat into the three roles, and the importance of decomposers, are in VCAA elaborations.",
+      "question": "What roles do living things play in a habitat?",
+      "know": [
+        "Producers make food. Consumers eat it. Decomposers break down dead plants and animals and waste.",
+        "Fungi, bacteria, worms and slaters are decomposers."
+      ],
+      "understand": [
+        "Without decomposers, dead things would pile up and the soil would run out of what plants need."
+      ],
+      "do": [
+        "Sort the living things found in a local habitat into producers, consumers and decomposers."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Representing feeding relationships as a food chain and comparing chains across habitats are in a VCAA elaboration. The arrow convention is standard practice, not stated in the curriculum.",
+      "question": "How do we show who eats whom?",
+      "know": [
+        "A food chain starts with a producer and shows each living thing being eaten by the next.",
+        "The arrow points from the food to the animal that eats it. Read it as: is eaten by."
+      ],
+      "understand": [
+        "A food chain is a model: a simple picture of one path that food takes.",
+        "The same pattern (producer, then consumers) appears in every habitat, with different living things."
+      ],
+      "do": [
+        "Build a food chain of three or four living things for a habitat, with the arrows the right way round."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Introduced predators such as foxes, and the removal of a food source, are in VCAA elaborations, and predicting the effect is in an elaboration for VC2S4I01.",
+      "question": "What happens when one link changes?",
+      "know": [
+        "If a living thing is removed, the animals that eat it have less food.",
+        "If a predator is removed or a new one arrives, the numbers of its prey change."
+      ],
+      "understand": [
+        "Living things in a habitat depend on each other, so a change to one spreads to others."
+      ],
+      "do": [
+        "Predict what will happen to the other living things in a chain when one is removed or added, and explain why."
+      ]
+    }
+  ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, built from the achievement standard sentence and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Say whether a living thing is a producer, a consumer or a decomposer, and why.",
+        "Explain what producers do that animals cannot.",
+        "Explain what decomposers do and why a habitat needs them.",
+        "Build a food chain that starts with a producer.",
+        "Draw the arrows the right way and say what an arrow means.",
+        "Build food chains for two different habitats and say what they have in common.",
+        "Predict what happens to the rest of a chain when one living thing is removed."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Producer, consumer or decomposer?",
+        "how": "Hold up or name eight living things one at a time (grass, a magpie, a mushroom, a gum tree, a worm, a fox, seaweed, a snail). Students show one, two or three fingers for producer, consumer or decomposer at the same moment. Two minutes.",
+        "look_for": "Has it: one finger for every plant and for seaweed, three for the mushroom and the worm. Not yet: calls the mushroom a plant, or calls anything that eats a producer."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled. Reading the arrow as eats is widely reported by teachers. I did not read a study of it.",
+        "title": "Which way does the arrow go?",
+        "how": "Write grass, grasshopper and magpie on the board with no arrows. Each student draws the chain with arrows on scrap paper and holds it up. Scan for direction, then ask one student what the arrow means. Two minutes.",
+        "look_for": "Has it: arrows point from grass to grasshopper to magpie, read as is eaten by. Not yet: arrows point from the eater to its food, read as eats."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "encounter-edu"
+        ],
+        "note": "My suggestion, not trialled. The idea that the animal at the top eats everything below it is listed on the Encounter Edu page.",
+        "title": "Does the eagle eat grass?",
+        "how": "Show a four-link chain (grass, grasshopper, lizard, eagle). Ask: does the eagle eat the grass? Thumbs up or down, then one student from each side explains. Two minutes.",
+        "look_for": "Has it: thumbs down, the eagle eats the lizard. Not yet: thumbs up, because the eagle is at the top so it eats everything."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Take one out",
+        "how": "As students leave, cover one link in a chain on the board and ask each student what happens to one of the others. One answer each. Three minutes.",
+        "look_for": "Has it: says the animal that ate it goes hungry or drops in number, and may add that the thing it ate increases. Not yet: says nothing changes, or that the animal just eats something else with no effect."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. These go deeper at this level and stop short of food webs and energy pyramids, which are Levels 7 and 8.",
+      "items": [
+        "Join two food chains that share a living thing, and say what the drawing shows that one chain could not.",
+        "Ask why a food chain always starts with a producer. What would happen with no plants?",
+        "Run the food chain game several times with different numbers, record what happened each time, and look for a pattern.",
+        "Research the fox in Australia: what it eats, what that has done to small mammals, and what people are doing about it.",
+        "Add the decomposers to a food chain. Where do they fit, and why are they usually left off?",
+        "Build a chain for a habitat you have never seen, such as the deep sea, from research.",
+        "Explain it: make a short Book Creator page that teaches a Year 2 student what the arrows mean."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Start with the student's own lunch and trace one item back to a plant.",
+        "Use picture cards the student can move around, and arrows on separate cards.",
+        "Say the chain out loud with is eaten by between each card, every time.",
+        "Build chains of three links before trying four.",
+        "Give a sentence starter: The ... is eaten by the ...",
+        "Keep a card for each role on the desk: makes food, eats food, breaks down dead things."
+      ],
+      "well_below": [
+        "Aim for one idea: animals eat plants or other animals.",
+        "Match pairs only, an animal to its food, with pictures.",
+        "Sort pictures into two groups: plants and animals.",
+        "Take pointing or placing a card as the answer."
+      ]
+    }
+  },
+  "vocabulary": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the official wording. Consumer and producer have everyday meanings from shopping that can confuse.",
+    "everyday": [
+      {
+        "term": "eat"
+      },
+      {
+        "term": "food"
+      },
+      {
+        "term": "plant"
+      },
+      {
+        "term": "animal"
+      },
+      {
+        "term": "hunt"
+      },
+      {
+        "term": "dead"
+      },
+      {
+        "term": "rot"
+      },
+      {
+        "term": "soil"
+      },
+      {
+        "term": "sunlight"
+      }
+    ],
+    "academic": [
+      {
+        "term": "role",
+        "meaning": "The job something does.",
+        "in_descriptor": true
+      },
+      {
+        "term": "interaction",
+        "meaning": "The way two things affect each other.",
+        "in_descriptor": true
+      },
+      {
+        "term": "represent",
+        "meaning": "To show something with a drawing or model.",
+        "in_descriptor": true
+      },
+      {
+        "term": "relationship",
+        "meaning": "The way two things are connected.",
+        "in_descriptor": true
+      },
+      {
+        "term": "depend on",
+        "meaning": "To need something in order to live."
+      },
+      {
+        "term": "model",
+        "meaning": "A simple picture that helps explain how something works."
+      }
+    ],
+    "science": [
+      {
+        "term": "producer",
+        "meaning": "A living thing that makes its own food. Plants are producers.",
+        "in_descriptor": true
+      },
+      {
+        "term": "consumer",
+        "meaning": "A living thing that gets its food by eating other living things.",
+        "in_descriptor": true
+      },
+      {
+        "term": "decomposer",
+        "meaning": "A living thing that breaks down dead plants, animals and waste.",
+        "in_descriptor": true
+      },
+      {
+        "term": "habitat",
+        "meaning": "The place where a plant or animal lives.",
+        "in_descriptor": true
+      },
+      {
+        "term": "food chain",
+        "meaning": "A drawing that shows what is eaten by what, starting with a producer.",
+        "in_descriptor": true
+      },
+      {
+        "term": "predator and prey",
+        "meaning": "An animal that hunts, and the animal it hunts."
+      },
+      {
+        "term": "herbivore, carnivore, omnivore",
+        "meaning": "An animal that eats plants, one that eats animals, and one that eats both."
+      }
+    ]
+  },
+  "misconceptions": [
+    {
+      "status": "draft",
+      "sources": [
+        "encounter-edu"
+      ],
+      "note": "The Encounter Edu page says the arrows show energy and nutrients moving up the chain. That students draw them the other way is widely reported by teachers, but I did not read a study of it.",
+      "idea": "The arrow means eats, so it points from the animal to its food.",
+      "science": "The arrow points from the food to the animal that eats it. It shows where the food goes. Read it as is eaten by.",
+      "respond": "Have students say the chain aloud with is eaten by, and walk a counter along the arrows from the grass to the magpie."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "encounter-edu"
+      ],
+      "note": "Checked against a teacher professional learning page, not a research study.",
+      "idea": "The animal at the top of the chain eats everything below it.",
+      "science": "Each animal eats the one just before it in the chain. The eagle eats the lizard, not the grass.",
+      "respond": "Ask of each link in turn: what does this one eat?",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet"
+      ],
+      "note": "Listed among common misconceptions in the Research-2-Practice lesson plans on plants and classification, which do not name a study beside it.",
+      "idea": "Plants get their food from the soil, so they are eaters too.",
+      "science": "Plants make their own food using sunlight, air and water. They take water and minerals from the soil, but not food. That is why they are called producers.",
+      "respond": "Ask what a plant in a jar of water with no soil is eating, and why it still grows.",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet"
+      ],
+      "note": "Listed among common misconceptions in the Research-2-Practice classification lesson plans, which also say fungi do not photosynthesise and are decomposers.",
+      "idea": "Mushrooms are plants, so they are producers.",
+      "science": "Fungi are not plants. They cannot make their own food. They get it by breaking down dead things, which makes them decomposers.",
+      "respond": "Ask whether a mushroom needs sunlight, and where mushrooms are found growing.",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-ecosystems"
+      ],
+      "note": "Checked against a teacher resource page, not a research study.",
+      "idea": "Some living things are not important. Taking one away will not matter to the rest.",
+      "science": "Every living thing in a habitat is food for something or eats something. Remove one and others are affected.",
+      "respond": "Take one card out of a chain and ask who goes hungry and who gets a rest.",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-ecosystems"
+      ],
+      "note": "Checked against a teacher resource page, not a research study, which also notes that students find predation hard to accept.",
+      "idea": "Animals in a habitat get along. Predators are the bad ones, and only some animals get eaten.",
+      "science": "Eating and being eaten is how every habitat works. Predators keep the numbers of their prey in balance.",
+      "respond": "Ask what would happen to the grass if nothing ate the grasshoppers.",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "encounter-edu"
+      ],
+      "note": "Checked against a teacher professional learning page, not a research study.",
+      "idea": "Plants need animals and people to look after them. They are there to feed the animals.",
+      "science": "It is the other way round. Animals depend on plants. If the producers go, everything above them goes too.",
+      "respond": "Remove the producer card from a chain and ask what is left to eat.",
+      "research": []
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "Dead things just disappear, or turn into soil by themselves.",
+      "science": "Decomposers break them down. Without them, dead leaves and animals would pile up.",
+      "respond": "Look under leaf litter in the garden for the living things doing the work."
+    }
+  ],
+  "inquiry": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students predict the effect on food chains when living things are removed from or die out in an area.",
+      "code": "VC2S4I01",
+      "skill": "Questioning and predicting",
+      "how": "Students predict what will happen to the rest of a chain when one living thing is removed, and give a reason."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students predict the effects of changing numbers of producers and consumers, and run a virtual or role-play food chain simulation several times.",
+      "code": "VC2S4I02",
+      "skill": "Planning and conducting",
+      "how": "Students run the food chain game several times, changing one number each time and keeping the rules the same."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students use virtual or role-play food chain simulations to investigate changing numbers of producers or consumers.",
+      "code": "VC2S4I04",
+      "skill": "Processing, modelling and analysing",
+      "how": "Students record how many of each survived in each round in a table, and describe the pattern."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
+      "code": "VC2S4I06",
+      "skill": "Communicating",
+      "how": "Students present a food chain for a local habitat and explain each role using the science words."
+    }
+  ],
+  "human_endeavour": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code.",
+      "code": "VC2S4H01",
+      "hook": "Ecologists use food chain data to explain why native plants and animals such as the Richmond birdwing butterfly have declined, and to plan how to bring their numbers back.",
+      "first_nations": false
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The VCAA lists this as an elaboration of VC2S4U03 itself.",
+      "hook": "Introduced predators: what foxes have done to small native mammals in Australia.",
+      "first_nations": false
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "There is no First Nations elaboration for this description at Levels 3 and 4. The only VCAA links are Levels 7 and 8 elaborations (VC2S8U04) on Aboriginal and Torres Strait Islander Peoples' responses to invasive species and on fire management changing where plants and animals live. What to share at this level, and from whom, I did not check. Use a named source or the school's Koorie education contacts before teaching it.",
+      "hook": "Aboriginal and Torres Strait Islander Peoples have long understood and managed the feeding relationships in their Country, including through fire, and many communities are part of those food chains.",
+      "first_nations": true
+    }
+  ],
+  "related": {
+    "below": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S2U02",
+        "band": "Foundation to Level 2",
+        "label": "What living things need",
+        "summary": "Living things need air, water, food and shelter. Food is one of the needs. This description shows where it comes from."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S2U03",
+        "band": "Foundation to Level 2",
+        "label": "Features for survival",
+        "summary": "Plants and animals have features that help them survive, including how they eat. A VCAA elaboration there looks at teeth and diet."
+      }
+    ],
+    "same": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S4U01",
+        "band": "Levels 3 and 4",
+        "label": "Living and non-living",
+        "summary": "Living things, non-living things and things that were once alive. Decomposers work on what was once living."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students examine the living things in local soil, such as plant matter, earthworms and insects.",
+        "code": "VC2S4U06",
+        "band": "Levels 3 and 4",
+        "label": "Rocks, minerals and soils",
+        "summary": "Rocks, minerals and soils. Soil is where decomposers live and where their work ends up."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The code and its wording were checked in the curriculum. The link is the pairing in the hub's curriculum file and my judgement.",
+        "code": "VC2TDE4C02",
+        "band": "Levels 3 and 4",
+        "label": "Food and fibre production",
+        "summary": "Design and Technologies: ways food and fibre are produced. A garden or farm has producers, consumers and decomposers, and growers manage all three."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The code and its wording were checked in the curriculum. No elaboration mentions food chains, so this is my judgement and a loose link.",
+        "code": "VC2TDI4D02",
+        "band": "Levels 3 and 4",
+        "label": "Data with software",
+        "summary": "Digital Technologies: collecting, organising and presenting data with software. It fits when students record and graph the results of the food chain game."
+      }
+    ],
+    "above": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself is about habitats and the survival of organisms.",
+        "code": "VC2S6U01",
+        "band": "Levels 5 and 6",
+        "label": "Habitats and survival",
+        "summary": "The physical conditions of a habitat and how changing them affects survival. It adds the non-living side of a habitat to the living side learned here."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code looks at camouflage used to hide from predators and to ambush prey.",
+        "code": "VC2S6U02",
+        "band": "Levels 5 and 6",
+        "label": "Adaptation over time",
+        "summary": "The features and behaviours that help organisms survive, including as predators and prey."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names food webs and food pyramids.",
+        "code": "VC2S8U04",
+        "band": "Levels 7 and 8",
+        "label": "Ecosystems",
+        "summary": "Matter and energy flow through ecosystems, shown with food webs and pyramids. Food chains become webs, and the arrows come to mean energy."
+      }
+    ],
+    "links": [
+      {
+        "from": "VC2S2U02",
+        "to": "VC2S4U03",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S2U03",
+        "to": "VC2S4U03",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S4U03",
+        "to": "VC2S4U01",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S4U03",
+        "to": "VC2S4U06",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S4U03",
+        "to": "VC2TDE4C02",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S4U03",
+        "to": "VC2TDI4D02",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S4U03",
+        "to": "VC2S6U01",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S6U01",
+        "to": "VC2S6U02",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S6U01",
+        "to": "VC2S8U04",
+        "kind": "leads"
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Representing feeding relationships as a food chain and comparing chains across habitats are in a VCAA elaboration. The lesson shape is my suggestion and has not been trialled.",
+      "title": "Chain it",
+      "phenomenon": "A pile of picture cards (grass, gum leaves, a grasshopper, a caterpillar, a lizard, a magpie, a kookaburra, a fox) can be laid out as several different chains. Every one of them starts with a plant.",
+      "students_do": "Build as many three and four link chains as they can, placing a paper arrow between each pair and saying is eaten by aloud. Then build one for a second habitat, such as a pond or the sea, and say what the chains have in common.",
+      "materials": [
+        "A set of living-thing picture cards for each pair, from two habitats",
+        "Paper arrows",
+        "A strip of paper to glue one chain onto"
+      ],
+      "shows": "A food chain starts with a producer, and the arrow shows what is eaten by what.",
+      "caution": "Check the arrows as you walk the room. Students who have them backwards usually read them as eats."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Role-play food chain simulations with changing numbers, run several times, are in VCAA elaborations for VC2S4I02 and VC2S4I04. The game is my suggestion and has not been trialled.",
+      "title": "The food chain game",
+      "phenomenon": "On the oval, twenty grasshoppers, six lizards and two kookaburras play a round of tag for food. Next round there are no kookaburras, and by the end the grass tokens have all gone and the grasshoppers are starving.",
+      "students_do": "Play three or four short rounds, changing one number each time (more predators, no predators, less grass). After each round count who survived and record it. Back inside, describe the pattern.",
+      "materials": [
+        "Coloured bands or bibs for three groups",
+        "Tokens or bean bags for grass",
+        "A large space",
+        "A table on a clipboard to record each round"
+      ],
+      "shows": "Living things in a habitat depend on each other, so changing the number of one changes the others.",
+      "caution": "Agree the rules and the boundaries before you start, and keep the rounds to a minute or two."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Observing living things in a local habitat and sorting them into the three roles is in a VCAA elaboration, and looking at living things in soil is in an elaboration for VC2S4U06. The school garden is on the STEAM room inventory. The lesson shape is my suggestion, not trialled.",
+      "title": "Who lives here, and what is their job?",
+      "phenomenon": "Under the leaf litter in the garden bed there are worms, slaters and white threads of fungus on a rotting stick, all at work on dead leaves, right beside the plants that grew them.",
+      "students_do": "In pairs, search one small patch, photograph what they find, and sort it into producers, consumers and decomposers on a recording sheet. Then build one food chain from things they actually saw.",
+      "materials": [
+        "A garden bed or a patch with leaf litter",
+        "A magnifying glass if available",
+        "An iPad for each pair",
+        "A three-column recording sheet"
+      ],
+      "shows": "Producers, consumers and decomposers all live in the same small habitat and each has a role.",
+      "caution": "Look, photograph and put things back. Wash hands afterwards. Do not handle fungi."
+    }
+  ],
+  "pitfalls": [
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement about a common teaching habit. I did not check it against a source.",
+      "pitfall": "Saying the arrow means eats.",
+      "instead": "Say is eaten by, or the food goes to, every time you point to an arrow, and have students say it too."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from the wording of the description, which names three roles.",
+      "pitfall": "Leaving out decomposers because they do not fit neatly in a chain.",
+      "instead": "Give them their own lesson or part of one, and show them breaking down whatever is left at every link."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from comparing this description with VC2S8U04 in the curriculum.",
+      "pitfall": "Moving on to food webs, energy and pyramids.",
+      "instead": "Stay with roles and single chains. Let stronger students join two chains, and leave energy for Years 7 and 8."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Using only African or Arctic animals (lions, zebras, polar bears).",
+      "instead": "Build chains from the school garden, the local creek or river, and the bay, then compare with one from far away."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "beyond-penguins-ecosystems"
+      ],
+      "note": "My judgement about framing. The student idea it feeds is listed on the Beyond Penguins page.",
+      "pitfall": "Presenting predators as villains and prey as victims.",
+      "instead": "Talk about every living thing as food for something, and predators as part of what keeps a habitat in balance."
+    }
+  ],
+  "unverified": [
+    "I did not find research on primary students' ideas about food chains that I could read. The six verified misconceptions rest on teacher resource pages (Beyond Penguins and Polar Bears, Encounter Edu) and the Research-2-Practice lesson plans, not on studies. A Best Evidence Science Teaching resource that came up in search could not be opened.",
+    "Two misconceptions are my judgement, including the one about which way the arrows point. It is widely reported by teachers, but I did not read a study of it.",
+    "There is no First Nations elaboration for this description at Levels 3 and 4. The hook leans on Levels 7 and 8 elaborations and names no community. I did not find or check a First Nations source.",
+    "None of the three anchor experiences has been trialled. Picture cards, bibs and tokens would need to be made or borrowed.",
+    "The lines on the map are my judgement about how the descriptions connect. The Digital Technologies link is a loose one."
+  ]
+}
