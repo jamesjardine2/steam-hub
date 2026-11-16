@@ -460,14 +460,14 @@
     return places;
   }
 
-  // A description the VLPs teach inside another sequence (combined in
-  // cycle.json) gets a small flag. Hover names the sequence; Official wording
-  // spells it out under the item.
-  // A combined item can sit in another row than the sequence that teaches it
-  // (combined.row), and its flag then says where: "Combined in F".
-  const ROW_SHORT = { Foundation: "F", "Year 1": "Y1", "Year 2": "Y2", "Year 3/4": "Y3/4", "Year 5/6": "Y5/6" };
-  const combinedText = (c) => `VLP: taught in ${c.row ? `${c.row}'s ` : ""}${c.sequence}, ${c.lessons}, with ${c.with}`;
-  const combinedFlag = (c) => (c.row ? `Combined in ${ROW_SHORT[c.row] || c.row}` : "Combined");
+  // A description Arc teaches inside another learning sequence (combined in
+  // cycle.json) gets a small flag on its own line, "Combined with VC2S2U10",
+  // so the code line keeps room for a fact sheet. Hover names the sequence;
+  // Official wording spells it out under the item. combined.row is the row
+  // whose sequence teaches it, when that is not the row it sits in.
+  const combinedText = (c) => `Arc learning sequence: ${c.row ? `${c.row}, ` : ""}${c.sequence}, ${c.lessons}, with ${c.with}`;
+  const combinedFlag = (c) => `Combined with ${c.with}`;
+  const hasCombined = (cycle) => cycle.rows.some((r) => ["every", "odd", "even"].some((k) => (r[k] || []).some((i) => i.combined)));
 
   function cycleItem(item, sheets) {
     const sheet = sheets.get(item.code);
@@ -476,8 +476,8 @@
       h("span", { class: "cyc-short", title: item.text }, item.short),
       h("span", { class: "cyc-meta" },
         h("a", { class: "chip", href: vcaaUrl(item.code), target: "_blank", rel: "noopener", title: `Open ${item.code} in the Victorian Curriculum` }, item.code),
-        sheet ? h("a", { class: "cyc-sheet", href: `?code=${item.code}`, title: `Open the fact sheet: ${sheet.title}` }, "Fact sheet") : null,
-        c ? h("span", { class: "cyc-combined", title: combinedText(c) }, combinedFlag(c)) : null),
+        sheet ? h("a", { class: "cyc-sheet", href: `?code=${item.code}`, title: `Open the fact sheet: ${sheet.title}` }, "Fact sheet") : null),
+      c ? h("span", { class: "cyc-combined", title: combinedText(c) }, combinedFlag(c)) : null,
       h("span", { class: "cyc-text" }, item.text),
       c ? h("span", { class: "cyc-text cyc-combined-text" }, combinedText(c)) : null,
       item.note ? h("span", { class: "cyc-note" }, item.note) : null);
@@ -537,13 +537,14 @@
     const view = cycle ? h("div", { class: "cyc-view" }, cycleTable(cycle, sheets)) : null;
     root.replaceChildren(...[
       h("div", { class: "page-head cyc-head" },
-        h("h1", {}, "Science cycle"),
+        h("div", {},
+          h("h1", {}, "Science cycle"),
+          cycle && hasCombined(cycle)
+            ? h("p", { class: "cyc-lead" }, "Arc combines some content descriptions in one learning sequence. They are marked Combined, with the code they are taught alongside.")
+            : null),
         cycle ? cycleControls(cycle, view) : null),
       cycle
         ? [view,
-          cycle.rows.some((r) => ["every", "odd", "even"].some((k) => (r[k] || []).some((i) => i.combined)))
-            ? h("p", { class: "cyc-foot cyc-key" }, h("span", { class: "cyc-combined" }, "Combined"), " The VLPs teach this description inside another sequence. Hover over the flag, or choose Official wording, to see which.")
-            : null,
           h("p", { class: "cyc-foot" },
             cycle.matched === "draft" ? [`Which description is taught when was matched by Claude from the ${cycle.source}, and the short statements are Claude's. Both need James's check. `] : null,
             cycle.attribution)]
