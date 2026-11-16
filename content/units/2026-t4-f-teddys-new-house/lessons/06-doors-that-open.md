@@ -2,7 +2,7 @@
 number: 6
 title: Doors That Open
 summary: "Pairs build a LEGO doorway and attach a card door with a tape hinge, then test where the tape must go for the door to swing."
-status: draft
+status: planned
 duration: 45
 lisc:
   intention: To make a door that opens with a hinge.
