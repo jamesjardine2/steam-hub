@@ -1,0 +1,728 @@
+{
+  "schema_version": 1,
+  "code": "VC2S6U01",
+  "title": "Habitats and survival",
+  "learning_area": "Science",
+  "band": "Levels 5 and 6",
+  "strand": "Science Understanding",
+  "sub_strand": "Biological sciences",
+  "updated": "2026-11-16",
+  "sources": [
+    {
+      "id": "vcaa-curriculum",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
+      "accessed": "2026-11-16",
+      "read": true
+    },
+    {
+      "id": "vcaa-copyright",
+      "citation": "Victorian Curriculum and Assessment Authority. Copyright statement for the Victorian Curriculum site (CC BY-NC 3.0 Australia licence and the attribution it asks for).",
+      "url": "https://f10.vcaa.vic.edu.au/copyright-statement",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "r2p-booklet",
+      "citation": "Abrahams, I., Backhouse, A., Bloom, K., Griffin-James, H. and Mat Noor, S. (2021). Research-2-Practice: Supporting Primary School Teachers to Engage with Science Education Research. University of Lincoln. Research summaries and lesson plans: Evolution (Key Stage 2, Year 6).",
+      "url": "https://ray.yorksj.ac.uk/5961/1/R2P%20Primary%20Booklet.pdf",
+      "accessed": "2026-11-16",
+      "read": true
+    },
+    {
+      "id": "beyond-penguins-ecosystems",
+      "citation": "Fries-Gaither, J. (2009). Common misconceptions about biomes and ecosystems. Beyond Penguins and Polar Bears, The Ohio State University. A teacher resource page, not a research study.",
+      "url": "https://beyondpenguins.ehe.osu.edu/?p=2417",
+      "accessed": "2026-11-16",
+      "read": true
+    },
+    {
+      "id": "keeley-habitat-change",
+      "citation": "Keeley, P. and coauthors (2005 to 2008). Uncovering Student Ideas in Science, Volumes 1 to 3 (including the Habitat Change probe). NSTA Press.",
+      "read": false,
+      "via": "beyond-penguins-ecosystems"
+    }
+  ],
+  "descriptor": {
+    "status": "verified",
+    "sources": [
+      "vcaa-curriculum",
+      "vcaa-copyright"
+    ],
+    "note": "Copied by a script from the Victorian Curriculum Version 2.0 on 16 November 2026, not typed from memory.",
+    "stem": "Students learn that:",
+    "text": "habitats can be described by their physical conditions; changing the physical conditions of a habitat, including by human activity, may affect the growth and survival of organisms",
+    "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S6U01",
+    "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
+  },
+  "paraphrase": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "My reading of the description and its achievement standard, which was checked in the curriculum: students explain how natural and human-induced changes in the physical conditions of a habitat affect the survival of organisms.",
+    "text": "A habitat is more than the living things in it. It has physical conditions that can be measured: temperature, light, water, salt, soil. Each plant and animal can only grow and survive within a certain range of those conditions. When the conditions change, whether naturally or because of people, some organisms do worse, some do better, and some cannot survive there at all. The assessable skill is explaining how a change in physical conditions, natural or human-made, affects the survival of the organisms in a habitat.",
+    "asks_for": [
+      "A habitat can be described by its physical conditions, such as temperature, light, rainfall, salinity and soil type.",
+      "Organisms need particular physical conditions to grow and survive.",
+      "Changing those conditions can affect growth and survival.",
+      "Conditions change naturally, and they also change because of human activity."
+    ],
+    "not_asking": [
+      "How organisms came to suit their habitats over many generations. That is the next description, VC2S6U02.",
+      "Food chains and who eats whom. That was Levels 3 and 4 (VC2S4U03), and food webs are Levels 7 and 8 (VC2S8U04).",
+      "The words biotic and abiotic. Physical conditions is the term at this level."
+    ]
+  },
+  "key_questions": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Identifying the physical conditions of an aquatic or terrestrial habitat is in a VCAA elaboration.",
+      "question": "What are the physical conditions of a habitat?",
+      "know": [
+        "Physical conditions are the non-living features of a place: temperature, light, water, salinity and soil.",
+        "They can be observed and measured, and they differ from one habitat to another."
+      ],
+      "understand": [
+        "Two habitats a few metres apart can have very different conditions, and so different living things."
+      ],
+      "do": [
+        "Describe a habitat in the school grounds by measuring or rating its temperature, light and soil moisture."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Salinity, soil, sunlight and temperature affecting plant growth are in a VCAA elaboration, as are conditions affecting stages of life.",
+      "question": "How do physical conditions affect growth and survival?",
+      "know": [
+        "Every organism has a range of conditions it can live in.",
+        "Too much or too little heat, light, water or salt slows growth, and can stop seeds sprouting or eggs hatching."
+      ],
+      "understand": [
+        "An organism does not just need water and light. It needs the right amount, at the right time."
+      ],
+      "do": [
+        "Run a fair test of how one condition affects the growth of seeds or mould, and explain the result."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "beyond-penguins-ecosystems"
+      ],
+      "note": "My judgement. Corals, honey bees and flying foxes are examples in a VCAA elaboration. That individuals cannot simply adapt answers a misconception listed on the Beyond Penguins page.",
+      "question": "What happens to living things when the conditions change?",
+      "know": [
+        "Conditions change naturally: seasons, drought, flood, fire.",
+        "When conditions move outside an organism's range it grows poorly, moves away if it can, or dies."
+      ],
+      "understand": [
+        "An animal or plant cannot decide to change its body to suit new conditions.",
+        "A change can harm some organisms and help others in the same habitat."
+      ],
+      "do": [
+        "Predict what will happen to a named organism if one condition changes, and give a reason."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Urban lighting and the restoration of the Murray-Darling Basin wetlands are in VCAA elaborations, and reducing light pollution is in an elaboration for VC2S6H02.",
+      "question": "How do people change habitats, and what can they do about it?",
+      "know": [
+        "People change physical conditions by clearing land, using water, lighting the night, polluting and warming the climate.",
+        "People also restore habitats, for example by replanting, returning water and reducing light."
+      ],
+      "understand": [
+        "Because people cause many of the changes, people can reduce or reverse some of them."
+      ],
+      "do": [
+        "Explain one human-made change to a local habitat, who it affects, and one action that would help."
+      ]
+    }
+  ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, built from the achievement standard sentence and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Name the physical conditions of a habitat and describe a real habitat using them.",
+        "Explain why a particular plant or animal lives where it does, using its physical conditions.",
+        "Predict what will happen to an organism when one condition changes, and say why.",
+        "Give an example of a natural change and a human-made change to a habitat.",
+        "Explain that a change can harm some organisms and help others.",
+        "Explain why an individual animal or plant cannot simply adapt to a new condition.",
+        "Use results from a test to explain how a condition affects growth."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Living or physical?",
+        "how": "Call out eight features of a pond or garden one at a time (frogs, water temperature, shade, reeds, how salty the water is, insects, soil type, sunlight). Students stand for a physical condition and sit for a living thing. Two minutes.",
+        "look_for": "Has it: stands for temperature, shade, salt, soil and sunlight. Not yet: treats water or soil as living, or sees the habitat as only its animals."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "beyond-penguins-ecosystems",
+          "r2p-booklet"
+        ],
+        "note": "My suggestion, not trialled. The answer to listen for, that the animals will adapt, is the misconception listed on the Beyond Penguins page and in the Research-2-Practice lesson plan.",
+        "title": "The pond dries up",
+        "how": "Tell a short story: a pond gets warmer and shallower every summer. On scrap paper each student writes what will happen to the frogs living there and why. Hold up and scan, or collect and sort into piles. Three minutes.",
+        "look_for": "Has it: says some will die, some may move, fewer tadpoles will survive. Not yet: says the frogs will adapt, get used to it, or grow something new."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Winners and losers",
+        "how": "Name a change (a street light put up beside a park, a creek bank replanted, a hotter summer). Students show thumbs down, thumbs up or one of each for whether it harms living things, helps them, or both, then one student gives an example. Two minutes.",
+        "look_for": "Has it: shows both for at least one change and names who gains and who loses. Not yet: thumbs down every time, because change is always bad."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "Read the result",
+        "how": "Show the class's seed or mould results. As students leave, each one finishes the sentence: this shows that ... Three minutes.",
+        "look_for": "Has it: links the condition to the growth (the salty cup grew least, so salt slows growth). Not yet: describes one cup only, or says what they hoped would happen."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. These go deeper at this level before reaching for food webs and populations, which are Levels 7 and 8.",
+      "items": [
+        "Find the limit: test three or four strengths of salt water, not just salty and fresh, and find where growth stops.",
+        "Change two conditions and ask which mattered more. How would you design the test to tell?",
+        "Research one of the curriculum's cases (corals, honey bees or flying foxes) and explain it as a chain: condition, change, effect.",
+        "Find a change that helps one organism and harms another in the same habitat, and explain both sides.",
+        "Use real data: record temperature and soil moisture in two spots over several weeks in a spreadsheet and graph it.",
+        "Design a change to a corner of the school grounds that would improve it as a habitat, and justify it with physical conditions.",
+        "Argue the case: write to the council about a local change, using evidence."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Start with the student's own needs: too hot, too cold, thirsty. Then ask the same of a plant.",
+        "Use one condition at a time, with a strong contrast: water and no water, light and dark.",
+        "Keep a picture card for each condition (a thermometer, a sun, a drop, a salt shaker, a handful of soil).",
+        "Give a sentence starter: When it gets too ..., the ... will ... because ...",
+        "Let the student see and handle the test cups each week and say what changed."
+      ],
+      "well_below": [
+        "Aim for one idea: living things need the right conditions to grow.",
+        "Compare two cups only, one that grew and one that did not, and take pointing as the answer.",
+        "Sort pictures into two groups: good place for this plant, bad place for this plant.",
+        "Give the student the weekly job of watering or photographing the cups with a partner."
+      ]
+    }
+  },
+  "vocabulary": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the official wording.",
+    "everyday": [
+      {
+        "term": "home"
+      },
+      {
+        "term": "hot"
+      },
+      {
+        "term": "cold"
+      },
+      {
+        "term": "wet"
+      },
+      {
+        "term": "dry"
+      },
+      {
+        "term": "light"
+      },
+      {
+        "term": "dark"
+      },
+      {
+        "term": "salty"
+      },
+      {
+        "term": "grow"
+      },
+      {
+        "term": "die"
+      },
+      {
+        "term": "change"
+      }
+    ],
+    "academic": [
+      {
+        "term": "describe",
+        "meaning": "To say what something is like.",
+        "in_descriptor": true
+      },
+      {
+        "term": "affect",
+        "meaning": "To make a difference to something.",
+        "in_descriptor": true
+      },
+      {
+        "term": "growth",
+        "meaning": "Getting bigger or developing.",
+        "in_descriptor": true
+      },
+      {
+        "term": "survival",
+        "meaning": "Staying alive.",
+        "in_descriptor": true
+      },
+      {
+        "term": "activity",
+        "meaning": "Something people do.",
+        "in_descriptor": true
+      },
+      {
+        "term": "impact",
+        "meaning": "The effect one thing has on another."
+      },
+      {
+        "term": "predict",
+        "meaning": "To say what you think will happen, with a reason."
+      }
+    ],
+    "science": [
+      {
+        "term": "habitat",
+        "meaning": "The place where a plant or animal lives.",
+        "in_descriptor": true
+      },
+      {
+        "term": "physical conditions",
+        "meaning": "The non-living features of a place, such as temperature, light, water, salt and soil.",
+        "in_descriptor": true
+      },
+      {
+        "term": "organism",
+        "meaning": "A living thing.",
+        "in_descriptor": true
+      },
+      {
+        "term": "salinity",
+        "meaning": "How salty water or soil is."
+      },
+      {
+        "term": "temperature",
+        "meaning": "How hot or cold something is."
+      },
+      {
+        "term": "aquatic and terrestrial",
+        "meaning": "In water, and on land."
+      },
+      {
+        "term": "restore",
+        "meaning": "To bring a damaged habitat back to health."
+      }
+    ]
+  },
+  "misconceptions": [
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-ecosystems",
+        "r2p-booklet",
+        "keeley-habitat-change"
+      ],
+      "note": "Checked against the Beyond Penguins page, which describes the Habitat Change probe, and the Research-2-Practice Evolution lesson plan, which lists adaptation within a lifetime as a common misconception. Neither is a study of this exact idea, and I did not read the probe.",
+      "idea": "When a habitat changes, the animals and plants adapt to it. They change themselves to cope.",
+      "science": "An individual cannot change its body to suit new conditions. It copes within its limits, moves if it can, or dies. Populations change over many generations, which is a different idea (VC2S6U02).",
+      "respond": "Ask: if the school got ten degrees hotter, could you grow a new way to cool down? What would you do instead?",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-ecosystems"
+      ],
+      "note": "Checked against a teacher resource page, not a research study.",
+      "idea": "Habitats stay much the same over time.",
+      "science": "Habitats change all the time, through seasons, drought, flood and fire, and through what people do.",
+      "respond": "Compare two photos of the same place taken years apart, or in different seasons.",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-ecosystems"
+      ],
+      "note": "Checked against a teacher resource page, not a research study. The page states it for ecosystems. Applying it to physical conditions is mine.",
+      "idea": "A habitat is the animals and plants that live there. The water, soil and temperature are just the background.",
+      "science": "The physical conditions are part of the habitat, and they decide what can live there.",
+      "respond": "Ask students to describe a pond without naming anything alive, then ask what would change if it were salty.",
+      "research": []
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "beyond-penguins-ecosystems"
+      ],
+      "note": "Checked against a teacher resource page, not a research study.",
+      "idea": "Changing one thing only affects that one thing. Some living things are not important anyway.",
+      "science": "A change to one condition or one organism spreads to others, because they depend on the same habitat.",
+      "respond": "Follow one change through: the creek gets warmer, so what happens to the insects, and then to the fish and birds that eat them?",
+      "research": []
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "Any change to a habitat is bad, and human changes are always harmful.",
+      "science": "A change harms some organisms and helps others. People also restore habitats.",
+      "respond": "Ask who gains when a paddock is replanted, and who gains when a street light goes in."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "Animals can just move somewhere else.",
+      "science": "Many cannot. Plants, corals and pond animals cannot travel, and the next suitable habitat may be too far away or already full.",
+      "respond": "Ask where a tadpole could go if its pond dried up."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "Plants only need water and sunlight, so more is always better.",
+      "science": "Too much water, heat or salt harms a plant just as too little does. Each has a range it grows best in.",
+      "respond": "Include an overwatered cup in the seed test."
+    }
+  ],
+  "inquiry": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code gives the question: do all animals in desert habitats have ways to survive without water?",
+      "code": "VC2S6I01",
+      "skill": "Questioning and predicting",
+      "how": "Students turn a wondering into a question they can test, and predict with a reason: will seeds sprout in salty water?"
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The description itself names deciding the variables to be changed, measured and controlled. The link to this topic is my judgement.",
+      "code": "VC2S6I02",
+      "skill": "Planning and conducting: fair tests",
+      "how": "Students plan the seed or mould test: change one condition, keep the rest the same, decide what to measure."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "VCAA elaborations for this code name digital thermometers and soil moisture probes for collecting data over time, and comparing the growth of radish seeds in different soil environments.",
+      "code": "VC2S6I03",
+      "skill": "Planning and conducting: measuring",
+      "how": "Students measure temperature, light or soil moisture in two habitats, and measure seedling height each week."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students write a scientific report on how plants responded to changes in physical conditions such as temperature and salinity.",
+      "code": "VC2S6I06",
+      "skill": "Communicating",
+      "how": "Students report what they changed, what they measured and what it shows, with a table or graph."
+    }
+  ],
+  "human_endeavour": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The VCAA lists this as an elaboration of VC2S6U01 itself. It gives no detail beyond the sentence, and I did not check a First Nations source. Use a named source or the school's Koorie education contacts before teaching it.",
+      "hook": "Aboriginal and Torres Strait Islander Peoples' knowledge of the physical conditions that plants and animals need to survive. One example is the work of the Aboriginal Peoples of the Murray-Darling Basin wetlands with government and scientists to restore the wetlands through water research, planning and management, including bringing back salt-tolerant native plants.",
+      "first_nations": true
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The light pollution example is a VCAA elaboration for this code. Urban lighting affecting nocturnal and migratory animals is in an elaboration of VC2S6U01 itself.",
+      "code": "VC2S6H02",
+      "hook": "Light at night changes a habitat for nocturnal and migrating animals. Communities have reduced it with covered street lights that face down, lights that switch off automatically, and motion sensors.",
+      "first_nations": false
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code.",
+      "code": "VC2S6H01",
+      "hook": "Ecologists work with engineers and computer scientists to track habitat change from a distance and predict which organisms will survive.",
+      "first_nations": false
+    }
+  ],
+  "related": {
+    "below": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S2U02",
+        "band": "Foundation to Level 2",
+        "label": "What living things need",
+        "summary": "Living things need air, water, food and shelter, and the places they live meet those needs. The first version of this idea."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names habitats. Its elaborations include the effect of introduced predators and of removing a food source.",
+        "code": "VC2S4U03",
+        "band": "Levels 3 and 4",
+        "label": "Food chains",
+        "summary": "Producers, consumers and decomposers and their roles in a habitat. Students arrive knowing the living side of a habitat. This description adds the physical side."
+      }
+    ],
+    "same": [
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement. The two descriptions share one sentence of the achievement standard's paragraph.",
+        "code": "VC2S6U02",
+        "band": "Levels 5 and 6",
+        "label": "Adaptation over time",
+        "summary": "Organisms have changed over time, and their features and behaviours help them survive where they live. The partner to this description: why organisms suit their habitats in the first place."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students consider the effect of drought on living and non-living parts of the environment.",
+        "code": "VC2S6U06",
+        "band": "Levels 5 and 6",
+        "label": "Natural hazards",
+        "summary": "Sudden geological changes and extreme weather. Fire, flood and drought are rapid changes to the physical conditions of a habitat."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The code and its wording were checked in the curriculum. The link is the pairing in the hub's curriculum file and my judgement.",
+        "code": "VC2TDE6C02",
+        "band": "Levels 5 and 6",
+        "label": "Food and fibre production",
+        "summary": "Design and Technologies: how food and fibre are produced in managed environments. A farm or garden is a habitat whose conditions people control on purpose."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The code and its wording were checked in the curriculum. A VCAA elaboration for the inquiry code VC2S6I03 has students record data from thermometers and soil probes in spreadsheets. The link to this Digital Technologies code is my judgement and a loose one.",
+        "code": "VC2TDI6D02",
+        "band": "Levels 5 and 6",
+        "label": "Gathering data",
+        "summary": "Digital Technologies: gathering and changing data with software, including spreadsheets. It fits when students log habitat measurements over time."
+      }
+    ],
+    "above": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names changing abiotic factors, habitat loss and climate change affecting populations.",
+        "code": "VC2S8U04",
+        "band": "Levels 7 and 8",
+        "label": "Ecosystems",
+        "summary": "Matter and energy flow through ecosystems, and populations change when living and non-living factors change. The direct next step, from single organisms to populations and food webs."
+      }
+    ],
+    "links": [
+      {
+        "from": "VC2S2U02",
+        "to": "VC2S6U01",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S4U03",
+        "to": "VC2S6U01",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S6U01",
+        "to": "VC2S6U02",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S6U01",
+        "to": "VC2S6U06",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S6U01",
+        "to": "VC2TDE6C02",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S6U01",
+        "to": "VC2TDI6D02",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S6U01",
+        "to": "VC2S8U04",
+        "kind": "leads"
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Salinity, sunlight and temperature affecting plant growth are in a VCAA elaboration, and measuring seed growth is in an elaboration for VC2S6I03. The lesson shape is my suggestion and has not been trialled. It suits a weekly lesson: set up once, then check for five minutes each week.",
+      "title": "Seeds in changed conditions",
+      "phenomenon": "Four cups of the same seeds, planted on the same day, look very different two weeks later: tall and green by the window, pale and stretched in the cupboard, barely sprouted in salty water, rotting in the cup that was flooded.",
+      "students_do": "Choose one condition to change (salt, light or amount of water), plan a fair test, and set up the cups. Each week measure the tallest seedling, photograph the cups and record the results. At the end, explain what the condition did.",
+      "materials": [
+        "Fast seeds such as cress, wheat or radish",
+        "Clear cups, cotton wool or paper towel, or soil from the garden",
+        "Salt, a measuring spoon and a dark cupboard or box",
+        "A ruler and an iPad for photos"
+      ],
+      "shows": "Changing one physical condition changes how well an organism grows and survives.",
+      "caution": "Change one condition per group, or nobody can say what caused the result. Label every cup."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Bread mould in sealed plastic bags is in a VCAA elaboration. The lesson shape is my suggestion and has not been trialled.",
+      "title": "Mould in a bag",
+      "phenomenon": "Slices of the same bread sealed in bags grow very different amounts of mould after a week or two: a lot in the warm damp bag, little in the fridge, almost none on the dry toast.",
+      "students_do": "Predict which bag will grow the most mould. Set up bags that differ in one condition (damp or dry, warm or cold, light or dark), seal and label them, and each week estimate how much of the slice is covered without opening the bag.",
+      "materials": [
+        "Sliced bread with no preservatives",
+        "Zip-lock bags and tape",
+        "Water in a spray bottle",
+        "A fridge or a cool spot, and a warm spot",
+        "A marker for labels"
+      ],
+      "shows": "Even a mould has physical conditions it needs, and changing them changes how well it grows.",
+      "caution": "Never open the bags once sealed: mould spores can trigger asthma and allergies. Tape them shut and put them in the bin sealed at the end."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Identifying the physical conditions of a habitat is in a VCAA elaboration, and using thermometers and soil probes is in an elaboration for VC2S6I03. The school garden is on the STEAM room inventory. Thermometers are not. The lesson shape is my suggestion, not trialled.",
+      "title": "Two habitats, ten steps apart",
+      "phenomenon": "A sunny garden bed and the shaded strip beside the building are a few steps apart, yet one is warm, bright and dry and the other cool, dim and damp, and different things live in each.",
+      "students_do": "In groups, rate or measure temperature, light and soil moisture in two spots, list the living things found in each, and photograph both. Back inside, explain one difference in what lives there using the conditions.",
+      "materials": [
+        "Two contrasting spots in the school grounds",
+        "A recording sheet with a simple scale for light and soil moisture",
+        "A thermometer if one is available",
+        "An iPad for each group"
+      ],
+      "shows": "Habitats can be described by their physical conditions, and those conditions decide what lives there.",
+      "caution": "Look, do not collect. Put back any log or stone that is lifted."
+    }
+  ],
+  "pitfalls": [
+    {
+      "status": "draft",
+      "sources": [
+        "beyond-penguins-ecosystems",
+        "r2p-booklet"
+      ],
+      "note": "My judgement about teacher language. The student idea it feeds is listed in the sources.",
+      "pitfall": "Saying that animals adapt to a change in their habitat.",
+      "instead": "Say what individuals actually do: cope, move or die. Keep adapt for changes in a population over many generations, which is VC2S6U02."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from the wording of the description, which starts with physical conditions.",
+      "pitfall": "Turning the unit into a study of animals and their homes.",
+      "instead": "Keep the physical conditions at the centre: name them, measure them, change them."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Teaching it as a story of loss, so students leave feeling that nothing can be done.",
+      "instead": "Include a restoration example for every damage example, and something students can do at school."
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement.",
+      "pitfall": "Starting a growing test too late in the term to see a result.",
+      "instead": "Set up seeds or mould in the first or second lesson, and use five minutes of each lesson after that to record."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from comparing this description with VC2S4U03 and VC2S8U04 in the curriculum.",
+      "pitfall": "Drifting into food chains and food webs.",
+      "instead": "Mention that a change spreads to other living things, and leave the mapping of who eats whom to the levels where it is taught."
+    }
+  ],
+  "unverified": [
+    "I did not find research on primary students' ideas about habitats and physical conditions that I could read. The four verified misconceptions rest on a teacher resource page (Beyond Penguins and Polar Bears) and one line in the Research-2-Practice Evolution lesson plan, not on studies. A Victorian Department of Education page on this topic would not load.",
+    "Three misconceptions are my judgement.",
+    "The First Nations example is confirmed only as far as the VCAA's one-sentence elaboration. I did not find or check a First Nations source.",
+    "None of the three anchor experiences has been trialled. Seeds, cups, bread, zip-lock bags and thermometers are not on the STEAM room inventory.",
+    "No unit in the hub lists this code yet.",
+    "The lines on the map are my judgement about how the descriptions connect. The Digital Technologies link is a loose one."
+  ]
+}
