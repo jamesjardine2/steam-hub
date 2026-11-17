@@ -14,11 +14,16 @@
 <link rel="stylesheet" href="../../../assets/tokens.css">
 <link rel="stylesheet" href="../../../assets/live.css">
 <style>
-/* The video plays from YouTube (Quirky, 2 min); the downloaded file
-   is never copied into this public site. */
+/* The video (Quirky, "How to make a cardboard prototype", 2 min) plays
+   from a file on the classroom computer, because YouTube is blocked at
+   school. The file is never copied into this public site: the teacher
+   picks it once and this browser keeps it (IndexedDB) for next time. */
 .video-page .body { flex: 1 1 auto; display: flex; align-items: center; justify-content: center; padding: 24px; }
 .video-page .frame { width: 100%; max-width: 1180px; aspect-ratio: 16 / 9; max-height: 100%; border-radius: var(--radius-card); overflow: hidden; background: var(--void); }
-.video-page iframe { width: 100%; height: 100%; border: 0; display: block; }
+.video-page video { width: 100%; height: 100%; display: block; }
+.video-page .pick { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.video-page .pick p { margin: 0; font-size: 20px; color: var(--text-muted); }
+.video-page [hidden] { display: none; }
 </style>
 </head>
 <body>
@@ -29,8 +34,13 @@
     <a href="../lessons/06-build-test-and-improve/">Exit</a>
   </header>
   <div class="body">
-    <div class="frame">
-      <iframe src="https://www.youtube-nocookie.com/embed/k_9Q-KDSb9o?rel=0" title="How to make a cardboard prototype (YouTube)" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="frame" id="frame" hidden>
+      <video id="video" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="pick" id="pick" hidden>
+      <button type="button" class="primary" id="choose">Choose the video file</button>
+      <p>How to make a cardboard prototype (.mp4). This computer remembers it.</p>
+      <input type="file" id="file" accept="video/*" hidden>
     </div>
   </div>
 </div>
@@ -43,6 +53,46 @@ function fit() {
 }
 addEventListener("resize", fit);
 fit();
+
+// Keep the chosen file in this browser only, so it plays without YouTube.
+const KEY = "06-cardboard-prototype";
+function db() {
+  return new Promise((ok, fail) => {
+    const req = indexedDB.open("steamhub-videos", 1);
+    req.onupgradeneeded = () => req.result.createObjectStore("videos");
+    req.onsuccess = () => ok(req.result);
+    req.onerror = () => fail(req.error);
+  });
+}
+async function load() {
+  try {
+    const d = await db();
+    return await new Promise((ok) => {
+      const req = d.transaction("videos").objectStore("videos").get(KEY);
+      req.onsuccess = () => ok(req.result || null);
+      req.onerror = () => ok(null);
+    });
+  } catch { return null; }
+}
+async function save(file) {
+  try {
+    const d = await db();
+    d.transaction("videos", "readwrite").objectStore("videos").put(file, KEY);
+  } catch { /* still plays this time, just not remembered */ }
+}
+function play(blob) {
+  document.getElementById("video").src = URL.createObjectURL(blob);
+  document.getElementById("frame").hidden = false;
+  document.getElementById("pick").hidden = true;
+}
+document.getElementById("choose").addEventListener("click", () => document.getElementById("file").click());
+document.getElementById("file").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  save(file);
+  play(file);
+});
+load().then((blob) => blob ? play(blob) : (document.getElementById("pick").hidden = false));
 </script>
 </body>
 </html>

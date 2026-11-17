@@ -78,7 +78,7 @@ live:
     file: 06-slides.html
   - kind: VIDEO
     title: How to make a cardboard prototype
-    note: "YouTube, 2 min. Also in the slides after the Success Criteria."
+    note: "2 min, played from the downloaded file because YouTube is blocked. The first time, choose the .mp4 on the classroom computer and the browser remembers it. Also in the slides after the Success Criteria."
     file: 06-video.html
 crt_notes: Best taught by James, because the silent tests depend on the criteria the class built in Lesson 5. A CRT can run the Pet Hamster backup lesson instead.
 ---
@@ -96,7 +96,7 @@ Pairs prototype their panel with card and LEGO, trying ideas quickly and changin
 
 | Time | Step | What to do and say |
 |---|---|---|
-| 0 to 5 min | Revisit | Recap the class criteria from Lesson 5. Play **How to make a cardboard prototype** (YouTube, 2 min) and ask: "What did they do when something didn't work?" Model the silent test protocol. Rehearse the no talking rule: it is harder than students expect. |
+| 0 to 5 min | Revisit | Recap the class criteria from Lesson 5. Play **How to make a cardboard prototype** (2 min) and ask: "What did they do when something didn't work?" Model the silent test protocol. Rehearse the no talking rule: it is harder than students expect. |
 | 5 to 22 min | Build the panel | With card and LEGO, components attached with Blu Tack or Velcro. Pairs try an idea, check it against the criteria and change it. Redirect any pair spending time on decoration back to the criteria: "Which problem does that solve?" |
 | 22 to 28 min | Silent test, round 1 | Swap panels with another pair. Observers tally each hesitation or mistake in their journal. |
 | 28 to 34 min | Silent test, round 2 | A different pair tests. A second tester shows whether a problem was a one-off or a real design flaw. |
