@@ -1,7 +1,7 @@
 ---
 number: 6
 title: "Control Panel: Build, Test and Improve"
-summary: "Build the control panel on a shoebox lid, run two silent user tests with different pairs, then make and explain one improvement."
+summary: "Watch how designers prototype in cardboard, build the control panel from card and LEGO, run two silent user tests with different pairs, then make and explain one improvement."
 lisc:
   intention: To build and test a control panel so that a new player can use our game without being told how.
   criteria:
@@ -35,7 +35,7 @@ pedagogy:
     how: "While pairs build: 'Which problem does that solve?'"
   pcms.2:
     level: present
-    how: "The no talking rule during tests, then components back in kits and panels stacked flat."
+    how: "The no talking rule during tests, then components back in kits and the card and LEGO packed away."
   vc.dt:
     level: focus
     how: "Pairs build their control panel and evaluate it against the class criteria (VC2TDE6D03, VC2TDE6D04)."
@@ -45,10 +45,10 @@ pedagogy:
 sequence:
   - phase: Revisit
     time: 5 min
-    what: Recap the class criteria and model the silent test protocol. Rehearse the no talking rule.
+    what: Recap the class criteria, watch How to make a cardboard prototype, then model the silent test protocol. Rehearse the no talking rule.
   - phase: Build the panel
     time: 17 min
-    what: Shoebox lid or A5 card, components attached with Blu Tack or Velcro. "Which problem does that solve?"
+    what: Card and LEGO, components attached with Blu Tack or Velcro. Pairs try ideas quickly and change them. "Which problem does that solve?"
   - phase: Silent test, round 1
     time: 6 min
     what: Swap panels with another pair. Makers tally every hesitation or mistake.
@@ -60,11 +60,13 @@ sequence:
     what: Make at least one change from the tests and annotate it in the journal.
   - phase: Record and pack up
     time: 4 min
-    what: Photograph the panel for the journal. Components back in kits, panels stacked flat.
+    what: Photograph the panel for the journal. Components back in kits, card and LEGO packed away.
 resources:
   - "Jacdac kit per pair: micro:bit, 2 Jacdac buttons, 8 pixel LED ring, cables, battery pack"
   - iPads with the micro:bit app
-  - Shoebox lids or A5 squares of corrugated card (one per pair, keeps panels small and stackable)
+  - Card to cut, fold and experiment with
+  - LEGO bricks
+  - Scissors and tape
   - Blu Tack and Velcro dots so components come off and go back in the kits
   - Markers, coloured dot stickers, blank labels
   - STEAM journals
@@ -74,11 +76,15 @@ live:
     title: Lesson slides
     note: Build, silent test protocol, two rounds, improve
     file: 06-slides.html
+  - kind: VIDEO
+    title: How to make a cardboard prototype
+    note: "YouTube, 2 min. Also in the slides after the Success Criteria."
+    file: 06-video.html
 crt_notes: Best taught by James, because the silent tests depend on the criteria the class built in Lesson 5. A CRT can run the Pet Hamster backup lesson instead.
 ---
 Pairs build the panel they planned in Lesson 5, then find out whether it works by watching other students use it **without saying a word**. A second tester shows whether a problem was a one-off or a real design flaw.
 
-Nothing goes home and nothing needs storing except flat panels: the components come off and go back in the kits.
+Pairs prototype their panel with card and LEGO, trying ideas quickly and changing them. Nothing goes home: the components come off and go back in the kits.
 
 ## Silent test protocol
 
@@ -90,12 +96,12 @@ Nothing goes home and nothing needs storing except flat panels: the components c
 
 | Time | Step | What to do and say |
 |---|---|---|
-| 0 to 5 min | Revisit | Recap the class criteria from Lesson 5 and model the silent test protocol. Rehearse the no talking rule: it is harder than students expect. |
-| 5 to 22 min | Build the panel | On a shoebox lid or A5 card, components attached with Blu Tack or Velcro. Redirect any pair spending time on decoration back to the criteria: "Which problem does that solve?" |
+| 0 to 5 min | Revisit | Recap the class criteria from Lesson 5. Play **How to make a cardboard prototype** (YouTube, 2 min) and ask: "What did they do when something didn't work?" Model the silent test protocol. Rehearse the no talking rule: it is harder than students expect. |
+| 5 to 22 min | Build the panel | With card and LEGO, components attached with Blu Tack or Velcro. Pairs try an idea, check it against the criteria and change it. Redirect any pair spending time on decoration back to the criteria: "Which problem does that solve?" |
 | 22 to 28 min | Silent test, round 1 | Swap panels with another pair. Observers tally each hesitation or mistake in their journal. |
 | 28 to 34 min | Silent test, round 2 | A different pair tests. A second tester shows whether a problem was a one-off or a real design flaw. |
 | 34 to 41 min | Improve | Make at least one change based on the tests and annotate it in the journal. Fast finishers take on a level up card and update the panel to match. |
-| 41 to 45 min | Record and pack up | Photograph the panel for the journal. Components back in kits, panels stacked flat in the class tray. |
+| 41 to 45 min | Record and pack up | Photograph the panel for the journal. Components back in kits, card and LEGO packed away. |
 
 ## Write this on the board
 
