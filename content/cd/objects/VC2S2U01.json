@@ -1,0 +1,791 @@
+{
+  "schema_version": 1,
+  "code": "VC2S2U01",
+  "title": "Grouping living things",
+  "learning_area": "Science",
+  "band": "Foundation to Level 2",
+  "strand": "Science Understanding",
+  "sub_strand": "Biological sciences",
+  "updated": "2026-11-17",
+  "sources": [
+    {
+      "id": "vcaa-curriculum",
+      "citation": "Victorian Curriculum and Assessment Authority. Victorian Curriculum Foundation to Level 10, Version 2.0: Science, Digital Technologies and Design and Technologies (achievement standards, content descriptions and elaborations).",
+      "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum",
+      "accessed": "2026-11-17",
+      "read": true
+    },
+    {
+      "id": "vcaa-copyright",
+      "citation": "Victorian Curriculum and Assessment Authority. Copyright statement for the Victorian Curriculum site (CC BY-NC 3.0 Australia licence and the attribution it asks for).",
+      "url": "https://f10.vcaa.vic.edu.au/copyright-statement",
+      "accessed": "2026-11-10",
+      "read": true
+    },
+    {
+      "id": "r2p-booklet",
+      "citation": "Abrahams, I., Backhouse, A., Bloom, K., Griffin-James, H. and Mat Noor, S. (2021). Research-2-Practice: Supporting Primary School Teachers to Engage with Science Education Research. University of Lincoln. Research summaries and lesson plans: Plants and Vertebrates (Key Stage 1), and Classification of Plants and Animals (Key Stage 2, Year 6).",
+      "url": "https://ray.yorksj.ac.uk/5961/1/R2P%20Primary%20Booklet.pdf",
+      "accessed": "2026-11-17",
+      "read": true
+    },
+    {
+      "id": "bell-1981-animal",
+      "citation": "Bell, B. (1981). When an animal is not an animal? Journal of Biological Education, 15 (3), pages 213 to 218.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "bell-1981-plant",
+      "citation": "Bell, B. F. (1981). What is a plant: Some children's ideas. New Zealand Science Teacher, 31, pages 10 to 14.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "yen-2007",
+      "citation": "Yen, C. F., Yao, T. W. and Mintzes, J. J. (2007). Taiwanese students' alternative conceptions of animal biodiversity, as cited in the Research-2-Practice summary.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "yen-2004",
+      "citation": "Yen, C. F., Yao, T. W. and Chiu, Y. C. (2004). Alternative conceptions in animal classification focusing on amphibians and reptiles, as cited in the Research-2-Practice summary.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "kattmann-2001",
+      "citation": "Kattmann, U. (2001). Aquatics, flyers, creepers and terrestrials: Students' conceptions of animal classification. Journal of Biological Education.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "trowbridge-mintzes-1988",
+      "citation": "Trowbridge, J. E. and Mintzes, J. (1988). Alternative conceptions in animal classification: A cross-age study. Journal of Research in Science Teaching.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "braund-1998",
+      "citation": "Braund, M. (1998), on how pupils classify vertebrates, as cited in the Research-2-Practice summary. I did not see the full reference.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "tunnicliffe-reiss-1999",
+      "citation": "Tunnicliffe, S. D. and Reiss, M. J. (1999). Building a model of the new environment: How do children see animals? Journal of Biological Education.",
+      "read": false,
+      "via": "r2p-booklet"
+    },
+    {
+      "id": "prokop-2008",
+      "citation": "Prokop, P. and coauthors (2008), on keeping animals and children's knowledge of them, as cited in the Research-2-Practice summary. I did not see the full reference.",
+      "read": false,
+      "via": "r2p-booklet"
+    }
+  ],
+  "descriptor": {
+    "status": "verified",
+    "sources": [
+      "vcaa-curriculum",
+      "vcaa-copyright"
+    ],
+    "note": "Copied by a script from the Victorian Curriculum Version 2.0 on 17 November 2026, not typed from memory.",
+    "stem": "Students learn that:",
+    "text": "plants and animals have observable features that can be used to group them in different ways",
+    "url": "https://f10.vcaa.vic.edu.au/learning-areas/science/curriculum#VC2S2U01",
+    "attribution": "Victorian Curriculum Foundation to Level 10 content is © VCAA, licensed CC BY-NC 3.0 Australia. The official curriculum is on the VCAA website."
+  },
+  "paraphrase": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "My reading of the description and its achievement standard, which was checked in the curriculum: students group plants and animals based on observable features.",
+    "text": "Plants and animals have features we can see: legs, wings, fur, feathers, leaves, flowers, roots. Looking closely at those features lets us put living things into groups, and the same collection can be grouped in more than one way depending on which feature we choose. Students learn to look carefully, choose a feature, sort by it, and say what rule they used. The assessable skill is grouping plants and animals by features they can observe, and explaining the grouping.",
+    "asks_for": [
+      "Plants and animals have features that can be observed.",
+      "Those features can be used to sort living things into groups.",
+      "The same living things can be grouped in different ways, by choosing a different feature.",
+      "A group has a rule, and the rule can be said out loud."
+    ],
+    "not_asking": [
+      "What the features are for. How features help a living thing survive is the description after next, VC2S2U03.",
+      "The names of the scientific groups as facts to learn. Classification keys and the formal system are Levels 7 and 8 (VC2S8U01).",
+      "Living, non-living and once living. That is Levels 3 and 4 (VC2S4U01)."
+    ]
+  },
+  "key_questions": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "r2p-booklet"
+      ],
+      "note": "My judgement. Observing external features with magnifying glasses or cameras is in a VCAA elaboration. The Research-2-Practice summary reports that teachers help by getting pupils to describe less obvious features.",
+      "question": "What features can we see?",
+      "know": [
+        "Animals have features such as eyes, legs, wings, tails, and body coverings: fur, feathers, scales, skin or a shell.",
+        "Plants have features such as roots, stems, leaves, flowers, fruits and seeds."
+      ],
+      "understand": [
+        "Looking closely, and looking past colour and size, shows features we miss at first glance."
+      ],
+      "do": [
+        "Observe a plant or animal closely, with a magnifying glass or a photo, and name and draw its features."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. Sorting collections of model animals and explaining different grouping strategies is in a VCAA elaboration.",
+      "question": "How can we group living things?",
+      "know": [
+        "A group is a set of things that share a feature.",
+        "Every group has a rule, such as has wings or has six legs."
+      ],
+      "understand": [
+        "The same animals or plants can be sorted in different ways. No one way is the only right one, but every way needs a rule."
+      ],
+      "do": [
+        "Sort a collection, say the rule, then sort the same collection again by a different feature."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "r2p-booklet"
+      ],
+      "note": "My judgement. Recognising humans as animals, and grouping animals as vertebrates or invertebrates, are in VCAA elaborations. That children leave insects, worms and fish out of animals is from the Research-2-Practice summary.",
+      "question": "What counts as an animal?",
+      "know": [
+        "Insects, spiders, worms, snails, fish, frogs, birds and people are all animals.",
+        "Some animals have a backbone and a skeleton inside. Others do not."
+      ],
+      "understand": [
+        "Animal is a very big group. It is not just pets and farm animals."
+      ],
+      "do": [
+        "Sort pictures into animal and not an animal, including a person, a worm, a fish and a butterfly."
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "r2p-booklet"
+      ],
+      "note": "My judgement. Identifying fruits and vegetables as parts of plants is in a VCAA elaboration. That children do not count trees as plants is from the Research-2-Practice summary.",
+      "question": "What counts as a plant, and what are its parts?",
+      "know": [
+        "Trees, grass, bushes, vines, vegetables and weeds are all plants.",
+        "The fruits and vegetables we eat are parts of plants: roots, stems, leaves, flowers, fruits and seeds."
+      ],
+      "understand": [
+        "A plant does not need to be small, in a pot or in flower to be a plant."
+      ],
+      "do": [
+        "Sort fruits and vegetables by the part of the plant they are."
+      ]
+    }
+  ],
+  "assessment": {
+    "can_do": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, built from the achievement standard sentence and the description. The VCAA does not publish a list like this.",
+      "items": [
+        "Name features they can see on an animal and on a plant.",
+        "Sort a collection of animals or plants into groups using a feature they can see.",
+        "Say the rule for a group.",
+        "Sort the same collection a second way, with a different rule.",
+        "Say that people, insects, worms and fish are all animals.",
+        "Say that trees and grass are plants.",
+        "Match a fruit or vegetable to the part of the plant it is."
+      ]
+    },
+    "quick_checks": [
+      {
+        "status": "draft",
+        "sources": [
+          "r2p-booklet"
+        ],
+        "note": "My suggestion, not trialled. Which living things children leave out of animals comes from the Research-2-Practice summary.",
+        "title": "Animal or not?",
+        "how": "Show eight pictures one at a time (a dog, a worm, a child, a fish, a butterfly, a tree, a spider, a toy robot). Students stand for animal and sit for not an animal. Ask one student about the worm and one about the child. Two minutes.",
+        "look_for": "Has it: stands for the worm, the child, the fish, the butterfly and the spider. Not yet: stands only for the dog, or sits for the child because people are not animals."
+      },
+      {
+        "status": "draft",
+        "sources": [],
+        "note": "My suggestion, not trialled.",
+        "title": "What is my rule?",
+        "how": "Sort six model animals into two groups in front of the class without saying why. Students whisper the rule to a partner, then you take three answers. Then ask a pair to re-sort the same animals by a different rule. Three minutes.",
+        "look_for": "Has it: names a feature that fits every animal in the group. Not yet: names something true of only one animal, or says they just go together."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "r2p-booklet"
+        ],
+        "note": "My suggestion, not trialled. Grouping by where an animal lives or how it moves is the pattern reported in the Research-2-Practice summary.",
+        "title": "Where does the penguin go?",
+        "how": "Put three hoops on the floor labelled with pictures: birds, fish, and furry animals. Hold up a penguin, a bat, a dolphin and a snake in turn. Students point to a hoop, and one student explains each. Three minutes.",
+        "look_for": "Has it: looks at the animal's body (feathers, a beak, fur) to decide. Not yet: decides by where it lives or how it moves (it swims, so it is a fish)."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "r2p-booklet"
+        ],
+        "note": "My suggestion, not trialled. That children do not count trees as plants is from the Research-2-Practice summary.",
+        "title": "Is it a plant?",
+        "how": "As students line up, show each one a picture (a gum tree, grass, a carrot, a mushroom, a daisy, seaweed, a cactus) and ask: is it a plant? How do you know? One each. Three minutes.",
+        "look_for": "Has it: says yes to the tree and the grass and points to a feature such as leaves or roots. Not yet: says only the daisy is a plant, because it has a flower."
+      }
+    ],
+    "extend": {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement. These go deeper at this level. Formal classification is Levels 7 and 8.",
+      "items": [
+        "Sort the same collection three different ways and decide which way is most useful, and for what.",
+        "Sort into groups, then sort one group again into smaller groups.",
+        "Give a tricky one that seems to fit two groups, such as a bat, a penguin or a platypus, and ask for the evidence.",
+        "Make a set of yes or no questions that would let a friend work out which animal you are thinking of.",
+        "Find an animal with no backbone and one with a backbone in the school grounds, and say how you can tell.",
+        "Find and photograph five different leaf shapes, and sort them.",
+        "Compare a person with another animal: list what is the same and what is different."
+      ]
+    },
+    "support": {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement, not drawn from a source. These are general teaching adjustments. For a student with an individual plan, follow that plan and the classroom teacher's advice first.",
+      "below": [
+        "Start with real things the student can handle: leaves, shells, model animals.",
+        "Sort by one clear feature at a time, such as has legs and has no legs.",
+        "Give the rule first and let the student sort, before asking them to find a rule.",
+        "Use two hoops and say the rule each time something goes in.",
+        "Give a sentence starter: These go together because they all have ...",
+        "Keep picture cards of features on the table: wings, legs, fur, feathers, leaves, flowers."
+      ],
+      "well_below": [
+        "Aim for matching: put the same with the same.",
+        "Sort into two groups only, with a picture label on each.",
+        "Take placing or pointing as the answer.",
+        "Name one feature together each time: wings, no wings."
+      ]
+    }
+  },
+  "vocabulary": {
+    "status": "draft",
+    "sources": [
+      "vcaa-curriculum"
+    ],
+    "note": "The choice of words and tiers is my judgement. Words marked as in the description were checked against the official wording. Animal and plant are everyday words that children use more narrowly than science does.",
+    "everyday": [
+      {
+        "term": "same"
+      },
+      {
+        "term": "different"
+      },
+      {
+        "term": "legs"
+      },
+      {
+        "term": "wings"
+      },
+      {
+        "term": "tail"
+      },
+      {
+        "term": "fur"
+      },
+      {
+        "term": "feathers"
+      },
+      {
+        "term": "leaf"
+      },
+      {
+        "term": "flower"
+      },
+      {
+        "term": "seed"
+      },
+      {
+        "term": "sort"
+      }
+    ],
+    "academic": [
+      {
+        "term": "observe, observable",
+        "meaning": "To look closely. Something you can see.",
+        "in_descriptor": true
+      },
+      {
+        "term": "feature",
+        "meaning": "A part of something that you can notice and describe.",
+        "in_descriptor": true
+      },
+      {
+        "term": "group",
+        "meaning": "To put things that share something together.",
+        "in_descriptor": true
+      },
+      {
+        "term": "compare",
+        "meaning": "To look for what is the same and what is different."
+      },
+      {
+        "term": "rule",
+        "meaning": "What everything in a group has in common."
+      }
+    ],
+    "science": [
+      {
+        "term": "plant",
+        "meaning": "A living thing that makes its own food, such as a tree, grass or a vegetable.",
+        "in_descriptor": true
+      },
+      {
+        "term": "animal",
+        "meaning": "A living thing that eats, moves and senses, including insects, fish, birds and people.",
+        "in_descriptor": true
+      },
+      {
+        "term": "body covering",
+        "meaning": "What is on the outside of an animal: fur, feathers, scales, skin or a shell."
+      },
+      {
+        "term": "root, stem, leaf, flower, fruit, seed",
+        "meaning": "The parts of a plant."
+      },
+      {
+        "term": "backbone",
+        "meaning": "The line of bones down the back of some animals."
+      },
+      {
+        "term": "insect",
+        "meaning": "A small animal with six legs."
+      }
+    ]
+  },
+  "misconceptions": [
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "yen-2007",
+        "bell-1981-animal"
+      ],
+      "note": "Checked against the Research-2-Practice summary, which reports Yen et al. (2007): for most participants the word animal meant vertebrates, especially familiar mammals and birds. Its lesson plan lists only four-legged mammals such as pets are animals, and insects are not animals. I did not read the studies.",
+      "idea": "Animals are pets and big furry things with four legs. Insects, worms and fish are not animals.",
+      "science": "Animal is a huge group. Insects, spiders, worms, snails, fish, frogs and birds are all animals.",
+      "respond": "Sort a wide set of pictures into animal and not an animal, and talk through each one that splits the class.",
+      "research": [
+        "Yen, Yao and Mintzes (2007)",
+        "Bell (1981)"
+      ]
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Recognising humans as animals is in a VCAA elaboration, so the science is from the curriculum. That children think otherwise is widely reported, but the summary I read does not say so directly.",
+      "idea": "People are not animals.",
+      "science": "People are animals. We eat, breathe, move and grow like other animals, and we have many of the same body parts.",
+      "respond": "Compare a child with a dog or a bird: eyes, legs, a mouth, a backbone. What is the same?"
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "kattmann-2001",
+        "trowbridge-mintzes-1988"
+      ],
+      "note": "Checked against the Research-2-Practice summary, which reports that where an animal lives and how it moves are the main cues pupils use, and that penguins are taken for mammals because they do not fly and live in the sea. I did not read the studies.",
+      "idea": "Animals go in groups by where they live or how they move. If it swims it is a fish. If it flies it is a bird.",
+      "science": "Scientists group animals by their bodies, not by where they are found. A penguin has feathers and a beak, so it is a bird. A bat has fur, so it is not.",
+      "respond": "Put a penguin, a bat and a dolphin in front of students and ask them to look at the body before deciding.",
+      "research": [
+        "Kattmann (2001)",
+        "Trowbridge and Mintzes (1985, 1988)",
+        "Braund (1991)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "braund-1998",
+        "yen-2004"
+      ],
+      "note": "Checked against the Research-2-Practice summary, which reports snakes being put with invertebrates because they have no legs and move like worms. I did not read the studies.",
+      "idea": "A snake is like a worm, because it has no legs.",
+      "science": "A snake has a backbone and a skeleton inside, and scales outside. A worm has neither.",
+      "respond": "Show a picture of a snake skeleton beside a worm.",
+      "research": [
+        "Braund (1998)",
+        "Yen, Yao and Chiu (2004)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "bell-1981-plant"
+      ],
+      "note": "Checked against the Research-2-Practice summary, which reports Bell (1981): some pupils did not count trees as plants, and many needed a flower or stem to call something a plant. Its lesson plan lists trees are not plants. I did not read the study.",
+      "idea": "A plant is something small with a flower, growing in a pot. Trees, grass and vegetables are not plants.",
+      "science": "Trees, grass, bushes, vines and vegetables are all plants. A plant does not need to be in flower.",
+      "respond": "Stand under a tree and find its leaves, trunk and roots. Is it a plant?",
+      "research": [
+        "Bell (1981)"
+      ]
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet"
+      ],
+      "note": "Listed among common misconceptions in the Research-2-Practice classification lesson plan, which does not name a study beside it.",
+      "idea": "All bugs and creepy crawlies are insects, including spiders.",
+      "science": "Insects have six legs. Spiders have eight and are a different group. Worms and snails have none.",
+      "respond": "Count the legs on a picture of an ant, a spider and a slater.",
+      "research": []
+    },
+    {
+      "status": "draft",
+      "sources": [],
+      "note": "My judgement. I did not check it against a study.",
+      "idea": "There is one right way to sort them.",
+      "science": "The same living things can be grouped in different ways. What matters is that the rule is clear and fits everything in the group.",
+      "respond": "Have two pairs sort the same animals differently and explain their rules to each other."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Fruits and vegetables as parts of plants is in a VCAA elaboration. That children do not see them that way is my judgement.",
+      "idea": "Fruit and vegetables are food. They are not parts of plants.",
+      "science": "Every fruit and vegetable is a part of a plant: a carrot is a root, lettuce is leaves, an apple is a fruit.",
+      "respond": "Bring a carrot with its leafy top still on."
+    }
+  ],
+  "inquiry": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The code and its wording were checked in the curriculum. The link is my judgement. Using magnifying glasses or digital cameras to observe features is in an elaboration of VC2S2U01 itself.",
+      "code": "VC2S2I03",
+      "skill": "Planning and conducting: observing and recording",
+      "how": "Students look closely with a magnifying glass, or photograph a plant or animal on an iPad and zoom in on its features."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students group the common features of plants and animals.",
+      "code": "VC2S2I04",
+      "skill": "Processing, modelling and analysing",
+      "how": "Students sort pictures or objects into hoops or a provided chart, and label each group with its rule."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The code and its wording were checked in the curriculum. The link is my judgement.",
+      "code": "VC2S2I05",
+      "skill": "Evaluating",
+      "how": "Pairs compare how they sorted the same collection, and decide whether both ways have a rule that works."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code has students share observations of the external features of animals and plants using discussion, drawings, clay or craft materials.",
+      "code": "VC2S2I06",
+      "skill": "Communicating",
+      "how": "Students draw or model a plant or animal and point out its features to a partner."
+    }
+  ],
+  "human_endeavour": [
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "The VCAA lists this as an elaboration of VC2S2U01 itself. It gives no detail beyond the sentence, and I did not check a First Nations source. Use a named source or the school's Koorie education contacts before teaching it.",
+      "hook": "Aboriginal and Torres Strait Islander Peoples have recorded their close observation of the features of plants and animals in rock art and cultural dances from Deep Time to today, including paintings of Genyornis newtoni, a giant bird that lived during the last Ice Age.",
+      "first_nations": true
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "A VCAA elaboration for this code lists rock paintings, bark drawings, labelled drawings and photographs as ways people make and record observations.",
+      "code": "VC2S2H01",
+      "hook": "Scientists record what they observe in labelled drawings and photographs, so that others can see the features they saw.",
+      "first_nations": false
+    }
+  ],
+  "related": {
+    "below": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "gap": true,
+        "summary": "There is no level below. Foundation to Level 2 is the first band of the Science curriculum, and Foundation has no separate content descriptions."
+      }
+    ],
+    "same": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students group animals by common features, such as how they use their tails or their body coverings.",
+        "code": "VC2S2U03",
+        "band": "Foundation to Level 2",
+        "label": "Features for survival",
+        "summary": "External features and what they do to help a plant or animal survive. This description names and sorts by the features. That one asks what they are for."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement.",
+        "code": "VC2S2U02",
+        "band": "Foundation to Level 2",
+        "label": "What living things need",
+        "summary": "The needs of plants and animals and the places that meet them. Students often sort by where things live, which belongs here and not in grouping by features."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The link is my judgement: both descriptions use the same sorting skill. VCAA elaborations for this code have students sort materials by observed properties.",
+        "code": "VC2S2U04",
+        "band": "Foundation to Level 2",
+        "label": "Objects and materials",
+        "summary": "Objects are made of materials with properties we can observe. Sorting by an observed property is the same skill, used on non-living things."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students sort household items by their source, plant or animal.",
+        "code": "VC2TDE2C02",
+        "band": "Foundation to Level 2",
+        "label": "Food and fibre production",
+        "summary": "Design and Technologies: how plants and animals are grown for food, clothing and shelter. Sorting what we use by whether it came from a plant or an animal."
+      },
+      {
+        "status": "draft",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The code and its wording were checked in the curriculum. No elaboration mentions living things, so this is my judgement and a loose link.",
+        "code": "VC2TDI2D01",
+        "band": "Foundation to Level 2",
+        "label": "Showing data",
+        "summary": "Digital Technologies: finding patterns in data and showing data as objects, pictures and symbols. A sorted set of pictures is data shown as pictures."
+      }
+    ],
+    "above": [
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "A VCAA elaboration for this code has students classify a collection as living, once-living or non-living and explain their reasoning.",
+        "code": "VC2S4U01",
+        "band": "Levels 3 and 4",
+        "label": "Living and non-living",
+        "summary": "What makes living things different from non-living and once-living things. The next sorting task, with a harder rule."
+      },
+      {
+        "status": "verified",
+        "sources": [
+          "vcaa-curriculum"
+        ],
+        "note": "The description itself names classification tools, including dichotomous keys.",
+        "code": "VC2S8U01",
+        "band": "Levels 7 and 8",
+        "label": "Classification",
+        "summary": "Similarities and differences between groups of organisms, and classification tools such as keys. Grouping by features becomes the formal system."
+      }
+    ],
+    "links": [
+      {
+        "from": "VC2S2U01",
+        "to": "VC2S2U03",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U01",
+        "to": "VC2S2U02",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U01",
+        "to": "VC2S2U04",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S2U01",
+        "to": "VC2TDE2C02",
+        "kind": "connects"
+      },
+      {
+        "from": "VC2S2U01",
+        "to": "VC2TDI2D01",
+        "kind": "loose"
+      },
+      {
+        "from": "VC2S2U01",
+        "to": "VC2S4U01",
+        "kind": "leads"
+      },
+      {
+        "from": "VC2S4U01",
+        "to": "VC2S8U01",
+        "kind": "leads"
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Sorting collections of model animals and explaining different grouping strategies is in a VCAA elaboration. The lesson shape is my suggestion and has not been trialled. Model animals are not on the STEAM room inventory. Picture cards work too.",
+      "title": "Sort it, then sort it again",
+      "phenomenon": "A tub of twelve model animals can be sorted by number of legs, by body covering, by wings or no wings. Each time the groups come out different, and the bat and the penguin keep changing sides.",
+      "students_do": "In pairs, sort the animals into hoops and say the rule. Visit another pair and guess their rule. Then sort the same animals a second and a third way, and choose the sort they think is most useful.",
+      "materials": [
+        "A set of model animals or picture cards for each pair, including insects, a spider, a snake, a fish, a bird, a bat and a person",
+        "Two or three hoops or sheets of paper",
+        "Sticky notes for the rules"
+      ],
+      "shows": "Animals have observable features, and the same animals can be grouped in different ways.",
+      "caution": "Steer students to features on the body. Where it lives and what it eats are not features you can see on the animal."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "Identifying fruits and vegetables as parts of plants is in a VCAA elaboration. The lesson shape is my suggestion, not trialled. The fruit and vegetables would need buying, or the school garden may supply some.",
+      "title": "Which part of the plant is it?",
+      "phenomenon": "A carrot is a root, celery is a stem, lettuce is leaves, broccoli is flower buds, an apple is a fruit and peas are seeds. Everything in the lunch box came from a part of a plant.",
+      "students_do": "Look closely at each one with a magnifying glass, cut one open with the teacher to find the seeds, and sort them onto a big drawing of a plant: roots at the bottom, then stem, leaves, flower, fruit and seeds.",
+      "materials": [
+        "A carrot with its top on, celery, lettuce or spinach, broccoli, an apple or tomato, peas or beans in the pod",
+        "A large outline of a plant on paper",
+        "Magnifying glasses if available",
+        "A knife for the teacher"
+      ],
+      "shows": "Plants have observable parts, and those parts can be used to group the plants we eat.",
+      "caution": "Check for food allergies first, and make it a looking lesson, not an eating one."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum",
+        "r2p-booklet"
+      ],
+      "note": "Using magnifying glasses or digital cameras to observe features is in a VCAA elaboration. The Research-2-Practice summary reports that direct experience of living things in real settings matters most, and that invertebrates are neglected. The school garden is on the STEAM room inventory. The lesson shape is my suggestion, not trialled.",
+      "title": "Garden safari",
+      "phenomenon": "In one garden bed there are ants, a slater, a snail, a spider in its web, a bee on a flower and four different kinds of leaf, all within reach.",
+      "students_do": "In pairs, find and photograph five living things on an iPad without touching them. Back inside, zoom in on the photos, name the features they can see, and sort the class's photos on the board: plants and animals first, then the animals by number of legs.",
+      "materials": [
+        "A garden bed or a patch of the school grounds",
+        "An iPad for each pair",
+        "Magnifying glasses if available"
+      ],
+      "shows": "Living things all around us have features that can be observed and used to group them.",
+      "caution": "Look and photograph only. Do not pick up spiders or bees, and wash hands afterwards."
+    }
+  ],
+  "pitfalls": [
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "tunnicliffe-reiss-1999"
+      ],
+      "note": "The Research-2-Practice summary reports that pupils' knowledge of animals comes mostly from home and direct observation, that the most effective teachers let pupils interact with living things in real settings, and that teachers help by getting pupils to describe less obvious features.",
+      "pitfall": "Teaching it from worksheets and picture books alone.",
+      "instead": "Use real plants, the school grounds, and photos students take themselves, and push them to describe features beyond colour and size."
+    },
+    {
+      "status": "verified",
+      "sources": [
+        "r2p-booklet",
+        "prokop-2008"
+      ],
+      "note": "The Research-2-Practice summary reports Prokop et al. (2008): a strong bias towards vertebrates and a general ignorance of invertebrates, which the authors link partly to a lack of teaching about them.",
+      "pitfall": "Using only mammals and birds as examples.",
+      "instead": "Put insects, spiders, worms and snails in every sort. They are easy to find at school."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from the wording of the description, which says in different ways.",
+      "pitfall": "Teaching one correct way to sort, or marking a sort as wrong when it has a clear rule.",
+      "instead": "Ask for the rule. A sort is good if the rule fits everything in the group."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from comparing this description with VC2S8U01 in the curriculum. Vertebrates and invertebrates are named in an elaboration, not in the description.",
+      "pitfall": "Turning it into learning the names of the groups: mammal, reptile, amphibian, vertebrate.",
+      "instead": "Keep the weight on looking and sorting by features students can see. Introduce a group name when students have already found the group."
+    },
+    {
+      "status": "draft",
+      "sources": [
+        "vcaa-curriculum"
+      ],
+      "note": "My judgement, from comparing this description with VC2S2U03 in the curriculum.",
+      "pitfall": "Sliding into what each feature is for.",
+      "instead": "That is the next step (VC2S2U03). Here, name the feature and sort by it."
+    }
+  ],
+  "unverified": [
+    "I could not read the original research studies. The five verified misconceptions and the two verified pitfalls rest on the Research-2-Practice summaries and lesson plans, which I read and which name the studies. Many of those studies included older students as well as young children.",
+    "Three misconceptions are my judgement, including that people are not animals. The curriculum asks for it to be taught, but the summary I read does not report it directly.",
+    "The First Nations example is confirmed only as far as the VCAA's one-sentence elaboration. I did not find or check a First Nations source.",
+    "None of the three anchor experiences has been trialled. Model animals, magnifying glasses and fruit and vegetables are not on the STEAM room inventory.",
+    "The lines on the map are my judgement about how the descriptions connect. The Digital Technologies link is a loose one."
+  ]
+}

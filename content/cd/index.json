@@ -2,6 +2,17 @@
   "note": "Written by npm run check-cd -- --write. Do not edit by hand.",
   "objects": [
     {
+      "code": "VC2S2U01",
+      "title": "Grouping living things",
+      "band": "Foundation to Level 2",
+      "sub_strand": "Biological sciences",
+      "updated": "2026-11-17",
+      "verified": 17,
+      "approved": 0,
+      "draft": 27,
+      "unverified": 5
+    },
+    {
       "code": "VC2S2U05",
       "title": "Combining materials",
       "band": "Foundation to Level 2",
