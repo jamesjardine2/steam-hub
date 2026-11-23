@@ -97,7 +97,7 @@ crt_notes: Works for a CRT if the strips are cut beforehand and the drop height 
 
 **Focus:** engineers change one thing at a time so they know what caused the difference. The habit this week is **change one thing at a time**.
 
-**Links:** in Lesson 4 students ran a fair test with foil boats. This lesson adds a name for the thing you change (the variable) and repeats each test three times. It also starts the Challenge Card, which every lesson to Lesson 7 uses (Lesson 4 had no writing).
+**Links:** in Lesson 4 students ran a fair test with foil boats. This lesson adds a name for the thing you change (the variable) and repeats each test three times. It also starts the Challenge Card, which Lessons 7 and 8 use again (Lessons 4 and 6 have no writing).
 
 ## How the challenge works
 
@@ -150,7 +150,7 @@ Sentence stem: **Our variable was ___. The ___ version fell slower, so next time
 - **Safety:** scissors are used for cutting only. Students stay behind the drop line and chairs stay on the floor.
 - **Helicopter shape:** [Full folding plan to confirm: cut a slit down the centre of the top half, fold the two wings in opposite directions and add a paperclip to the base.]
 - **Timing:** short falls are hard to time. If stopwatches are short, count claps together or use a taller mark.
-- Keep one or two Challenge Cards as models for Lesson 6, which uses the same card.
+- Keep one or two Challenge Cards as models for Lesson 7, which uses the same card.
 
 ## Curriculum links
 
