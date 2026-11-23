@@ -82,7 +82,7 @@ live:
     title: Lesson slides
     note: "The hook, LISC, the brief, users, criteria, the worked example and the four tools"
     file: 01-slides.html
-crt_notes: "Not planned for a CRT: the open choice of tools needs the teacher who knows the iPad setup. A CRT could run the lesson with LEGO and paper only, using the same slides and Design Card."
+crt_notes: "The CRT plan runs the same lesson with no screens: pairs plan in their STEAM journals and build paper models, which stay on a tray for Lesson 2. Pairs who want Tinkercad or Minecraft can switch in Lesson 2."
 ---
 **Setup:** before the lesson, take four or five photos of school spaces with no people in them, ready to show on the board after the hook question. Put the four tools in four zones of the room so pairs can move to theirs without crowding: LEGO on one table, paper and card on another, and iPads at the desks. Have trays labelled for each class for builds that stay until Lesson 2. In a small room with 30 or more students, keep everyone seated for the brief and the worked example, and only start moving once every pair has a sketch.
 
