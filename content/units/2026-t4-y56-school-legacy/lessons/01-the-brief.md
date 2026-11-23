@@ -2,7 +2,7 @@
 number: 1
 title: The Brief
 summary: "What should FCPS have after you've gone? Pairs choose a real user and a real place at school, agree on design criteria as a class, sketch a design and start building it in LEGO, paper and card, Tinkercad or Minecraft."
-status: draft
+status: planned
 duration: 45
 lisc:
   intention: To find out what a user at our school needs and start a design that meets that need.
