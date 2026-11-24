@@ -2,7 +2,7 @@
 number: 6
 title: LEGO Design Studio
 summary: "Design for a user: on their own or in pairs, students choose an iPad stand, a desk organiser or a marble maze, brainstorm aloud, make a quick sketch, then spend most of the lesson building, testing against three design criteria and improving."
-status: draft
+status: planned
 duration: 45
 lisc:
   intention: To design and build a LEGO product that meets the design criteria for the person who will use it.
