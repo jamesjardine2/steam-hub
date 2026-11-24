@@ -74,7 +74,7 @@ function draw() {
   if (state === "paused") s += `<text x="220" y="160" text-anchor="middle" font-size="28" font-weight="800" fill="var(--text)">Paused</text>`;
   $("ring").innerHTML = s;
 
-  const text = state === "ready" ? ["Get ready.", `${PLAN / 60} minute to plan, then ${BUILD / 60} to build.`]
+  const text = state === "ready" ? ["Get ready.", `${PLAN / 60} minute${PLAN === 60 ? "" : "s"} to plan, then ${BUILD / 60} to build.`]
     : state === "done" ? ["Stop! Hands off.", "Time to test."]
     : planning ? ["Plan: talk only.", "Agree on your design and your prediction. Hands off the materials."]
     : ["Build!", "Stick to the constraints."];
