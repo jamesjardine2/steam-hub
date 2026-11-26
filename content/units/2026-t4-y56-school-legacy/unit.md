@@ -27,6 +27,8 @@ claude_chat: ""
 links:
   - label: "Legacy Design Card (PDF, two per A4 sheet)"
     url: /units/2026-t4-y56-school-legacy/live/design-card.pdf
+  - label: "Year 5 CRT overview, Lesson 1 (PDF)"
+    url: /units/2026-t4-y56-school-legacy/crt/01-crt-y5.pdf
 ---
 A two-lesson design project for the end of the year. Year 6 design something to leave behind for FCPS. Year 5 design for the Foundation children who start in 2027. Each pair chooses a real user and a real place at school, and builds their design in the medium they choose: LEGO, paper and card, Tinkercad or Minecraft Education.
 
